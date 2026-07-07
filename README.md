@@ -7,13 +7,27 @@ into booked consultations while minimising James' administrative workload.
 > **Mission test for every feature:** does this help generate more qualified consultations or
 > save James time? If not, it isn't built.
 
-## Quick start
+## Easiest setup — no install at all
+
+The whole app ships as **one self-contained file**: [`release/NorthPath-AI-OS.html`](release/NorthPath-AI-OS.html).
+
+1. Download that one file (open it on GitHub → click the **Download raw file** button).
+2. Save it somewhere easy, e.g. your Desktop.
+3. **Double-click it.** It opens in your browser and just works — no internet needed.
+
+Your data saves automatically in that browser. Two things to know:
+
+- Always use the **same computer and same browser** (e.g. always Chrome) so your data is there.
+- Go to **Settings & Data → Export full backup** once a week — that JSON file is your safety net.
+
+## Developer setup (optional)
 
 ```bash
 npm install
-npm run dev      # local development at http://localhost:5173
-npm test         # unit tests for the AI engines (Node built-in test runner)
-npm run build    # production build to dist/
+npm run dev               # local development at http://localhost:5173
+npm test                  # unit tests for the AI engines (Node built-in test runner)
+npm run build             # production build to dist/
+npm run build:standalone  # rebuild the single-file app in release/
 ```
 
 The app ships with realistic demo data so every screen works immediately. Manage or clear it
