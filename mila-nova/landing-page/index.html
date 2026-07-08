@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mila Nova — Not real. Still your favourite distraction.</title>
+<meta name="description" content="Mila Nova is a fully AI-generated fictional glamour character. Weekly themed shoots, fan polls and the funniest AI-disclosed fan club online. 18+ only. No real person is depicted.">
+<style>
+  :root{
+    --midnight:#14121C; --midnight-2:#1D1A29; --gold:#E8B44C;
+    --champagne:#F6E7CE; --ocean:#3FA8A8; --blush:#E58FA4;
+    --muted:#A99F92;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--midnight); color:var(--champagne);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2}
+  .star{color:var(--gold)}
+  .badge{
+    display:inline-block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    border:1px solid var(--gold);color:var(--gold);border-radius:999px;
+    padding:4px 12px;margin:4px 2px;
+  }
+  .btn{
+    display:block;width:100%;text-align:center;text-decoration:none;cursor:pointer;
+    background:var(--gold);color:var(--midnight);font-weight:700;font-size:1.05rem;
+    border:none;border-radius:14px;padding:16px 24px;margin:10px 0;
+    transition:transform .1s ease,opacity .1s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn.ghost{background:transparent;color:var(--champagne);border:1px solid var(--muted)}
+  .btn.pay{
+    background:#000;color:#fff;border:1px solid #333;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+  }
+  section{padding:56px 0;border-bottom:1px solid rgba(246,231,206,.08)}
+  .kicker{color:var(--ocean);text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;margin-bottom:12px}
+  .muted{color:var(--muted);font-size:.9rem}
+  .small{font-size:.78rem}
+
+  /* Age gate */
+  #agegate{
+    position:fixed;inset:0;background:rgba(10,9,15,.96);z-index:50;
+    display:flex;align-items:center;justify-content:center;padding:24px;
+  }
+  #agegate .card{max-width:420px;background:var(--midnight-2);border:1px solid rgba(232,180,76,.3);border-radius:20px;padding:32px;text-align:center}
+  #agegate h2{margin-bottom:12px}
+  body.gated{overflow:hidden}
+
+  /* Hero */
+  .hero{padding:72px 0 56px;text-align:center}
+  .hero-visual{
+    height:300px;border-radius:24px;margin:28px 0;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#2a1f3d 0%,#1D1A29 40%,#0f2c30 100%);
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid rgba(232,180,76,.25);
+  }
+  .hero-visual .spark{font-size:4rem}
+  .hero-visual .ph{position:absolute;bottom:12px;left:0;right:0;font-size:.7rem;color:var(--muted)}
+  .hero h1{font-size:2.2rem;margin:16px 0 12px}
+  .hero .sub{font-size:1.05rem;color:var(--muted);max-width:34ch;margin:0 auto 24px}
+
+  /* Benefits */
+  .benefit{background:var(--midnight-2);border-radius:18px;padding:24px;margin:14px 0;border:1px solid rgba(246,231,206,.07)}
+  .benefit .icon{font-size:1.6rem}
+  .benefit h3{margin:8px 0 6px;color:var(--gold)}
+
+  /* Inside list */
+  .inside li{list-style:none;padding:12px 0 12px 34px;position:relative;border-bottom:1px dashed rgba(246,231,206,.1)}
+  .inside li::before{content:"✦";color:var(--gold);position:absolute;left:6px}
+
+  /* Pricing */
+  .tier{background:var(--midnight-2);border-radius:20px;padding:28px 24px;margin:18px 0;border:1px solid rgba(246,231,206,.1)}
+  .tier.featured{border:2px solid var(--gold);position:relative}
+  .tier.featured .flag{
+    position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:var(--midnight);font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 14px;
+  }
+  .tier .price{font-size:2rem;font-weight:800;color:var(--champagne)}
+  .tier .price span{font-size:.9rem;font-weight:400;color:var(--muted)}
+  .tier ul{margin:14px 0 18px}
+  .tier li{list-style:none;padding:6px 0 6px 26px;position:relative;font-size:.95rem}
+  .tier li::before{content:"✓";color:var(--ocean);position:absolute;left:4px;font-weight:700}
+
+  /* FAQ */
+  details{background:var(--midnight-2);border-radius:14px;margin:10px 0;border:1px solid rgba(246,231,206,.08)}
+  summary{cursor:pointer;padding:16px 18px;font-weight:600;list-style:none}
+  summary::after{content:"+";float:right;color:var(--gold)}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 18px 16px;color:var(--muted);font-size:.92rem}
+
+  /* Email */
+  .email-box{background:linear-gradient(160deg,#251d38,#14202a);border-radius:20px;padding:28px 22px;text-align:center;border:1px solid rgba(63,168,168,.3)}
+  .email-box input{
+    width:100%;padding:15px 16px;border-radius:12px;border:1px solid rgba(246,231,206,.2);
+    background:var(--midnight);color:var(--champagne);font-size:1rem;margin:12px 0 4px;
+  }
+  .email-box input::placeholder{color:var(--muted)}
+
+  footer{padding:40px 0 80px;color:var(--muted)}
+  .disclaimer{background:var(--midnight-2);border-radius:14px;padding:18px;border:1px solid rgba(246,231,206,.1);margin-bottom:20px}
+  footer a{color:var(--ocean)}
+  @media(min-width:760px){
+    .wrap{max-width:960px}
+    .hero h1{font-size:3rem}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .grid3 .benefit,.grid3 .tier{margin:0}
+    .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+  }
+</style>
+</head>
+<body class="gated">
+
+<!-- ============ 18+ AGE GATE ============ -->
+<div id="agegate">
+  <div class="card">
+    <div class="spark" style="font-size:2.4rem">✦</div>
+    <h2>18+ only</h2>
+    <p class="muted" style="margin-bottom:8px">
+      Mila Nova is an <strong>AI-generated fictional character</strong>.
+      No real person is depicted. Content is glamour/lifestyle themed and
+      intended for adults.
+    </p>
+    <button class="btn" onclick="document.getElementById('agegate').style.display='none';document.body.classList.remove('gated')">I'm 18 or older — let me in</button>
+    <a class="btn ghost" href="https://www.google.com">I'm under 18 — take me away</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero wrap">
+  <div>
+    <span class="badge">AI-generated character</span>
+    <span class="badge">18+ only</span>
+    <span class="badge">No real person depicted</span>
+  </div>
+
+  <div class="hero-visual">
+    <div class="spark star">✦</div>
+    <div class="ph">[ Hero image: Mila, golden-hour beach walk, champagne-gold grade — see prompt #1 ]</div>
+  </div>
+
+  <h1>Meet Mila Nova<span class="star">.</span><br>Not real. Still your favourite distraction.</h1>
+  <p class="sub">A 26-year-old AI glamour character with Gold Coast energy,
+     a gym addiction she physically cannot have, and the most honest fan club
+     on the internet.</p>
+
+  <a class="btn" href="#pricing">Join the fan club ✦</a>
+  <a class="btn ghost" href="#inside">See what's inside</a>
+</header>
+
+<!-- ============ 3 BENEFITS ============ -->
+<section class="wrap">
+  <p class="kicker">Why people actually stay</p>
+  <h2>The fantasy is real. The woman isn't. That's the fun part.</h2>
+  <div class="grid3" style="margin-top:20px">
+    <div class="benefit">
+      <div class="icon">🎬</div>
+      <h3>Themed shoots you vote on</h3>
+      <p class="muted">Beach at sunrise? Black-dress rooftop night? Hoodie-and-rain-window Sunday?
+      Fans pick the theme in weekly polls, Mila delivers the shoot. You're the creative director.</p>
+    </div>
+    <div class="benefit">
+      <div class="icon">😂</div>
+      <h3>Actually funny</h3>
+      <p class="muted">Mila knows she's made of pixels and thinks it's hilarious.
+      No fake "hey babe" act, no pretending — just premium glamour content with a sense of humour.</p>
+    </div>
+    <div class="benefit">
+      <div class="icon">🛡️</div>
+      <h3>100% transparent</h3>
+      <p class="muted">Fully fictional, fully disclosed, fully 18+. No deepfakes,
+      no real person copied, no bait. What you see is exactly what it says it is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET INSIDE ============ -->
+<section class="wrap" id="inside">
+  <p class="kicker">What you get inside</p>
+  <h2>Every week, without fail:</h2>
+  <ul class="inside" style="margin-top:12px">
+    <li><strong>New themed photo sets</strong> — beach, gym, night-out, cosy-luxe. Glamorous, never explicit.</li>
+    <li><strong>Fan polls</strong> — vote on next week's outfits, locations and moods.</li>
+    <li><strong>Behind-the-render</strong> — bloopers, cursed AI hands, outtakes. The making-of nobody else shows.</li>
+    <li><strong>Mila's diary posts</strong> — the fake life of your favourite fictional woman, written in her voice.</li>
+    <li><strong>Theme requests</strong> (VIP &amp; Premium) — suggest shoot concepts and see them made.</li>
+    <li><strong>Early access + archives</strong> (Premium) — everything, first, forever-while-subscribed.</li>
+  </ul>
+  <p class="muted small" style="margin-top:14px">Everything inside follows the same rules as out here:
+  fictional character, AI-generated, 18+, non-explicit, no real-person likeness — no exceptions, no "hidden vault."</p>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="wrap" id="pricing">
+  <p class="kicker">Pricing</p>
+  <h2>Pick your level of distraction</h2>
+  <div class="tiers" style="margin-top:20px">
+
+    <div class="tier">
+      <h3>Starter ✦</h3>
+      <div class="price">$5<span>/month</span></div>
+      <ul>
+        <li>3 new posts every week</li>
+        <li>Full main feed access</li>
+        <li>Vote in monthly polls</li>
+        <li>Mila's diary posts</li>
+      </ul>
+      <a class="btn ghost" href="#checkout">Start with Starter</a>
+    </div>
+
+    <div class="tier featured">
+      <div class="flag">Most popular</div>
+      <h3>VIP ✦✦</h3>
+      <div class="price">$10<span>/month</span></div>
+      <ul>
+        <li>5–6 new posts every week</li>
+        <li>Weekly polls — pick outfits &amp; locations</li>
+        <li>Behind-the-render outtakes</li>
+        <li>Suggest shoot themes (1/month)</li>
+        <li>VIP-only Q&amp;A posts</li>
+      </ul>
+      <a class="btn" href="#checkout">Go VIP</a>
+    </div>
+
+    <div class="tier">
+      <h3>Premium ✦✦✦</h3>
+      <div class="price">$20<span>/month</span></div>
+      <ul>
+        <li>Daily content (7+ posts/week)</li>
+        <li>Everything in VIP</li>
+        <li>Early access — 24h before everyone</li>
+        <li>Full back-catalogue archive</li>
+        <li>Priority theme requests (2/month)</li>
+        <li>Name in the monthly "Legends" shout-out post</li>
+      </ul>
+      <a class="btn ghost" href="#checkout">Go Premium</a>
+    </div>
+  </div>
+
+  <!-- Checkout placeholder -->
+  <div id="checkout" style="margin-top:28px">
+    <button class="btn pay" onclick="alert('Checkout is handled securely on our subscription platform. This button links there at launch.')">
+       Pay — checkout placeholder
+    </button>
+    <p class="muted small" style="text-align:center">
+      Subscriptions are processed by our subscription platform partner (age-verified, 18+).
+      Apple&nbsp;Pay / card availability depends on the platform's checkout. Digital subscription —
+      <strong>no shipping charges</strong>. If physical merch is ever added, shipping is a flat $10 and
+      will be clearly shown before payment.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="wrap">
+  <p class="kicker">FAQ</p>
+  <h2>Questions everyone asks</h2>
+  <div style="margin-top:16px">
+    <details>
+      <summary>Is Mila a real person?</summary>
+      <p>No — and we'll never pretend otherwise. Mila Nova is a fully fictional,
+      100% AI-generated character. No real person is depicted, referenced, or imitated.
+      That transparency is the whole brand.</p>
+    </details>
+    <details>
+      <summary>Is the content explicit?</summary>
+      <p>No. Mila's content is glamour and lifestyle: beach, gym, fashion, night-out looks.
+      Flirty and playful, never explicit. There is no explicit content anywhere, at any tier,
+      and there never will be.</p>
+    </details>
+    <details>
+      <summary>Why is it 18+ then?</summary>
+      <p>The themes are adult-oriented glamour entertainment, and we'd rather set the gate
+      high and keep everything unambiguous. Adults only, full stop.</p>
+    </details>
+    <details>
+      <summary>If I message Mila, who answers?</summary>
+      <p>Replies are written by the small team behind Mila, often with AI assistance,
+      always in her fictional voice — and always disclosed as AI-assisted. You're chatting
+      with a character, like writing to a favourite fictional universe. Nobody will ever
+      pretend you're talking to a real woman.</p>
+    </details>
+    <details>
+      <summary>Can I request custom content?</summary>
+      <p>VIP and Premium members can suggest shoot <em>themes</em> — outfits, locations, moods.
+      We don't do requests involving real people, explicit content, or anything outside
+      Mila's published rules. Creative direction: yes. Rule-breaking: never.</p>
+    </details>
+    <details>
+      <summary>Can I cancel? Refunds?</summary>
+      <p>Cancel anytime from your subscription platform account — you keep access until the end
+      of the billing period. Refunds follow the platform's refund policy plus your local
+      consumer law. If something's broken on our end, message support and we'll sort it.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============ EMAIL CAPTURE ============ -->
+<section class="wrap">
+  <div class="email-box">
+    <h2>Get the free weekly render<span class="star">✦</span></h2>
+    <p class="muted">One free wallpaper-grade image + Mila's week in review,
+    every Friday. No spam, unsubscribe whenever.</p>
+    <form onsubmit="event.preventDefault();alert('Connected to your email tool at launch (e.g. MailerLite).');">
+      <input type="email" required placeholder="your@email.com" aria-label="Email address">
+      <button class="btn" type="submit">Send me the free render</button>
+    </form>
+    <p class="muted small">18+ only. By subscribing you confirm you're over 18 and agree to the
+    privacy policy below.</p>
+  </div>
+</section>
+
+<!-- ============ COMPLIANCE FOOTER ============ -->
+<footer class="wrap">
+  <div class="disclaimer small">
+    <strong style="color:var(--gold)">AI-generated fictional character. 18+ only. No real person is depicted.</strong><br><br>
+    Mila Nova is a fully fictional character. All images, videos and audio are AI-generated.
+    Mila does not exist in real life, and no content is based on, derived from, or intended to
+    resemble any real person, living or dead. All content depicts a fictional adult character
+    (canonically age 26) and is intended for viewers 18 years or older. Messages and replies may
+    be written or assisted by AI and are part of a fictional entertainment experience — you are
+    never communicating with a real woman named Mila. No explicit content is produced or sold.
+  </div>
+  <p class="small">
+    <a href="#">Terms of Service</a> · <a href="#">Privacy Policy</a> ·
+    <a href="#">Refund Policy</a> · <a href="#">Contact / Support</a>
+  </p>
+  <p class="small" style="margin-top:10px">© 2026 Mila Nova. A transparent AI fantasy entertainment brand. ✦</p>
+</footer>
+
+</body>
+</html>
