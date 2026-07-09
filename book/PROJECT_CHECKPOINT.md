@@ -1,0 +1,81 @@
+# PROJECT CHECKPOINT — The Invisible Backpack
+**Saved:** 9 July 2026 · **Status: PAUSED mid-build for author audit**
+**Read this file first. Do NOT restart the project. Do NOT rewrite the story.**
+
+## What this project is
+A 32-page square (1254×1254 px) AI-illustrated Australian watercolour children's picture book, *The Invisible Backpack* by James Forycki, being prepared for Amazon KDP (paperback + Kindle). The author is a beginner — explain simply, work honestly, never invent ISBNs/barcodes.
+
+## CRITICAL DECISIONS ALREADY MADE (do not relitigate)
+1. **The uploaded PDF is the canonical story and art.** An earlier session drafted a DIFFERENT 32-page manuscript (with a storm scene, "I'm here", etc.). That draft is **SUPERSEDED**. The files `QUALITY_AUDIT_REPORT.md`, `The_Invisible_Backpack_Final_Manuscript.md`, `The_Invisible_Backpack_Page_Order.md`, `The_Invisible_Backpack_KDP_Metadata.txt` in `book/` describe the OLD draft — treat them as historical; their *story content* must not be reimposed on the real book. (The KDP metadata pack's Amazon description references a storm that does not exist in the actual book — it must be rewritten before use.)
+2. Copyright page final wording: "Copyright © 2026 James Forycki / Text & concept by James Forycki / First edition • 2026 / All rights reserved." — NO ISBN, NO barcode, NO "Prototype edition".
+3. Author name spelling: **Forycki** (as on cover).
+4. Koala's solid-teal heavy backpack on printed pages 15–16 vs translucent on 18 was judged an acceptable intentional metaphor (heavier = more visible). Keep.
+5. Story has NO storm. Arc: Pip intro → invisible backpacks discovered → Kangaroo light / Birdie tiny / Koala heavy → Pip checks on Koala → Pip helps Wombat (berries) → Pip encourages Birdie (scared to sing) → "Kindness makes backpacks lighter" → Kangaroo's too-bright smile (subtle foreshadow, resolved thematically by final message) → parents page → closing message page.
+
+## FILE LOCATIONS (repo `northpathaustralia/claude`, branch `claude/optimistic-babbage-gr2c3q`, PR #3)
+- Source PDF (uploaded, 32 pages, shuffled): `/root/.claude/uploads/ef0b4bb5-af06-51cd-858d-3d1ff803d5c8/43a4f0b3-book_merged_compressed_under_30MB.pdf` (ephemeral — extracted copies are canonical now)
+- `book/pages_uploaded/pdfpage-NN.jpeg` — all 32 pages extracted losslessly, in PDF (shuffled) order
+- `book/pages_fixed/page-02-copyright-FIXED.png` — copyright page repaired (approved wording, page numeral removed) ✔ good
+- `book/pages_fixed/page-32-barcode-removed-PARTFIX.png` — fake ISBN/barcode cleanly patched out ✔ good; Birdie still wrong species (kookaburra) → page still needs re-illustration eventually
+- `book/pages_fixed/page-22-teal-recolour-DRAFT.png` — khaki→teal backpack recolour; bag reads teal but a soft teal halo remains around silhouette → NOT print-ready; prefer regeneration, or one more mask-tightening pass
+
+## PDF ORDER → PRINTED PAGE MAPPING (printed number is bottom corner of artwork)
+pdf01→31, pdf02→32, pdf03→27, pdf04→28, pdf05→30, pdf06→23, pdf07→26, pdf08→29,
+pdf09→24, pdf10→25, pdf11→21, pdf12→22, pdf13→13, pdf14→14, pdf15→15, pdf16→16,
+pdf17→17, pdf18→18, pdf19→19, pdf20→20, pdf21→11, pdf22→12, pdf23→4, pdf24→5,
+pdf25→6, pdf26→7, pdf27→8, pdf28→9, pdf29→10, pdf30→1, pdf31→2, pdf32→3.
+All 32 printed pages present exactly once. No duplicates. No missing pages.
+
+## PER-PAGE STATUS (by printed page number)
+| Page | Text (exact, verified) | Status |
+|---|---|---|
+| 1 | Cover: The Invisible Backpack / subtitle / James Forycki | ✅ KEEP (minor: tiny baked "1" numeral bottom-right) |
+| 2 | Copyright | ✅ FIXED — use `pages_fixed/page-02-copyright-FIXED.png` |
+| 3 | Title page "Written by James Forycki" | ✅ KEEP (minor: stray comma artifact after "The", tiny "3" numeral) |
+| 4 | "For every little heart carrying big feelings." | ✅ KEEP |
+| 5 | "In a warm little forest lived a tiny echidna named Pip." | ✅ KEEP |
+| 6 | "Pip noticed things others sometimes missed." | ✅ KEEP |
+| 7 | "One morning, all the animals walked to the clearing." | ✅ KEEP |
+| 8 | "Kangaroo bounced. Koala wandered. Wombat shuffled. Birdie fluttered." | ✅ KEEP |
+| 9 | "Then Pip noticed something strange." | ✅ KEEP |
+| 10 | "Everyone was carrying a backpack." | ✅ KEEP (background wallaby + cockatoo = acceptable extras) |
+| 11 | "Not a backpack you could touch." | ✅ KEEP |
+| 12 | "These backpacks were invisible." | ✅ KEEP |
+| 13 | "Kangaroo's backpack looked light. She laughed and leaped." | ✅ KEEP |
+| 14 | "Birdie's backpack looked tiny. He sang sweet songs." | ✅ KEEP |
+| 15 | "But Koala's backpack looked very heavy." | ✅ KEEP |
+| 16 | "Koala sat alone under the gum tree. He did not climb. He did not play." | ✅ KEEP |
+| 17 | "Pip asked softly, 'Are you okay, Koala?'" | ✅ KEEP (minor: single quotes vs double elsewhere) |
+| 18 | "'I think so,' said Koala. But his voice sounded small." | ✅ KEEP (same quote note) |
+| 19 | "At lunch, Wombat dropped his berries. They rolled into the dirt." | ✅ KEEP (berries blue here, red on p20 — minor) |
+| 20 | "Pip helped pick them up, one by one." | ✅ KEEP |
+| 21 | "Thank you," whispered Wombat. "And just like that, his backpack looked a little lighter." | ✅ KEEP |
+| 22 | "Pip blinked. 'Kindness makes backpacks lighter,' he whispered to himself." | ⚠️ Pip's backpack khaki-green, not teal. Draft recolour exists; REGENERATE preferred |
+| 23 | "Near the river, Birdie sat quietly on a branch. He was not singing." | ❌ REPLACE — Pip drawn as a DOG (red bandana) |
+| 24 | "'Why aren't you singing today?' asked Pip." | ❌ REPLACE — Pip = HUMAN BOY, Birdie = KOOKABURRA |
+| 25 | "Birdie looked at his little feet. 'Yesterday someone laughed when I sang the wrong note.'" | ❌ REPLACE — Birdie = brown owl-like bird + stray second bird; Pip absent |
+| 26 | "Pip climbed onto a rock below him. 'I like your song,' said Pip. 'Even the wobbly parts.'" | ❌ REPLACE — Pip = HUMAN BOY, Birdie = KOOKABURRA |
+| 27 | "Birdie looked surprised. Then he sang one tiny note. Tweet." | ❌ REPLACE — Pip drawn as a MOUSE (Birdie correct blue) |
+| 28 | "Pip felt something warm grow inside his chest. Maybe helping did not have to be big." | ❌ REPLACE — Pip = clothed WALLABY child (orange t-shirt) |
+| 29 | "Then Pip saw Kangaroo. She was bouncing higher than anyone. Boing. Boing. Boing." | ❌ REPLACE — Pip = teddy/dog creature in striped shirt (Kangaroo correct) |
+| 30 | "Everyone clapped. 'You're amazing!' called Birdie. 'You're so brave!' said Wombat. Kangaroo's smile was a little too bright." | ❌ REPLACE — Birdie = COCKATOO, Pip missing (young kangaroo w/ bandana instead), Kangaroo has uncanny human-teeth grin |
+| 31 | For Parents & Teachers (5 discussion questions + "Small acts of kindness can make a big difference.") | ✅ KEEP |
+| 32 | "We may not see what someone is carrying, but we can always choose to be kind." | ⚠️ Fake ISBN/barcode REMOVED in `pages_fixed`; Birdie still kookaburra → regenerate when possible |
+
+## REPLACEMENT PAGE SPEC (for regenerating 22–30, 32)
+Style for every regen: gentle premium Australian-bush watercolour, cream/gold/eucalyptus palette, soft light, uncluttered; text large dark-brown serif, exact wording from table above, same placement pattern (text block top-left/top-centre), printed page number bottom-right corner.
+Characters: **Pip** = small brown echidna, cream-brown fur, natural brown spikes, large expressive brown eyes, SOLID TEAL backpack with gold button; **Birdie** = small blue bird (blue back/wings, pale cream chest) with faint white-dashed translucent backpack outline; **Wombat** = round brown, translucent backpack outline; **Kangaroo** = warm golden-brown female, friendly natural muzzle smile (no human teeth), translucent backpack; **Koala** = grey, gentle. NO humans, dogs, mice, kookaburras, cockatoos-as-Birdie, clothing, ISBNs, barcodes.
+Match reference pages: Pip as on printed 5/6/9; Birdie as on printed 8/14; scene continuity: 23–27 at the river gum tree; 28 bush path golden light; 29–30 clearing.
+
+## REMAINING TASK LIST (in order)
+1. Author to regenerate the 9–10 replacement illustrations (23–30, 32, ideally 22) with his image tool using the spec above, at **2550×2550 px if possible** (see resolution note), and drop them into `book/pages_final/` named `page-NN.png` — OR author approves shipping Kindle-first with a smaller fix set.
+2. Assemble `book/pages_final/` = fixed p2 + kept pages + replacements, in printed order 1–32.
+3. Build deliverables: Master PDF, KDP paperback interior PDF (8.5×8.5 in; pages 4–31 as interior; cover page 1 & closing page 32 handled per KDP cover flow), separate KDP wraparound cover (front = p1 art, back = p32-style art SPACE for KDP's own barcode bottom-right — leave that corner clear), fixed-layout Kindle file (PDF + EPUB3 fixed-layout), preview PDF, compressed share PDF.
+4. Rewrite Amazon description/metadata to match the REAL story (no storm). Keep: no ISBN for Kindle; KDP assigns free ISBN for paperback.
+5. Publishing guide + 30-day organic marketing plan (started in old metadata file; needs revision pass).
+
+## RESOLUTION NOTE (print)
+Current pages are 1254×1254 px = ~147 DPI at 8.5×8.5 in. Fine for Kindle. KDP paperback accepts it with a quality warning — print will be slightly soft. Ideal: regenerate/upscale all pages to 2550×2550 (300 DPI). Bleed: art is full-square; for KDP full-bleed interior, export at 8.625×8.75 in canvas per KDP spec or submit no-bleed 8.5×8.5. Decide at build time; no crop marks ever.
+
+## TOOLING THAT WORKS IN THIS ENVIRONMENT
+`pymupdf (fitz)`, `pypdf`, `img2pdf`, `opencv-python-headless`, `numpy`, `PIL`, `poppler-utils` installed. No image *generation* capability — replacements must come from the author's tool. Repair scripts patterns: see git history of this branch (hue-shift recolour, Telea inpaint rejected for large areas, feathered patch-copy worked for barcode).
