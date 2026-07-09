@@ -1,36 +1,45 @@
 # The Invisible Backpack — Final Page Order (1–32)
 
-| Page | Content | Story role |
+This reflects the REAL illustrated book (from the author's uploaded PDF),
+mapped from the PDF's shuffled order to correct printed order. Verified
+against the printed page numerals baked into each piece of artwork.
+Supersedes the earlier page-order draft written before the PDF arrived.
+
+| Printed page | Content | Status |
 |---|---|---|
-| 1 | Title page — title, subtitle, author | Front matter |
-| 2 | Copyright page — © 2026 James Forycki · First edition • 2026 · All rights reserved. (No ISBN, no barcode) | Front matter |
-| 3 | Meet Pip — his burrow, his eyes, his teal-blue backpack | Beginning |
-| 4 | Pip notices every animal carries an invisible backpack | Beginning — the big idea |
-| 5 | Some backpacks are light, some are very heavy | Beginning |
-| 6 | Koala walks slowly — his backpack looks heaviest | Rising — Koala's weight introduced |
-| 7 | "Are you okay?" / "I'm fine." — but Pip isn't sure | Rising |
-| 8 | Wombat's hard day | Kindness episode 1 |
-| 9 | Pip helps Wombat, stick by stick — backpack lighter | Kindness episode 1 |
-| 10 | Birdie is scared to sing | Kindness episode 2 |
-| 11 | Pip listens — Birdie sings | Kindness episode 2 |
-| 12 | Kangaroo bounces by, biggest smile in the bush | Kindness episode 3 |
-| 13 | A big smile can carry something heavy | Kindness episode 3 — empathy insight |
-| 14 | "It's okay to feel wobbly" — Kangaroo's real smile | Kindness episode 3 |
-| 15 | Sky turns grey — storm coming | Turn toward climax |
-| 16 | Thunder and rain — animals hurry home | Storm |
-| 17 | "Where is Koala?" | Storm |
-| 18 | Koala alone under the old gum tree — heaviest moment | Emotional low point |
-| 19 | "It's too much." | Emotional low point |
-| 20 | Pip walks out into the storm | Climax build |
-| 21 | Pip sits beside Koala — "I'm here." | CLIMAX |
-| 22 | Pip doesn't fix — Pip stays | Resolution begins |
-| 23 | Wombat joins | Friends gather |
-| 24 | Birdie and Kangaroo join | Friends gather |
-| 25 | Nobody can take the backpack away — but it feels lighter | Truth of the book |
-| 26 | "I thought I had to carry it all by myself." / "You never have to." | Koala's realisation |
-| 27 | Storm passes, golden light | Falling action |
-| 28 | Walking home together through puddles | Falling action |
-| 29 | Everyone is carrying something | Reflection |
-| 30 | "We may not see what someone is carrying, but we can always choose to be kind." | FINAL MESSAGE |
-| 31 | Five friends carry their backpacks together — The End | Ending |
-| 32 | A note for grown-ups | Back matter |
+| 1 | Front cover — title, subtitle, author, Pip on the bush path | ✅ Approved (stray page numeral removed) |
+| 2 | Copyright page | ✅ Approved (repaired: correct wording, no ISBN/barcode) |
+| 3 | Title page — "Written by James Forycki", Pip with teal backpack | ✅ Approved (stray page numeral removed) |
+| 4 | Dedication — "For every little heart carrying big feelings." | ✅ Approved |
+| 5 | Meet Pip, in the warm little forest | ✅ Approved |
+| 6 | Pip notices things others sometimes miss | ✅ Approved |
+| 7 | All the animals walk to the clearing | ✅ Approved |
+| 8 | Kangaroo, Koala, Wombat, Birdie introduced | ✅ Approved |
+| 9 | Pip notices something strange | ✅ Approved |
+| 10 | Everyone is carrying a backpack | ✅ Approved |
+| 11 | Not a backpack you could touch | ✅ Approved |
+| 12 | These backpacks were invisible | ✅ Approved |
+| 13 | Kangaroo's backpack looks light | ✅ Approved |
+| 14 | Birdie's backpack looks tiny | ✅ Approved |
+| 15 | Koala's backpack looks very heavy | ✅ Approved |
+| 16 | Koala sits alone, doesn't climb or play | ✅ Approved |
+| 17 | Pip asks, "Are you okay, Koala?" | ✅ Approved |
+| 18 | "I think so," said Koala — voice sounds small | ✅ Approved |
+| 19 | Wombat drops his berries | ✅ Approved |
+| 20 | Pip helps pick them up | ✅ Approved |
+| 21 | "Thank you" — Wombat's backpack looks lighter | ✅ Approved |
+| 22 | "Kindness makes backpacks lighter," Pip realises | ⚠️ Backpack colour repaired but not fully clean |
+| 23 | Birdie sits quietly by the river, not singing | ❌ Illustration pending (Pip drawn as a dog in original) |
+| 24 | "Why aren't you singing today?" asked Pip | ❌ Illustration pending (Pip drawn as a human boy) |
+| 25 | Birdie: "someone laughed when I sang the wrong note" | ❌ Illustration pending (Birdie wrong species) |
+| 26 | "I like your song," said Pip. "Even the wobbly parts." | ❌ Illustration pending (Pip drawn as a human boy) |
+| 27 | Birdie sings one tiny note — Tweet | ❌ Illustration pending (Pip drawn as a mouse) |
+| 28 | Pip feels warm inside — helping doesn't have to be big | ❌ Illustration pending (Pip drawn as a wallaby child) |
+| 29 | Pip sees Kangaroo bouncing higher than anyone | ❌ Illustration pending (Pip drawn as a teddy/dog creature) |
+| 30 | Friends cheer Kangaroo — her smile is "a little too bright" | ❌ Illustration pending (Birdie wrong species, Pip missing) |
+| 31 | For Parents & Teachers — discussion questions | ✅ Approved |
+| 32 | Closing message: "We may not see what someone is carrying, but we can always choose to be kind." | ⚠️ Barcode/ISBN removed and clean; Birdie still wrong species |
+
+**Summary:** 22 pages fully approved, 3 pages repaired (2 clean, 1 — page 22
+— still shows a faint colour halo), 8 pages (23–30) still need new
+illustrations before the book can be called finished.

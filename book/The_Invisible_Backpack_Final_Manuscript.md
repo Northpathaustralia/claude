@@ -1,4 +1,11 @@
-# The Invisible Backpack — Final Manuscript (DRAFT — awaiting author approval)
+> **SUPERSEDED:** This was a draft written before the author's illustrated
+> PDF was uploaded. It does not match the real book (it includes a storm
+> subplot that the actual illustrations do not have). Kept for history
+> only — do not use. The real, verified manuscript is
+> `The_Invisible_Backpack_Final_Manuscript.docx`, built from the actual
+> approved page text in `PROJECT_CHECKPOINT.md`.
+
+# The Invisible Backpack — Final Manuscript (SUPERSEDED DRAFT)
 
 **Title:** The Invisible Backpack
 **Subtitle:** A story about kindness, empathy and the things we cannot see.

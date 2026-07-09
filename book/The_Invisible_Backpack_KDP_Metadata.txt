@@ -1,5 +1,7 @@
 THE INVISIBLE BACKPACK — AMAZON KDP METADATA PACK
 ==================================================
+Revised to match the actual illustrated book (previous version referenced
+a storm subplot that is not part of this story — corrected).
 
 TITLE
 The Invisible Backpack
@@ -16,42 +18,43 @@ AMAZON BOOK DESCRIPTION (paste into KDP "Description")
 
 Everyone carries something we cannot see.
 
-Deep in the Australian bush, a small echidna named Pip discovers something
-amazing: every animal is carrying an invisible backpack. Some are light and
-bouncy. Some are very, very heavy.
+In a warm little forest lives a tiny echidna named Pip — a little friend who
+notices things others sometimes miss. One morning, Pip discovers something
+amazing: every animal in the forest is carrying a backpack. Not a backpack
+you could touch. These backpacks were invisible.
 
-Wombat's day feels too hard. Birdie is too scared to sing. Kangaroo hides her
-worries behind the biggest smile in the bush. And gentle Koala is carrying
-the heaviest backpack of all.
+Kangaroo's looks light. Birdie's looks tiny. But Koala's backpack looks very
+heavy indeed, and Koala sits alone, not climbing, not playing.
 
-When a storm rolls in and Koala is left alone in the rain, Pip does the
-bravest, kindest thing a friend can do. He sits down beside him and says
-two small words: "I'm here."
+Through small, gentle moments — helping Wombat pick up dropped berries,
+listening when Birdie is too shy to sing, noticing that a very bright smile
+can still be carrying something heavy — Pip discovers a simple truth:
+kindness makes backpacks lighter.
 
-The Invisible Backpack is a warm, gentle story about empathy, emotional
-awareness and quiet kindness — perfect for children aged 3 to 7, and for
-every grown-up who has ever needed a friend in a storm.
+The Invisible Backpack is a warm, gentle picture book about empathy,
+emotional awareness and everyday kindness, perfect for children aged 3 to 7
+and for the grown-ups who read with them.
 
-This heartfelt Australian picture book helps little readers understand that:
+This heartfelt story helps little readers understand that:
 - Everyone is carrying something, even when we can't see it
-- We don't have to fix our friends — being there is enough
-- No one has to carry their backpack alone
+- Small acts of kindness really do make a difference
+- Noticing a friend, and simply being kind, matters
 
 Because we may not see what someone is carrying, but we can always choose
 to be kind.
 
-Includes a "Note for grown-ups" with a simple conversation starter for
-talking about big feelings with your child.
+Includes a "For Parents & Teachers" page with gentle discussion questions
+for talking about feelings with your child.
 
 --------------------------------------------------
 SEVEN SEARCH KEYWORDS (one per KDP keyword slot)
 --------------------------------------------------
 1. kindness books for kids ages 3-7
 2. empathy picture book for children
-3. Australian animals bedtime story
+3. Australian animals picture book
 4. feelings and emotions book for toddlers
 5. social emotional learning preschool book
-6. books about worry and big feelings for kids
+6. books about kindness for preschoolers
 7. friendship picture book kindergarten
 
 --------------------------------------------------
@@ -73,40 +76,45 @@ RECOMMENDED KINDLE PRICE
 Launch price: USD $3.99 (AUD ~$5.99)
 - Sits in Amazon's 70% royalty band ($2.99-$9.99)
 - Note: Kindle delivery fees apply per megabyte on the 70% plan, and
-  picture books have large image files. If the final file is large,
-  compare royalties at 70% vs 35% in the KDP pricing screen and pick
-  whichever earns more per sale.
+  picture books have large image files. Compare royalties at 70% vs 35%
+  in the KDP pricing screen and pick whichever earns more per sale.
 - Optional launch tactic: $0.99 for the first week to gather early
   reviews, then raise to $3.99.
 
 ISBN: none required. Kindle ebooks do not need an ISBN, and Amazon
-assigns its own ASIN automatically. Do NOT invent an ISBN or barcode.
+assigns its own ASIN automatically. A paperback edition (if pursued
+later) gets a free KDP-assigned ISBN. Do NOT invent or reuse any
+ISBN or barcode.
 
 --------------------------------------------------
 AUTHOR BIOGRAPHY (paste into Author Central / About the Author)
 --------------------------------------------------
 James Forycki is an Australian author who writes gentle, heartfelt
-stories for young children. Inspired by the animals and wide skies of
-the Australian bush, James writes about the big feelings little people
-carry — and the small, everyday kindnesses that make them lighter.
-The Invisible Backpack is his debut picture book. He hopes it helps
-at least one small reader (and one grown-up) feel a little less alone.
+stories for young children. Inspired by the animals and quiet corners
+of the Australian bush, James writes about the small feelings little
+people carry — and the small kindnesses that make them lighter.
+The Invisible Backpack is his debut picture book.
 
 --------------------------------------------------
 LAUNCH CHECKLIST
 --------------------------------------------------
 BEFORE UPLOAD
-[ ] All 32 page images pass the 17-point quality audit
-[ ] Character consistency confirmed on every page (Pip, Koala, Kangaroo, Wombat, Birdie)
-[ ] Copyright page correct - no ISBN, no barcode, no "prototype" wording
-[ ] Final proofread of every page (spelling, punctuation, no cut-off text)
-[ ] Square fixed-layout file built with pages in exact order 1-32
-[ ] Cover image created (2,560 x 1,600 px minimum recommended; for a
-    square book 2,048 x 2,048 works - Amazon requires under 10,000 px
-    per side and under 50 MB, JPG)
+[ ] Pages 23-30 (currently placeholder pages) replaced with final
+    illustrations matching Pip and Birdie's established appearance
+[ ] Page 22 backpack colour cleanly corrected (draft recolour has a
+    visible halo - needs a clean regeneration or tighter mask)
+[ ] Page 32 Birdie redrawn as the correct blue bird (barcode/ISBN
+    already removed and confirmed clean)
+[ ] All 32 pages re-run through the 17-point quality audit once
+    replacement art is in
+[ ] Final proofread pass (spelling, punctuation, no cut-off text)
+[ ] Square fixed-layout file rebuilt with the real pages 23-30 in
+    place of the placeholders
+[ ] Cover image finalised (2,048 x 2,048 px minimum for a square
+    book; Amazon requires under 10,000 px per side and under 50 MB, JPG)
 
 KDP SETUP (kdp.amazon.com)
-[ ] Create/verify KDP account with your bank and tax details (Australia:
+[ ] Create/verify KDP account with bank and tax details (Australia:
     complete the tax interview - the US-AU tax treaty reduces withholding)
 [ ] Create new title: "Kindle eBook"
 [ ] Enter title, subtitle, author exactly as in this file
