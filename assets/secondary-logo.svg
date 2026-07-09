@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" role="img" aria-label="TIDESTATE secondary stacked logo">
+  <!--
+    TIDESTATE — SECONDARY STACKED LOGO
+    Square lockup for garments (back neck, chest), packaging and social.
+    Tide-bar motif: five bars of an abstracted Gold Coast tide day — falling to
+    low water (bar 3, orange = first light) then rising (cobalt = the day builds).
+  -->
+  <rect width="420" height="420" fill="#F1EEE6"/>
+  <!-- tide bars -->
+  <g>
+    <rect x="60"  y="80"  width="48" height="120" fill="#090909"/>
+    <rect x="122" y="120" width="48" height="80"  fill="#090909"/>
+    <rect x="184" y="160" width="48" height="40"  fill="#FF4A1F"/>
+    <rect x="246" y="110" width="48" height="90"  fill="#1747FF"/>
+    <rect x="308" y="60"  width="48" height="140" fill="#090909"/>
+  </g>
+  <!-- waterline -->
+  <rect x="60" y="206" width="296" height="4" fill="#090909"/>
+  <!-- wordmark -->
+  <text x="210" y="278" text-anchor="middle" font-family="'Archivo Expanded','Archivo','Arial Black',sans-serif" font-size="44" font-weight="800" letter-spacing="4" fill="#090909">TIDESTATE</text>
+  <text x="210" y="312" text-anchor="middle" font-family="'Space Grotesk',monospace" font-size="13" letter-spacing="6" fill="#090909">EST. GOLD COAST — 28.0167°S</text>
+  <text x="210" y="352" text-anchor="middle" font-family="'Space Grotesk',monospace" font-size="12" letter-spacing="8" fill="#1747FF">CHANGE YOUR STATE</text>
+</svg>

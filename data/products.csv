@@ -1,0 +1,32 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Grams,Variant Inventory Qty,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,SEO Title,SEO Description,Status
+heatform-tee,HEATFORM TEE,"240gsm compact-knit oversized tee. Pre-shrunk, enzyme washed, reinforced neck. Heavyweight look, warm-climate build.",TIDESTATE,Apparel & Accessories > Clothing > Shirts & Tops,Tee,"drop-001,tee,unisex,coastform",TRUE,Colour,Washed Ink,Size,S,TS-T01-INK-S,320,50,89.00,,TRUE,TRUE,HEATFORM Tee — Premium Oversized Heavyweight Tee | TIDESTATE,"Premium oversized heavyweight tee made for the Australian climate. 240gsm compact-knit cotton, pre-shrunk and enzyme washed. Free AU shipping over $150.",active
+heatform-tee,,,,,,,,Colour,Washed Ink,Size,M,TS-T01-INK-M,330,60,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Washed Ink,Size,L,TS-T01-INK-L,340,60,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Washed Ink,Size,XL,TS-T01-INK-XL,350,40,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Bone,Size,S,TS-T01-BNE-S,320,40,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Bone,Size,M,TS-T01-BNE-M,330,50,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Bone,Size,L,TS-T01-BNE-L,340,50,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Bone,Size,XL,TS-T01-BNE-XL,350,30,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Cobalt,Size,M,TS-T01-CBL-M,330,35,89.00,,TRUE,TRUE,,,active
+heatform-tee,,,,,,,,Colour,Cobalt,Size,L,TS-T01-CBL-L,340,35,89.00,,TRUE,TRUE,,,active
+transit-short,TRANSIT SHORT,"320gsm enzyme-washed terry short with secure zip phone pocket. Relaxed straight fit. Pool to lunch to training.",TIDESTATE,Apparel & Accessories > Clothing > Shorts,Short,"drop-001,short,unisex,coastform",TRUE,Colour,Washed Ink,Size,S,TS-S01-INK-S,380,35,119.00,,TRUE,TRUE,TRANSIT Short — Premium Relaxed Short with Zip Phone Pocket | TIDESTATE,"Premium relaxed short with secure zip phone pocket. 320gsm enzyme-washed terry, made for the Australian climate. Free AU shipping over $150.",active
+transit-short,,,,,,,,Colour,Washed Ink,Size,M,TS-S01-INK-M,390,45,119.00,,TRUE,TRUE,,,active
+transit-short,,,,,,,,Colour,Washed Ink,Size,L,TS-S01-INK-L,400,45,119.00,,TRUE,TRUE,,,active
+transit-short,,,,,,,,Colour,Washed Ink,Size,XL,TS-S01-INK-XL,410,25,119.00,,TRUE,TRUE,,,active
+transit-short,,,,,,,,Colour,Bone,Size,M,TS-S01-BNE-M,390,30,119.00,,TRUE,TRUE,,,active
+transit-short,,,,,,,,Colour,Bone,Size,L,TS-S01-BNE-L,400,30,119.00,,TRUE,TRUE,,,active
+afterdark-hoodie,AFTERDARK HOODIE,"420gsm structured hoodie. Double-layer self-fabric hood, ribbed side panels, tonal embroidery. Pre-shrunk, enzyme washed.",TIDESTATE,Apparel & Accessories > Clothing > Outerwear,Hoodie,"drop-001,hoodie,unisex,coastform",TRUE,Colour,Washed Ink,Size,S,TS-H01-INK-S,700,25,179.00,,TRUE,TRUE,AFTERDARK Hoodie — 420gsm Structured Premium Hoodie | TIDESTATE,"Premium heavyweight 420gsm hoodie with structured double-layer hood and embroidered branding. Unisex oversized fit. Free AU shipping over $150.",active
+afterdark-hoodie,,,,,,,,Colour,Washed Ink,Size,M,TS-H01-INK-M,720,35,179.00,,TRUE,TRUE,,,active
+afterdark-hoodie,,,,,,,,Colour,Washed Ink,Size,L,TS-H01-INK-L,740,35,179.00,,TRUE,TRUE,,,active
+afterdark-hoodie,,,,,,,,Colour,Washed Ink,Size,XL,TS-H01-INK-XL,760,20,179.00,,TRUE,TRUE,,,active
+afterdark-hoodie,,,,,,,,Colour,Bone,Size,M,TS-H01-BNE-M,720,20,179.00,,TRUE,TRUE,,,active
+afterdark-hoodie,,,,,,,,Colour,Bone,Size,L,TS-H01-BNE-L,740,15,179.00,,TRUE,TRUE,,,active
+breakline-cap,BREAKLINE CAP,"Garment-washed heavy twill cap with raised breakline embroidery and metal buckle closure. One size.",TIDESTATE,Apparel & Accessories > Clothing Accessories > Hats,Cap,"drop-001,cap,unisex",TRUE,Colour,Washed Ink,Size,OS,TS-C01-INK-OS,120,80,54.00,,TRUE,TRUE,BREAKLINE Cap — Premium Washed Cotton Cap | TIDESTATE,"Premium washed cotton cap with embroidered breakline icon and metal buckle. Australian streetwear, unisex. Free AU shipping over $150.",active
+breakline-cap,,,,,,,,Colour,Bone,Size,OS,TS-C01-BNE-OS,120,70,54.00,,TRUE,TRUE,,,active
+breakline-cap,,,,,,,,Colour,Signal Orange,Size,OS,TS-C01-ORG-OS,120,150,54.00,,TRUE,TRUE,,,active
+airline-jersey,AIRLINE JERSEY,"Breathable 180gsm piqué jersey with transit livery graphics, flatlock seams and mesh gussets. A jersey for no team but ours.",TIDESTATE,Apparel & Accessories > Clothing > Shirts & Tops,Jersey,"drop-001,jersey,unisex,coastform",TRUE,Colour,Ink/Cobalt,Size,S,TS-J01-IKC-S,260,25,129.00,,TRUE,TRUE,AIRLINE Jersey — Breathable Premium Transit Jersey | TIDESTATE,"Premium breathable unisex jersey with Australian transit-inspired livery. 180gsm piqué mesh, flatlock seams. Free AU shipping over $150.",active
+airline-jersey,,,,,,,,Colour,Ink/Cobalt,Size,M,TS-J01-IKC-M,270,35,129.00,,TRUE,TRUE,,,active
+airline-jersey,,,,,,,,Colour,Ink/Cobalt,Size,L,TS-J01-IKC-L,280,35,129.00,,TRUE,TRUE,,,active
+airline-jersey,,,,,,,,Colour,Ink/Cobalt,Size,XL,TS-J01-IKC-XL,290,20,129.00,,TRUE,TRUE,,,active
+airline-jersey,,,,,,,,Colour,Bone/Concrete,Size,M,TS-J01-BNC-M,270,20,129.00,,TRUE,TRUE,,,active
+airline-jersey,,,,,,,,Colour,Bone/Concrete,Size,L,TS-J01-BNC-L,280,15,129.00,,TRUE,TRUE,,,active

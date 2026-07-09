@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1560" role="img" aria-label="TIDESTATE packaging and identity concept sheet" font-family="'Archivo','Helvetica Neue',sans-serif">
+  <!-- ============================================================
+    TIDESTATE — PACKAGING & IDENTITY CONCEPT SHEET
+    Concepts at proportional scale. Print specs in docs/MANUFACTURING_BRIEF.md §7.
+    Palette: Ink #090909 · Bone #F1EEE6 · Concrete #BFC0BA · Cobalt #1747FF · Signal #FF4A1F
+  ============================================================ -->
+  <rect width="1200" height="1560" fill="#ffffff"/>
+  <text x="40" y="52" font-size="26" font-weight="800" letter-spacing="3" fill="#090909">TIDESTATE — PACKAGING &amp; IDENTITY CONCEPTS</text>
+  <text x="40" y="78" font-size="14" fill="#6b6b66">Concept sheet · production specs in MANUFACTURING_BRIEF.md §7 · all type sets in Archivo / Space Grotesk (SIL OFL)</text>
+
+  <!-- 1. GARMENT EMBLEM (circular) -->
+  <g transform="translate(40,110)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">1 · CIRCULAR GARMENT EMBLEM (woven patch / print, Ø60mm)</text>
+    <circle cx="90" cy="100" r="84" fill="#090909"/>
+    <circle cx="90" cy="100" r="84" fill="none" stroke="#F1EEE6" stroke-width="3"/>
+    <circle cx="90" cy="100" r="66" fill="none" stroke="#F1EEE6" stroke-width="1.5"/>
+    <g fill="#F1EEE6">
+      <rect x="58" y="78" width="12" height="40"/>
+      <rect x="76" y="90" width="12" height="28"/>
+      <rect x="94" y="100" width="12" height="18" fill="#FF4A1F"/>
+      <rect x="112" y="86" width="12" height="32" fill="#1747FF"/>
+    </g>
+    <rect x="52" y="122" width="76" height="3" fill="#F1EEE6"/>
+    <text x="90" y="148" text-anchor="middle" font-size="11" letter-spacing="3" fill="#F1EEE6">TIDESTATE</text>
+    <text x="90" y="163" text-anchor="middle" font-size="7" letter-spacing="2" fill="#BFC0BA">GOLD COAST · 28.0167°S</text>
+  </g>
+
+  <!-- 2. EMBROIDERY ICON -->
+  <g transform="translate(320,110)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">2 · SMALL EMBROIDERY ICON (breakline, 20mm, ~1,500 st)</text>
+    <rect x="0" y="10" width="180" height="180" fill="#F1EEE6"/>
+    <rect x="46" y="60" width="20" height="70" fill="#090909"/>
+    <rect x="78" y="82" width="20" height="48" fill="#090909"/>
+    <rect x="110" y="104" width="20" height="26" fill="#FF4A1F"/>
+    <text x="90" y="170" text-anchor="middle" font-size="9" letter-spacing="2" fill="#090909">FLAT EMBROIDERY · MADEIRA 40WT</text>
+  </g>
+
+  <!-- 3. NECK LABEL -->
+  <g transform="translate(640,110)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">3 · NECK LABEL (60×60mm woven damask)</text>
+    <rect x="0" y="10" width="170" height="170" fill="#090909"/>
+    <text x="85" y="70" text-anchor="middle" font-size="16" font-weight="800" letter-spacing="2" fill="#F1EEE6">TIDESTATE</text>
+    <rect x="30" y="84" width="80" height="2" fill="#BFC0BA"/>
+    <rect x="112" y="81" width="28" height="6" fill="#1747FF"/>
+    <text x="85" y="118" text-anchor="middle" font-size="22" font-weight="800" fill="#F1EEE6">L</text>
+    <text x="85" y="150" text-anchor="middle" font-size="8" letter-spacing="2" fill="#BFC0BA">COASTFORM CONSTRUCTION</text>
+  </g>
+
+  <!-- 4. WOVEN SIDE LABEL -->
+  <g transform="translate(900,110)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">4 · WOVEN SIDE LABEL (50×12mm)</text>
+    <rect x="0" y="60" width="250" height="56" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <g fill="#090909">
+      <rect x="18" y="72" width="8" height="32"/>
+      <rect x="30" y="80" width="8" height="24"/>
+      <rect x="42" y="88" width="8" height="16"/>
+    </g>
+    <text x="64" y="98" font-size="15" font-weight="800" letter-spacing="2" fill="#090909">TIDESTATE</text>
+    <rect x="216" y="72" width="16" height="32" fill="#FF4A1F"/>
+  </g>
+
+  <!-- 5. SWING TAG -->
+  <g transform="translate(40,380)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">5 · SWING TAG (60×120mm, 350gsm uncoated Bone)</text>
+    <rect x="0" y="10" width="150" height="300" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <circle cx="75" cy="34" r="6" fill="#ffffff" stroke="#090909"/>
+    <text x="75" y="86" text-anchor="middle" font-size="17" font-weight="800" letter-spacing="1" fill="#090909">TIDESTATE</text>
+    <g>
+      <rect x="35" y="106" width="14" height="44" fill="#090909"/>
+      <rect x="55" y="120" width="14" height="30" fill="#090909"/>
+      <rect x="75" y="134" width="14" height="16" fill="#FF4A1F"/>
+      <rect x="95" y="114" width="14" height="36" fill="#1747FF"/>
+    </g>
+    <rect x="35" y="154" width="74" height="2" fill="#090909"/>
+    <text x="75" y="182" text-anchor="middle" font-size="8" letter-spacing="1.5" fill="#090909">DROP 001 · FIRST LIGHT</text>
+    <text x="75" y="200" text-anchor="middle" font-size="7" letter-spacing="1" fill="#6b6b66">PREMIUM STREETWEAR ENGINEERED</text>
+    <text x="75" y="212" text-anchor="middle" font-size="7" letter-spacing="1" fill="#6b6b66">FOR THE AUSTRALIAN CLIMATE</text>
+    <rect x="35" y="240" width="80" height="34" fill="#090909"/>
+    <text x="75" y="261" text-anchor="middle" font-size="8" letter-spacing="1" fill="#F1EEE6">SCAN · GARMENT PASSPORT</text>
+    <text x="75" y="296" text-anchor="middle" font-size="7" letter-spacing="2" fill="#090909">CHANGE YOUR STATE</text>
+  </g>
+
+  <!-- 6. MAILER BAG -->
+  <g transform="translate(260,380)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">6 · MAILER BAG (350×450mm, recycled/compostable, Bone)</text>
+    <rect x="0" y="10" width="300" height="380" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <rect x="0" y="10" width="300" height="34" fill="#090909"/>
+    <text x="150" y="32" text-anchor="middle" font-size="11" letter-spacing="3" fill="#F1EEE6">OPEN AT FIRST LIGHT ⌁ TEAR HERE</text>
+    <text x="150" y="150" text-anchor="middle" font-size="30" font-weight="800" letter-spacing="3" fill="#090909">TIDESTATE</text>
+    <rect x="60" y="168" width="140" height="3" fill="#BFC0BA"/>
+    <rect x="204" y="164" width="36" height="10" fill="#1747FF"/>
+    <text x="150" y="200" text-anchor="middle" font-size="10" letter-spacing="2" fill="#090909">28.0167°S / 153.4000°E — GOLD COAST QLD</text>
+    <text x="150" y="330" text-anchor="middle" font-size="9" letter-spacing="1" fill="#6b6b66">PREMIUM STREETWEAR ENGINEERED FOR THE AUSTRALIAN CLIMATE</text>
+    <rect x="20" y="350" width="22" height="12" fill="#FF4A1F"/>
+  </g>
+
+  <!-- 7. SHIPPING BOX -->
+  <g transform="translate(640,380)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">7 · SHIPPING BOX (320×260×100mm, kraft, 1-col Ink print)</text>
+    <g>
+      <polygon points="0,90 170,10 340,90 170,170" fill="#d9c9a8"/>
+      <polygon points="0,90 170,170 170,390 0,300" fill="#c4b492"/>
+      <polygon points="340,90 170,170 170,390 340,300" fill="#cbbd9d"/>
+      <text x="170" y="100" text-anchor="middle" font-size="20" font-weight="800" letter-spacing="2" fill="#090909" transform="rotate(0)">TIDESTATE</text>
+      <g fill="#090909">
+        <rect x="60" y="220" width="12" height="60" transform="skewY(28)" opacity="0.85"/>
+        <rect x="80" y="204" width="12" height="44" transform="skewY(28)" opacity="0.85"/>
+        <rect x="100" y="188" width="12" height="28" transform="skewY(28)" opacity="0.85"/>
+      </g>
+      <text x="255" y="282" text-anchor="middle" font-size="9" letter-spacing="1" fill="#090909" transform="skewY(-28) translate(0,395)">CHANGE YOUR STATE</text>
+    </g>
+  </g>
+
+  <!-- 8. TISSUE PAPER -->
+  <g transform="translate(40,830)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">8 · TISSUE (Bone, Ink coordinate-grid repeat)</text>
+    <rect x="0" y="10" width="280" height="200" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <g fill="none" stroke="#BFC0BA" stroke-width="0.6">
+      <path d="M0 60h280M0 110h280M0 160h280M60 10v200M130 10v200M200 10v200"/>
+    </g>
+    <g font-family="'Space Grotesk',monospace" font-size="8" fill="#090909" letter-spacing="1">
+      <text x="12" y="52">28.0167°S</text><text x="146" y="52">153.4000°E</text>
+      <text x="76" y="102">TIDESTATE</text><text x="214" y="102">28.0167°S</text>
+      <text x="12" y="152">153.4000°E</text><text x="146" y="152">TIDESTATE</text>
+      <text x="76" y="200">28.0167°S</text><text x="214" y="200">153.4000°E</text>
+    </g>
+  </g>
+
+  <!-- 9. THANK-YOU CARD -->
+  <g transform="translate(380,830)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">9 · THANK-YOU CARD (A6, founder note)</text>
+    <rect x="0" y="10" width="210" height="148" fill="#090909"/>
+    <text x="18" y="46" font-size="14" font-weight="800" letter-spacing="1" fill="#F1EEE6">YOU'RE EARLY.</text>
+    <text x="18" y="68" font-size="8.5" fill="#BFC0BA">This company is being built in public — and you</text>
+    <text x="18" y="80" font-size="8.5" fill="#BFC0BA">just funded the next sample. Fit feedback? It</text>
+    <text x="18" y="92" font-size="8.5" fill="#BFC0BA">changes what we make next. Scan &amp; tell me. — James</text>
+    <rect x="18" y="106" width="44" height="44" fill="#F1EEE6"/>
+    <text x="70" y="126" font-size="7" letter-spacing="1" fill="#BFC0BA">QR → FIT VIDEOS + REPLY LINE</text>
+    <rect x="168" y="118" width="24" height="8" fill="#FF4A1F"/>
+  </g>
+
+  <!-- 10. STICKER SET -->
+  <g transform="translate(680,830)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">10 · STICKER SET (3 pcs, vinyl)</text>
+    <rect x="0" y="30" width="130" height="42" rx="8" fill="#090909"/>
+    <text x="65" y="57" text-anchor="middle" font-size="13" font-weight="800" letter-spacing="2" fill="#F1EEE6">TIDESTATE</text>
+    <circle cx="190" cy="60" r="34" fill="#F1EEE6" stroke="#090909" stroke-width="2"/>
+    <g fill="#090909">
+      <rect x="174" y="46" width="8" height="26"/>
+      <rect x="186" y="54" width="8" height="18"/>
+      <rect x="198" y="62" width="8" height="10" fill="#FF4A1F"/>
+    </g>
+    <rect x="250" y="42" width="56" height="30" rx="4" fill="#FF4A1F"/>
+    <text x="278" y="61" text-anchor="middle" font-size="9" font-weight="700" fill="#090909">GC·001</text>
+  </g>
+
+  <!-- 11. DIGITAL GIFT CARD -->
+  <g transform="translate(40,1090)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">11 · DIGITAL GIFT CARD (16:10)</text>
+    <rect x="0" y="10" width="320" height="200" rx="14" fill="#090909"/>
+    <g>
+      <rect x="24" y="40" width="16" height="60" fill="#F1EEE6"/>
+      <rect x="46" y="58" width="16" height="42" fill="#F1EEE6"/>
+      <rect x="68" y="74" width="16" height="26" fill="#FF4A1F"/>
+      <rect x="90" y="52" width="16" height="48" fill="#1747FF"/>
+    </g>
+    <text x="24" y="140" font-size="20" font-weight="800" letter-spacing="2" fill="#F1EEE6">TIDESTATE</text>
+    <text x="24" y="162" font-size="10" letter-spacing="2" fill="#BFC0BA">GIFT CARD · CHANGE THEIR STATE</text>
+    <text x="24" y="192" font-size="12" letter-spacing="3" fill="#F1EEE6">$ • • •</text>
+  </g>
+
+  <!-- 12. EMAIL HEADER -->
+  <g transform="translate(420,1090)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">12 · EMAIL HEADER (600×160)</text>
+    <rect x="0" y="10" width="480" height="128" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <text x="24" y="70" font-size="24" font-weight="800" letter-spacing="3" fill="#090909">TIDESTATE</text>
+    <text x="24" y="94" font-size="9" letter-spacing="2" fill="#6b6b66">FIRST LIGHT TO LATE NIGHT — GOLD COAST QLD</text>
+    <rect x="24" y="108" width="240" height="3" fill="#BFC0BA"/>
+    <rect x="268" y="104" width="60" height="10" fill="#1747FF"/>
+    <g fill="#090909">
+      <rect x="404" y="34" width="12" height="48"/>
+      <rect x="422" y="48" width="12" height="34"/>
+      <rect x="440" y="60" width="12" height="22" fill="#FF4A1F"/>
+    </g>
+  </g>
+
+  <!-- 13. IG STORY TEMPLATES + HIGHLIGHT ICONS -->
+  <g transform="translate(40,1350)">
+    <text y="-8" font-size="13" font-weight="700" fill="#090909">13 · IG STORY TEMPLATES (9:16) + HIGHLIGHT ICONS</text>
+    <!-- story 1: drop -->
+    <rect x="0" y="10" width="90" height="160" fill="#090909"/>
+    <text x="45" y="52" text-anchor="middle" font-size="9" font-weight="800" letter-spacing="1" fill="#F1EEE6">DROP 001</text>
+    <rect x="20" y="64" width="50" height="50" fill="#BFC0BA"/>
+    <text x="45" y="134" text-anchor="middle" font-size="6" letter-spacing="1" fill="#BFC0BA">PRODUCT REVEAL</text>
+    <rect x="20" y="146" width="50" height="12" fill="#FF4A1F"/>
+    <!-- story 2: proof -->
+    <rect x="110" y="10" width="90" height="160" fill="#F1EEE6" stroke="#BFC0BA"/>
+    <text x="155" y="52" text-anchor="middle" font-size="9" font-weight="800" letter-spacing="1" fill="#090909">THE PROOF</text>
+    <rect x="130" y="64" width="50" height="50" fill="#090909"/>
+    <text x="155" y="134" text-anchor="middle" font-size="6" letter-spacing="1" fill="#090909">WASH TEST · DAY 3</text>
+    <rect x="130" y="146" width="50" height="12" fill="#1747FF"/>
+    <!-- story 3: build -->
+    <rect x="220" y="10" width="90" height="160" fill="#1747FF"/>
+    <text x="265" y="52" text-anchor="middle" font-size="9" font-weight="800" letter-spacing="1" fill="#F1EEE6">THE BUILD</text>
+    <rect x="240" y="64" width="50" height="50" fill="#F1EEE6"/>
+    <text x="265" y="134" text-anchor="middle" font-size="6" letter-spacing="1" fill="#F1EEE6">DAY 14 · FOUNDER LOG</text>
+    <!-- highlight icons -->
+    <g transform="translate(350,30)">
+      <circle cx="30" cy="30" r="28" fill="#090909"/><g fill="#F1EEE6"><rect x="18" y="20" width="6" height="22"/><rect x="27" y="26" width="6" height="16"/><rect x="36" y="32" width="6" height="10" fill="#FF4A1F"/></g>
+      <circle cx="100" cy="30" r="28" fill="#090909"/><text x="100" y="37" text-anchor="middle" font-size="16" font-weight="800" fill="#F1EEE6">TS</text>
+      <circle cx="170" cy="30" r="28" fill="#090909"/><rect x="156" y="26" width="28" height="8" fill="#1747FF"/>
+      <circle cx="240" cy="30" r="28" fill="#090909"/><circle cx="240" cy="30" r="10" fill="none" stroke="#FF4A1F" stroke-width="4"/>
+      <text x="30" y="84" text-anchor="middle" font-size="8" fill="#090909">DROPS</text>
+      <text x="100" y="84" text-anchor="middle" font-size="8" fill="#090909">BUILD</text>
+      <text x="170" y="84" text-anchor="middle" font-size="8" fill="#090909">PROOF</text>
+      <text x="240" y="84" text-anchor="middle" font-size="8" fill="#090909">CLUB</text>
+    </g>
+  </g>
+</svg>

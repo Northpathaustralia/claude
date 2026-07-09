@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" role="img" aria-label="TIDESTATE primary wordmark">
+  <!--
+    TIDESTATE — PRIMARY WORDMARK (horizontal lockup)
+    Type: Archivo Expanded 800 (SIL OFL). Fallback: system sans.
+    Production note: before print/embroidery use, set in Archivo Expanded 800,
+    tracking +6%, then convert to outlines. Colour: Ink #090909 on light grounds;
+    swap fills to Bone #F1EEE6 on dark grounds.
+    Motifs: coordinate lockup (top), state line + tide gauge (bottom).
+  -->
+  <text x="24" y="30" font-family="'Space Grotesk','Archivo',monospace" font-size="14" letter-spacing="5" fill="#090909">28.0167°S / 153.4000°E — GOLD COAST QLD</text>
+  <text x="20" y="118" font-family="'Archivo Expanded','Archivo','Arial Black','Helvetica Neue',sans-serif" font-size="82" font-weight="800" letter-spacing="6" fill="#090909">TIDESTATE</text>
+  <g>
+    <rect x="24" y="148" width="524" height="4" fill="#BFC0BA"/>
+    <rect x="548" y="141" width="140" height="11" fill="#1747FF"/>
+    <rect x="692" y="141" width="22" height="11" fill="#FF4A1F"/>
+  </g>
+  <text x="24" y="178" font-family="'Space Grotesk','Archivo',monospace" font-size="13" letter-spacing="7" fill="#090909">CHANGE YOUR STATE</text>
+</svg>
