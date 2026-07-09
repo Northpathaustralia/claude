@@ -29,6 +29,37 @@
 - `The_Invisible_Backpack_Final_Manuscript.md` (the old pre-PDF draft)
   is marked SUPERSEDED at the top, not deleted, per no-data-loss rule.
 
+## UPDATE 2 — replacement-art production package built
+A full numbered folder structure now exists in `book/`:
+`01_APPROVED_EXISTING_PAGES` (copies of the 24 good pages, originals
+untouched in `pages_final/`/`pages_fixed/`/`pages_uploaded/`),
+`02_PAGES_23_TO_30_ART_BRIEFS` (all 20 required fields per page, for
+all 8 pages, in one document), `03_CHARACTER_CONTINUITY` (Pip/Birdie
+continuity sheet built only from inspecting approved art, plus a
+review checklist), `04_IMAGE_GENERATION_PROMPTS` (copy-paste .txt
+prompt+negative-prompt pairs per page), `05_GENERATED_ART_TO_REVIEW`
+(currently holds the 8 placeholder images — this is where James's new
+generated candidates should land), `06_APPROVED_REPLACEMENT_ART`
+(empty, awaiting approvals), `07_FINAL_BOOK_ASSEMBLY` (draft PDF with
+an internal-only red warning cover page — "DRAFT FOR STORY FLOW REVIEW
+ONLY. NOT FOR PRINTING, SALE OR KDP UPLOAD." — plus `assemble_book.py`,
+a reusable script that rebuilds the book from `pages_final/` and
+auto-detects whether any placeholders remain), `08_KDP_EXPORTS` (empty
+by design, with a README explaining why). `WIX_HANDOVER_NOTE.md` lists
+what the separate Wix project will eventually need — nothing has been
+sent there.
+
+**Next action for James:** generate the 8 replacement images using the
+prompts in `04_IMAGE_GENERATION_PROMPTS/`, drop candidates into
+`05_GENERATED_ART_TO_REVIEW/`, review each against
+`03_CHARACTER_CONTINUITY/CONTINUITY_REVIEW_CHECKLIST.md`, move
+approved ones into `06_APPROVED_REPLACEMENT_ART/` and into
+`pages_final/` as `page-23.png` … `page-30.png` (replacing the
+placeholders), then re-run `python3 07_FINAL_BOOK_ASSEMBLY/assemble_book.py`
+from the `book/` folder — it will detect no placeholders remain and
+produce `The_Invisible_Backpack_Master.pdf` automatically. Only then
+should the KDP exports in `08_KDP_EXPORTS/` be built.
+
 ## STILL BLOCKED — the one real dependency
 Pages 23–30 need new illustrations. This environment has no image
 generation capability, only image editing (recolour, inpaint, crop).
