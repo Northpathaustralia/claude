@@ -13,7 +13,9 @@ Investment-grade development proposal for a flagship Fitness Cartel health club 
 | [`04-development-cost-plan.md`](04-development-cost-plan.md) | Elemental cost plan → TDC, capital structures (Phase 6) |
 | [`05-financial-model.md`](05-financial-model.md) | Membership build, P&L, returns, sensitivities (Phase 7) |
 | [`06-market-research.md`](06-market-research.md) | Competitor analysis and gap analysis (Phase 9) |
+| [`07-financial-model.csv`](07-financial-model.csv) | 10-year OpCo P&L model, base case with assumptions (spreadsheet-ready) |
 | [`deck/index.html`](deck/index.html) | Investor presentation deck (self-contained HTML, light/dark) |
+| [`drawings/index.html`](drawings/index.html) | Concept drawing set Rev A: S-01 site plan, C-01 civil & services, C-02 earthworks section, A-01/A-02 floor plans, A-03 street elevation. Concept only — not for construction |
 
 ## Headline
 
