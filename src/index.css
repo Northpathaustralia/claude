@@ -21,4 +21,121 @@
   .field-label {
     @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500;
   }
+
+  /* Atlas dark-surface form fields */
+  .field-dark {
+    @apply w-full rounded-lg border border-navy-700 bg-navy-850 px-3 py-2 text-sm text-navy-100
+      placeholder:text-navy-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/30;
+  }
+
+  .atlas-card {
+    @apply rounded-xl border border-navy-700/60 bg-navy-850/80 p-4 shadow-sm;
+  }
+
+  .btn-emerald {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg bg-emerald-500 px-3.5 py-2 text-sm
+      font-semibold text-navy-950 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-navy-600 px-3.5 py-2
+      text-sm font-medium text-navy-200 transition hover:border-navy-400 hover:text-white disabled:opacity-40;
+  }
+}
+
+/* Rendered markdown (model output). The renderer emits bare tags, so these
+   element styles restore structure inside .md-body after Tailwind preflight. */
+.md-body > *:first-child {
+  margin-top: 0;
+}
+.md-body > *:last-child {
+  margin-bottom: 0;
+}
+.md-body h2,
+.md-body h3,
+.md-body h4,
+.md-body h5 {
+  font-weight: 700;
+  margin: 1em 0 0.4em;
+  line-height: 1.25;
+}
+.md-body h2 {
+  font-size: 1.15em;
+}
+.md-body h3 {
+  font-size: 1.06em;
+}
+.md-body h4,
+.md-body h5 {
+  font-size: 1em;
+}
+.md-body p {
+  margin: 0.55em 0;
+  line-height: 1.65;
+}
+.md-body ul,
+.md-body ol {
+  margin: 0.55em 0 0.55em 1.4em;
+}
+.md-body ul {
+  list-style: disc;
+}
+.md-body ol {
+  list-style: decimal;
+}
+.md-body li {
+  margin: 0.25em 0;
+  line-height: 1.55;
+}
+.md-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.86em;
+  background: rgba(100, 116, 139, 0.16);
+  padding: 0.12em 0.36em;
+  border-radius: 0.3em;
+}
+.md-body pre {
+  background: #0d1a2f;
+  color: #e2eaf4;
+  border-radius: 0.6em;
+  padding: 0.9em 1em;
+  overflow-x: auto;
+  margin: 0.7em 0;
+}
+.md-body pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.84em;
+  line-height: 1.55;
+}
+.md-body blockquote {
+  border-left: 3px solid #34d399;
+  padding-left: 0.9em;
+  margin: 0.7em 0;
+  color: inherit;
+  opacity: 0.85;
+}
+.md-body table {
+  border-collapse: collapse;
+  margin: 0.8em 0;
+  width: 100%;
+  font-size: 0.92em;
+}
+.md-body th,
+.md-body td {
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  padding: 0.4em 0.6em;
+  text-align: left;
+}
+.md-body th {
+  font-weight: 600;
+  background: rgba(100, 116, 139, 0.12);
+}
+.md-body hr {
+  border: none;
+  border-top: 1px solid rgba(100, 116, 139, 0.35);
+  margin: 1em 0;
+}
+.md-body a {
+  color: #10b981;
+  text-decoration: underline;
 }

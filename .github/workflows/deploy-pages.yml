@@ -1,10 +1,10 @@
-# Deploys NPAOS to GitHub Pages on every push.
+# Deploys ATLAS ONE to GitHub Pages on every push.
 # Runs the unit tests first — a red test suite never ships.
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [claude/northpath-ai-os-81p17m, main]
+    branches: [claude/atlas-one-master-directive-izaw1w, claude/northpath-ai-os-81p17m, main]
   workflow_dispatch:
 
 permissions:
