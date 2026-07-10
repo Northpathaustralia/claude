@@ -1,0 +1,26 @@
+# Fitness Cartel Hope Island — Wellness & Performance Precinct
+
+Investment-grade development proposal for a flagship Fitness Cartel health club on the northern Gold Coast. Prepared July 2026.
+
+## Package index
+
+| File | Contents |
+|---|---|
+| [`00-investment-memorandum.md`](00-investment-memorandum.md) | Executive summary, deal metrics, the ask, timeline (Phases 8 & 10) |
+| [`01-location-analysis.md`](01-location-analysis.md) | Catchment analytics, weighted 5-site comparison, honest counter-case (Phase 1) |
+| [`02-due-diligence.md`](02-due-diligence.md) | Planning, flood, geotech, services, traffic, risk register, SWOT (Phases 2–3) |
+| [`03-facility-design.md`](03-facility-design.md) | 6,200m² area schedule, design standards, staging, render brief (Phases 4–5) |
+| [`04-development-cost-plan.md`](04-development-cost-plan.md) | Elemental cost plan → TDC, capital structures (Phase 6) |
+| [`05-financial-model.md`](05-financial-model.md) | Membership build, P&L, returns, sensitivities (Phase 7) |
+| [`06-market-research.md`](06-market-research.md) | Competitor analysis and gap analysis (Phase 9) |
+| [`deck/index.html`](deck/index.html) | Investor presentation deck (self-contained HTML, light/dark) |
+
+## Headline
+
+- **Recommended site strategy:** Hope Island Road western gateway corridor (scored 8.3/10 on a weighted matrix vs 4 alternatives), with a pre-committed fallback of an anchor pre-lease in the approved Hope Island Town Centre.
+- **Concept:** 6,200m² club + recovery centre + 44-bed reformer Pilates + allied health + café + co-working on ~10,000m² freehold; 290 bays; Stage-2 pad land bank.
+- **Numbers (base case):** TDC ≈ $47m (VE'd), mature revenue $10.5m, EBITDAR $4.05m (38.5%), levered 10-yr IRR 17–19%, break-even ~2,450 members at months 14–18.
+
+## Standard of information
+
+Verified public data (ABS, TMR, Cross River Rail, Gold Coast City Plan, operator websites, industry statistics) is cited in each document. Engineering, cost and financial figures are clearly-flagged professional assumptions requiring confirmation by licensed consultants (RPEQ engineers, registered QS, town planner, valuer) during a ~$350k pre-development phase. This package is a decision document, not statutory due diligence or financial advice.
