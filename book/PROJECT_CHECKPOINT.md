@@ -60,6 +60,38 @@ from the `book/` folder — it will detect no placeholders remain and
 produce `The_Invisible_Backpack_Master.pdf` automatically. Only then
 should the KDP exports in `08_KDP_EXPORTS/` be built.
 
+## UPDATE 3 — Pages 23–30 approved and assembled (10 July 2026)
+James supplied genuinely correct replacement art for all 8 pages
+(zip: `The_Invisible_Backpack_Pages_23_to_30_Claude_Ready.zip`).
+Independently reviewed against the continuity sheet and brief — 8 of 8
+passed (2 with minor notes, see `08_QA_REPORTS/QA_REPORT_FULL_BOOK.md`).
+Flattened, typeset with the exact verified wording (Liberation Serif,
+approximate match to established typography — exact original font
+file still unknown), and placed into `pages_final/` and
+`01_MASTER_SOURCE/`, replacing all 8 placeholders. **No placeholder
+pages remain.** Backup branch
+`backup/invisible-backpack-pre-pages23-30-final` (commit `5893178`)
+preserves the pre-this-pass state. New proof PDF:
+`02_FINAL_PRINT_INTERIOR/THE_INVISIBLE_BACKPACK_FINAL_PROOF_FOR_JAMES_REVIEW.pdf`
+(the old draft-with-placeholders PDF was NOT overwritten, per
+instruction — both exist side by side).
+
+**Open owner decisions (blocking true print-readiness only, not
+Kindle):** page 22's khaki backpack (never actually fixed — conflicts
+with "don't alter 1–22" since it was a known defect, not a sign-off),
+trim size (8.5in vs 8.25in — inconsistent across instructions), true
+300 DPI (current art is 1254×1254, no AI upscaler in this
+environment), true print bleed (no page in the whole book, old or
+new, has bleed margin built in). Full detail in the QA report.
+
+**No website exists anywhere in this project** — confirmed again by
+checking all branches. `06_WEBSITE_FINAL/README.md` explains this and
+asks James to confirm whether a separate Wix project exists elsewhere.
+
+**No Kindle Create tool exists in this environment** — sequential
+source package built (`04_KINDLE_SOURCE/`), beginner instructions
+provided for the manual KCB/KPF step.
+
 ## STILL BLOCKED — the one real dependency
 Pages 23–30 need new illustrations. This environment has no image
 generation capability, only image editing (recolour, inpaint, crop).
