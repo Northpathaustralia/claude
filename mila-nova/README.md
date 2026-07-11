@@ -17,6 +17,7 @@ platform (Fanvue) with three tiers ($5 / $10 / $20).
 
 | File | What it is |
 | --- | --- |
+| **[00-QUICK-START-DUMMY-GUIDE.md](00-QUICK-START-DUMMY-GUIDE.md)** | **Start here.** Zero-jargon, click-by-click steps to actually get this live |
 | [01-brand-identity.md](01-brand-identity.md) | Name, tagline, bios, voice, colours, logo, backstory, character rules, AI disclosure wording |
 | [landing-page/index.html](landing-page/index.html) | Full working mobile-first landing page (open it in a browser) |
 | [03-subscription-tiers.md](03-subscription-tiers.md) | Starter / VIP / Premium tiers with pricing, inclusions, boundaries, upsells |
@@ -27,6 +28,9 @@ platform (Fanvue) with three tiers ($5 / $10 / $20).
 | [08-competitor-positioning.md](08-competitor-positioning.md) | Market analysis, what works, what looks spammy, risks, how Mila wins |
 | [09-compliance-checklist.md](09-compliance-checklist.md) | The non-negotiables: disclosure, 18+, platform rules, records, policies |
 | [10-launch-guide.md](10-launch-guide.md) | Beginner step-by-step launch guide: tools, accounts, workflow, checklists |
+| [11-tracking-and-analytics.md](11-tracking-and-analytics.md) | Free UTM/analytics setup so you know what's actually converting |
+| [12-media-kit.md](12-media-kit.md) | Copy-paste press/collab one-pager for outreach to other creators |
+| [assets/](assets/) | Logo wordmark + avatar monogram (SVG) |
 
 ## Non-negotiable rules (read before anything else)
 
@@ -46,5 +50,9 @@ platform (Fanvue) with three tiers ($5 / $10 / $20).
 
 ## Where to start
 
-Open [10-launch-guide.md](10-launch-guide.md) and follow it top to bottom.
-Everything else in this folder is referenced from there at the moment you need it.
+Open [00-QUICK-START-DUMMY-GUIDE.md](00-QUICK-START-DUMMY-GUIDE.md) and follow
+it top to bottom, checkbox by checkbox — it's the literal click-by-click path
+from zero to live. [10-launch-guide.md](10-launch-guide.md) is the same
+journey at a more strategic level (tools, workflows, ongoing checklists) if
+you want the "why" behind each step. Everything else in this folder is
+referenced from those two at the moment you need it.

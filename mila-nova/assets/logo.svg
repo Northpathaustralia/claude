@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" width="640" height="160">
+  <defs>
+    <style>
+      .word { font-family: Georgia, 'Times New Roman', serif; font-size: 92px; fill: #F6E7CE; letter-spacing: 4px; }
+      .bg { fill: #14121C; }
+    </style>
+  </defs>
+  <rect class="bg" width="640" height="160" rx="18"/>
+  <text x="32" y="112" class="word">MILA N</text>
+  <path d="M382 40 L397 78 L436 80 L405 104 L416 142 L382 120 L348 142 L359 104 L328 80 L367 78 Z" fill="#E8B44C"/>
+  <text x="440" y="112" class="word">VA</text>
+</svg>
