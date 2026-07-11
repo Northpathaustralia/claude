@@ -2,13 +2,13 @@
 
 Directive phases 1–5 and the V1 priority list are **delivered** (see `ATLAS_MASTER_STATUS.md`). Sequence below is ordered by owner value per unit of risk.
 
-## V1.x — Local Edition hardening (next)
+## V1.x — Local Edition hardening
 
-1. **App lock + encryption at rest** — passphrase (WebCrypto AES-GCM) wrapping keys and stores; auto-lock timer.
-2. **Live web research** — search API key (Brave/Tavily class) behind the provider-adapter pattern → Research mode gains real sources with dates; Integration Centre gains its first non-AI Connected entry.
-3. **IndexedDB storage** — lift the knowledge-library size limit; PDF text extraction (pdf.js) so PDFs stop being "Planned".
-4. **Chat polish** — edit-and-rerun a past prompt, branch conversation, pin messages, save reply → artifact/project in one click.
-5. **Auto-send voice + quiet mode**; parallel council passes.
+1. ~~**App lock + encryption at rest**~~ — **DELIVERED v0.3** (PBKDF2→AES-GCM, lock screen, auto-lock, re-keying).
+2. ~~**Live web research**~~ — **DELIVERED v0.3** (Tavily + Brave adapters, cited sources in Research mode, honest failure states).
+3. **IndexedDB storage** — lift the knowledge-library size limit (behind secureStorage so encryption keeps working); PDF text extraction (pdf.js) so PDFs stop being "Planned". ← **next**
+4. **Chat polish, remainder** — branch conversation, pin messages, export conversation (edit-and-resend, save-to-outputs and conversation search delivered v0.3).
+5. **Auto-send voice + quiet mode**; parallel council passes; search grounding for the SAGE specialist in X10.
 
 ## V2 — Connected Atlas
 

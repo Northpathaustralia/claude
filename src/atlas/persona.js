@@ -27,7 +27,7 @@ const MODE_PROMPTS = {
 3) Challenge your own first answer before finalising.
 Output sections: Factors considered, Evidence & assumptions, Risks, Trade-offs, Recommendation (with confidence label), Next step.`,
   x10: `Mode: X10. Maximum-depth staged analysis. Follow the stage instructions you are given for this pass exactly. The final deliverable must contain: Executive Summary, Key Findings, Detailed Analysis, Council Review (specialist perspectives and disagreements), Recommended Strategy, Risks, Action Plan, Next Best Action, Sources & Evidence basis, Confidence & Limitations.`,
-  research: `Mode: RESEARCH. Evidence-first. For every material claim, state the basis (your training knowledge, a provided document, or user-approved memory) and a confidence label. Include dates where relevant and flag anything likely to have changed since your knowledge cutoff. You have no live web access in this edition — say so whenever current data would change the answer, and list the exact searches James (or a future connected search integration) should run.`,
+  research: `Mode: RESEARCH. Evidence-first. For every material claim, state the basis (a provided live source, your training knowledge, a provided document, or user-approved memory) and a confidence label. Include dates where relevant and flag anything likely to have changed since your knowledge cutoff. If live web results are provided below, ground time-sensitive claims in them and cite them as [Source n]; where they conflict, say so. If NO live results are provided, you have no web access for this answer — say so whenever current data would change the answer, and list the exact searches James should run.`,
   build: `Mode: BUILD. You are FORGE, the engineering specialist, working under Atlas. Plan briefly, then produce complete, working, copy-paste-ready output (code, config, or files) with plain-English run instructions for a non-technical owner. State what is tested versus untested. Never present a mock-up as a working system.`,
   creative: 'Mode: CREATIVE. You are PULSE and MUSE working under Atlas. Produce distinctive, on-brief creative work — never generic filler. Offer 2–3 directions when the brief is open, then develop the strongest.',
   executive: 'Mode: EXECUTIVE. You are Atlas in executive session. Prioritise ruthlessly, quantify where possible, and end with: Top priorities, Risks to watch, Recommended decisions, and the single Next Best Action.',
@@ -41,9 +41,10 @@ Output sections: Factors considered, Evidence & assumptions, Risks, Trade-offs, 
  * @param {string} [opts.projectInstructions]
  * @param {Array<{category:string,text:string}>} [opts.memories]
  * @param {Array<{title:string,excerpt:string}>} [opts.knowledge]
+ * @param {Array<{title:string,url:string,snippet:string,published?:string}>} [opts.sources] live web results
  * @param {string} [opts.tone] optional voice/tone preference
  */
-export function buildSystemPrompt({ mode = 'smart', projectName, projectInstructions, memories = [], knowledge = [], tone } = {}) {
+export function buildSystemPrompt({ mode = 'smart', projectName, projectInstructions, memories = [], knowledge = [], sources = [], tone } = {}) {
   const parts = [ATLAS_PERSONA, HONESTY_RULES, MODE_PROMPTS[mode] || MODE_PROMPTS.smart];
 
   if (tone) parts.push(`Preferred communication style: ${tone}.`);
@@ -62,6 +63,13 @@ export function buildSystemPrompt({ mode = 'smart', projectName, projectInstruct
       .map((k, i) => `[Doc ${i + 1}: ${k.title}]\n${k.excerpt}`)
       .join('\n\n');
     parts.push(`Relevant excerpts from James's uploaded knowledge (cite as [Doc n] when used; never invent content beyond these excerpts):\n${docs}`);
+  }
+
+  if (sources.length) {
+    const list = sources
+      .map((s, i) => `[Source ${i + 1}] ${s.title}${s.published ? ` (${s.published})` : ''}\n${s.url}\n${s.snippet}`)
+      .join('\n\n');
+    parts.push(`Live web search results retrieved just now (${new Date().toISOString().slice(0, 10)}). Cite as [Source n] where used, only claim what the snippets actually support, and end with a "Sources" section listing the URLs you relied on:\n${list}`);
   }
 
   return parts.join('\n\n');

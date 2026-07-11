@@ -14,6 +14,7 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import { buildSeedData } from '@/data/seedData.js';
 import { uid } from '@/utils/format.js';
+import * as secureStorage from '@/atlas/secureStorage.js';
 
 const STORAGE_KEY = 'npaos.v1';
 
@@ -101,7 +102,9 @@ function emptyState() {
 
 function loadInitialState() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    // Routed through secureStorage: plaintext passthrough normally, decrypted
+    // in-memory reads when the owner's app lock is enabled.
+    const raw = secureStorage.getItem(STORAGE_KEY);
     if (raw) return { ...emptyState(), ...JSON.parse(raw) };
   } catch {
     // Corrupt storage — fall through to seed.
@@ -115,7 +118,7 @@ export function StoreProvider({ children }) {
   // Persist on every change. State is small enough that this stays instant.
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      secureStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch {
       // Storage full or unavailable — the app keeps working in memory.
     }

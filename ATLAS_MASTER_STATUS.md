@@ -1,39 +1,41 @@
 # ATLAS_MASTER_STATUS — ATLAS ONE
 
-**Version:** 0.2.0 (V1, Local Edition) · **Session:** 2026-07-10 · **Branch:** `claude/atlas-one-master-directive-izaw1w`
+**Version:** 0.3.0 (V1.x, Local Edition) · **Session:** 2026-07-11 · **Branch:** `claude/atlas-one-master-directive-izaw1w`
 
 ## Completed work
 
-- **v0.1 (previous session):** NorthPath AI OS — leads, scoring, content engine, referrals, reports, tasks, 6 rule-engine AI employees, single-file build, Pages deploy.
-- **v0.2 (this session):** ATLAS ONE built on top, absorbing NPAOS as the NorthPath workspace:
-  - Atlas engine layer: multi-provider adapters (Anthropic SDK / OpenAI-compat / Gemini), model router + profiles, 8 intelligence modes with multi-pass pipelines (Deep Think draft→critique; X10 plan→council→synthesis), 18-specialist Executive Decision Council with selective activation, user-controlled memory engine with chat commands + sensitivity screen, knowledge chunking/retrieval, safe markdown renderer, AI Studio with 8 creation engines, morning briefing from live local data, voice (push-to-talk STT + TTS) foundation, honest integrations registry, usage/cost accounting.
-  - Full UI: Atlas shell (navy/emerald), Home briefing, Chat (streaming, stop, regenerate, voice, intelligence panel), Projects, Memory, Knowledge, Studio, Council, Business Centre (live NorthPath card), Financial Centre (manual, honest), Integrations, Settings/Admin (keys with live test, routing, usage dashboard, backup/import, activity log), NorthPath workspace mounted intact.
-  - Docs 01–10 (PRD → roadmap), continuity files, owner guide, security report.
-  - Rebrand: package, title, favicon, single-file build now `release/ATLAS-ONE.html`; deploy workflow includes this branch.
+- **v0.1:** NorthPath AI OS (leads, scoring, content engine, referrals, reports, 6 rule-engine AI employees, single-file build, Pages deploy).
+- **v0.2:** ATLAS ONE V1 — chat with 8 intelligence modes (Deep Think, X10 council pipelines), multi-provider AI router with cost accounting, 18-specialist Executive Decision Council, projects, user-controlled memory, knowledge retrieval, AI Studio (8 engines), Business/Financial centres, honest Integration Centre, voice foundation (Beta), morning briefing, usage/activity logs, full docs suite, NorthPath workspace absorbed intact.
+- **v0.3 (this session):**
+  - **App lock + encryption at rest (roadmap V1.x-1).** Passphrase-derived AES-GCM-256 (PBKDF2-SHA-256, 310k iterations, WebCrypto) wraps both stores including AI keys. Lock screen with honest forgot-passphrase story + last-resort erase, auto-lock on idle (5–60 min), "Lock now" in sidebar and Settings, change-passphrase re-keying, one-click removal. Both store providers now route through `src/atlas/secureStorage.js` (transparent passthrough when the lock is off).
+  - **Live web research (roadmap V1.x-2).** Tavily + Brave adapters behind the provider pattern (`src/atlas/providers/search.js`) with live Test buttons; Research mode now searches the web, injects dated results as [Source n] context, and replies with citation chips + a Sources section. Failures are surfaced honestly (the reply says it ran without live sources). Integration Centre lists both with truthful statuses; intelligence panel shows research readiness.
+  - **Chat polish.** Edit-and-resend any past prompt (truncates the thread honestly), save any reply to Saved Outputs, conversation search box.
+  - Recovery audit (`ATLAS_RECOVERY_AUDIT.md`), all docs updated, version bump.
 
 ## Test results
 
-`npm test`: **49/49 pass** (engines + original NPAOS suites). Browser e2e (`tests/e2e.smoke.mjs`): **21/21 pass** against the production build, zero console errors. Details: `ATLAS_TEST_REPORT.md`.
+`npm test`: **61/61 pass** (49 prior + 7 secure-storage + 5 research). Browser e2e: **33/33 pass** including the full lock lifecycle (enable → ciphertext-only storage → reload → wrong-pass rejection → unlock → data intact → removal) and the new chat/research/settings surfaces. Zero console errors. Details: `ATLAS_TEST_REPORT.md`.
 
 ## Current limitations / risks
 
-- Real AI replies require the owner to connect a provider key (2-minute step in owner guide); until then everything is labelled Demonstration.
-- Live model calls verified structurally (official SDK + mocked pipelines + e2e demo path); first real-key round-trip happens on the owner's machine — Settings has a Test button for exactly that.
-- Keys/data plaintext in localStorage (documented; encryption is roadmap item 1). xAI/Mistral browser CORS untested (labelled). PDF/Word uploads not supported yet (labelled).
+- Real AI replies and live research need the owner's keys (2-minute steps each in `ATLAS_OWNER_GUIDE.md`); until then output is labelled Demonstration / "no live sources".
+- Tavily/Brave adapters are structurally tested (mocks + error paths); the first real round-trip happens via the owner's Test button — CORS failure is caught and explained if a provider blocks browser calls.
+- Backup exports remain readable JSON (owner-recoverable by design) and include keys — guide says store them privately.
+- PDF/Word uploads, IndexedDB capacity, integrations beyond AI/search, computer control, wake word: Planned (labelled).
 
 ## Decisions
 
-See `ATLAS_DECISIONS.md` (D1–D7).
+`ATLAS_DECISIONS.md` — new this session: D9 (crypto design), D10 (search provider choice), D11 (plaintext backups by design).
 
 ## Remaining work
 
-See `docs/10-roadmap.md` (V1.x hardening → V2 connected → V3 cloud → V4 operator).
+`docs/10-roadmap.md` — next up: V1.x-3 (IndexedDB + PDF extraction), V1.x-4 remaining chat polish (branch/pin/export), V1.x-5 (auto-send voice + quiet mode, parallel council), then V2 connected integrations.
 
 ## Exact next action
 
-**Owner:** open `release/ATLAS-ONE.html`, follow `ATLAS_OWNER_GUIDE.md` step 2 to connect Anthropic, press Test, then ask Atlas a real question in Smart mode and run one X10 council session.
-**Engineering:** roadmap item V1.x-1 (app lock + encryption at rest), then V1.x-2 (live web research provider).
+**Owner:** (1) Settings → Security → turn on the app lock; (2) Settings → Research & web search → connect a free Tavily key and press Test; then ask Atlas something time-sensitive in Research mode and check the cited sources.
+**Engineering:** roadmap V1.x-3 — move stores to IndexedDB (preserving one-file export + secureStorage encryption) and add PDF text extraction so PDFs stop being Planned.
 
 ## Continuation prompt
 
-> Continue ATLAS ONE on branch `claude/atlas-one-master-directive-izaw1w`. Read `ATLAS_MASTER_STATUS.md`, `ATLAS_DECISIONS.md` and `docs/10-roadmap.md` first. Implement roadmap items V1.x-1 (passphrase app lock + AES-GCM encryption of the atlas.v1 store and provider keys via WebCrypto, with auto-lock) and V1.x-2 (web search integration behind the provider-adapter pattern so Research mode gains real cited sources). Keep every quality rule: tests green (`npm test` + `tests/e2e.smoke.mjs`), honest status labels, plain-English owner steps, and update the continuity files before finishing.
+> Continue ATLAS ONE on branch `claude/atlas-one-master-directive-izaw1w`. Read `ATLAS_MASTER_STATUS.md` and `docs/10-roadmap.md` first — v0.3 shipped the app lock (encryption at rest) and live web research. Implement roadmap V1.x-3: migrate persistence to IndexedDB behind `src/atlas/secureStorage.js` (keep the encryption layer, the one-file backup export, and localStorage migration for existing data) and add client-side PDF text extraction to Knowledge (pdf.js, honest failure states, keep the single-file build working). Keep every quality rule: `npm test` + `tests/e2e.smoke.mjs` green, honest status labels, plain-English owner steps, update all continuity files before finishing.

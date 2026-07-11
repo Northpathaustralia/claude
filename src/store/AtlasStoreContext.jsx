@@ -8,6 +8,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import { uid } from '../utils/format.js';
+import * as secureStorage from '../atlas/secureStorage.js';
 
 const STORAGE_KEY = 'atlas.v1';
 
@@ -21,6 +22,8 @@ export function emptyAtlasState() {
   return {
     settings: {
       keys: {}, // {providerId: apiKey} — stored locally on this device only
+      searchKeys: {}, // {tavily|brave: apiKey} for Research mode web search
+      searchProvider: 'tavily',
       profile: 'balanced',
       provider: 'anthropic',
       tone: '',
@@ -60,6 +63,15 @@ function reducer(state, action) {
         ...state,
         settings: { ...state.settings, keys },
         activityLog: log(state, 'settings', `${action.key ? 'Saved' : 'Removed'} API key for ${action.provider}`),
+      };
+    }
+    case 'settings/setSearchKey': {
+      const searchKeys = { ...(state.settings.searchKeys || {}), [action.provider]: action.key };
+      if (!action.key) delete searchKeys[action.provider];
+      return {
+        ...state,
+        settings: { ...state.settings, searchKeys },
+        activityLog: log(state, 'settings', `${action.key ? 'Saved' : 'Removed'} search API key for ${action.provider}`),
       };
     }
 
@@ -174,7 +186,9 @@ function reducer(state, action) {
 
 function loadInitialState() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    // Routed through secureStorage: plaintext passthrough normally, decrypted
+    // in-memory reads when the owner's app lock is enabled.
+    const raw = secureStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
       return { ...emptyAtlasState(), ...parsed, settings: { ...emptyAtlasState().settings, ...(parsed.settings || {}) } };
@@ -190,7 +204,7 @@ export function AtlasStoreProvider({ children }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      secureStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch {
       // Storage full — app keeps working in memory.
     }

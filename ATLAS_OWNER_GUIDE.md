@@ -35,6 +35,28 @@ Your key is stored only in your browser on your computer. Don't use ATLAS ONE on
 4. **AI Studio** — pick *Presentation*, write one sentence about a business idea, click **Create**, then download the result.
 5. **Business Centre** — your NorthPath numbers live; click **Open workspace** for leads, content, referrals and reports.
 
+## 3a. Protect everything with the app lock (recommended, 1 minute)
+
+This encrypts everything ATLAS stores on this computer — conversations, memory, business data and your keys — behind a passphrase only you know.
+
+1. Open **Settings** → find **Security — app lock & encryption**.
+2. Type a passphrase you will remember (at least 6 characters) in both boxes.
+3. Pick an auto-lock time (15 minutes is a good default).
+4. Click **Turn on app lock** and wait for the green confirmation.
+5. From now on, ATLAS asks for the passphrase when you open it. **🔒 Lock ATLAS now** in the left menu locks it instantly.
+
+**Important:** the passphrase can't be recovered — that's what makes the protection real. Your weekly backup file is the safety net, so keep doing step 4 below (backups stay readable, so store them somewhere private).
+
+## 3b. Give Atlas live web research (optional, 3 minutes)
+
+With a free search key, **Research mode** answers with today's information and shows its sources.
+
+1. Open **Settings** → **Research & web search** → next to **Tavily Search**, click **Get a key ↗**.
+2. Sign up on the Tavily page (free plan is fine) and copy your key (it starts with `tvly-`).
+3. Back in ATLAS, paste it into the Tavily field, click **Save**, then **Test**.
+4. Wait for the green message showing a live result.
+5. In chat, pick the **Research** mode button and ask something current — the reply will show numbered sources you can click.
+
 ## 4. Everyday habits
 
 - **Weekly backup:** Settings → **Export full backup**. Keep the file somewhere safe (it includes your keys — treat it like a password).

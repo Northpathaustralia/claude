@@ -11,6 +11,7 @@ import { selectMemories } from './memory.js';
 import { searchChunks } from './knowledge.js';
 import { SPECIALISTS, selectSpecialists, specialistPrompt, synthesisPrompt } from './council.js';
 import { estimateCost } from './models.js';
+import { pickSearchProvider } from './providers/search.js';
 
 function addUsage(total, u) {
   return {
@@ -32,7 +33,7 @@ function addUsage(total, u) {
  * @param {(delta:string)=>void} [opts.onDelta]   streaming callback for the FINAL pass
  * @param {(stage:{id:string,label:string,detail?:string})=>void} [opts.onStage]
  * @param {AbortSignal} [opts.signal]
- * @param {object} deps                      {callModel} injected provider dispatcher
+ * @param {object} deps  {callModel, searchWeb?} injected provider dispatchers
  */
 export async function runTurn(opts, deps) {
   const {
@@ -47,7 +48,7 @@ export async function runTurn(opts, deps) {
     onStage,
     signal,
   } = opts;
-  const { callModel } = deps;
+  const { callModel, searchWeb } = deps;
 
   const availableProviders = Object.entries(settings.keys || {})
     .filter(([, v]) => v)
@@ -73,6 +74,7 @@ export async function runTurn(opts, deps) {
     knowledgeUsed: knowledgeUsed.map((k) => ({ docId: k.docId, title: k.title })),
     specialists: [],
     passes: [],
+    sources: [],
     demo: false,
   };
 
@@ -84,12 +86,31 @@ export async function runTurn(opts, deps) {
     return { text, meta, usage: { inputTokens: 0, outputTokens: 0 }, cost: null };
   }
 
+  // Research mode: real web search when a search provider is connected.
+  let sources = [];
+  if (mode === 'research' && searchWeb) {
+    const searchCfg = pickSearchProvider(settings);
+    if (searchCfg) {
+      if (onStage) onStage({ id: 'search', label: `Searching the web (${searchCfg.provider})` });
+      try {
+        sources = await searchWeb({ ...searchCfg, query: message, count: 5 });
+        meta.sources = sources;
+        meta.searchProvider = searchCfg.provider;
+      } catch (err) {
+        // Continue without live sources, but say so honestly.
+        meta.searchError = err?.message || 'Web search failed.';
+        if (onStage) onStage({ id: 'search-failed', label: 'Web search failed — continuing without live sources' });
+      }
+    }
+  }
+
   const system = buildSystemPrompt({
     mode,
     projectName: project?.name,
     projectInstructions: project?.instructions,
     memories: memoriesUsed,
     knowledge: knowledgeUsed.map((k) => ({ title: k.title, excerpt: k.excerpt.slice(0, 1500) })),
+    sources,
     tone: settings.tone,
   });
 

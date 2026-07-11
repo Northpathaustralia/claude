@@ -5,6 +5,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { StoreProvider } from '@/store/StoreContext.jsx';
 import { AtlasStoreProvider } from '@/store/AtlasStoreContext.jsx';
 import AtlasLayout from '@/components/atlas/AtlasLayout.jsx';
+import LockGate from '@/components/atlas/LockGate.jsx';
 
 // Atlas pages
 import Home from '@/pages/atlas/Home.jsx';
@@ -34,39 +35,41 @@ import Settings from '@/pages/Settings.jsx';
 // Netlify, S3) and the double-clickable single-file build.
 export default function App() {
   return (
-    <AtlasStoreProvider>
-      <StoreProvider>
-        <HashRouter>
-          <Routes>
-            <Route element={<AtlasLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/chat/:id" element={<Chat />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:id" element={<Projects />} />
-              <Route path="/studio" element={<Studio />} />
-              <Route path="/council" element={<Council />} />
-              <Route path="/business" element={<Business />} />
-              <Route path="/finance" element={<Finance />} />
-              <Route path="/knowledge" element={<KnowledgePage />} />
-              <Route path="/memory" element={<MemoryPage />} />
-              <Route path="/integrations" element={<Integrations />} />
-              <Route path="/settings" element={<AtlasSettings />} />
+    <LockGate>
+      <AtlasStoreProvider>
+        <StoreProvider>
+          <HashRouter>
+            <Routes>
+              <Route element={<AtlasLayout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route path="/chat/:id" element={<Chat />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:id" element={<Projects />} />
+                <Route path="/studio" element={<Studio />} />
+                <Route path="/council" element={<Council />} />
+                <Route path="/business" element={<Business />} />
+                <Route path="/finance" element={<Finance />} />
+                <Route path="/knowledge" element={<KnowledgePage />} />
+                <Route path="/memory" element={<MemoryPage />} />
+                <Route path="/integrations" element={<Integrations />} />
+                <Route path="/settings" element={<AtlasSettings />} />
 
-              <Route element={<NorthPathWorkspace />}>
-                <Route path="/northpath" element={<Dashboard />} />
-                <Route path="/leads" element={<Leads />} />
-                <Route path="/leads/:id" element={<LeadDetail />} />
-                <Route path="/content" element={<Content />} />
-                <Route path="/referrals" element={<Referrals />} />
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/tasks" element={<Tasks />} />
-                <Route path="/northpath/data" element={<Settings />} />
+                <Route element={<NorthPathWorkspace />}>
+                  <Route path="/northpath" element={<Dashboard />} />
+                  <Route path="/leads" element={<Leads />} />
+                  <Route path="/leads/:id" element={<LeadDetail />} />
+                  <Route path="/content" element={<Content />} />
+                  <Route path="/referrals" element={<Referrals />} />
+                  <Route path="/reports" element={<Reports />} />
+                  <Route path="/tasks" element={<Tasks />} />
+                  <Route path="/northpath/data" element={<Settings />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
-        </HashRouter>
-      </StoreProvider>
-    </AtlasStoreProvider>
+            </Routes>
+          </HashRouter>
+        </StoreProvider>
+      </AtlasStoreProvider>
+    </LockGate>
   );
 }

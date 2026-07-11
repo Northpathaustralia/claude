@@ -1,27 +1,33 @@
-# ATLAS_SECURITY_REPORT — ATLAS ONE v0.2
+# ATLAS_SECURITY_REPORT — ATLAS ONE v0.3
 
-**Date:** 2026-07-10 · Full model: `docs/09-security-model.md`. This is the point-in-time review for this release.
+**Date:** 2026-07-11 · Full model: `docs/09-security-model.md`. Point-in-time review for this release.
 
-## Reviewed and verified this session
+## New this release
 
-1. **Model-output rendering:** escape-first markdown renderer; `<script>`, raw HTML and `javascript:` links are neutralised (unit-tested). e2e run recorded zero console/page errors.
-2. **Generated-artifact isolation:** Studio HTML previews use `<iframe sandbox="">` — no script execution, no same-origin access; download is explicit.
-3. **Key handling:** password-type inputs; keys masked after save; single-click removal; sent only to the selected provider's official endpoint over HTTPS; never written to logs or activity entries; UI + owner guide warn about shared machines and that backups include keys.
-4. **Memory consent path:** silent storage impossible (writes only via explicit command/UI); sensitive-pattern screen (passwords, API keys, cards, TFN, medical, etc.) forces a second confirmation.
-5. **Document handling:** text formats only, 2 MB cap, content treated as data (never executed), knowledge excerpts wrapped with quoting instructions to resist embedded prompt injection.
-6. **Destructive actions:** delete conversation/project/memory-clear/data-clear/import-replace all require explicit confirms; Atlas data and NorthPath data clear independently.
-7. **No hidden network paths:** grep-audited — outbound calls exist only in the three provider adapters; no analytics, no telemetry, no beacons.
+**Encryption at rest shipped (app lock).** The top open risk from v0.2 is closed when the owner turns the lock on:
+
+- AES-GCM-256 via WebCrypto; key derived from the owner's passphrase with PBKDF2-SHA-256 at 310,000 iterations and a random 16-byte salt; fresh random IV per write.
+- Covers both stores — conversations, memory, knowledge, business data and **AI/search API keys** (`atlas.v1`, `npaos.v1` → `enc.*` ciphertext; plaintext removed at enable time, verified in e2e).
+- The derived key exists only in memory; locking (manual "Lock now", auto-lock after 5–60 idle minutes, or closing the browser) drops it. Nothing renders and nothing writes while locked (unit-tested).
+- No recovery backdoor: a forgotten passphrase means the ciphertext stays sealed. The lock screen offers an explicit typed-ERASE wipe as the documented last resort, with backups as the recovery path.
+- Changing the passphrase re-keys all ciphertext; removing the lock requires the passphrase and restores the previous plaintext behaviour.
+
+**Live web search added with the same honesty rules.** Keys are Connected only after a real test call; CORS/network failures are reported plainly; a failed search is disclosed on the affected reply rather than silently ignored. Search snippets enter the prompt as quoted, wrapped material with cite-only instructions (same injection posture as uploaded documents).
+
+## Verified this session
+
+Lock lifecycle end-to-end in a real browser (ciphertext-only storage, reload → lock screen, wrong-pass rejection, unlock, data integrity, removal) · secure-storage unit suite (7 tests incl. no-write-while-locked and GCM auth failure on wrong passphrase) · no new outbound network paths beyond the two documented search endpoints · renderer injection tests still green.
 
 ## Known risks (open, owner-visible)
 
 | Risk | Severity | Mitigation now | Fix |
 |---|---|---|---|
-| Keys/data plaintext in localStorage | High (local attacker) | In-app warning; device hygiene | V1.x-1 app lock + AES-GCM (WebCrypto) |
-| Backup files contain keys | Medium | Called out at export + in guide | Optional encrypted export in V1.x-1 |
-| Browser speech routes audio via vendor | Low | Opt-in per press; Beta label; disclosure | Local STT option later |
-| xAI/Mistral adapters unverified in browser | Low | Labelled untested; errors surface honestly | Verify or proxy in Cloud Edition |
-| Prompt injection via uploaded docs (residual) | Medium | Wrapping + honesty rules + tests | Standing red-team suite each release |
+| Lock is opt-in; data is plaintext until enabled | Medium | Settings shows an honest "Not encrypted" badge; owner guide step | Consider prompting once on first run |
+| Backup files are readable JSON incl. keys (by design — D11) | Medium | Called out at export + in guide | Optional encrypted export later |
+| Browser speech routes audio via vendor | Low | Opt-in per press; Beta label | Local STT option later |
+| Search/AI adapters for some providers unverified in-browser | Low | Labelled; Test button gates Connected; failures explained | Verify or proxy via Cloud Edition |
+| Prompt injection via docs/search snippets (residual) | Medium | Wrapping + honesty rules + tests | Standing red-team suite each release |
 
-## Release gate checklist for future phases
+## Release gates unchanged
 
-New outbound integration → scope review + permission screen + revocation path + activity log · Any write/publish/send action → per-action confirmation UI · Cloud Edition → full auth/MFA, encrypted storage, RLS isolation, rate limiting, audit logging before first external user.
+New outbound integration → scope review + permission screen + revocation + activity log · any write/publish/send → per-action confirmation · Cloud Edition → full auth/MFA, encrypted server storage, RLS, rate limiting, audit logging before first external user.

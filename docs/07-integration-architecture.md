@@ -28,8 +28,8 @@ Rules: least-privilege scopes by default; write scopes requested only when the o
 
 ## Rollout order (matched to owner value)
 
-1. **Web search/research API** (unlocks live Research mode) — Brave/Tavily-class key.
-2. **HubSpot live** (NorthPath leads two-way) — replaces CSV bridge.
+1. ~~**Web search/research API**~~ — **DELIVERED v0.3**: Tavily + Brave connectors with key entry, live Test gating the Connected status, and Research-mode source citation. First non-AI integrations following the full contract.
+2. **HubSpot live** (NorthPath leads two-way) — replaces CSV bridge. ← next connector
 3. **Google Calendar + Gmail read/draft** (briefing + follow-ups).
 4. **Xero read-only** (Financial Centre real revenue).
 5. Zapier/Make webhooks outbound (automation without per-platform builds).

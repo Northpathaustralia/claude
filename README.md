@@ -6,13 +6,15 @@ ATLAS ONE is a premium personal and business AI operating system built for James
 
 **Non-technical? Start here → [`ATLAS_OWNER_GUIDE.md`](ATLAS_OWNER_GUIDE.md)** (open the app, connect a key in 2 minutes, five things to try).
 
-## What's inside (V1, Local Edition)
+## What's inside (V1.x, Local Edition — v0.3)
 
 | Area | Highlights | Status |
 |---|---|---|
 | **Chat** | Streaming, Stop, regenerate, copy, per-message model/token/cost provenance, right-hand intelligence panel | Working |
 | **Intelligence modes** | Fast · Smart · Deep Think (draft→self-critique) · X10 (plan→specialist council→synthesis) · Research · Build · Creative · Executive | Working |
 | **Multi-provider AI** | Anthropic (recommended, official SDK), OpenAI, Google, xAI, Mistral behind one router with Maximum/Balanced/Low-Cost profiles; live key **Test** button; cost tracking | Working |
+| **Live web research** | Research mode searches the web (Tavily or Brave key), grounds answers in dated results and cites [Source n] with clickable links; honest fallback when no key or a search fails | Working (needs free search key) |
+| **App lock & encryption** | Passphrase-derived AES-256 encryption of all local data incl. API keys, lock screen, auto-lock, lock-now, re-keying | Working (opt-in) |
 | **Executive Decision Council** | ATLAS + FORGE, SAGE, PULSE, VAULT, MUSE, ORBIT, SENTINEL, COUNSEL, VISION, ANALYST, NEGOTIATOR, INVESTOR, PSYCHOLOGIST, ECONOMIST, GROWTH, OPERATOR, ARCHITECT — only relevant specialists convene; individual analyses inspectable | Working |
 | **Projects · Memory · Knowledge** | Project instructions steer conversations; memory is 100% user-controlled ("Remember/Forget/What do you remember"); document upload with retrieval + citations | Working |
 | **AI Studio** | Document, presentation, spreadsheet (CSV), website, app prototype, code, social pack, video script engines → downloadable artifacts | Working |

@@ -9,7 +9,9 @@ import { useStore } from '../../store/StoreContext.jsx';
 import { PROVIDERS, MODELS, PROVIDER_TIERS } from '../../atlas/models.js';
 import { PROFILES } from '../../atlas/router.js';
 import { streamChat } from '../../atlas/providers/index.js';
+import { SEARCH_PROVIDERS, testSearch } from '../../atlas/providers/search.js';
 import StatusBadge from '../../components/atlas/StatusBadge.jsx';
+import SecuritySettings from '../../components/atlas/SecuritySettings.jsx';
 
 const TONES = ['', 'Calm', 'Professional', 'Friendly', 'Executive', 'Energetic', 'Supportive', 'Direct'];
 
@@ -19,6 +21,9 @@ export default function AtlasSettings() {
   const [drafts, setDrafts] = useState({});
   const [testing, setTesting] = useState({});
   const [testResult, setTestResult] = useState({});
+  const [searchDrafts, setSearchDrafts] = useState({});
+  const [searchTesting, setSearchTesting] = useState({});
+  const [searchResult, setSearchResult] = useState({});
   const importRef = useRef(null);
 
   const usage = atlas.usageLog;
@@ -40,6 +45,21 @@ export default function AtlasSettings() {
       return acc;
     }, {}),
   );
+
+  async function testSearchKey(providerId) {
+    const key = searchDrafts[providerId] ?? (atlas.settings.searchKeys || {})[providerId];
+    if (!key) return;
+    setSearchTesting((t) => ({ ...t, [providerId]: true }));
+    setSearchResult((r) => ({ ...r, [providerId]: null }));
+    try {
+      const first = await testSearch(providerId, key);
+      setSearchResult((r) => ({ ...r, [providerId]: { ok: true, msg: `Connected — live result: "${(first.title || '').slice(0, 60)}"` } }));
+    } catch (err) {
+      setSearchResult((r) => ({ ...r, [providerId]: { ok: false, msg: err?.message || 'Test failed.' } }));
+    } finally {
+      setSearchTesting((t) => ({ ...t, [providerId]: false }));
+    }
+  }
 
   async function testKey(providerId) {
     const key = drafts[providerId] ?? atlas.settings.keys[providerId];
@@ -160,6 +180,88 @@ export default function AtlasSettings() {
             })}
           </div>
         </section>
+
+        {/* Research & web search */}
+        <section className="atlas-card">
+          <h2 className="text-sm font-semibold text-white">Research & web search</h2>
+          <p className="mt-0.5 text-[11px] leading-4 text-navy-400">
+            Connect a search provider and <strong className="text-navy-300">Research mode</strong> answers with live web sources, dates and citations. Without one, Research mode says so honestly and works from training knowledge.
+          </p>
+          <div className="mt-3 space-y-3">
+            {Object.values(SEARCH_PROVIDERS).map((p) => {
+              const saved = (atlas.settings.searchKeys || {})[p.id];
+              const result = searchResult[p.id];
+              return (
+                <div key={p.id} className="rounded-xl border border-navy-700/60 bg-navy-900 p-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-sm font-medium text-white">{p.label}</p>
+                    {saved ? <StatusBadge status="good" label="Key saved" /> : <StatusBadge status="neutral" label="Not connected" />}
+                    <span className="text-[10px] text-navy-400">{p.note}</span>
+                    <a href={p.keyUrl} target="_blank" rel="noreferrer" className="ml-auto text-[11px] font-medium text-emerald-400 hover:underline">
+                      Get a key ↗
+                    </a>
+                  </div>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <input
+                      type="password"
+                      className="field-dark max-w-md flex-1"
+                      placeholder={saved ? '•••••••• (key saved — paste to replace)' : p.keyPlaceholder}
+                      value={searchDrafts[p.id] ?? ''}
+                      onChange={(e) => setSearchDrafts({ ...searchDrafts, [p.id]: e.target.value })}
+                    />
+                    <button
+                      type="button"
+                      className="btn-emerald text-xs"
+                      disabled={!(searchDrafts[p.id] || '').trim()}
+                      onClick={() => {
+                        dispatchAtlas({ type: 'settings/setSearchKey', provider: p.id, key: searchDrafts[p.id].trim() });
+                        setSearchDrafts({ ...searchDrafts, [p.id]: '' });
+                        setSearchResult((r) => ({ ...r, [p.id]: null }));
+                      }}
+                    >
+                      Save
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-ghost-dark text-xs"
+                      disabled={searchTesting[p.id] || (!saved && !(searchDrafts[p.id] || '').trim())}
+                      onClick={() => testSearchKey(p.id)}
+                    >
+                      {searchTesting[p.id] ? 'Testing…' : 'Test'}
+                    </button>
+                    {saved && (
+                      <button
+                        type="button"
+                        className="btn-ghost-dark text-xs !border-red-500/40 !text-red-400"
+                        onClick={() => dispatchAtlas({ type: 'settings/setSearchKey', provider: p.id, key: '' })}
+                      >
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                  {result && (
+                    <p className={`mt-2 rounded-lg px-3 py-1.5 text-xs ${result.ok ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-300'}`}>{result.msg}</p>
+                  )}
+                </div>
+              );
+            })}
+            <div>
+              <label className="field-label !text-navy-400">Preferred search provider</label>
+              <select
+                className="field-dark !w-auto"
+                value={atlas.settings.searchProvider || 'tavily'}
+                onChange={(e) => dispatchAtlas({ type: 'settings/update', payload: { searchProvider: e.target.value } })}
+              >
+                {Object.values(SEARCH_PROVIDERS).map((p) => (
+                  <option key={p.id} value={p.id}>{p.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </section>
+
+        {/* Security */}
+        <SecuritySettings onActivity={(detail) => dispatchAtlas({ type: 'activity/record', kind: 'security', detail })} />
 
         {/* Intelligence routing */}
         <section className="atlas-card">

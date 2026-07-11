@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------------------
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAtlas } from '../../store/AtlasStoreContext.jsx';
+import { isLockEnabled } from '../../atlas/secureStorage.js';
 
 const NAV = [
   { to: '/', label: 'Home', icon: '◆', end: true },
@@ -78,8 +79,17 @@ export default function AtlasLayout() {
             <span className={`h-2 w-2 rounded-full ${connected ? 'bg-emerald-400' : 'bg-amber-400'}`} />
             {connected ? 'AI provider connected' : 'No AI provider connected'}
           </div>
+          {isLockEnabled() && (
+            <button
+              type="button"
+              className="btn-ghost-dark mb-2 w-full !py-1.5 text-xs"
+              onClick={() => window.dispatchEvent(new Event('atlas-lock-now'))}
+            >
+              🔒 Lock ATLAS now
+            </button>
+          )}
           <p className="px-1 text-[10px] leading-4 text-navy-400">
-            Local Edition v0.2 — your data and keys stay in this browser. Every feature is labelled Working, Beta, Demonstration or Planned.
+            Local Edition v0.3 — your data and keys stay in this browser. Every feature is labelled Working, Beta, Demonstration or Planned.
           </p>
         </div>
       </aside>

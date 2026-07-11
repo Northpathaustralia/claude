@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAtlas } from '../../store/AtlasStoreContext.jsx';
 import { runTurn } from '../../atlas/orchestrator.js';
 import { streamChat } from '../../atlas/providers/index.js';
+import { searchWeb, pickSearchProvider } from '../../atlas/providers/search.js';
 import { route, MODES } from '../../atlas/router.js';
 import { parseMemoryCommand, findMemoryMatches } from '../../atlas/memory.js';
 import { buildChunkIndex } from '../../atlas/knowledge.js';
@@ -30,6 +31,7 @@ export default function Chat() {
   const { atlas, dispatchAtlas } = useAtlas();
 
   const [input, setInput] = useState('');
+  const [convSearch, setConvSearch] = useState('');
   const [mode, setMode] = useState('smart');
   const [sending, setSending] = useState(false);
   const [stage, setStage] = useState('');
@@ -145,7 +147,7 @@ export default function Chat() {
           onStage: (s) => setStage(s.label),
           signal: controller.signal,
         },
-        { callModel: streamChat },
+        { callModel: streamChat, searchWeb },
       );
 
       appendMessage(conv.id, {
@@ -201,6 +203,33 @@ export default function Chat() {
     }, 0);
   }
 
+  /** Edit a past user message: truncate the conversation to before it and
+   *  load the text into the composer for editing + resend. */
+  function editMessage(msgId) {
+    if (!conv || sending) return;
+    const idx = conv.messages.findIndex((m) => m.id === msgId);
+    if (idx < 0) return;
+    const original = conv.messages[idx];
+    if (idx < conv.messages.length - 1 && !window.confirm('Editing this message removes the replies that came after it. Continue?')) return;
+    dispatchAtlas({ type: 'conversation/replaceMessages', id: conv.id, messages: conv.messages.slice(0, idx) });
+    setInput(original.content);
+  }
+
+  /** Save an assistant reply into Saved Outputs (artifact library). */
+  function saveReply(m) {
+    dispatchAtlas({
+      type: 'artifact/add',
+      payload: {
+        title: `Chat: ${(conv?.title || 'reply').slice(0, 50)}`,
+        type: 'markdown',
+        ext: 'md',
+        content: m.content,
+        engine: 'chat',
+        projectId: conv?.projectId || null,
+      },
+    });
+  }
+
   function toggleMic() {
     if (listening) {
       listenRef.current?.stop();
@@ -226,12 +255,18 @@ export default function Chat() {
     <div className="flex h-screen max-h-screen bg-navy-950 text-navy-100">
       {/* Conversation list */}
       <aside className="hidden w-60 shrink-0 flex-col border-r border-navy-800 bg-navy-900 md:flex">
-        <div className="p-3">
+        <div className="space-y-2 p-3">
           <button type="button" className="btn-emerald w-full" onClick={() => navigate('/chat/new')}>+ New</button>
+          <input
+            className="field-dark !py-1.5 text-xs"
+            placeholder="Search conversations…"
+            value={convSearch}
+            onChange={(e) => setConvSearch(e.target.value)}
+          />
         </div>
         <div className="flex-1 space-y-0.5 overflow-y-auto px-2 pb-3">
           {atlas.conversations.length === 0 && <p className="px-2 pt-2 text-xs text-navy-400">No conversations yet.</p>}
-          {atlas.conversations.map((c) => (
+          {atlas.conversations.filter((c) => !convSearch || c.title.toLowerCase().includes(convSearch.toLowerCase())).map((c) => (
             <div
               key={c.id}
               className={`group flex cursor-pointer items-start justify-between gap-1 rounded-lg px-2.5 py-2 ${c.id === id ? 'bg-navy-800' : 'hover:bg-navy-850'}`}
@@ -313,10 +348,32 @@ export default function Chat() {
               <div key={m.id} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
                 <div className={m.role === 'user' ? 'max-w-[85%] rounded-2xl rounded-br-sm bg-navy-700 px-4 py-2.5 text-sm text-white' : 'max-w-[95%] rounded-2xl rounded-bl-sm border border-navy-800 bg-navy-900 px-4 py-3 text-sm'}>
                   {m.role === 'user' ? (
-                    <p className="whitespace-pre-wrap">{m.content}</p>
+                    <div>
+                      <p className="whitespace-pre-wrap">{m.content}</p>
+                      <div className="mt-1 text-right">
+                        <button type="button" title="Edit and resend" className="text-[10px] text-navy-300 hover:text-white" onClick={() => editMessage(m.id)}>
+                          ✏️ Edit
+                        </button>
+                      </div>
+                    </div>
                   ) : (
                     <>
                       <Markdown text={m.content} />
+                      {m.meta?.sources?.length > 0 && (
+                        <div className="mt-2 space-y-1 rounded-lg border border-navy-700/60 bg-navy-850 p-2">
+                          <p className="text-[10px] font-semibold uppercase tracking-wide text-emerald-400">Live sources ({m.meta.searchProvider})</p>
+                          {m.meta.sources.map((s, i) => (
+                            <a key={s.url + i} href={s.url} target="_blank" rel="noopener noreferrer" className="block truncate text-[11px] text-navy-200 hover:text-emerald-400">
+                              [{i + 1}] {s.title} <span className="text-navy-500">— {(() => { try { return new URL(s.url).hostname; } catch { return s.url; } })()}</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                      {m.meta?.searchError && (
+                        <p className="mt-2 rounded-lg border border-amber-500/30 bg-amber-500/10 px-2 py-1 text-[11px] text-amber-300">
+                          Web search failed for this answer ({m.meta.searchError}) — the reply relies on training knowledge only.
+                        </p>
+                      )}
                       <div className="mt-2 flex flex-wrap items-center gap-2 border-t border-navy-800 pt-1.5 text-[10px] text-navy-400">
                         {m.meta?.demo && <StatusBadge status="demo" />}
                         {m.meta?.kind === 'memory' && <StatusBadge status="working" label="Memory" />}
@@ -325,6 +382,7 @@ export default function Chat() {
                         {m.meta?.cost != null && <span>≈ ${m.meta.cost.toFixed(4)}</span>}
                         {m.meta?.specialists?.length > 0 && <span>Council: {m.meta.specialists.join(', ')}</span>}
                         <button type="button" className="ml-auto hover:text-emerald-400" onClick={() => navigator.clipboard?.writeText(m.content)}>Copy</button>
+                        {!m.meta?.kind && <button type="button" title="Save to Saved Outputs" className="hover:text-emerald-400" onClick={() => saveReply(m)}>Save</button>}
                         {support.tts && <button type="button" className="hover:text-emerald-400" onClick={() => speak(m.content)}>Speak</button>}
                       </div>
                     </>
@@ -441,8 +499,19 @@ export default function Chat() {
             <p className="mb-1 text-[10px] font-semibold uppercase tracking-wider text-navy-400">Context in use</p>
             <p className="text-xs text-navy-300">Approved memories: <span className="text-white">{atlas.memories.length}</span></p>
             <p className="text-xs text-navy-300">Knowledge documents: <span className="text-white">{atlas.knowledgeDocs.length}</span></p>
+            <p className="text-xs text-navy-300">
+              Live web search:{' '}
+              {pickSearchProvider(atlas.settings) ? (
+                <span className="text-emerald-400">{pickSearchProvider(atlas.settings).provider} connected</span>
+              ) : (
+                <span className="text-navy-400">not connected (Research mode uses training knowledge only)</span>
+              )}
+            </p>
             {lastMeta?.knowledgeUsed?.length > 0 && (
               <p className="mt-1 text-[11px] text-emerald-400">Last answer used: {[...new Set(lastMeta.knowledgeUsed.map((k) => k.title))].join(', ')}</p>
+            )}
+            {lastMeta?.sources?.length > 0 && (
+              <p className="mt-1 text-[11px] text-emerald-400">Last answer cited {lastMeta.sources.length} live web sources</p>
             )}
           </div>
 
@@ -472,8 +541,9 @@ export default function Chat() {
             <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-wider text-navy-400">Feature status</p>
             <div className="space-y-1 text-[11px] text-navy-300">
               <p>Chat, modes, memory, knowledge <StatusBadge status="working" /></p>
+              <p>Live web research {pickSearchProvider(atlas.settings) ? <StatusBadge status="working" /> : <StatusBadge status="neutral" label="Needs search key" />}</p>
               <p>Voice push-to-talk & read-aloud <StatusBadge status="beta" /></p>
-              <p>Wake word, live web research <StatusBadge status="planned" /></p>
+              <p>Wake word, continuous voice <StatusBadge status="planned" /></p>
             </div>
           </div>
         </aside>

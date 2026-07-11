@@ -103,6 +103,8 @@ export const INTEGRATIONS = [
   { id: 'shopify', name: 'Shopify', category: 'commerce', kind: 'planned', description: 'Store analytics and products.' },
   { id: 'woocommerce', name: 'WooCommerce', category: 'commerce', kind: 'planned', description: 'Store data.' },
 
+  { id: 'tavily', name: 'Tavily Search', category: 'research', kind: 'search-key', description: 'Live web search powering Research mode with cited sources. Free tier available.' },
+  { id: 'brave', name: 'Brave Search', category: 'research', kind: 'search-key', description: 'Independent web index for Research mode. Free tier available.' },
   { id: 'pubmed', name: 'PubMed', category: 'research', kind: 'planned', description: 'Medical literature.' },
   { id: 'scholar', name: 'Google Scholar', category: 'research', kind: 'planned', description: 'Academic search.' },
   { id: 'arxiv', name: 'arXiv', category: 'research', kind: 'planned', description: 'Preprints.' },
@@ -110,14 +112,18 @@ export const INTEGRATIONS = [
 ];
 
 /**
- * Resolve the live status of an integration given saved provider keys.
+ * Resolve the live status of an integration given saved keys.
  * @param {object} item registry entry
- * @param {object} keys {providerId: apiKey}
+ * @param {object} keys {providerId: apiKey} AI provider keys
+ * @param {object} [searchKeys] {tavily|brave: apiKey} search keys
  */
-export function integrationStatus(item, keys = {}) {
+export function integrationStatus(item, keys = {}, searchKeys = {}) {
   if (item.kind === 'ai-key') {
     const keyId = item.keyId || item.id;
     return keys[keyId] ? INTEGRATION_STATUS.connected : INTEGRATION_STATUS.not_connected;
+  }
+  if (item.kind === 'search-key') {
+    return searchKeys[item.id] ? INTEGRATION_STATUS.connected : INTEGRATION_STATUS.not_connected;
   }
   if (item.kind === 'manual') return INTEGRATION_STATUS.beta;
   return INTEGRATION_STATUS.planned;

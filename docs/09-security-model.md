@@ -19,7 +19,7 @@
 
 ### Accepted risks (documented, not hidden)
 
-1. **Keys and data are plaintext in localStorage.** Anyone with access to the OS user profile can read them. Mitigation today: device hygiene + the in-app warning; V1.x: passphrase-derived AES-GCM encryption at rest (WebCrypto) with an app-lock screen.
+1. **Encryption at rest is opt-in.** Since v0.3 the app lock (PBKDF2-SHA-256 310k → AES-GCM-256, WebCrypto) encrypts both stores including keys, with a lock screen and auto-lock; until the owner enables it, data remains plaintext in localStorage and Settings shows an honest "Not encrypted" badge.
 2. **Browser speech services** (push-to-talk) may route audio via the browser vendor. Voice is opt-in per press and labelled Beta.
 3. **Backups contain keys.** Export dialog says so; owner guide repeats it.
 4. **No authentication in V1** — meaningless against a local attacker who owns the profile; real auth arrives with the Cloud Edition boundary.

@@ -20,7 +20,7 @@ export default function Integrations() {
       (filter === 'all' || i.category === filter) &&
       (!search || i.name.toLowerCase().includes(search.toLowerCase()) || i.description.toLowerCase().includes(search.toLowerCase())),
   );
-  const connectedCount = INTEGRATIONS.filter((i) => integrationStatus(i, atlas.settings.keys).id === 'connected').length;
+  const connectedCount = INTEGRATIONS.filter((i) => integrationStatus(i, atlas.settings.keys, atlas.settings.searchKeys).id === 'connected').length;
 
   return (
     <div className="min-h-screen bg-navy-950 p-4 text-navy-100 sm:p-6">
@@ -45,7 +45,7 @@ export default function Integrations() {
 
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((i) => {
-            const status = integrationStatus(i, atlas.settings.keys);
+            const status = integrationStatus(i, atlas.settings.keys, atlas.settings.searchKeys);
             return (
               <div key={i.id} className="atlas-card">
                 <div className="flex items-start justify-between gap-2">
@@ -54,7 +54,7 @@ export default function Integrations() {
                 </div>
                 <p className="mt-1 text-[11px] leading-4 text-navy-400">{i.description}</p>
                 {i.manualNote && <p className="mt-1 text-[10px] font-medium text-sky-400">{i.manualNote}</p>}
-                {i.kind === 'ai-key' && (
+                {(i.kind === 'ai-key' || i.kind === 'search-key') && (
                   <Link to="/settings" className="mt-2 inline-block text-[11px] font-medium text-emerald-400 hover:underline">
                     {status.id === 'connected' ? 'Manage key →' : 'Connect →'}
                   </Link>

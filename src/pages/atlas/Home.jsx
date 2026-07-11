@@ -7,6 +7,8 @@ import { useStore } from '../../store/StoreContext.jsx';
 import { useAtlas } from '../../store/AtlasStoreContext.jsx';
 import { buildBriefing } from '../../atlas/briefing.js';
 import { voiceSupport, speak } from '../../atlas/voice.js';
+import { pickSearchProvider } from '../../atlas/providers/search.js';
+import { isLockEnabled } from '../../atlas/secureStorage.js';
 import StatusBadge from '../../components/atlas/StatusBadge.jsx';
 
 const QUICK_ACTIONS = [
@@ -26,7 +28,6 @@ const SYSTEM_MAP = [
   { name: 'Financial Centre manual tracking', status: 'working' },
   { name: 'Live integrations (HubSpot, Gmail, Xero…)', status: 'planned' },
   { name: 'Computer control agent', status: 'planned' },
-  { name: 'Live web research', status: 'planned' },
 ];
 
 export default function Home() {
@@ -35,6 +36,16 @@ export default function Home() {
   const briefing = buildBriefing({ npaos, atlas });
   const support = voiceSupport();
   const connected = Object.values(atlas.settings.keys || {}).some(Boolean);
+  const searchConnected = !!pickSearchProvider(atlas.settings);
+  const systemMap = [
+    ...SYSTEM_MAP,
+    searchConnected
+      ? { name: 'Live web research (Research mode)', status: 'working' }
+      : { name: 'Live web research (connect a search key in Settings)', status: 'neutral', label: 'Needs key' },
+    isLockEnabled()
+      ? { name: 'App lock — encryption at rest', status: 'working' }
+      : { name: 'App lock — encryption at rest (turn on in Settings)', status: 'neutral', label: 'Off' },
+  ];
 
   return (
     <div className="min-h-screen bg-navy-950 p-4 text-navy-100 sm:p-6">
@@ -103,10 +114,10 @@ export default function Home() {
           <div className="atlas-card">
             <h2 className="mb-2 text-sm font-semibold text-white">ATLAS ONE system map — honest status</h2>
             <div className="space-y-1.5">
-              {SYSTEM_MAP.map((s) => (
+              {systemMap.map((s) => (
                 <div key={s.name} className="flex items-center justify-between gap-2 text-xs text-navy-200">
                   <span>{s.name}</span>
-                  <StatusBadge status={s.status} />
+                  <StatusBadge status={s.status} label={s.label} />
                 </div>
               ))}
             </div>

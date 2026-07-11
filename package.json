@@ -1,7 +1,7 @@
 {
   "name": "atlas-one",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "ATLAS ONE — a premium personal and business AI operating system for James Forycki. Chat-first intelligence platform with projects, memory, knowledge, an executive agent council, business/financial command centres, and the NorthPath workspace built in.",
   "type": "module",
   "scripts": {
