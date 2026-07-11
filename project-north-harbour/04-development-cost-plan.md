@@ -1,3 +1,10 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phase 6 — Development Cost Plan (Order-of-Magnitude, QS Framework)
 
 **Basis:** 10,000m² site, 6,200m² GFA two-level club, 290-bay at-grade parking, SEQ pricing at Q3-2026 with pre-Olympics escalation pressure. Rates are elemental order-of-magnitude benchmarks (gym fitouts nationally run $1,500–$3,000/m²; equipment is typically 50–70% of fitout cost — Compound Fitness/BPS 2026 guides). **This is a Class 5 estimate (±20–25%). A registered QS (Rider Levett Bucknall / WT / Rawlinsons-based) must produce the Class 3 plan at concept-design completion.**

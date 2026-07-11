@@ -1,3 +1,10 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phases 2–3 — Property Due Diligence & Land Investigation
 
 **Subject:** Preferred site corridor — Hope Island Road western gateway (between Hope Island rail station and Columbus Drive), Hope Island/Oxenford QLD 4212/4210

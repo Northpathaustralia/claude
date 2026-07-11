@@ -1,3 +1,10 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phase 9 — Market Research & Competitive Gap Analysis
 
 **Catchment:** Hope Island 4212 + 10–15 min drive (Helensvale, Oxenford, Coomera/Upper Coomera, Paradise Point/Runaway Bay, Sanctuary Cove). Desk research July 2026; mystery-shop visits and review-mining refresh recommended at DA stage.
@@ -36,8 +43,8 @@
 - A café worth staying at (social fitness — the "third place")
 
 ## 4. Merse Coomera interaction protocol
-- **Product separation:** Merse = standalone luxury bathhouse ritual (2–3hr visits, day-spa price architecture). FC Hope Island recovery centre = training-integrated recovery (30–60min, membership-bundled). Different occasions, different price metabolism.
-- **Funnel design:** Merse guests receive FC Hope Island trial passes and vice-versa; shared CRM; corporate wellness packages sell both.
+- **Product separation:** Merse = standalone luxury bathhouse ritual (2–3hr visits, day-spa price architecture). North Harbour recovery centre = training-integrated recovery (30–60min, membership-bundled). Different occasions, different price metabolism.
+- **Funnel design:** Merse guests receive North Harbour trial passes and vice-versa; shared CRM; corporate wellness packages sell both.
 - **Cannibalisation cap:** modelled at <8% of recovery-line revenue (recovery is $0.62m of $10.5m — bounded exposure).
 
 ## 5. Gap analysis verdict

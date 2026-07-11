@@ -1,6 +1,13 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phase 1 — Location Analysis & Site Selection
 
-**Project:** Fitness Cartel Flagship Health Club & Wellness Precinct — Northern Gold Coast
+**Project:** Project North Harbour — Flagship Health Club & Wellness Precinct, Northern Gold Coast (proposed anchor operator: Fitness Cartel)
 **Prepared:** July 2026
 **Status:** Investment-grade pre-feasibility. Verified data is cited; assumptions are flagged `[ASSUMPTION]` and must be confirmed before acquisition.
 
@@ -8,7 +15,7 @@
 
 ## 1. Executive finding
 
-Hope Island is a **validated but nuanced** location for a premium Fitness Cartel flagship. The data supports the investment thesis — with one important correction to the brief:
+Hope Island is a **validated but nuanced** location for a premium flagship health club. The data supports the investment thesis — with one important correction to the brief:
 
 > **The winning site is not in the middle of Hope Island's residential core. It is on the Hope Island Road western gateway corridor, where the affluent Hope Island catchment, the new Hope Island rail station (opened 18 May 2026), the Coomera Connector (M9, Stage 1 North opened 2 December 2025) and the Oxenford/Helensvale trade area intersect.**
 

@@ -1,13 +1,20 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Investment Memorandum & Executive Summary
 
-## Fitness Cartel Hope Island — Wellness & Performance Precinct
-**Northern Gold Coast flagship | July 2026 | Confidential — prepared for Fitness Cartel Group, capital partners and lenders**
+## Project North Harbour — Confidential Hope Island Health Club Development Opportunity
+**Wellness & Performance Precinct, Northern Gold Coast | July 2026 | Prepared for presentation to Fitness Cartel Group (proposed anchor operator), capital partners and lenders**
 
 ---
 
 ## 1. The opportunity in one paragraph
 
-Hope Island is the wealthiest fast-growing catchment on the northern Gold Coast — median household income $1,934/week, population up 26.7% since 2021 to ~18,600 — and it has **no full-service health club of any kind**. In the last seven months, two pieces of state infrastructure switched on at its western gateway: the **Coomera Connector (M9, Dec 2025)** and the **new Hope Island rail station (May 2026)**, on a corridor already carrying ~31,000 vehicles/day. We propose Fitness Cartel's national flagship there — not a gym, but a **Wellness & Performance Precinct**: a 6,200m² club integrating spa-grade recovery, 44-bed reformer Pilates, allied health, licensed café, co-working and a serious training floor, on a ~10,000m² freehold site with precinct expansion land. Total development cost ≈ **$47m (VE'd)**, mature EBITDAR ≈ **$4.05m**, OpCo/PropCo structure delivering Fitness Cartel a flagship for <$5m of operating capital and a capital partner a 15+5+5-year triple-net covenant.
+Hope Island is the wealthiest fast-growing catchment on the northern Gold Coast — median household income $1,934/week, population up 26.7% since 2021 to ~18,600 — and it has **no full-service health club of any kind**. In the last seven months, two pieces of state infrastructure switched on at its western gateway: the **Coomera Connector (M9, Dec 2025)** and the **new Hope Island rail station (May 2026)**, on a corridor already carrying ~31,000 vehicles/day. We propose a national-flagship club there — **Project North Harbour**: not a gym, but a **Wellness & Performance Precinct**, a 6,200m² club integrating spa-grade recovery, 44-bed reformer Pilates, allied health, licensed café, co-working and a serious training floor, on a ~10,000m² freehold site with precinct expansion land. Total development cost ≈ **$47m (VE'd)**, mature EBITDAR ≈ **$4.05m**, OpCo/PropCo structure delivering Fitness Cartel a flagship for <$5m of operating capital and a capital partner a 15+5+5-year triple-net covenant.
 
 ## 2. Why this is a precinct, not a gym
 
@@ -16,7 +23,7 @@ The asset is underwritten three ways:
 2. **Real estate** — freehold on an arterial gateway corridor beside new rail, with pad-site land bank (sports medicine, allied health, future aquatics) that keeps compounding after opening.
 3. **Operator-agnostic design** — the building is a wellness precinct that any premium operator could run; the property's value does not die with a single tenant. That is what makes it lendable.
 
-## 3. Why Fitness Cartel specifically
+## 3. Why Fitness Cartel as proposed anchor operator
 
 - The brand's stated trajectory — **60 clubs by 2030**, "affordable luxury," recovery + Pilates + café baked into the format, plus the **Merse Wellness** spa brand (Coomera, Oct 2026) — is precisely the product this catchment buys. No other operator owns both the club format and the spa brand to orchestrate the corridor.
 - Maroochydore proves the playbook: 5,000+ members in a regional flagship.
@@ -81,6 +88,8 @@ We stress-tested "is Hope Island wrong?" — the honest answer is that a *discou
 | Doc | Contents |
 |---|---|
 | `00-investment-memorandum.md` | This memorandum (Phases 8 & 10) |
+| `07-financial-model.csv` | 10-year OpCo P&L model, spreadsheet-ready |
+| `08-engagement-pack.md` | Cover letter, confidentiality & IP protocol, consultant procurement, data-room index |
 | `01-location-analysis.md` | Catchment analytics, weighted 5-site scoring, honest counter-case (Phase 1) |
 | `02-due-diligence.md` | Planning/flood/geotech/services/traffic DD framework, risk register, SWOT, acquisition score (Phases 2–3) |
 | `03-facility-design.md` | 6,200m² area schedule, design standards, staging, 12-shot render brief (Phases 4–5) |
@@ -88,5 +97,6 @@ We stress-tested "is Hope Island wrong?" — the honest answer is that a *discou
 | `05-financial-model.md` | Membership build, P&L, returns, sensitivities, ramp de-risking (Phase 7) |
 | `06-market-research.md` | Competitor-by-competitor analysis, review mining, gap analysis (Phase 9) |
 | `deck/index.html` | Investor presentation deck with charts, site diagram and floor-plan schematic |
+| `drawings/index.html` | Concept drawing set Rev A (S-01, C-01, C-02, A-01, A-02, A-03) |
 
 **Standard of information:** verified public data is cited in each document; engineering and cost figures are professional-grade *assumptions* flagged for confirmation by licensed consultants (RPEQ engineers, registered QS, town planner, valuer) during the $350k pre-development phase. No representation is made that this package replaces statutory due diligence.

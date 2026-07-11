@@ -1,6 +1,13 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phases 4–5 — Facility Design Brief & Visualisation Package
 
-**Concept name:** *Fitness Cartel Hope Island — Wellness & Performance Precinct*
+**Concept name:** *Project North Harbour — Wellness & Performance Precinct* (operator brand application TBC, subject to executed agreement)
 **Positioning:** Australia's benchmark "affordable-luxury" flagship — a health club, recovery house, allied-health hub and social destination on one title, engineered for a catchment that is simultaneously affluent-and-older (Hope Island) and young-and-growing (Oxenford–Coomera corridor).
 
 > **A note on the renders (honesty first):** this package cannot generate photorealistic 3D renders — those are produced by an architectural visualisation studio from the concept design. What this phase delivers is (a) the complete area schedule and design intent an architect needs, and (b) a **shot-by-shot render brief** (§5) ready to hand to a viz studio (typical cost $2.5k–$4k per hero image, ~$35k for the 12-image pack). Schematic site/floor plans are included in the investor deck (`deck/index.html`).
@@ -24,7 +31,7 @@
 ### Ground floor — 4,100m²
 | Zone | m² | Design intent |
 |---|---|---|
-| Arrival, luxury reception & lounge | 260 | Double-height, hotel-lobby language: stone, timber battens, brass FC signage wall; concierge not counter |
+| Arrival, luxury reception & lounge | 260 | Double-height, hotel-lobby language: stone, timber battens, brass signage wall (operator brand TBC); concierge not counter |
 | Café & juice bar (licensed, street-trading) | 180 | Trades to street AND club; 60 seats + terrace; own ABN/lease possible |
 | Retail — supplements, apparel, recovery tech | 90 | Adjacent reception, impulse capture |
 | Strength zone (free weights) | 700 | 40+ benches/racks zone, 6 deadlift platforms, competition kit |
@@ -57,7 +64,7 @@
 
 ## 3. Architecture & experience standards
 
-- **Façade:** 9m glass "engine room" window to Hope Island Rd showing the strength floor in motion after dark — the building is the billboard. Charred-timber-look cladding, off-form concrete blades, landscaped berm; **12m illuminated FC pylon** at the arterial corner (sign code permitting).
+- **Façade:** 9m glass "engine room" window to Hope Island Rd showing the strength floor in motion after dark — the building is the billboard. Charred-timber-look cladding, off-form concrete blades, landscaped berm; **12m illuminated pylon (operator brand TBC)** at the arterial corner (sign code permitting).
 - **Entrance:** porte-cochère arrival, 6m brass-lettered portal, water-feature + native landscape (Gold Coast City landscape code species).
 - **Interior:** black-steel + walnut + travertine palette; 4.5–7m ceilings on gym floor; circadian-tuned lighting zones (bright performance / warm recovery); club-wide scent and sound design; premium acoustic treatment (NRC ≥ 0.8 over strength zones).
 - **Technology:** app-gated 24/7 access, per-zone occupancy heat-mapping shown in-app, Technogym-ecosystem cardio, body-scan suite, EV chargers, 300–400kW rooftop solar + battery, heat-pump pool heating targeting 5-star NABERS-equivalent running costs.
@@ -84,7 +91,7 @@
 | 11 | Kids club | Secure entry, parents' sightline |
 | 12 | Co-working lounge | Laptops + smoothies, corporate-membership sell |
 
-Each render to carry current Fitness Cartel brand kit (logo lock-ups, black/gold palette) — obtain brand guidelines under NDA before viz commences.
+Renders use a neutral "North Harbour" placeholder identity until an operator heads-of-agreement and brand licence are executed — only then is the confirmed operator's brand kit applied (under NDA and their brand guidelines). No operator trademark appears in any public-facing material.
 
 ## 6. Why this design wins this catchment
 

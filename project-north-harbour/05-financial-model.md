@@ -1,3 +1,10 @@
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+
 # Phase 7 — Business Model & Financial Analysis
 
 **Method:** bottom-up membership build calibrated against (a) ~15% national membership penetration, (b) Fitness Cartel Maroochydore's claimed 5,000+ members, (c) a 10-minute catchment of ~65,000–75,000 people growing >3% p.a. All dollar figures AUD ex-GST, FY of first full trading year unless noted. **This is a pre-feasibility model; the bankable model is a monthly 10-year three-statement model built after site control.**

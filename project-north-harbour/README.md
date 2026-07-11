@@ -1,6 +1,14 @@
-# Fitness Cartel Hope Island — Wellness & Performance Precinct
+> **PRIVATE AND CONFIDENTIAL**
+> Prepared by James Forycki
+> **PROJECT NORTH HARBOUR**
+> Not for circulation or distribution without written permission.
+>
+> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
 
-Investment-grade development proposal for a flagship Fitness Cartel health club on the northern Gold Coast. Prepared July 2026.
+# Project North Harbour
+## Confidential Hope Island Health Club Development Opportunity
+
+Investment-grade development proposal for a flagship health club and wellness precinct on the northern Gold Coast, with Fitness Cartel as the proposed anchor operator. Prepared July 2026.
 
 ## Package index
 
@@ -14,6 +22,7 @@ Investment-grade development proposal for a flagship Fitness Cartel health club 
 | [`05-financial-model.md`](05-financial-model.md) | Membership build, P&L, returns, sensitivities (Phase 7) |
 | [`06-market-research.md`](06-market-research.md) | Competitor analysis and gap analysis (Phase 9) |
 | [`07-financial-model.csv`](07-financial-model.csv) | 10-year OpCo P&L model, base case with assumptions (spreadsheet-ready) |
+| [`08-engagement-pack.md`](08-engagement-pack.md) | Cover letter, confidentiality & IP protocol, consultant procurement, data-room index |
 | [`deck/index.html`](deck/index.html) | Investor presentation deck (self-contained HTML, light/dark) |
 | [`drawings/index.html`](drawings/index.html) | Concept drawing set Rev A: S-01 site plan, C-01 civil & services, C-02 earthworks section, A-01/A-02 floor plans, A-03 street elevation. Concept only — not for construction |
 
