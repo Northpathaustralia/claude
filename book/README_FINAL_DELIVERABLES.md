@@ -1,17 +1,17 @@
 # The Invisible Backpack — Final Deliverables Guide
-**Status as of 10 July 2026.** Read this first — it tells you exactly which file does what.
+**Status as of 11 July 2026 (final production pass).** Read this first — it tells you exactly which file does what.
 
 ## Folder-by-folder
 
 | Folder | What's in it | Status |
 |---|---|---|
 | `01_MASTER_SOURCE/` | All 32 final page images, editable source, one file per page | ✅ Complete |
-| `02_FINAL_PRINT_INTERIOR/` | `THE_INVISIBLE_BACKPACK_FINAL_PROOF_FOR_JAMES_REVIEW.pdf` — all 32 pages assembled in order | ✅ Built, **awaiting your review before it can be called print-ready** (see QA report) |
-| `03_FINAL_PRINT_COVER/` | README only | ⛔ Blocked on your trim-size/page-count/paper decisions |
+| `02_FINAL_PRINT_INTERIOR/` | Review proof + **press-ready bleed interior** (8.625×8.75in, KDP-compliant) | ✅ Built — page 22 & 32 fixed, Charter typography. Awaiting your final review |
+| `03_FINAL_PRINT_COVER/` | Full KDP wrap PDF + flat PNG (back/spine/front, barcode zone clear) | ✅ Built — assumptions documented in its README |
 | `04_KINDLE_SOURCE/` | `ebook_001.jpg` – `ebook_032.jpg`, sequential, text already on the art | ✅ Complete |
 | `05_KINDLE_PROJECT_AND_KPF/` | README with beginner Kindle Create instructions | ⛔ Kindle Create not installed here — no KCB/KPF exists |
-| `06_WEBSITE_FINAL/` | README | ⛔ No website found anywhere in this project to continue |
-| `07_WEB_MARKETING_ASSETS/` | Cover, 4 preview pages, closing page, Pip/Birdie reference images | ✅ Complete, ready whenever website work starts |
+| `06_WEBSITE_FINAL/` | Complete static site (`site/`): home, previews, characters, parents/teachers, author, FAQ, contact, privacy, terms | ✅ Built — NOT deployed, awaiting approval |
+| `07_WEB_MARKETING_ASSETS/` | Marketing images + `MARKETING_PACK.md` (Amazon/A+/social/press/email/30-day plan) + Teacher Kit DOCX + 3D mockup | ✅ Complete |
 | `08_QA_REPORTS/` | `QA_REPORT_FULL_BOOK.md` + `contact_sheet_all_32_pages.png` | ✅ Complete — read this before approving anything |
 | `09_BACKUPS/` | Git backup branch info + prior attempt records | ✅ Complete |
 | `10_REJECTED_UNUSED_CANDIDATES/` | README (raw reject files weren't in your upload) | ✅ Complete as far as available |

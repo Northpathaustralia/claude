@@ -1,5 +1,5 @@
 # PROJECT CHECKPOINT — The Invisible Backpack
-**Saved:** 9 July 2026 (updated same day — build continued) · **Status: BLOCKED ONLY on 8 replacement illustrations (pages 23–30)**
+**Saved:** 9 July 2026 · **Last updated: 11 July 2026 — see UPDATE 4** · **Status: production complete pending James's final proof review; Kindle KPF + optional 300DPI upscale are the only outside-environment steps**
 **Read this file first. Do NOT restart the project. Do NOT rewrite the story.**
 
 ## UPDATE — what got built since the audit
@@ -92,7 +92,20 @@ asks James to confirm whether a separate Wix project exists elsewhere.
 source package built (`04_KINDLE_SOURCE/`), beginner instructions
 provided for the manual KCB/KPF step.
 
-## STILL BLOCKED — the one real dependency
+## UPDATE 4 — FINAL PRODUCTION PASS COMPLETE (11 July 2026)
+Under the master finalization directive: page 22 backpack fully fixed
+(body+strap teal, from original art), page 32 Birdie recoloured blue,
+pages 23–30 re-typeset in Bitstream Charter (verified closest match),
+press-ready bleed interior built (8.625×8.75in verified), full KDP
+cover wrap built (spine 0.0751in, 32pp premium colour, 8.5in trim —
+documented decision), Kindle source rebuilt, complete static website
+package built (NOT deployed), full marketing pack + Teacher Kit DOCX
+created, QA REPORT v2 added. Remaining genuine limitations (documented
+in QA v2): true-300DPI upscale (needs Real-ESRGAN outside this
+environment), KPF (needs Kindle Create on desktop), CMYK/PDF-X (only
+for IngramSpark/offset). Nothing published, nothing deployed.
+
+## STILL BLOCKED — the one real dependency (HISTORICAL — resolved by Update 3)
 Pages 23–30 need new illustrations. This environment has no image
 generation capability, only image editing (recolour, inpaint, crop).
 Character species swaps (dog/human/mouse/wallaby-child/teddy-creature

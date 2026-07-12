@@ -1,40 +1,32 @@
-# Print Wrap Cover — Not Yet Buildable (Owner Decisions Required)
+# Print Cover — BUILT (with documented assumptions)
 
-Per your own instructions: "calculate the cover only after the final
-page count, colour choice and paper choice are locked." Those aren't
-locked yet, so building the cover file now would guess at numbers that
-directly change the spine width. I'd rather ask than hand you a wrong
-file.
+## Files
+- `The_Invisible_Backpack_KDP_Cover_Wrap.pdf` — full wraparound cover
+  (back + spine + front), page size 17.3251 × 8.75 in
+- `The_Invisible_Backpack_KDP_Cover_Wrap_FLAT.png` — same artwork flat,
+  5198 × 2625 px @300 DPI (editable master)
 
-## What's blocking the cover file specifically
+## Production decisions (made under the finalization directive)
+- **Trim size: 8.5 × 8.5 in.** The project's established default. (One
+  instruction mentioned 8.25×8.25 — 8.5 was chosen because every prior
+  export and the interior PDF use it. If you want 8.25, the wrap must be
+  rebuilt: say the word.)
+- **Page count: 32 · Paper: premium colour, white.** Spine width
+  computed with KDP's premium-colour formula: 32 × 0.002347" = 0.0751".
+- **No spine text** — KDP does not allow spine text below 79 pages.
+- **Barcode zone:** 2.0 × 1.2 in kept clear white, 0.25 in from trim,
+  bottom-right of back cover. NO fake ISBN, NO fake barcode — KDP
+  prints the real one there.
+- **Front panel** uses the approved cover art upscaled from 1254 px by
+  interpolation (no AI upscaler available in this environment). At
+  print size this is ~147 effective DPI — acceptable to KDP, slightly
+  soft for premium print. Order a physical proof before wide release.
+- Back-cover blurb matches the marketing pack; Pip vignette cropped
+  from approved page 31 artwork.
 
-1. **Trim size is ambiguous.** Earlier project work assumed 8.5 × 8.5
-   in. Your latest instructions say "if the final format remains
-   8.25 × 8.25 inches." These are two different trim sizes and KDP's
-   cover template dimensions differ between them. Which is correct?
-2. **Interior page count for spine width.** The book is 32 pages, but
-   KDP's spine-width formula depends on the *final* interior page
-   count after any print-layout decisions (e.g., whether blank pages
-   are added for correct left/right pagination — see the QA report's
-   page-numbering section). Right now that's 32; flag if that should
-   change.
-3. **Paper/colour choice.** You noted "do not use standard colour if
-   its minimum page count is not met" — KDP's premium color paper has
-   no page-count minimum, but standard color paper requires 72+ pages
-   for some trim sizes. At 32 pages, standard color is likely
-   unavailable for a square trim regardless — this needs confirming
-   against KDP's current page-count rules for your specific trim size,
-   which I can't verify without you locking the trim size first.
-
-## What IS ready
-- The approved front cover art: `01_MASTER_SOURCE/page-01.jpeg`
-- Once trim size, page count, and paper are confirmed, KDP's own
-  Cover Calculator (inside your KDP paperback listing) will give the
-  exact spine width in inches — I can then build the full wrap
-  (front + spine + back) at those exact dimensions, with proper bleed
-  and a clean barcode-safe area on the back cover, and no placeholder
-  ISBN or barcode.
-
-**This is the one piece I'm treating as a hard "needs owner decision"
-rather than guessing** — a wrong spine width produces a cover that
-doesn't fit the book when printed.
+## Before uploading to KDP
+1. Confirm trim (8.5), page count (32) and paper (premium colour) in
+   the paperback setup — the spine width baked into this wrap is only
+   correct for that exact combination.
+2. Use KDP's online cover previewer and check the spine alignment.
+3. Order a printed proof copy before publishing.

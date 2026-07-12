@@ -1,4 +1,54 @@
 # The Invisible Backpack — Full Book QA Report
+
+---
+
+# QA REPORT v2 — FINAL PRODUCTION PASS (11 July 2026)
+Performed under the master finalization directive. Five review lenses
+applied (publishing, illustration, editorial, print, Amazon). This
+section supersedes matching items in v1 below.
+
+## Changes made since v1
+| Item | v1 status | v2 status |
+|---|---|---|
+| Page 22 backpack | NEEDS OWNER DECISION (khaki/halo draft in master) | **FIXED** — rebuilt from original art; body AND strap now teal via segmentation + component-filtered colour rule; verified at 200% zoom. Micro-fringe at strap/fur boundary reads as watercolour bleed, consistent with art style. Superseded versions archived in `09_BACKUPS/superseded_pages/`. |
+| Page 32 Birdie species | Kookaburra (wrong) | **FIXED (improved)** — plumage recoloured to Birdie's dusty blue + cream chest in sunset light. Silhouette remains slightly kookaburra-like; full regeneration is still the gold-standard fix, but continuity is now strong at reading size. |
+| Typography (pages 23–30) | Liberation Serif (approximate) | **IMPROVED** — re-typeset in **Bitstream Charter**, verified side-by-side as the closest available match to the baked book font; text block moved to match approved pages' placement; curly quotes/apostrophes throughout; page numerals matched bottom-right. |
+| Trim size | Undecided | **DECIDED: 8.5 × 8.5 in** (project's established default; documented in cover README). |
+| Bleed | NEEDS OWNER DECISION | **BUILT** — press-ready interior with parity-aware mirrored bleed (0.125", gutter-side clean), page size verified 8.625 × 8.75 in. Mirrored bleed lives entirely outside the trim line and is discarded at trim — standard production practice for full-bleed picture books when native bleed wasn't painted. |
+| Cover | Not built | **BUILT** — full KDP wrap (back/spine/front), spine 0.0751" for 32pp premium colour, clear barcode zone, no fake ISBN/barcode. |
+| Kindle | Source only | Source rebuilt from final masters; KPF still requires Kindle Create (see limitation). |
+| Website | Nothing existed | **BUILT** — complete static site package in `06_WEBSITE_FINAL/site/` (not deployed, per instructions). |
+| Marketing | Partial | **COMPLETE** — full pack + Teacher Kit DOCX in `07_WEB_MARKETING_ASSETS/`. |
+
+## v2 verification pass on the reworked pages
+- Page 22: PASS (fully teal backpack incl. strap; baked original typography preserved)
+- Page 32: PASS WITH NOTE (blue Birdie; silhouette note above)
+- Pages 23–30: PASS — Charter typesetting verified on pages 24, 25, 27, 29, 30 at full size; exact verified wording re-checked character-for-character including punctuation
+- Contact sheet regenerated: `contact_sheet_all_32_pages.png` (all 32 pages, correct order, no placeholders, no old artwork)
+
+## Genuine remaining limitations (cannot be completed in this environment)
+1. **True 300 DPI interior.** Art is native 1254×1254 (~147 DPI at
+   8.5"). No AI upscaler is available here (model downloads blocked by
+   network policy; verified). Interpolation would fake the number
+   without adding detail, so it was not applied to the interior.
+   *To complete:* run the 32 files in `01_MASTER_SOURCE/` through
+   Real-ESRGAN (free, local) or Topaz Gigapixel at 2×, then re-run
+   `07_FINAL_BOOK_ASSEMBLY/assemble_book.py` and the press-PDF script.
+   Effort: ~1 hour. KDP accepts the current files (with a soft-quality
+   notice); Kindle is unaffected.
+2. **KPF (Kindle publishing file).** Kindle Create is Windows/Mac-only
+   software, not installable here. Source package + step-by-step
+   instructions are ready (`05_KINDLE_PROJECT_AND_KPF/README.md`).
+   Effort: ~15 minutes on a desktop.
+3. **CMYK/PDF-X for IngramSpark or offset.** This environment produces
+   sRGB PDFs — correct for KDP, which converts internally. IngramSpark
+   prefers CMYK PDF/X-1a. *To complete:* open the press PDF in Adobe
+   Acrobat/InDesign or Affinity Publisher and export with the PDF/X-1a
+   preset. Only needed if going beyond KDP.
+4. **Exact original typeface identification.** Pages 1–22/31–32 have
+   text baked into the art by the original generator; the literal font
+   file is unknowable from pixels. Charter is a professional, verified
+   near-match used consistently across all newly typeset pages.
 **Date:** 10 July 2026 · **Reviewed against:** character continuity sheet, Pages 23–30 art brief, approved Pages 1–22 & 31–32, verified manuscript.
 **Contact sheet:** `contact_sheet_all_32_pages.png` (this folder)
 
