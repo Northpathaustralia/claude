@@ -2,20 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   TIDESTATE — global craft layer
+   Motion is deliberate and restrained: one system, honoured
+   everywhere, and fully disabled for prefers-reduced-motion.
+   ============================================================ */
+
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: 'Archivo', system-ui, sans-serif;
+  /* faint paper grain — reads as "printed matter", not flat web */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
 }
 
-::selection {
-  background: #1747ff;
-  color: #f1eee6;
-}
+::selection { background: #1747ff; color: #f1eee6; }
 
-/* visible focus ring everywhere — accessibility baseline */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -25,15 +36,71 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---- Scroll-reveal system --------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.8s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
 }
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.reveal[data-shown='true'] {
+  opacity: 1;
+  transform: none;
+}
+/* stagger children when a container is revealed */
+.reveal-group[data-shown='true'] > * {
+  animation: rise 0.75s var(--ease-out-expo) both;
+}
+.reveal-group[data-shown='true'] > *:nth-child(2) { animation-delay: 0.06s; }
+.reveal-group[data-shown='true'] > *:nth-child(3) { animation-delay: 0.12s; }
+.reveal-group[data-shown='true'] > *:nth-child(4) { animation-delay: 0.18s; }
+.reveal-group[data-shown='true'] > *:nth-child(5) { animation-delay: 0.24s; }
+.reveal-group[data-shown='true'] > *:nth-child(6) { animation-delay: 0.30s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Signature link underline (draws in on hover) --------- */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s var(--ease-out-expo);
+}
+.link-underline:hover { background-size: 100% 1.5px; }
+
+/* ---- Card lift ------------------------------------------- */
+.lift { transition: transform 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo); }
+.lift:hover { transform: translateY(-4px); }
+
+/* ---- Page-enter ------------------------------------------ */
+.page-enter { animation: pageIn 0.5s var(--ease-out-soft) both; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translate3d(0, 8px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ---- Marquee (shared with Tailwind ticker) --------------- */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+/* ---- Respect the user ------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }

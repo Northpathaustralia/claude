@@ -5,7 +5,7 @@ import { StoreProvider } from './context/StoreContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
-import { CountdownBanner } from './components/ui.jsx';
+import { CountdownBanner, ScrollProgress } from './components/ui.jsx';
 
 import Home from './pages/Home.jsx';
 import { ShopAll, DropPage, StylingPage, CollectionPage } from './pages/Shop.jsx';
@@ -21,6 +21,16 @@ function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => window.scrollTo(0, 0), [pathname]);
   return null;
+}
+
+/** Wraps the routed page in a keyed element so each navigation replays page-enter motion. */
+function RoutedMain({ children }) {
+  const { pathname } = useLocation();
+  return (
+    <div id="main" className="flex-1">
+      <div key={pathname} className="page-enter">{children}</div>
+    </div>
+  );
 }
 
 function NotFound() {
@@ -41,13 +51,14 @@ export default function App() {
     <StoreProvider>
       <HashRouter>
         <ScrollToTop />
+        <ScrollProgress />
         <div className="flex min-h-screen flex-col bg-bone text-ink">
           <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-[60] focus:bg-cobalt focus:px-4 focus:py-2 focus:text-bone">
             Skip to content
           </a>
           <CountdownBanner />
           <Header />
-          <div id="main" className="flex-1">
+          <RoutedMain>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/shop" element={<ShopAll />} />
@@ -72,7 +83,7 @@ export default function App() {
               <Route path="/account" element={<Account />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-          </div>
+          </RoutedMain>
           <Footer />
           <CartDrawer />
         </div>

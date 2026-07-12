@@ -7,10 +7,14 @@ export function ProductCard({ product, badge }) {
   const [colour, setColour] = useState(product.colours[0]);
   const low = totalStock(product) <= 10;
   return (
-    <article className="group border border-ink/10 bg-white/40 transition-shadow hover:shadow-lg" data-testid={`card-${product.id}`}>
+    <article className="lift group border border-ink/10 bg-white/40 hover:border-ink/25 hover:shadow-[0_18px_40px_-24px_rgba(9,9,9,0.45)]" data-testid={`card-${product.id}`}>
       <Link to={`/product/${product.id}`} className="block">
         <div className="relative overflow-hidden">
-          <GarmentArt kind={product.kind} colour={colour} className="aspect-square w-full transition-transform duration-500 group-hover:scale-[1.04]" />
+          <GarmentArt kind={product.kind} colour={colour} className="aspect-square w-full transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]" />
+          {/* quick-look affordance rises on hover */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-ink/85 py-2 text-center font-mono text-[10px] uppercase tracking-widest2 text-bone opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-hover:opacity-100">
+            View product →
+          </div>
           {badge && <span className="absolute left-3 top-3 bg-signal px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-widest2 text-ink">{badge}</span>}
           {low && <span className="absolute right-3 top-3 bg-ink px-2 py-1 font-mono text-[10px] uppercase tracking-widest2 text-bone">Low stock</span>}
         </div>

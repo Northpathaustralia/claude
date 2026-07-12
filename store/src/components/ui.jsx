@@ -1,9 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DROP } from '../data/products.js';
 import { useStore } from '../context/StoreContext.jsx';
 
-/* Shared small components: buttons, headings, tide motif, countdown, email capture. */
+/* Shared small components: buttons, headings, tide motif, countdown, email capture, motion. */
+
+/**
+ * Reveal — scroll-choreography primitive. Fades + rises its children into view
+ * once, using a single shared IntersectionObserver pattern. Honours
+ * prefers-reduced-motion via CSS (see index.css). `group` staggers direct children.
+ */
+export const Reveal = ({ children, as: Tag = 'div', group = false, className = '', style, ...rest }) => {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') { setShown(true); return; }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { setShown(true); io.disconnect(); } }),
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <Tag ref={ref} className={`reveal ${group ? 'reveal-group' : ''} ${className}`} data-shown={shown} style={style} {...rest}>
+      {children}
+    </Tag>
+  );
+};
+
+/** Thin scroll-progress bar pinned under the header — quiet premium signal. */
+export const ScrollProgress = () => {
+  const [p, setP] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setP(max > 0 ? (h.scrollTop / max) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  }, []);
+  return (
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-0.5" aria-hidden="true">
+      <div className="h-full bg-cobalt transition-[width] duration-150 ease-out" style={{ width: `${p}%` }} />
+    </div>
+  );
+};
 
 export const Btn = ({ to, onClick, children, variant = 'ink', className = '', type = 'button', disabled, ...rest }) => {
   const styles = {
@@ -122,8 +169,12 @@ export const EmailSignup = ({ dark, sms = false, id = 'email-signup' }) => {
   );
 };
 
-export const Section = ({ children, dark, className = '', id }) => (
+export const Section = ({ children, dark, className = '', id, reveal = true }) => (
   <section id={id} className={`${dark ? 'bg-ink text-bone' : 'bg-bone text-ink'} ${className}`}>
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">{children}</div>
+    {reveal ? (
+      <Reveal className="mx-auto max-w-6xl px-4 py-16 sm:py-24">{children}</Reveal>
+    ) : (
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">{children}</div>
+    )}
   </section>
 );
