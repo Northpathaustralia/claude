@@ -3,7 +3,7 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Phase 9 — Market Research & Competitive Gap Analysis
 
@@ -22,7 +22,7 @@
 | 7 | **Reinvigr8 24/7** | Oxenford | Local independent 24/7 | ~$15–20/wk | Price-fighter; not a premium threat. |
 | 8 | **Flolo Studio** | Helensvale | Yoga/Pilates boutique | class packs | Niche. |
 | 9 | **Anytime Fitness network** | Nearest confirmed clubs outside immediate area (Southport/Ashmore side) | 24/7 convenience box | ~$18–22/wk | No confirmed 4212 presence — itself a signal of the format gap. |
-| 10 | **Merse Wellness Spa Coomera** *(sister brand)* | opp. Westfield Coomera, opens Oct 2026 | $2.5m bathhouse: magnesium pools, hot/cold, saunas, reformer | day-spa pricing | Not a competitor if orchestrated — a brand beachhead proving northern-corridor wellness demand. Requires deliberate product separation (see §4). |
+| 10 | **Merse Wellness Spa Coomera** *(market signal)* | opp. Westfield Coomera, opens Oct 2026 | $2.5m bathhouse: magnesium pools, hot/cold, saunas, reformer | day-spa pricing | Not a direct competitor — a standalone bathhouse ritual that proves northern-corridor wellness demand. Product separation and co-marketing addressed in §4. |
 
 **Structural finding:** within 4212 itself there is **no full-service club of any tier** — the island's ~18,600 residents (growing to 20k+) currently drive 10+ minutes to a Westfield or settle for boutiques. Nobody in the entire northern corridor offers big-box training + spa-grade recovery + Pilates + allied health + café under one roof. The nearest true analogues (TotalFusion-style precinct clubs) are in Brisbane and the southern Gold Coast.
 
@@ -42,9 +42,9 @@
 - Physio/massage on-site with gym-floor integration
 - A café worth staying at (social fitness — the "third place")
 
-## 4. Merse Coomera interaction protocol
+## 4. Nearby wellness-spa interaction protocol (Merse Coomera)
 - **Product separation:** Merse = standalone luxury bathhouse ritual (2–3hr visits, day-spa price architecture). North Harbour recovery centre = training-integrated recovery (30–60min, membership-bundled). Different occasions, different price metabolism.
-- **Funnel design:** Merse guests receive North Harbour trial passes and vice-versa; shared CRM; corporate wellness packages sell both.
+- **Co-marketing option:** a reciprocal trial-pass and referral arrangement is available to the selected operator (guests each way, corporate wellness packages spanning both) — a funnel, not a threat.
 - **Cannibalisation cap:** modelled at <8% of recovery-line revenue (recovery is $0.62m of $10.5m — bounded exposure).
 
 ## 5. Gap analysis verdict

@@ -3,7 +3,7 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Engagement Pack — Approach, Protection & Execution
 
@@ -11,7 +11,9 @@ This document closes the gap between "a great package" and "a deal in motion": h
 
 ## 1. Draft cover letter — operator approach
 
-> **Private & Confidential — for the attention of the CEO / Head of Property, Fitness Cartel Australia**
+> **Private & Confidential — for the attention of the CEO / Head of Property, [Operator]**
+>
+> *(This template is issued, under NDA, to each shortlisted premium operator in the competitive process — international premium chains, Australian premium groups, or a joint-venture owner-operate partner.)*
 >
 > Dear [Name],
 >
@@ -19,7 +21,7 @@ This document closes the gap between "a great package" and "a deal in motion": h
 >
 > In brief: the wealthiest fast-growing catchment on the northern Gold Coast (median household income $1,934/week, +26.7% population since 2021) has no full-service club of any tier, and two pieces of state infrastructure — the Coomera Connector and the new Hope Island rail station — switched on at its gateway within the last seven months. We have completed a weighted multi-site analysis, pre-feasibility due diligence, concept design for a 6,200m² integrated club/recovery/Pilates/allied-health precinct, a Class 5 cost plan (~$47m TDC) and a 10-year financial model showing ~$4m mature EBITDAR under an OpCo/PropCo structure that would require less than $5m of operator capital.
 >
-> We believe this is the natural Gold Coast statement asset in your journey to 60 clubs by 2030, and it is deliberately structured so the operator's capital commitment is limited to fitout and equipment against a long triple-net lease.
+> We believe this is the natural Gold Coast statement asset for a premium operator's national network, and it is deliberately structured so the operator's capital commitment is limited to fitout and equipment against a long triple-net lease.
 >
 > I would welcome a 45-minute meeting to walk your team through the investment memorandum. The full package is available under NDA.
 >

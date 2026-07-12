@@ -3,11 +3,11 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Phase 1 — Location Analysis & Site Selection
 
-**Project:** Project North Harbour — Flagship Health Club & Wellness Precinct, Northern Gold Coast (proposed anchor operator: Fitness Cartel)
+**Project:** Project North Harbour — Flagship Health Club & Wellness Precinct, Northern Gold Coast (operator-agnostic; target: a premium full-service health-club operator, selected by competitive process)
 **Prepared:** July 2026
 **Status:** Investment-grade pre-feasibility. Verified data is cited; assumptions are flagged `[ASSUMPTION]` and must be confirmed before acquisition.
 
@@ -32,11 +32,11 @@ We also tested the honest counter-case ("is Hope Island the wrong location?") in
 | Australian gym & fitness centre market (2025) | ~$3.7bn revenue | IBISWorld |
 | Gym membership penetration | ~15% of Australians; avg fee ~$65/month | Industry statistics (2025–26) |
 | Adult gym-workout participation | ~28% (AusPlay 2023), rising post-COVID | Australian Sports Commission |
-| Fitness Cartel expansion target | 60 clubs by 2030 (currently QLD/Northern NSW network incl. Maroochydore, Aspley, Oxley, Beenleigh, Tingalpa, Springwood, Nundah, Tweed Heads, Mackay) | fitnesscartel.com.au |
-| Fitness Cartel Maroochydore membership | 5,000+ members claimed | fitnesscartel.com.au |
+| Premium-operator expansion appetite (market) | Australian premium groups are actively rolling out full-service, recovery-led formats; one QLD group publicly targets 60 clubs by 2030 | operator disclosures |
+| Comparable premium-flagship scale | A QLD premium flagship (Maroochydore) reports 5,000+ members | operator site |
 | Sister brand | Merse Wellness Spa — $2.5m, 600m² bathhouse + Pilates, opening opposite Westfield Coomera **October 2026** | The Weekend Edition GC, June 2026 |
 
-**Implication:** The northern Gold Coast is already on Fitness Cartel's own expansion map (Merse Coomera). A Hope Island flagship must be positioned to **complement, not cannibalise** Merse Coomera — this is addressed in site scoring (criterion 9) and in the Investment Memorandum.
+**Implication:** The northern Gold Coast is already drawing premium wellness capital (e.g. the Merse Coomera bathhouse, Oct 2026). A Hope Island flagship must be positioned to **complement rather than duplicate** that nearby offer — addressed in site scoring (criterion 9) and in the Investment Memorandum.
 
 ---
 
@@ -53,7 +53,7 @@ We also tested the honest counter-case ("is Hope Island the wrong location?") in
 | Unemployment | 2.4% | AreaSearch |
 | Growth driver | ~69.5% of gains from interstate migration | AreaSearch |
 
-**The critical insight:** Hope Island is affluent and fast-growing, but it is **not a 25-year-old bodybuilder market**. It is a market of wealthy 45–75 year-olds, downsizers, golf-club members and affluent young families in the new canal estates. Spending power is exceptional; the winning product is **premium wellness, recovery, reformer Pilates, allied health and social amenity** — precisely the "affordable luxury" full-service format Fitness Cartel and Merse are built on, and precisely what a discount 24/7 box cannot serve.
+**The critical insight:** Hope Island is affluent and fast-growing, but it is **not a 25-year-old bodybuilder market**. It is a market of wealthy 45–75 year-olds, downsizers, golf-club members and affluent young families in the new canal estates. Spending power is exceptional; the winning product is **premium wellness, recovery, reformer Pilates, allied health and social amenity** — precisely the "affordable-luxury" full-service format that leading premium operators are built on, and precisely what a discount 24/7 box cannot serve.
 
 ### 3.2 Secondary catchment — 10–15 minute drive-time
 
@@ -86,7 +86,7 @@ A live sweep of commercialrealestate.com.au, developmentready.com.au and commerc
 | **A** | **Hope Island Town Centre precinct** (Marina Quays Blvd, adj. Hope Island Tavern & Hope Island Marketplace) | Approved ~18,700m² town-centre DA (two supermarkets, specialty retail, offices). Anchor-tenancy or pad-site play inside Hope Island's future CBD. Marketplace next door: Woolworths 4,200m² + Aldi 1,600m² + 36 specialties, 484 bays. |
 | **B** | **Hope Island Road western gateway corridor** (Hope Island Rd between the new rail station and Columbus Dr, Hope Island/Oxenford boundary) | Freestanding greenfield/brownfield land, ~30,900+ vpd exposure, walkable to the new station, first exit off the M9 for Hope Island traffic. |
 | **C** | **HAVEN / Activa Way & Springfield Dr, Hope Island Resort** | New mixed-use strata precinct, flexible mixed-use zoning — suits a 1,500–2,500m² boutique, too small for a 4,500–7,000m² flagship without assembling multiple lots. |
-| **D** | **Westfield Coomera fringe (Foxwell Rd)** | Deepest growth catchment, but head-on with Goodlife Coomera in-centre, World Gym Upper Coomera, and **Fitness Cartel's own Merse Coomera (Oct 2026)**. |
+| **D** | **Westfield Coomera fringe (Foxwell Rd)** | Deepest growth catchment, but head-on with Goodlife Coomera in-centre, World Gym Upper Coomera, and the **nearby Merse Coomera wellness spa (Oct 2026)**. |
 | **E** | **Oxenford — Old Pacific Hwy corridor** | Cheapest land, good families catchment, weaker prestige and weaker fit for a flagship "destination" brand statement. |
 
 ## 5. Weighted scoring matrix
@@ -104,20 +104,20 @@ Weights reflect a destination flagship (members drive 10–15 min to a destinati
 | Land / occupancy cost | 8% | 4 | 6 | 5 | 5 | 8 |
 | Access & parking control | 8% | 5 | 9 | 4 | 6 | 8 |
 | Brand statement / visibility of flagship | 5% | 8 | 9 | 6 | 6 | 5 |
-| Portfolio synergy (vs Merse Coomera cannibalisation) | 5% | 8 | 8 | 7 | 3 | 6 |
+| Portfolio fit (vs nearby wellness-spa overlap) | 5% | 8 | 8 | 7 | 3 | 6 |
 | **Weighted total** | 100% | **6.6** | **8.3** | **5.9** | **6.2** | **7.0** |
 
 ### Why Site B wins
 
 - **Only option that captures both catchments.** East: Hope Island/Sanctuary Cove/Paradise Point wealth. West/North: Oxenford–Helensvale–Coomera volume. A mid-island site (A/C) faces water on three sides — half its drive-time circle is river and Broadwater, which structurally caps catchment.
-- **Exposure:** ~31,000 vpd on Hope Island Road versus internal boulevard traffic at A/C. Signage rights on a state-controlled arterial are the cheapest marketing Fitness Cartel will ever buy.
+- **Exposure:** ~31,000 vpd on Hope Island Road versus internal boulevard traffic at A/C. Signage rights on a state-controlled arterial are the cheapest marketing the operator will ever buy.
 - **The station changes the equation.** Hope Island station (May 2026) puts staff, students and commuting members on the doorstep and anchors a future transit-oriented precinct — exactly where Council will welcome an employment/health use.
 - **Control.** A freestanding site gives 24/7 operation, dedicated parking, outdoor training and future precinct expansion (allied health pads) — impossible as an in-centre tenant at A, C or D.
 - **Timing risk at A:** the Town Centre DA has been "the future of Hope Island" for over a decade (GFC-delayed); anchoring there means underwriting someone else's delivery programme.
 
 ### Fallback strategy
 
-If no 8,000–12,000m² parcel on the gateway corridor can be secured within 9 months at viable pricing (`[TRIGGER]` >$800/m² land or adverse flood findings), the fallback is a **pre-lease anchor tenancy at Site A (Town Centre)** at ~3,500–4,500m² — lower capex, lower control, still on-island. Sites D and E are not recommended for the flagship: D collides with Merse Coomera and two incumbents; E dilutes the brand statement.
+If no 8,000–12,000m² parcel on the gateway corridor can be secured within 9 months at viable pricing (`[TRIGGER]` >$800/m² land or adverse flood findings), the fallback is a **pre-lease anchor tenancy at Site A (Town Centre)** at ~3,500–4,500m² — lower capex, lower control, still on-island. Sites D and E are not recommended for the flagship: D collides with the Merse Coomera spa and two incumbents; E dilutes the brand statement.
 
 ---
 
@@ -139,7 +139,7 @@ If no 8,000–12,000m² parcel on the gateway corridor can be secured within 9 m
 ## 7. The honest counter-case (tested and answered)
 
 1. **"Hope Island is too old for a gym."** Half-true for a discount box; false for this format. Over-55s are the fastest-growing premium wellness spenders (recovery, Pilates, strength-for-longevity, allied health) with daytime availability that flattens the peak-load curve — improving effective capacity and yield per m². The design brief (Phase 4) deliberately weights recovery/Pilates/allied health ~35% of GFA.
-2. **"Coomera has more people."** Yes — and three competitors including our own Merse. Coomera's growth is served; Hope Island's wealth is not.
+2. **"Coomera has more people."** Yes — and three competitors including the nearby Merse spa. Coomera's growth is served; Hope Island's wealth is not.
 3. **"Buy in-centre at the Town Centre instead."** Viable fallback, but surrenders exposure, parking control, 24/7 independence and precinct upside, and carries developer-timing risk.
 4. **"Is the whole northern corridor wrong — should this be Robina/Burleigh?"** Southern Gold Coast is materially more saturated (World Gym Burleigh, TotalFusion, multiple premium boutiques). The north has the growth, the infrastructure spend and the supply gap.
 

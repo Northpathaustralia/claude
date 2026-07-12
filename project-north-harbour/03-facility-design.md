@@ -3,7 +3,7 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Phases 4–5 — Facility Design Brief & Visualisation Package
 
@@ -40,7 +40,7 @@
 | Functional / HYROX / cross-training hall | 520 | 30m sled track, rig, comp-standard erg fleet; hosts HYROX-affiliate events |
 | Group fitness studio 1 (60 pax) | 180 | Les-Mills-scale, sprung floor |
 | Cycle studio (40 bikes) | 120 | Immersive AV, theatre rake |
-| **Recovery centre** | **520** | Cold plunges (2× communal, 2× private), magnesium mineral pools, 2 traditional saunas + 1 infrared suite, steam room, contrast deck, compression-boot lounge (12 stations), quiet room — *club-integrated version of the Merse playbook* |
+| **Recovery centre** | **520** | Cold plunges (2× communal, 2× private), magnesium mineral pools, 2 traditional saunas + 1 infrared suite, steam room, contrast deck, compression-boot lounge (12 stations), quiet room — *club-integrated recovery — the destination wellness format proven by dedicated bathhouses, brought inside the membership* |
 | Wet change / luxury bathrooms | 320 | Hotel-grade: stone vanities, private cubicles, day-lockers, towel service |
 | Kids club | 160 | Licensed capacity ~40, own amenities, secure drop-off from carpark |
 | Physio / sports-massage / allied suites (leased) | 300 | 8 consult rooms + rehab gym window onto main floor |

@@ -3,7 +3,7 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Phase 6 — Development Cost Plan (Order-of-Magnitude, QS Framework)
 
@@ -50,9 +50,9 @@
 
 | Structure | Mechanics | Effect |
 |---|---|---|
-| **OpCo/PropCo (recommended)** | PropCo owns land+building (TDC ex-equipment ≈ $47m); OpCo (Fitness Cartel) signs 15+5+5yr triple-net lease at ~$2.3m p.a. (≈4.9% of PropCo cost, ~6.25% market cap rate ⇒ completed value ≈ **$36–38m** + land-bank upside) and funds equipment/FF&E ($4.7m) itself | Fitness Cartel deploys <$5m + fitout to control a flagship; property investor gets institutional-grade net lease |
-| Fund-through | Investor funds progressively at agreed cap-on-cost, FC pre-commits lease | Removes FC balance-sheet load entirely |
-| Owner-operate | FC group holds both | Full upside, heaviest capital |
+| **OpCo/PropCo (recommended)** | PropCo owns land+building (TDC ex-equipment ≈ $47m); the anchor operator's OpCo signs a 15+5+5yr triple-net lease at ~$2.3m p.a. (≈4.9% of PropCo cost, ~6.25% market cap rate ⇒ completed value ≈ **$36–38m** + land-bank upside) and funds equipment/FF&E ($4.7m) itself | Operator deploys <$5m + fitout to control a flagship; property investor gets institutional-grade net lease |
+| Fund-through | Investor funds progressively at agreed cap-on-cost; operator pre-commits lease | Removes operator balance-sheet load entirely |
+| Owner-operate | Sponsor holds both PropCo and OpCo under a bespoke identity | Full upside, heaviest capital |
 
 ## 3. Cost risks (top 5)
 1. **SEQ escalation pre-2032 Olympics** — steel/labour; mitigate with ECI contract + early equipment orders.

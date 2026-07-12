@@ -3,7 +3,7 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Phases 2–3 — Property Due Diligence & Land Investigation
 
@@ -92,7 +92,7 @@ Piled foundations → engineered pad → **structural steel portal frame** (27�
 | 5 | Land price escalation (corridor is hot post-station) | H | M | 9-month option strategy; two live alternates (fallback = Town Centre pre-lease) |
 | 6 | Construction escalation (SEQ pre-Olympics) | H | M | ECI with builder; steel/equipment early procurement; 10% contingency + escalation line |
 | 7 | Energex connection lead time | M | M | Application immediately post-DA; temporary supply for fitout |
-| 8 | Merse Coomera cannibalisation of recovery revenue | M | M | Differentiate: club-integrated recovery vs Merse's standalone spa; cross-sell membership |
+| 8 | Overlap with nearby Merse Coomera spa on recovery revenue | M | M | Differentiate: club-integrated recovery vs standalone ritual spa; co-marketing cross-sell |
 | 9 | Rate rises / cap-rate drift hurting funding | M | M | Fix debt at practical completion; pre-lease allied-health pads to de-risk income |
 | 10 | Neighbour objection escalating assessment level | L | M | Confirm code-assessable pathway before contract; community engagement early |
 

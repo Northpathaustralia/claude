@@ -3,12 +3,12 @@
 > **PROJECT NORTH HARBOUR**
 > Not for circulation or distribution without written permission.
 >
-> *References to Fitness Cartel and other operators are for evaluation as prospective tenants/partners only. Project North Harbour is an independent proposal — not affiliated with, endorsed by, or authorised by Fitness Cartel Australia. No trademark rights are claimed and no operator branding may be used publicly without written agreement.*
+> *Project North Harbour is an independent, operator-agnostic development proposal. Any health-club, wellness or hospitality brands named in this document appear solely as market comparison or as candidate operators under evaluation; none is affiliated with, and none has endorsed or authorised, this proposal. No third-party trademark rights are claimed and no third-party branding may be used in public materials, domain names or social media without written agreement.*
 
 # Project North Harbour
 ## Confidential Hope Island Health Club Development Opportunity
 
-Investment-grade development proposal for a flagship health club and wellness precinct on the northern Gold Coast, with Fitness Cartel as the proposed anchor operator. Prepared July 2026.
+Investment-grade, **operator-agnostic** development proposal for a flagship health club and wellness precinct on the northern Gold Coast, offered to premium operators through a competitive process. Prepared July 2026.
 
 ## Package index
 
@@ -23,8 +23,10 @@ Investment-grade development proposal for a flagship health club and wellness pr
 | [`06-market-research.md`](06-market-research.md) | Competitor analysis and gap analysis (Phase 9) |
 | [`07-financial-model.csv`](07-financial-model.csv) | 10-year OpCo P&L model, base case with assumptions (spreadsheet-ready) |
 | [`08-engagement-pack.md`](08-engagement-pack.md) | Cover letter, confidentiality & IP protocol, consultant procurement, data-room index |
+| [`09-design-package.md`](09-design-package.md) | Interiors room-by-room, materials palette, costed equipment schedule, finishes/lighting/room/door schedules, landscape design, sustainability |
 | [`deck/index.html`](deck/index.html) | Investor presentation deck (self-contained HTML, light/dark) |
-| [`drawings/index.html`](drawings/index.html) | Concept drawing set Rev A: S-01 site plan, C-01 civil & services, C-02 earthworks section, A-01/A-02 floor plans, A-03 street elevation. Concept only — not for construction |
+| [`drawings/index.html`](drawings/index.html) | Concept drawing set Rev A — 14 sheets: S-01 site, RF-01 roof, C-01 civil & services, C-02 earthworks section, A-01/A-02 floor plans, A-03 street elevation, A-04/A-05 elevations, A-06 cross-section, A-07 equipment & furniture, A-08 egress & fire, L-01 landscape, AX-01 axonometric. Concept only — not for construction |
+| [`visuals/index.html`](visuals/index.html) | Visualisation suite — 9 stylised concept illustrations (exterior, aerial, arrival, reception, café, strength floor, recovery, Pilates, night) |
 
 ## Headline
 
