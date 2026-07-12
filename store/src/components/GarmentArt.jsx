@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { COLOURS } from '../data/products.js';
 
 /**
@@ -90,22 +90,41 @@ const Jersey = ({ c }) => (
 
 const KINDS = { tee: Tee, short: Short, hoodie: Hoodie, cap: Cap, jersey: Jersey };
 
-export default function GarmentArt({ kind, colour = 'Washed Ink', className = '', bg = true }) {
+/**
+ * Product visual. If the product has a real `photo` URL it renders that (this is
+ * the drop-in point for AI-model or studio photography — see
+ * docs/PHOTOGRAPHY_AND_AI_MODELS.md). Otherwise it renders an art-directed
+ * vector "studio" render: soft top-light, radial vignette, grounded floor
+ * shadow — deliberately moody, not clip-art.
+ */
+export default function GarmentArt({ kind, colour = 'Washed Ink', className = '', bg = true, photo, alt }) {
   const c = COLOURS[colour] || COLOURS['Washed Ink'];
   const Body = KINDS[kind] || Tee;
+  const uid = useId().replace(/:/g, '');
+
+  if (photo) {
+    return <img src={photo} alt={alt || `${kind} in ${colour}`} loading="lazy" className={`object-cover ${className}`} />;
+  }
+
   return (
-    <svg viewBox="0 0 240 240" className={className} role="img" aria-label={`${kind} in ${colour}`}>
+    <svg viewBox="0 0 240 240" className={className} role="img" aria-label={alt || `${kind} in ${colour}`}>
       {bg && (
         <>
-          <rect width="240" height="240" fill="#E9E5DA" />
-          <g stroke="#DCD7CA" strokeWidth="1">
-            <line x1="0" y1="60" x2="240" y2="60" />
-            <line x1="0" y1="120" x2="240" y2="120" />
-            <line x1="0" y1="180" x2="240" y2="180" />
-            <line x1="60" y1="0" x2="60" y2="240" />
-            <line x1="180" y1="0" x2="180" y2="240" />
-          </g>
-          <text x="10" y="230" fontSize="8" fill="#B4AF9F" fontFamily="monospace" letterSpacing="1">28.0167°S</text>
+          <defs>
+            <radialGradient id={`studio-${uid}`} cx="50%" cy="34%" r="78%">
+              <stop offset="0%" stopColor="#F3F0E8" />
+              <stop offset="62%" stopColor="#E9E5DA" />
+              <stop offset="100%" stopColor="#D8D3C6" />
+            </radialGradient>
+            <radialGradient id={`floor-${uid}`} cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(9,9,9,0.22)" />
+              <stop offset="100%" stopColor="rgba(9,9,9,0)" />
+            </radialGradient>
+          </defs>
+          <rect width="240" height="240" fill={`url(#studio-${uid})`} />
+          {/* grounded floor shadow */}
+          <ellipse cx="120" cy="205" rx="72" ry="12" fill={`url(#floor-${uid})`} />
+          <text x="12" y="228" fontSize="7.5" fill="#B4AF9F" fontFamily="monospace" letterSpacing="1.5">28.0167°S / 153.4000°E</text>
         </>
       )}
       <Body c={c} />
