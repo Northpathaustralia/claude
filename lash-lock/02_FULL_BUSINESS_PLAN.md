@@ -155,7 +155,7 @@ Concept B tool ×2, magnetic-close hygiene case, mini fallout fan brush, cleanin
 
 ## Concept G — Pro Kit (4 shields, sanitising caddy, client-facing hygiene story)
 Concept B tool ×4 in an IPA-friendly caddy with per-client workflow card; sold to MUAs.
-- Ease: 4. Hygiene: 5. Mfg difficulty: 2–3. **Kit landed cost ~AUD $14–18 (EST)**. Margin: 4–5 at AUD $59.95–69.95. Content: 4 (pro credibility content). Pro: 5. Consumer: 1. Copyability: medium. Risk: low-medium as a second SKU.
+- Ease: 4. Hygiene: 5. Mfg difficulty: 2–3. **Kit landed cost ~AUD $12–18 (EST; refined to ~$13.50 in `05_FINANCIAL_MODEL.md`)**. Margin: 4–5 at AUD $59.95–69.95. Content: 4 (pro credibility content). Pro: 5. Consumer: 1. Copyability: medium. Risk: low-medium as a second SKU.
 
 ## Scoring summary (out of 50 across 10 weighted criteria)
 
