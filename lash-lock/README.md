@@ -18,3 +18,17 @@ An end-to-end, validation-gated business plan for a premium reusable eye-makeup 
 | [11_CODEX_BUILD_INSTRUCTIONS.md](11_CODEX_BUILD_INSTRUCTIONS.md) | Deliverable build handover (R22) |
 
 **Evidence standard:** every material claim is tagged VERIFIED / ESTIMATED / ASSUMED / REQUIRES REAL-WORLD VALIDATION. Live research (July 2026) verified: competitor products and complaint themes, ASIC/IP Australia/Shopify fees, the Quick Flick precedent, Higgsfield capabilities, and silicone-manufacturing patterns. No revenue, demand, trademark availability, or supplier price is presented as fact. Legal/tax/employment items are flagged ⚖️ for professional advice.
+
+## Ready-to-present deliverables (`build/`)
+
+The anniversary-critical outputs are built from the markdown sources above (content is verbatim; only layout/styling was added) and are ready to open/present:
+
+| File | Built from | Notes |
+|---|---|---|
+| `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pptx` | `09_ANNIVERSARY_PRESENTATION.md` | 28 slides, 16:9, brand palette applied, speaker notes in the notes pane |
+| `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pdf` | Same deck, exported | 28 pages, verified render |
+| `build/LETTER_TO_KAT.docx` | `10_FOUNDER_LETTER_TO_KAT.md` | A4, print-ready; bracketed personalisation lines left for James to fill in |
+| `build/LETTER_TO_KAT.pdf` | Same letter, exported | 2 pages |
+| `build/make_deck.py` / `build/make_letter.py` | — | Regeneration scripts (`python3 build/make_deck.py`, then `soffice --headless --convert-to pdf ...` to refresh the PDF) — rerun if the markdown source changes |
+
+**Not yet built:** `LASH_LOCK_COMPLETE_BUSINESS_PLAN.pdf`, `LASH_LOCK_90_DAY_ACTION_PLAN.xlsx`, `LASH_LOCK_BRAND_GUIDE.pdf`, and the `VISUAL_ASSETS/` / `PRODUCT_MOCKUPS/` / `LOGO_CONCEPTS/` image folders — see `11_CODEX_BUILD_INSTRUCTIONS.md` for the remaining build spec.

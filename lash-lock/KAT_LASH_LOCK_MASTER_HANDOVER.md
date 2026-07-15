@@ -30,17 +30,21 @@ All 22 rounds of the original directive are done and written into 11 numbered fi
 - Complete 28-slide anniversary presentation with speaker notes, founder letter, Codex build-handover instructions (Rounds 21–22)
 - Final QC pass: cross-file consistency checked (pricing, brand name, verdict, slide count, ASIC fee figures) — one inconsistency found and fixed (Pro Kit landed-cost range in file 02 aligned to file 05's $13.50 figure)
 
-## 3. Work currently in progress
+## 3. Work currently in progress — UPDATE (post-checkpoint continuation)
 
-**Nothing is mid-edit.** The build was explicitly paused by the user before any further round or revision began. This handover is the only new work in this checkpoint.
+**Nothing is mid-edit as of this update.** After this handover was written, the session was resumed ("continue") and completed the anniversary-critical build step (former item 1 below):
+- `build/make_deck.py` and `build/make_letter.py` (Python, python-pptx/python-docx) were written to convert the markdown sources into real files. Content is verbatim from source; only layout/styling was added.
+- Produced and visually verified (rendered to PNG, checked for layout bugs — one found and fixed: long titles wrapping to 2 lines were overlapping the subtitle chip on standard slides; fixed by resizing the title box and shifting subtitle/body down): `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pptx` (28 slides, confirmed), `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pdf` (28 pages, confirmed), `build/LETTER_TO_KAT.docx` (2 pages), `build/LETTER_TO_KAT.pdf` (2 pages, bonus export).
+- Environment note: `libreoffice-impress`/`libreoffice-writer`/`poppler-utils` were not preinstalled and had to be `apt-get install`-ed before PDF conversion/rendering worked (base image only had `libreoffice-core`). If regenerating in a fresh environment, install those first.
+- All committed and pushed to `claude/lash-lock-business-plan-xq6pa5`.
 
 ## 4. Work remaining
 
-Per the original Round 22 directive, the *written* plan is complete, but these production/output steps have **not** been done and remain open:
-1. Convert `09_ANNIVERSARY_PRESENTATION.md` into an actual `.pptx` + `.pdf` file (currently markdown script only — no slide software has been used).
+Per the original Round 22 directive, these production/output steps are **still open** (items 2–3, 5–6 from the original list; items 1 and 4 are now DONE — see §3 above):
+1. ~~Convert `09_ANNIVERSARY_PRESENTATION.md` into `.pptx` + `.pdf`~~ **DONE**.
 2. Convert `02+01+05` into `LASH_LOCK_COMPLETE_BUSINESS_PLAN.pdf`.
 3. Convert `06_90_DAY_ACTION_PLAN.md` into `LASH_LOCK_90_DAY_ACTION_PLAN.xlsx`.
-4. Convert `10_FOUNDER_LETTER_TO_KAT.md` into `LETTER_TO_KAT.docx`.
+4. ~~Convert `10_FOUNDER_LETTER_TO_KAT.md` into `LETTER_TO_KAT.docx`~~ **DONE**.
 5. Convert `04_BRAND_GUIDE.md` into `LASH_LOCK_BRAND_GUIDE.pdf`.
 6. Generate actual images from the prompts in `04` §7 and `08` (logo concepts, product renders, packaging mockups) — **no images have been generated yet**, only text prompts written.
 7. Everything in `06_90_DAY_ACTION_PLAN.md` "NEXT 72 HOURS" onward is real-world execution (name searches, filming, prototyping) — none of it has actually been done in the physical world; it is planned, not executed.
@@ -221,17 +225,19 @@ This is explicitly item 1 in `11_CODEX_BUILD_INSTRUCTIONS.md`'s build order ("1 
 ---
 
 ## FILES TO DOWNLOAD NOW
-- `09_ANNIVERSARY_PRESENTATION.md`
-- `10_FOUNDER_LETTER_TO_KAT.md`
-- `04_BRAND_GUIDE.md`
-- `11_CODEX_BUILD_INSTRUCTIONS.md`
+- `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pptx` — **the anniversary deck, ready to present**
+- `build/KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pdf` — same deck, PDF
+- `build/LETTER_TO_KAT.docx` — **the letter, ready to print** (fill in the two bracketed personalisation lines first)
+- `build/LETTER_TO_KAT.pdf` — same letter, PDF
 - `KAT_LASH_LOCK_MASTER_HANDOVER.md` (this file)
 
 ## NEXT MODEL
 **Sonnet**
 
 ## EXACT NEXT TASK
-Produce `KAT_LASH_LOCK_ANNIVERSARY_PRESENTATION.pptx`/`.pdf` and `LETTER_TO_KAT.docx` from the existing markdown source, following the build rules in `11_CODEX_BUILD_INSTRUCTIONS.md` — content is final, do not rewrite it.
+The anniversary-critical deliverables (deck + letter) are done — see §3 above. **Before 19 July:** James should open `build/LETTER_TO_KAT.docx` and fill in the `[x]` (years together) and the final bracketed memory line — those are the only two edits needed before printing.
+
+The next *build* task (not time-critical for the anniversary) is item 2 from §4: convert `01_EXECUTIVE_SUMMARY.md` + `02_FULL_BUSINESS_PLAN.md` + `05_FINANCIAL_MODEL.md` into `LASH_LOCK_COMPLETE_BUSINESS_PLAN.pdf`, per `11_CODEX_BUILD_INSTRUCTIONS.md`. A markdown-to-PDF approach (e.g. pandoc, or a script following the `make_letter.py`/`make_deck.py` pattern already in `build/`) is the likely path — `libreoffice-writer` and `poppler-utils` are now installed in this environment from this session, so PDF conversion is available if continuing in the same container; a fresh environment will need the same `apt-get install libreoffice-impress libreoffice-writer poppler-utils` step first.
 
 ---
 
