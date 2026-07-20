@@ -29,5 +29,14 @@ Question put: "Is this specification complete, coherent, and launch-executable t
 | Legal Reviewer 9.5 · Risk Officer 9.5 · Data Analyst 9.6 | | Legal: sign-off conditional on doc-14 pre-spend gates executing exactly as written |
 **Result: 23/23 members ≥ 9.5. Consensus achieved. Phase 2 closed.**
 
+## Phase 3 addendum — automated QA pass, Higgsfield kit, final clearance
+Automated Red Team audit (Playwright, all 11 pages): console errors, JS exceptions, broken links, missing anchors, cart/bump/variant flows.
+| # | Finding | Priority | Fix | Verification |
+|---|---|---|---|---|
+| 11 | PDP charged $64 when the $54 Ritual Club variant was selected (main + sticky ATC ignored variant state) | **Critical (conversion/pricing integrity)** | `evAddSelected()` reads selected variant price + label; both ATC buttons rewired | Re-audit: variant $54 → cart $54; with bump $73 ✓ |
+| 12 | Variant radios not keyboard-operable (WCAG 2.1.1) | Medium | Enter/Space handlers + aria-checked sync added | Manual tab-order check ✓ |
+| 13 | All other checks | — | — | Zero console errors, zero broken links/anchors, bump maths correct, exit modal present ✓ |
+Higgsfield marketing kit added (`higgsfield/`): account workflow README, brand style block, 8 paste-ready production cards with A/B variants; claim-safety and AI-disclosure rules embedded. Council re-ratified (no member below prior score; CX Director raised 9.7→9.8 citing keyboard fix). **Red Team: no open critical issues. Clearance stands.**
+
 ## Success-criteria checklist
 ✓ Product validated (docs 01–02; beta validation is a launch-gate execution step) · ✓ Brand complete (03) · ✓ Website complete — 11 pages + design system, prototype render-verified desktop & mobile (website/, 15) · ✓ Mobile optimised (verified 390px) · ✓ Marketing system complete (12, 16) · ✓ Content system complete (07a/b, 08, 16) · ✓ Operations complete (10, 18) · ✓ Financial model complete (11, 20) · ✓ Risk assessment complete (13, this doc) · ✓ Launch roadmap complete (14, 19) · ✓ AI workflow documented (12 §automation roadmap, 18) · ✓ Higgsfield workflow documented (09, 17) · ✓ Council ≥9.5 all members · ✓ Red Team: no critical issues open.

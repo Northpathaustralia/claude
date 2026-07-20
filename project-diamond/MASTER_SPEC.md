@@ -45,7 +45,9 @@ $154k launch capital · AOV $96 · blended COGS 17.5% · contribution 68% pre-ma
 | [19-implementation-guide](docs/19-implementation-guide.md) | 19-step beginner setup guide, domain → weekly optimisation |
 | [20-financial-model-v2](docs/20-financial-model-v2.md) | Software costs, ad-budget scenarios, 24-month projection, consolidated cases |
 | [21-governance-signoff](docs/21-governance-signoff.md) | Red Team findings/repairs + 23-member council vote (all ≥9.5) |
-| [website/](website/) | Working prototype: index, shop, product, about, faq, contact, shipping, returns, privacy, checkout, thank-you + `style.css`/`site.js` (cart drawer, order bump, sticky ATC, exit intent) — render-verified desktop & mobile |
+| [website/](website/) | Working prototype: index, shop, product, about, faq, contact, shipping, returns, privacy, checkout, thank-you + `style.css`/`site.js` (cart drawer, order bump, sticky ATC, exit intent) — render-verified desktop & mobile; automated QA pass clean (doc 21 addendum) |
+| [higgsfield/](higgsfield/) | Higgsfield account kit: workflow README, brand style block, 8 paste-ready production cards |
+| [START-HERE.md](START-HERE.md) | Plainest-possible next-step guide (week-by-week) |
 
 ## Governance record
 - Council consensus on venture selection: **9.55/10** (doc 01). Red Team: all structural attacks repaired; residual risks in doc 13.

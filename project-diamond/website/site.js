@@ -46,14 +46,26 @@
   });
 
   /* ---- variant selection ---- */
+  function selectVariant(v) {
+    $all('.variant').forEach(function (o) { o.classList.remove('selected'); o.setAttribute('aria-checked', 'false'); });
+    v.classList.add('selected');
+    v.setAttribute('aria-checked', 'true');
+    var btn = $('#atc-main');
+    if (btn) btn.textContent = 'Add to cart — $' + v.dataset.price;
+  }
   $all('.variant').forEach(function (v) {
-    v.addEventListener('click', function () {
-      $all('.variant').forEach(function (o) { o.classList.remove('selected'); });
-      v.classList.add('selected');
-      var btn = $('#atc-main');
-      if (btn) btn.textContent = 'Add to cart — $' + v.dataset.price;
+    v.addEventListener('click', function () { selectVariant(v); });
+    v.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectVariant(v); }
     });
   });
+  /* main ATC honours the selected variant's price */
+  window.evAddSelected = function (name, cls) {
+    var v = $('.variant.selected');
+    var price = v ? parseFloat(v.dataset.price) : 64;
+    var label = v && v.dataset.label ? name + ' (' + v.dataset.label + ')' : name;
+    window.evAddToCart(label, price, cls);
+  };
 
   /* ---- sticky ATC on PDP ---- */
   var atcAnchor = $('#atc-main');

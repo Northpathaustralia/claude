@@ -1,0 +1,25 @@
+CARD 04 — "THE HONEST FOUNDER" (trust / retargeting) · file: 2607-meta-M04-A.mp4 · hook Meta#7
+ASPECT 9:16 + 1:1 · TARGET 32s · AD COPY: doc 16, Body H
+NOTE: Best shot with a REAL person (you or a founder) speaking to camera — Higgsfield generates the b-roll inserts; authenticity is the point. If fully AI-generated, enable the platform's AI-content disclosure toggle.
+
+SCENE 1 (0-6s) — real founder to camera, locked shot at a workbench, holding the jar up:
+"We won't tell you magnesium soaks through your skin and cures your sleep."
+
+SCENE 2 INSERT (generate, 3s):
+Macro of translucent magnesium chloride flakes on a steel bench beside handwritten batch sheets and printed scientific papers, workshop lighting, honest and unglamorous.
+
+SCENE 3 (6-18s) — founder continues:
+"The science on skin absorption is genuinely contested. Here's what IS proven: a warm bath before bed helps your body warm, then cool, then rest. Twenty screen-free minutes does the rest."
+
+SCENE 4 INSERT (generate, 3s):
+Slow pan across a small production bench: amber essential-oil bottles labelled by hand, a scent-testing strip, a retained sample jar, warm practical light.
+
+SCENE 5 (18-27s) — founder:
+"So we perfected that hour. Pharmaceutical-grade flakes, single-origin Tasmanian kunzea, a calibrated dose."
+
+SCENE 6 (27-32s) — founder, direct:
+"Sixty nights. If your evenings aren't better, we refund the jar. Keep the scoop." → END CARD.
+
+CAPTIONS: full subtitles, high contrast.  SFX: room tone, paper shuffle only.  MUSIC: none until end-card sting.
+CTA OVERLAY: "read: what a bath can and can't do"
+A/B: (A) as above  (B) open at Scene 6 guarantee first  (C) sceptic-comment screenshot overlaid at open, founder replies to it.

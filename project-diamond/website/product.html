@@ -39,15 +39,15 @@
     <div class="price">$64 &nbsp;<span style="opacity:.55;font-size:.85rem">or 4 × $16 with Afterpay</span></div>
 
     <div role="radiogroup" aria-label="Purchase options">
-      <div class="variant selected" data-price="64" role="radio" aria-checked="true" tabindex="0">
+      <div class="variant selected" data-price="64" data-label="one-time" role="radio" aria-checked="true" tabindex="0">
         <span>One-time purchase<span class="sub">A single jar. 12 rituals.</span></span><strong>$64</strong>
       </div>
-      <div class="variant" data-price="54" role="radio" aria-checked="false" tabindex="0">
+      <div class="variant" data-price="54" data-label="Ritual Club" role="radio" aria-checked="false" tabindex="0">
         <span>The Ritual Club<span class="sub">First jar $54, refills $39. Free shipping. Pause anytime.</span></span><strong>$54</strong>
       </div>
     </div>
 
-    <button class="btn full" id="atc-main" style="margin:18px 0 8px" onclick="evAddToCart('The Deep Soak',64,'')">Add to cart — $64</button>
+    <button class="btn full" id="atc-main" style="margin:18px 0 8px" onclick="evAddSelected('The Deep Soak','')">Add to cart — $64</button>
     <p style="font-size:.75rem;text-align:center;opacity:.6">60-Night Guarantee · Ships today before 1pm AEST · Zero plastic</p>
 
     <ul class="bullets" style="margin-top:26px">
@@ -116,8 +116,8 @@
 </main>
 
 <div class="sticky-atc" id="sticky-atc">
-  <span style="font-size:.85rem"><strong>The Deep Soak</strong> · $64</span>
-  <button class="btn" onclick="evAddToCart('The Deep Soak',64,'')">Add to cart</button>
+  <span style="font-size:.85rem"><strong>The Deep Soak</strong></span>
+  <button class="btn" onclick="evAddSelected('The Deep Soak','')">Add to cart</button>
 </div>
 
 <footer class="site"><div class="wrap">
