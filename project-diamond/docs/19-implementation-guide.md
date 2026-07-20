@@ -1,0 +1,40 @@
+# 19 — Step-by-Step Implementation Guide
+Written for a first-time founder with no technical experience. Follow in order; each step says what you're doing, why, and what "done" looks like. Budget note: steps 1–14 cost roughly $150–250/month in software plus one-off domain (~$25/yr).
+
+**Step 1 — Register the domain.** Go to a registrar (VentraIP or GoDaddy for .com.au — you'll need an ABN for .com.au, so register your company/ABN first via the ATO's Australian Business Register; it's free and takes minutes online). Buy `evenfall.com.au` and `evenfall.co`. *Done when:* both domains show in your registrar account. **Do this only after the trademark knockout search (doc 14) comes back clean.**
+
+**Step 2 — Purchase Shopify.** Go to shopify.com, start the Basic plan (~A$56/mo). Choose Australia as your store country so GST and AUD are defaults. In Settings → Domains, click "Connect existing domain" and follow the prompts to point your registrar's DNS at Shopify (the screen shows exactly which two records to change; your registrar's help chat will do it with you if you're stuck). *Done when:* your domain shows "Connected" and a padlock (SSL) appears.
+
+**Step 3 — Connect payments.** Settings → Payments → activate Shopify Payments (fill in business + bank details; payouts land in 2–3 days). Enable Apple Pay/Google Pay/Shop Pay (tick-boxes), then add PayPal and Afterpay as additional methods (each is a "connect account" button and a short signup). *Done when:* a $1 test order (Settings → Payments → test mode) completes.
+
+**Step 4 — Purchase domain email.** Buy Google Workspace (~A$9/mo) and create `hello@evenfall.com.au`. Workspace's setup wizard adds the mail records to your DNS automatically if your domain is on a supported registrar; otherwise copy the 3 records it shows into your registrar's DNS page. Also add the SPF/DKIM records it suggests — this stops your emails landing in spam. *Done when:* you can send and receive at the new address.
+
+**Step 5 — Create brand assets.** Everything is specified in doc 03 (colours, fonts, logo direction) — hand that doc to a designer (Fiverr Pro/99designs, ~$300–800) or build the wordmark yourself in Canva using Fraunces. Export: logo SVG + PNG, favicon, social avatars, and the label/box artwork from doc 02 packaging spec for your manufacturer. *Done when:* you have a folder with logo files, colour codes, and label print files approved by the packaging supplier.
+
+**Step 6 — Upload products.** Shopify admin → Products → Add product. Create the 7 products with the exact titles, prices and descriptions from docs 02 and 06 (copy-paste). Add the meta titles/descriptions from doc 15 in each product's "Search engine listing" box. Set inventory quantities, weights (for shipping rates) and SKUs. Build two collections: "The Ritual" (all) and "Gifting". *Done when:* every product page matches the copy doc and shows a photo.
+
+**Step 7 — Install required Shopify apps.** Apps store → install: Klaviyo (email/SMS), Recharge or Shopify Subscriptions (the Ritual Club), Judge.me (reviews), Gorgias (support — can wait until orders flow), a bundle/order-bump app (e.g. "Slide Cart" style for the $19 Balm bump), and Triple Whale (analytics, later is fine). Hard rule from doc 05: **maximum 6 apps** — every extra app slows the site. *Done when:* each app shows "connected" and the cart drawer displays the Night Balm bump.
+
+**Step 8 — Configure shipping.** Settings → Shipping. Create AU rates: Standard $9.95, free over $80 (add a "conditional rate" based on order price), Express $14.95; NZ $14.95. Connect Shopify's AusPost rates or your 3PL's app so labels print automatically. Set your dispatch location to the 3PL address. *Done when:* a test checkout shows the right rate for a $60 order ($9.95) and a $90 order (free).
+
+**Step 9 — Configure taxes.** Settings → Taxes and duties → Australia → tick "charge GST" (Shopify handles the 10% automatically once your ABN/GST registration is entered). Register for GST with the ATO when you expect >$75k revenue (you do — register now). Prices in the copy docs are GST-inclusive retail. *Done when:* a test order's tax line shows 1/11th of the total.
+
+**Step 10 — Configure analytics.** Create a GA4 account (analytics.google.com) → get the "G-" ID → paste into Shopify's Google & YouTube app. Turn on Shopify's built-in analytics too. Add the event names from doc 15 later via GTM, but out of the box you'll get sales, traffic and conversion. *Done when:* the GA4 "Realtime" screen shows you browsing your own store.
+
+**Step 11 — Connect Meta.** Install Shopify's "Facebook & Instagram" app → log into your (new) Meta Business account → it creates the Pixel + Conversions API automatically and syncs your product catalogue. In Meta Business Suite, set up your Instagram and Facebook pages with the brand assets. *Done when:* Meta Events Manager shows "purchase" test events arriving.
+
+**Step 12 — Connect TikTok.** Install the TikTok app from the Shopify app store → connect/create a TikTok for Business account → it installs the pixel and catalogue. Create the @evenfall.ritual account. *Done when:* pixel shows "active" in TikTok Ads Manager.
+
+**Step 13 — Connect Pinterest.** Install the Pinterest app for Shopify → connect a Pinterest Business account → your products become shoppable pins automatically. Create the four boards named in doc 12 and pin the first 40 pins from the doc 07a Pinterest list (Canva templates + product shots). *Done when:* your products appear under the "Shop" tab of your Pinterest profile.
+
+**Step 14 — Connect Klaviyo.** In the Klaviyo app, connect the store (one click) → add the signup form (the "Rest Notes" copy from doc 06) → build the flows in the order given in doc 18's "Build order" (week 1: post-purchase, abandoned checkout, KPI digest). Turn on SMS in Klaviyo (Australian sender rules: identify the brand, offer STOP opt-out — Klaviyo's compliance wizard covers this). *Done when:* a test signup receives Welcome E1, and a test abandoned cart gets E1 after 45 minutes.
+
+**Step 15 — Import Higgsfield assets.** Open doc 17, copy Card 01's block into Higgsfield, render each scene, and assemble in CapCut with the house caption preset (doc 17 workflow). Produce the 8 launch cards + the ⭐ hook set. Store finished videos in a Drive folder named by hook ID; upload natively to each platform (never cross-post watermarked files). *Done when:* 20 finished vertical videos sit in the launch folder.
+
+**Step 16 — Launch ads.** In Meta Ads Manager: one Advantage+ Shopping campaign at $100/day with your 10 best assets, plus one test campaign at $50/day, broad targeting (the creative does the targeting). Budget plan and rules are in docs 11/12; set the $150 auto-pause rule (doc 18 #23) in Meta's Automated Rules. Don't touch anything for 72 hours — early data wobbles. *Done when:* ads are "Active" and spending, and purchases attribute in both Meta and Shopify.
+
+**Step 17 — Launch organic content.** Follow the 30-day content spine (doc 08) — one core post per day, repurposed to TikTok, Reels, Shorts, Pinterest and Facebook using the pipeline in that doc. Batch-film weekly at dusk. Reply to every comment for the first 90 days (the algorithm and the community both notice). *Done when:* 30 days are scheduled in your planner.
+
+**Step 18 — Measure KPIs.** Each Monday read the automated digest (doc 18 #26) against targets: conversion rate ≥2.8%, average order ≥$95, blended MER ≥3.0, CAC ≤$55, subscription take ≥30%, same-day dispatch ≥99%, reviews ≥4.8★. Green = leave it alone. Red = the matching playbook: CVR red → doc 05 A/B roadmap; CAC red → kill bottom creative, ship 5 new; sub-take red → PDP ordering test; dispatch red → 3PL call same day.
+
+**Step 19 — Optimise weekly.** The one-hour weekly rhythm: 30-min creative council (kill/scale, pick next 5 videos), 15-min KPI review, 15-min customer-voice review (support tickets + reviews → one copy or product improvement shipped per week). Monthly: risk register review (doc 13). Quarterly: Lighthouse performance audit, app audit, claims audit. That cadence — not any single tactic — is the growth system.

@@ -1,5 +1,7 @@
 # EVENFALL — MASTER SPECIFICATION
-Single source of truth. Everything a developer, marketer or operator needs is either here or one link away. Updated: 2026-07-19 · Status: **launch-ready specification, pre-execution**.
+Single source of truth. Everything a developer, marketer or operator needs is either here or one link away. Updated: 2026-07-20 · Status: **Phase 2 complete — council 23/23 ≥9.5, Red Team clear (doc 21). Launch-ready; execution gates in doc 14.**
+
+Production note: the `website/` prototype is the visual/UX/copy specification — production checkout is Shopify's hosted checkout, and all review/rating numbers in the prototype are placeholders until genuine beta reviews replace them (binding rules in docs 15–16).
 
 ## Identity
 - **Brand:** EVENFALL · **Tagline:** The night, reclaimed. · **Position:** the design-led premium evening-ritual brand ("the Aesop of winding down") · **Origin:** Melbourne, Australia.
@@ -36,7 +38,14 @@ $154k launch capital · AOV $96 · blended COGS 17.5% · contribution 68% pre-ma
 | [12-marketing-strategy](docs/12-marketing-strategy.md) | Channel plan, retention system, seasonal calendar, growth + AI automation roadmap |
 | [13-risk-register](docs/13-risk-register.md) | 15 risks, likelihood×impact, mitigations, owners |
 | [14-launch-roadmap](docs/14-launch-roadmap.md) | Gated launch checklist, 90-day and 365-day execution plans |
-| [website/index.html](website/index.html) | Working premium homepage prototype (implements docs 05–06) |
+| [15-website-blueprint-v2](docs/15-website-blueprint-v2.md) | Meta titles/descriptions, interactions/animation spec, shot list, schema, analytics plan |
+| [16-content-library-v2](docs/16-content-library-v2.md) | Meta ad construction system, 100 CTAs, testimonial/story libraries (+ binding legal note) |
+| [17-higgsfield-production-package](docs/17-higgsfield-production-package.md) | Copy-paste 19-field production cards + workflow |
+| [18-automation-manual](docs/18-automation-manual.md) | 28 automations with explicit trigger conditions and build order |
+| [19-implementation-guide](docs/19-implementation-guide.md) | 19-step beginner setup guide, domain → weekly optimisation |
+| [20-financial-model-v2](docs/20-financial-model-v2.md) | Software costs, ad-budget scenarios, 24-month projection, consolidated cases |
+| [21-governance-signoff](docs/21-governance-signoff.md) | Red Team findings/repairs + 23-member council vote (all ≥9.5) |
+| [website/](website/) | Working prototype: index, shop, product, about, faq, contact, shipping, returns, privacy, checkout, thank-you + `style.css`/`site.js` (cart drawer, order bump, sticky ATC, exit intent) — render-verified desktop & mobile |
 
 ## Governance record
 - Council consensus on venture selection: **9.55/10** (doc 01). Red Team: all structural attacks repaired; residual risks in doc 13.
