@@ -95,7 +95,7 @@ function foot() {
         <p style="max-width:260px;font-size:13.5px">Instagram content intelligence for creators, agencies and brands. Know why. Before you post.</p>
       </div>
       ${Object.entries(FOOTER).map(([h, links]) => `<div>
-        <h4>${h}</h4>
+        <div class="fh">${h}</div>
         ${links.map(([href, label]) => `<a href="${href}">${label}</a>`).join('\n        ')}
       </div>`).join('\n      ')}
     </div>

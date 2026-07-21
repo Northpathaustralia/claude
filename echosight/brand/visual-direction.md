@@ -16,3 +16,5 @@ Amends docs/11. The Prism token palette stays (it tested well in the rendered si
 ## Accessibility requirements (unchanged, now with checks)
 
 WCAG 2.2 AA contrast on all pairs; focus-visible rings (`2px echo-400 offset 2px`) on every interactive element; touch targets ≥ 44px; reduced-motion honoured; score colours always paired with numerals; skip-to-content link on every page. Verified in Phase 12, results in `qa/accessibility-review.md`.
+
+**AA amendment (QA cycle):** button fills use `echo-600 #4A63E8` (4.95:1 with white text); `echo-500` remains the accent/ring colour on dark grounds only. Inline links in text blocks are always underlined.
