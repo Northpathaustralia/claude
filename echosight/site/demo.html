@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live demo — EchoSight AI</title>
+<meta name="description" content="Interactive EchoSight demo: pick a sample Reel, see the scores and the why, compare the improved script, and generate a Higgsfield brief. Example data throughout.">
+<link rel="canonical" href="https://echosight.ai/demo.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EchoSight AI">
+<meta property="og:title" content="Live demo — EchoSight AI">
+<meta property="og:description" content="Walk the full EchoSight loop on a sample Reel: scores, drivers, fixes, improved script, Higgsfield brief.">
+<meta property="og:url" content="https://echosight.ai/demo.html">
+<meta property="og:image" content="https://echosight.ai/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  .picker{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+  .pick{background:var(--ink-800);border:1px solid var(--ink-700);border-radius:14px;padding:18px;cursor:pointer;text-align:left;font:inherit;color:var(--mist-100);transition:border-color .2s}
+  .pick:hover{border-color:rgba(91,124,255,.5)}
+  .pick[aria-pressed="true"]{border-color:var(--echo-500);background:linear-gradient(180deg,rgba(91,124,255,.08),var(--ink-800))}
+  .pick .t{font-weight:600;font-size:15px;margin-bottom:6px}
+  .pick .d{font-size:13px;color:var(--mist-400)}
+  .stage{display:none}
+  .stage.show{display:block}
+  .scores{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin:18px 0}
+  .bars{flex:1;min-width:240px;display:flex;flex-direction:column;gap:12px}
+  .obs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  .obs .panel{padding:18px}
+  .obs h4{font-size:14px;margin-bottom:8px}
+  .obs p,.obs li{font-size:13.5px;color:var(--mist-400)}
+  .obs ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:8px}
+  .recs li{display:flex;gap:10px;font-size:14px;color:var(--mist-400);padding:10px 0;border-bottom:1px solid var(--ink-700)}
+  .recs li:last-child{border-bottom:none}
+  .recs .n{color:var(--pulse-400);font-weight:700;flex:none}
+  .script-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .script{background:var(--ink-900);border:1px solid var(--ink-700);border-radius:12px;padding:16px;font-size:13.5px;line-height:1.7;color:var(--mist-400)}
+  .script h4{font-size:13px;margin-bottom:10px;color:var(--mist-100)}
+  .brief{background:var(--ink-900);border:1px solid var(--ink-700);border-radius:12px;padding:18px;margin-top:14px;display:none;white-space:pre-wrap}
+  .brief.show{display:block}
+  .est-note{font-size:12.5px;color:var(--flare-400);margin-top:16px;border:1px solid rgba(255,184,107,.35);border-radius:10px;padding:10px 14px}
+  @media (max-width:720px){.picker,.obs,.script-cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span></div>
+<div class="demo-banner">Interactive demo — every number on this page is <strong>example data</strong>, not a real account or a guaranteed outcome.</div>
+
+<nav class="site-nav" aria-label="Main">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="EchoSight home"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
+    <div class="nav-links">
+      <a href="product.html">Product</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="demo.html" aria-current="page">Live demo</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="examples.html">Examples</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="login.html">Log in</a>
+      <a class="btn btn-primary btn-sm" href="free-reel-review.html">Free Reel review</a>
+    </div>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="product.html">Product</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="examples.html">Examples</a><a href="faq.html">FAQ</a><a href="free-reel-review.html">Free Reel review</a><a href="waitlist.html">Join the beta</a>
+  </div>
+</nav>
+
+<main id="main">
+<header class="page-hero"><div class="wrap">
+  <span class="kicker">Live demo</span>
+  <h1>Walk the loop on a sample Reel.</h1>
+  <p class="sub">Pick one of three sample Reels below. You'll see the scores, the observations behind them, the ranked fixes, the improved script — and a generated Higgsfield production brief.</p>
+</div></header>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2 style="font-size:20px">1 · Choose a sample Reel</h2>
+  <div class="picker" role="group" aria-label="Sample Reels">
+    <button class="pick" data-reel="0" aria-pressed="false"><span class="t">🏋️ Fitness — “5-minute mobility fix”</span><span class="d">42s tutorial · talking head + demo · strong topic, slow open</span></button>
+    <button class="pick" data-reel="1" aria-pressed="false"><span class="t">🍳 Food — “one-pan weeknight ragu”</span><span class="d">31s process video · overhead shots · no voiceover</span></button>
+    <button class="pick" data-reel="2" aria-pressed="false"><span class="t">💼 Business — “pricing mistake freelancers make”</span><span class="d">54s talking head · caption-heavy · strong hook, long middle</span></button>
+  </div>
+
+  <div class="stage" id="stage">
+    <h2 style="font-size:20px;margin:26px 0 6px">2 · The read</h2>
+    <div class="panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <strong id="r-title"></strong>
+        <span style="display:flex;gap:8px"><span class="chip chip-demo">Example data</span><span class="chip chip-grade" id="r-grade"></span></span>
+      </div>
+      <div class="scores">
+        <div class="score-ring">
+          <svg width="110" height="110" viewBox="0 0 110 110" aria-hidden="true">
+            <circle cx="55" cy="55" r="48" fill="none" stroke="#1E2740" stroke-width="9"/>
+            <circle id="d-ring" cx="55" cy="55" r="48" fill="none" stroke="url(#g2)" stroke-width="9" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="301.6" style="transition:stroke-dashoffset .9s var(--ease)"/>
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B7CFF"/><stop offset="1" stop-color="#3DD6C3"/></linearGradient></defs>
+          </svg>
+          <div class="val"><b id="d-vir">0</b><span>Virality</span></div>
+        </div>
+        <div class="bars">
+          <div class="bar"><label>Hook score <b id="v-hook"></b></label><div class="track"><div class="fill" id="b-hook" style="width:0"></div></div></div>
+          <div class="bar"><label>Scroll-stop <b id="v-stop"></b></label><div class="track"><div class="fill" id="b-stop" style="width:0"></div></div></div>
+          <div class="bar"><label>Save probability <b id="v-save"></b></label><div class="track"><div class="fill" id="b-save" style="width:0"></div></div></div>
+          <div class="bar"><label>Share probability <b id="v-share"></b></label><div class="track"><div class="fill" id="b-share" style="width:0"></div></div></div>
+        </div>
+      </div>
+      <div aria-hidden="true"><div class="timeline" id="d-timeline"></div><p style="font-size:11.5px;color:var(--mist-400)">Pacing timeline (cuts per segment) — <span style="color:var(--pulse-400)">■</span> in winning band · <span style="color:var(--ember-500)">■</span> retention risk</p></div>
+      <div class="obs">
+        <div class="panel panel-9"><h4>Hook (first 3 seconds)</h4><p id="o-hook"></p></div>
+        <div class="panel panel-9"><h4>Pacing</h4><p id="o-pace"></p></div>
+        <div class="panel panel-9"><h4>Likely save/share drivers</h4><ul id="o-drivers"></ul></div>
+        <div class="panel panel-9"><h4>Confidence &amp; uncertainty</h4><p id="o-conf"></p></div>
+      </div>
+    </div>
+
+    <h2 style="font-size:20px;margin:30px 0 6px">3 · Ranked fixes</h2>
+    <div class="panel"><ul class="recs" id="d-recs" style="list-style:none"></ul></div>
+
+    <h2 style="font-size:20px;margin:30px 0 6px">4 · Original vs improved script</h2>
+    <div class="script-cols">
+      <div class="script"><h4>Original</h4><div id="s-orig"></div></div>
+      <div class="script"><h4>Improved (fixes applied)</h4><div id="s-imp"></div></div>
+    </div>
+
+    <h2 style="font-size:20px;margin:30px 0 6px">5 · Production brief</h2>
+    <div class="panel">
+      <p style="font-size:14px;color:var(--mist-400)">Turn the improved script into a shot-by-shot Higgsfield brief — the same format the full product exports.</p>
+      <button class="btn btn-primary" id="gen-brief" style="margin-top:14px">Generate Higgsfield brief</button>
+      <div class="brief mono" id="d-brief" aria-live="polite"></div>
+    </div>
+
+    <p class="est-note"><strong>What this demo is:</strong> a hand-built walkthrough on example data, showing the product's output format. Scores are estimates with stated confidence, never guarantees — that's true in the real product too.</p>
+
+    <div class="cta-band" style="margin-top:36px">
+      <h2>Want this on your actual content?</h2>
+      <p class="sub">One free Reel review, or a founding seat in the beta.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" href="free-reel-review.html">Get a free Reel review</a>
+        <a class="btn btn-ghost" href="waitlist.html">Join the beta</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="legal" style="border-top:none;padding-top:0">
+      <span>© 2026 EchoSight AI Pty Ltd (in formation). · <a href="index.html" style="color:var(--echo-400)">Home</a> · <a href="trust.html" style="color:var(--echo-400)">Trust</a> · <a href="privacy-policy.html" style="color:var(--echo-400)">Privacy</a></span>
+      <span>Not affiliated with Instagram or Meta Platforms, Inc.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+const REELS = [
+  {
+    title: "Fitness — “5-minute mobility fix” (42s)", grade: "Confidence B",
+    vir: 58, hook: 41, stop: 37, save: 3.4, share: 1.2,
+    timeline: [1,1,4,4,3,4,2,1,1,3,4,2], // cuts per ~3.5s segment; <2 = risk
+    oHook: "Logo sting holds the first 1.8 seconds; the person and the promise don't appear until 2.1s. In the scroll-stop window, nothing moves and nothing is claimed — that's where most of this Reel's audience is lost, before the (good) content starts.",
+    oPace: "Once it starts, the demo section paces well (3–4 cuts/10s, in the niche winning band). Two flat zones: the intro, and 0:28–0:34 where one static shot runs 6 seconds.",
+    drivers: ["Save driver: the routine is genuinely reusable — save-worthy if viewers reach it", "Share driver: “tag someone with desk back pain” framing is available but unused", "Blocker: the payoff (before/after mobility test) is at 0:38 — most viewers never see it"],
+    oConf: "Grade B: solid comparable data for fitness tutorials at this length. The account-specific baseline is an example; in the real product this compares against your history.",
+    recs: [
+      ["Open mid-action at 0.0s", "Start on the mobility test failing, promise on-screen by 0.6s. Expected impact: high — hook is the binding constraint."],
+      ["Move the payoff teaser into the hook", "One 0.4s flash of the after-state buys the middle section attention."],
+      ["Cut 0:28–0:34 static shot to 2s", "Single slow segment in an otherwise well-paced edit."],
+      ["Caption first line rewrite", "Lead with the outcome (“desk back pain, 5 minutes”), CTA to save moves to line 2."]
+    ],
+    orig: "0:00 [logo animation]\n0:02 “Hey guys, welcome back to the channel…”\n0:06 “Today I want to show you five mobility moves…”\n0:12 Move 1 demo…\n0:38 Before/after mobility test\n0:41 “Follow for more!”",
+    imp: "0:00 [mid-action: failing the reach test] + text: “Your back isn't tight. It's this.”\n0:01 [0.4s flash of the after-state]\n0:02 “Five moves. Five minutes. Watch what changes.”\n0:05 Move 1 demo (same footage)…\n0:31 Before/after test — full payoff\n0:36 “Save this for your next desk day.”",
+    brief: `HIGGSFIELD BRIEF — “5-minute mobility fix” (improved cut)
+Aspect 9:16 · Target 40s · 6 shots · Style: practical home-gym, daylight, handheld energy
+
+SHOT 1 (0:00–0:02) — Hook
+Subject: creator failing an overhead reach test, visible frustration (natural, not acted-big)
+Camera: chest-height handheld, slight push-in · Lens: 24mm feel
+Lighting: window daylight, practical warmth · Text-safe upper third
+Negative: no gym-stock gloss, no slow motion, no perfect skin
+
+SHOT 2 (0:02–0:05) — Promise
+Subject: creator to camera, mid-energy: “Five moves. Five minutes.”
+Camera: locked tripod, eye level · Background: real living room, slight mess allowed
+
+SHOTS 3–5 (0:05–0:31) — Moves 1–3
+Camera: alternating 3/4 and side angles, cut every 2.5–3.5s
+Continuity: same wardrobe, same light direction, same room
+
+SHOT 6 (0:31–0:40) — Payoff + CTA
+Subject: reach test succeeding; hold 1.5s on the reaction
+End text: “Save this for your next desk day.”
+
+(Demo output on example data — the full product generates this from your actual script and measured pacing bands.)`
+  },
+  {
+    title: "Food — “one-pan weeknight ragu” (31s)", grade: "Confidence A",
+    vir: 79, hook: 84, stop: 80, save: 7.1, share: 2.4,
+    timeline: [4,3,4,4,3,2,3,4,3],
+    oHook: "Strong: the pour-shot lands at 0.0s with sizzle audio, and the on-screen promise (“one pan, 20 minutes”) is readable by 0.7s. Motion, sound and claim all inside the window — this is what a working hook looks like.",
+    oPace: "Consistent 3–4 cuts/10s with one soft zone at 0:17 (stir shot runs 4s). Silent-process format with ambient audio matches a currently rising trend in this niche.",
+    drivers: ["Save driver: recipe utility — the strongest save signal in food content", "Save blocker: ingredient list appears only in caption, not on-screen — on-screen lists lift saves in this niche", "Share driver: “weeknight” framing invites partner/flatmate tags"],
+    oConf: "Grade A: dense comparable data for short process-format food Reels. The main uncertainty is audio trend timing, not the content read.",
+    recs: [
+      ["On-screen ingredient card at 0:26", "Two-second overlay before the final dish; the recipe becomes save-worthy at the moment saves happen."],
+      ["Trim the 0:17 stir shot to 2s", "Only flat segment in the edit."],
+      ["Caption: move recipe to first comment", "Keeps caption line one for the hook; pins utility where savers look."]
+    ],
+    orig: "0:00 Pour shot, sizzle audio\n0:03 Chop montage\n0:09 Pan sequence…\n0:17 Stir (4s)\n0:24 Plate-up\n0:29 Final dish + caption points to recipe",
+    imp: "0:00 Pour shot, sizzle audio (unchanged — it works)\n0:03 Chop montage\n0:09 Pan sequence…\n0:17 Stir (trimmed to 2s)\n0:22 Plate-up\n0:26 [NEW] 2s on-screen ingredient card\n0:28 Final dish + “recipe in first comment”",
+    brief: `HIGGSFIELD BRIEF — “one-pan weeknight ragu” (improved cut)
+Aspect 9:16 · Target 30s · 7 shots · Style: overhead process, natural kitchen, ambient audio only
+
+SHOT 1 (0:00–0:03) — Hook (keep)
+Subject: oil pour into hot pan, real sizzle audio forward in mix
+Camera: overhead locked, tight crop · Lighting: warm practical + window
+Negative: no music bed, no voiceover, no stock-kitchen gloss
+
+SHOTS 2–5 (0:03–0:22) — Process
+Camera: overhead with two 3/4 inserts for texture · cut every 2.5–3s
+Continuity: same pan, same board, same light through all shots
+
+SHOT 6 (0:26–0:28) — Ingredient card
+Full-frame card, brand palette, max 8 items, readable at feed size
+
+SHOT 7 (0:28–0:30) — Final dish
+Slow push-in ONLY here (one motivated camera move per Reel)
+
+(Demo output on example data.)`
+  },
+  {
+    title: "Business — “pricing mistake freelancers make” (54s)", grade: "Confidence C",
+    vir: 63, hook: 86, stop: 78, save: 5.2, share: 3.8,
+    timeline: [4,4,3,2,1,1,1,2,1,2,3,4,3,2,2],
+    oHook: "Very strong: “You're not underpaid. You're underpriced — and here's the invoice that proves it” lands by 1.1s with a real invoice on screen. Specific, confronting, credible.",
+    oPace: "The problem is the middle. 0:14–0:32 is a single locked shot with no cuts, no text movement, no visual change — an 18-second desert where the retention risk concentrates. Strong finish can't recover viewers who already left.",
+    drivers: ["Share driver: “send this to a freelancer who needs it” energy is native to the topic", "Save driver: the 3-step reprice framework — currently spoken only, not shown", "Blocker: the desert; framework arrives at 0:36, after the attention cliff"],
+    oConf: "Grade C: talking-head business content varies widely by presenter delivery, which this demo can't measure from a script alone. Treat the middle-section read as high-confidence, the topline scores as directional.",
+    recs: [
+      ["Break the desert with the framework", "Move step 1 to 0:16 with an on-screen card; restructure as hook → steps → story, not hook → story → steps."],
+      ["Add text-movement beats every 4–5s", "Even without cuts, animated key phrases hold the middle."],
+      ["Show the framework as a card stack", "Spoken lists don't get saved; visible ones do."],
+      ["Tighten 54s → 42s", "The story beat at 0:38 repeats the hook's claim; cut it."]
+    ],
+    orig: "0:00 Hook + invoice on screen\n0:05 “Let me tell you about a client…”\n0:14 [locked shot, story, 18s no visual change]\n0:36 “So here's the framework: one…”\n0:50 “Follow for more pricing tips.”",
+    imp: "0:00 Hook + invoice (unchanged)\n0:05 “Here's the 3-step reprice — then the story that proves it.”\n0:08 [card] STEP 1 + tight explanation\n0:16 [card] STEP 2\n0:24 [card] STEP 3\n0:30 Story, cut to 10s, as proof of step 3\n0:40 “Save the framework. Send it to a freelancer who needs it.”",
+    brief: `HIGGSFIELD BRIEF — “pricing mistake” (improved cut)
+Aspect 9:16 · Target 42s · 5 shots + 3 card overlays · Style: real desk setup, editorial restraint
+
+SHOT 1 (0:00–0:05) — Hook
+Subject: creator at desk, real invoice held to camera
+Camera: eye-level, slight low energy push-in · Lighting: soft key + window fill
+Negative: no neon accents, no floating charts, no fake dashboard b-roll
+
+CARDS (0:08 / 0:16 / 0:24) — Framework steps
+Full-width lower-third cards, brand type, one line each, 250ms ease-in
+Text-safe: keep clear of platform UI zones
+
+SHOT 4 (0:30–0:40) — Story as proof
+Camera: switch to 3/4 angle (signals chapter change), locked
+Performance: conversational, not presentational
+
+SHOT 5 (0:40–0:42) — CTA
+Direct to camera: “Save the framework.”
+
+(Demo output on example data. Grade C flagged: presenter delivery matters more than any script read in this format.)`
+  }
+];
+
+(function(){
+  const stage = document.getElementById('stage');
+  const $ = (id) => document.getElementById(id);
+  const CIRC = 301.6;
+  document.querySelectorAll('.pick').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pick').forEach(b => b.setAttribute('aria-pressed','false'));
+      btn.setAttribute('aria-pressed','true');
+      const r = REELS[+btn.dataset.reel];
+      stage.classList.add('show');
+      $('r-title').textContent = r.title;
+      $('r-grade').textContent = r.grade;
+      $('d-vir').textContent = r.vir;
+      $('d-ring').style.strokeDashoffset = CIRC * (1 - r.vir/100);
+      $('v-hook').textContent = r.hook;  $('b-hook').style.width = r.hook + '%';
+      $('v-stop').textContent = r.stop;  $('b-stop').style.width = r.stop + '%';
+      $('v-save').textContent = r.save + '%';  $('b-save').style.width = (r.save*10) + '%';
+      $('v-share').textContent = r.share + '%'; $('b-share').style.width = (r.share*10) + '%';
+      $('d-timeline').innerHTML = r.timeline.map(c =>
+        `<i class="${c>=3?'hot':(c<2?'risk':'')}" style="height:${18+c*8}px"></i>`).join('');
+      $('o-hook').textContent = r.oHook;
+      $('o-pace').textContent = r.oPace;
+      $('o-conf').textContent = r.oConf;
+      $('o-drivers').innerHTML = r.drivers.map(d => `<li>— ${d}</li>`).join('');
+      $('d-recs').innerHTML = r.recs.map((rec,i) =>
+        `<li><span class="n">${i+1}</span><span><strong style="color:var(--mist-100)">${rec[0]}.</strong> ${rec[1]}</span></li>`).join('');
+      $('s-orig').textContent = r.orig;
+      $('s-imp').textContent = r.imp;
+      const brief = $('d-brief');
+      brief.classList.remove('show'); brief.textContent = '';
+      $('gen-brief').onclick = () => { brief.textContent = r.brief; brief.classList.add('show'); };
+      stage.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+</body>
+</html>

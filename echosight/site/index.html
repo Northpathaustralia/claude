@@ -4,590 +4,352 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EchoSight AI — Know why. Before you post.</title>
-<meta name="description" content="EchoSight AI explains why your Instagram content performs, predicts results before you post, and generates the content most likely to win. Built on the official Instagram API — no scraping, no fake claims.">
+<meta name="description" content="EchoSight explains why your Instagram content performs, predicts results before you post, and helps you make the next one better. Official API only — no scraping, no fake claims.">
+<link rel="canonical" href="https://echosight.ai/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EchoSight AI">
+<meta property="og:title" content="EchoSight AI — Know why. Before you post.">
+<meta property="og:description" content="Instagram content intelligence: understand why content performs, predict before posting, improve with evidence.">
+<meta property="og:url" content="https://echosight.ai/">
+<meta property="og:image" content="https://echosight.ai/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"EchoSight AI","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Instagram content intelligence for creators, agencies and brands.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free plan available"}}</script>
 <style>
-  /* ============ Prism tokens (see brand guidelines) ============ */
-  :root{
-    --ink-950:#07090F; --ink-900:#0C101A; --ink-800:#141A29; --ink-700:#1E2740;
-    --mist-400:#8B94AD; --mist-100:#E6E9F2;
-    --echo-500:#5B7CFF; --echo-400:#7C96FF;
-    --pulse-400:#3DD6C3; --flare-400:#FFB86B; --ember-500:#FF6B81;
-    --signal:linear-gradient(135deg,#5B7CFF,#3DD6C3);
-    --radius:16px; --ease:cubic-bezier(.2,.8,.2,1);
-    --glass:rgba(20,26,41,.6); --glass-border:rgba(255,255,255,.08);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none!important;transition:none!important}
-  }
-  body{
-    background:var(--ink-950); color:var(--mist-100);
-    font:400 16px/1.5 Inter,-apple-system,"Segoe UI",Roboto,sans-serif;
-    -webkit-font-smoothing:antialiased; overflow-x:hidden;
-  }
-  ::selection{background:rgba(91,124,255,.4)}
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  h1,h2,h3{font-weight:700;letter-spacing:-.02em;line-height:1.15}
-  h1{font-size:clamp(39px,6vw,61px)}
-  h2{font-size:clamp(31px,4.5vw,44px)}
-  h3{font-size:20px;font-weight:600}
-  .sub{color:var(--mist-400);font-size:clamp(17px,2vw,20px);max-width:640px}
-  .kicker{
-    display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--pulse-400);margin-bottom:16px;
-  }
-  section{padding:96px 0;position:relative}
-  .grad-text{background:var(--signal);-webkit-background-clip:text;background-clip:text;color:transparent}
-
-  /* ============ Ambient background ============ */
-  .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-  .aurora span{position:absolute;border-radius:50%;filter:blur(120px);opacity:.22}
-  .aurora .a1{width:640px;height:640px;background:#5B7CFF;top:-200px;left:-120px;animation:drift 24s var(--ease) infinite alternate}
-  .aurora .a2{width:520px;height:520px;background:#3DD6C3;top:30%;right:-180px;animation:drift 30s var(--ease) infinite alternate-reverse}
-  .aurora .a3{width:420px;height:420px;background:#2c3a8f;bottom:-160px;left:35%;animation:drift 36s var(--ease) infinite alternate}
-  @keyframes drift{to{transform:translate(60px,40px) scale(1.08)}}
-
-  /* ============ Nav ============ */
-  nav{
-    position:sticky;top:0;z-index:50;
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    background:rgba(7,9,15,.72);border-bottom:1px solid var(--glass-border);
-  }
-  .nav-in{display:flex;align-items:center;gap:32px;height:64px}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px}
-  .logo-mark{width:26px;height:26px;position:relative;flex:none}
-  .logo-mark::before,.logo-mark::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--echo-500)}
-  .logo-mark::after{inset:6px;border-color:var(--pulse-400)}
-  .nav-links{display:flex;gap:24px;font-size:14px;color:var(--mist-400);margin-left:auto}
-  .nav-links a:hover{color:var(--mist-100)}
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:12px 22px;border-radius:12px;font-size:15px;font-weight:600;
-    border:1px solid transparent;cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s;
-  }
-  .btn-primary{background:var(--echo-500);color:#fff;box-shadow:0 8px 24px rgba(91,124,255,.35)}
-  .btn-primary:hover{background:var(--echo-400);transform:translateY(-1px)}
-  .btn-ghost{border-color:var(--ink-700);color:var(--mist-100)}
-  .btn-ghost:hover{border-color:var(--echo-500)}
-  .btn-sm{padding:9px 16px;font-size:14px}
-  nav .btn{margin-left:8px}
-
-  /* ============ Hero ============ */
-  .hero{padding:110px 0 80px;text-align:left}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-  .hero .sub{margin:22px 0 32px}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .hero-note{font-size:13px;color:var(--mist-400);margin-top:14px}
-
-  /* Product mock: glass score card */
-  .mock{
-    background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.45);
-  }
-  .mock-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  .hero{padding:96px 0 72px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+  .mock{background:var(--glass);border:1px solid var(--glass-border);border-radius:24px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:26px;box-shadow:0 24px 64px rgba(0,0,0,.45)}
+  .mock-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
   .mock-title{font-size:14px;font-weight:600}
-  .mock-tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--pulse-400);border:1px solid rgba(61,214,195,.35);padding:4px 10px;border-radius:999px}
-  .ring-row{display:flex;gap:22px;align-items:center;margin-bottom:22px}
-  .ring{position:relative;width:118px;height:118px;flex:none}
-  .ring svg{transform:rotate(-90deg)}
-  .ring .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .ring .val b{font-size:31px;font-variant-numeric:tabular-nums}
-  .ring .val span{font-size:11px;color:var(--mist-400)}
+  .ring-row{display:flex;gap:22px;align-items:center;margin-bottom:20px}
   .bars{flex:1;display:flex;flex-direction:column;gap:12px}
-  .bar label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--mist-400);margin-bottom:5px}
-  .bar label b{color:var(--mist-100);font-variant-numeric:tabular-nums}
-  .track{height:6px;background:var(--ink-700);border-radius:999px;overflow:hidden}
-  .fill{height:100%;border-radius:999px;background:var(--signal);width:0;transition:width 1.1s var(--ease)}
-  .mock-why{border-top:1px solid var(--ink-700);padding-top:16px;font-size:13.5px;color:var(--mist-400)}
+  .mock-why{border-top:1px solid var(--ink-700);padding-top:14px;font-size:13.5px;color:var(--mist-400)}
   .mock-why b{color:var(--mist-100)}
   .mock-why .dot{color:var(--pulse-400)}
-
-  /* ============ Trust strip ============ */
-  .trust{padding:0 0 8px}
-  .trust-card{
-    display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:center;
-    background:var(--ink-900);border:1px solid var(--ink-700);border-radius:var(--radius);
-    padding:20px 28px;font-size:14px;color:var(--mist-400);
-  }
-  .trust-card b{color:var(--mist-100);font-weight:600}
-  .trust-item{display:flex;align-items:center;gap:10px}
-  .tick{color:var(--pulse-400);font-weight:700}
-
-  /* ============ Cards / grids ============ */
-  .grid{display:grid;gap:20px}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g2{grid-template-columns:repeat(2,1fr)}
-  .card{
-    background:var(--ink-800);border:1px solid var(--ink-700);border-radius:var(--radius);
-    padding:28px;transition:transform .25s var(--ease),border-color .25s;
-  }
-  .card:hover{transform:translateY(-3px);border-color:rgba(91,124,255,.45)}
-  .card .ic{
-    width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-    background:rgba(91,124,255,.14);color:var(--echo-400);font-size:18px;margin-bottom:18px;
-  }
-  .card h3{margin-bottom:10px}
-  .card p{font-size:14.5px;color:var(--mist-400)}
-  .sec-head{max-width:680px;margin-bottom:52px}
-  .sec-head .sub{margin-top:16px}
-
-  /* ============ Loop / how it works ============ */
-  .loop{counter-reset:step}
-  .loop .card{position:relative;counter-increment:step;padding-top:60px}
-  .loop .card::before{
-    content:counter(step,decimal-leading-zero);
-    position:absolute;top:22px;left:28px;font-size:13px;font-weight:700;letter-spacing:.1em;
-    color:var(--pulse-400);
-  }
-
-  /* ============ Personas ============ */
-  .persona .card{background:var(--ink-900)}
-  .persona ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px}
-  .persona li{font-size:14px;color:var(--mist-400);display:flex;gap:10px}
-  .persona li::before{content:"—";color:var(--echo-400)}
-
-  /* ============ Quotes ============ */
-  .quote{background:var(--ink-900)}
-  .quote p{font-size:15.5px;color:var(--mist-100);margin-bottom:18px}
-  .quote .who{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--mist-400)}
-  .avatar{width:36px;height:36px;border-radius:50%;background:var(--signal);opacity:.85;flex:none}
-  .note-illustrative{font-size:12.5px;color:var(--mist-400);margin-top:18px}
-
-  /* ============ Pricing ============ */
-  .price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
-  .plan{display:flex;flex-direction:column;background:var(--ink-800);border:1px solid var(--ink-700);border-radius:var(--radius);padding:28px}
-  .plan.hot{border-color:var(--echo-500);background:linear-gradient(180deg,rgba(91,124,255,.10),var(--ink-800) 45%)}
-  .plan .name{font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-  .plan .pop{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--echo-500);color:#fff;border-radius:999px;padding:3px 8px}
-  .plan .amt{font-size:39px;font-weight:700;font-variant-numeric:tabular-nums}
-  .plan .amt span{font-size:14px;font-weight:400;color:var(--mist-400)}
-  .plan .for{font-size:13px;color:var(--mist-400);margin:6px 0 18px}
-  .plan ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:var(--mist-400);margin-bottom:24px}
-  .plan li::before{content:"✓  ";color:var(--pulse-400);font-weight:700}
-  .plan .btn{margin-top:auto;width:100%}
-
-  /* ============ FAQ ============ */
-  details{
-    background:var(--ink-800);border:1px solid var(--ink-700);border-radius:var(--radius);
-    padding:20px 24px;margin-bottom:12px;
-  }
-  details[open]{border-color:rgba(91,124,255,.4)}
-  summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";color:var(--echo-400);font-weight:400;font-size:20px;flex:none}
-  details[open] summary::after{content:"–"}
-  details p{margin-top:12px;font-size:14.5px;color:var(--mist-400)}
-
-  /* ============ Final CTA ============ */
-  .final{
-    text-align:center;background:var(--glass);border:1px solid var(--glass-border);
-    border-radius:24px;padding:72px 32px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  }
-  .final .sub{margin:18px auto 32px}
-
-  /* ============ Footer ============ */
-  footer{border-top:1px solid var(--ink-700);padding:56px 0 40px;font-size:14px;color:var(--mist-400)}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
-  .foot-grid h4{color:var(--mist-100);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
-  .foot-grid a{display:block;margin-bottom:9px}
-  .foot-grid a:hover{color:var(--mist-100)}
-  .legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ink-700);padding-top:24px;font-size:12.5px}
-
-  /* ============ Sticky mobile CTA ============ */
-  .sticky-cta{
-    position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    background:rgba(7,9,15,.85);backdrop-filter:blur(16px);border-top:1px solid var(--glass-border);
-  }
+  .ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .ba .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;display:inline-block}
+  .ba .before .tag{color:var(--ember-500)}
+  .ba .after .tag{color:var(--pulse-400)}
+  .ba p{font-size:14px;color:var(--mist-400)}
+  .ba .score{font-size:13px;margin-top:12px;font-variant-numeric:tabular-nums}
+  .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:60;display:none;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(7,9,15,.85);backdrop-filter:blur(16px);border-top:1px solid var(--glass-border)}
   .sticky-cta .btn{width:100%}
-
-  /* ============ Reveal on scroll ============ */
   .rv{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
   .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
-
-  /* ============ Responsive ============ */
-  @media (max-width:960px){
-    .hero-grid{grid-template-columns:1fr}
-    .g3,.price-grid{grid-template-columns:repeat(2,1fr)}
-    .foot-grid{grid-template-columns:1fr 1fr}
-    .nav-links{display:none}
-  }
+  @media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
   @media (max-width:620px){
-    section{padding:64px 0}
-    .g3,.g2,.price-grid{grid-template-columns:1fr}
     .sticky-cta{display:block}
-    nav .btn-ghost{display:none}
     body{padding-bottom:76px}
-    .trust-card{flex-direction:column;align-items:flex-start}
+    .ba-grid{grid-template-columns:1fr}
+    .hero{padding:64px 0 48px}
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span></div>
 
-<div class="aurora" aria-hidden="true"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
-
-<nav aria-label="Main">
+<nav class="site-nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="logo" href="#top" aria-label="EchoSight home"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
+    <a class="logo" href="index.html" aria-label="EchoSight home"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
     <div class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="#trust-detail">Trust</a>
+      <a href="product.html">Product</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="demo.html">Live demo</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="examples.html">Examples</a>
+      <a href="faq.html">FAQ</a>
     </div>
-    <a class="btn btn-ghost btn-sm" href="#pricing">Sign in</a>
-    <a class="btn btn-primary btn-sm" href="#pricing">Start free</a>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="login.html">Log in</a>
+      <a class="btn btn-primary btn-sm" href="free-reel-review.html">Free Reel review</a>
+    </div>
+    <button class="menu-btn" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="product.html">Product</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="demo.html">Live demo</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="examples.html">Examples</a>
+    <a href="faq.html">FAQ</a>
+    <a href="free-reel-review.html">Free Reel review</a>
+    <a href="waitlist.html">Join the beta</a>
+    <a href="login.html">Log in</a>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<header class="hero" id="top">
+<main id="main">
+
+<!-- HERO: first-screen promise + who it's for + product demonstration -->
+<header class="hero">
   <div class="wrap hero-grid">
     <div class="rv in">
       <span class="kicker">Instagram content intelligence</span>
       <h1>Know <span class="grad-text">why</span>.<br>Before you post.</h1>
-      <p class="sub">EchoSight analyses every Reel, carousel and post — hook, pacing, story, caption, audio — then explains why it performed, predicts how your next one will do, and tells you exactly what to change.</p>
+      <p class="sub">For creators, agencies and brands who live on Reels: EchoSight reads your content the way a sharp editor would — hook, pacing, story, caption, audio — then explains why it performed and what to change while the edit is still cheap.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#pricing">Analyse your first Reel free</a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+        <a class="btn btn-primary" href="free-reel-review.html">Get a free Reel review</a>
+        <a class="btn btn-ghost" href="demo.html">Try the live demo</a>
       </div>
-      <p class="hero-note">Free plan · No credit card · Built on the official Instagram API</p>
+      <p class="hero-note">Free plan · No card · Official Instagram API only</p>
     </div>
 
-    <div class="mock rv" role="img" aria-label="Example EchoSight analysis: virality score 74, hook score 88, save probability 6.2%, with an explanation of the drivers">
+    <div class="mock rv" role="img" aria-label="Example EchoSight analysis showing a virality score of 74, hook score 88, save probability 6.2%, with the drivers explained. Example data.">
       <div class="mock-head">
-        <span class="mock-title">Pre-Flight analysis — reel_v3.mp4</span>
-        <span class="mock-tag">Confidence B</span>
+        <span class="mock-title">Pre-Flight — reel_v3.mp4</span>
+        <span style="display:flex;gap:8px"><span class="chip chip-demo">Example data</span><span class="chip chip-grade">Confidence B</span></span>
       </div>
       <div class="ring-row">
-        <div class="ring">
-          <svg width="118" height="118" viewBox="0 0 118 118" aria-hidden="true">
-            <circle cx="59" cy="59" r="52" fill="none" stroke="#1E2740" stroke-width="9"/>
-            <circle id="ringFill" cx="59" cy="59" r="52" fill="none" stroke="url(#g1)" stroke-width="9"
-              stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#5B7CFF"/><stop offset="1" stop-color="#3DD6C3"/>
-            </linearGradient></defs>
+        <div class="score-ring">
+          <svg width="110" height="110" viewBox="0 0 110 110" aria-hidden="true">
+            <circle cx="55" cy="55" r="48" fill="none" stroke="#1E2740" stroke-width="9"/>
+            <circle id="ringFill" cx="55" cy="55" r="48" fill="none" stroke="url(#g1)" stroke-width="9" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="301.6"/>
+            <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5B7CFF"/><stop offset="1" stop-color="#3DD6C3"/></linearGradient></defs>
           </svg>
           <div class="val"><b id="ringVal">0</b><span>Virality</span></div>
         </div>
         <div class="bars">
-          <div class="bar"><label>Hook score <b>88</b></label><div class="track"><div class="fill" data-w="88%"></div></div></div>
-          <div class="bar"><label>Scroll-stop <b>81</b></label><div class="track"><div class="fill" data-w="81%"></div></div></div>
-          <div class="bar"><label>Save probability <b>6.2%</b></label><div class="track"><div class="fill" data-w="62%"></div></div></div>
-          <div class="bar"><label>Share probability <b>3.1%</b></label><div class="track"><div class="fill" data-w="31%"></div></div></div>
+          <div class="bar"><label>Hook score <b>88</b></label><div class="track"><div class="fill" style="width:0" data-w="88%"></div></div></div>
+          <div class="bar"><label>Scroll-stop <b>81</b></label><div class="track"><div class="fill" style="width:0" data-w="81%"></div></div></div>
+          <div class="bar"><label>Save probability <b>6.2%</b></label><div class="track"><div class="fill" style="width:0" data-w="62%"></div></div></div>
+          <div class="bar"><label>Share probability <b>3.1%</b></label><div class="track"><div class="fill" style="width:0" data-w="31%"></div></div></div>
         </div>
       </div>
       <div class="mock-why">
-        <span class="dot">●</span> <b>Why:</b> motion + text hook lands within 0.8s (top decile). Mid-section pacing drops to 1.9 cuts/10s against your winning band of 3.0–4.5 — tightening it is your highest-impact fix.
+        <span class="dot">●</span> <b>Why:</b> motion + text hook lands within 0.8s (top decile). Mid-section pacing drops to 1.9 cuts/10s against this account's winning band of 3.0–4.5 — tightening it is the highest-impact fix.
       </div>
     </div>
   </div>
 </header>
 
-<!-- ============ TRUST STRIP ============ -->
-<div class="trust">
+<!-- TRUST STRIP: privacy boundaries up front -->
+<div style="padding:0 0 8px">
   <div class="wrap">
-    <div class="trust-card rv">
-      <div class="trust-item"><span class="tick">✓</span><span><b>Official Instagram API</b> only</span></div>
-      <div class="trust-item"><span class="tick">✓</span><span><b>No scraping</b>, ever</span></div>
-      <div class="trust-item"><span class="tick">✓</span><span><b>No fake “who viewed you”</b> claims</span></div>
-      <div class="trust-item"><span class="tick">✓</span><span><b>Your data stays yours</b> — never sold</span></div>
+    <div class="rv" style="display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;align-items:center;background:var(--ink-900);border:1px solid var(--ink-700);border-radius:var(--radius);padding:18px 26px;font-size:14px;color:var(--mist-400)">
+      <span><span class="tick">✓</span> <b style="color:var(--mist-100)">Official Instagram API</b> only</span>
+      <span><span class="tick">✓</span> <b style="color:var(--mist-100)">No scraping</b>, ever</span>
+      <span><span class="tick">✓</span> <b style="color:var(--mist-100)">No fake “who viewed you”</b> claims</span>
+      <span><a href="trust.html" style="color:var(--echo-400)">What we will never do →</a></span>
     </div>
   </div>
 </div>
 
-<!-- ============ FEATURES ============ -->
-<section id="features">
+<!-- BEFORE / AFTER example -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Before / after</span>
+      <h2>Same Reel. One fix. Different read.</h2>
+      <p class="sub">A worked example of what one recommendation changes — on example data, labelled as such, because we don't publish numbers we haven't earned.</p>
+    </div>
+    <div class="ba-grid ba">
+      <div class="card before rv">
+        <span class="tag">Before — original cut</span>
+        <p><strong style="color:var(--mist-100)">Hook:</strong> logo sting for 1.8s, talking head starts at 2.1s. <strong style="color:var(--mist-100)">Read:</strong> nothing moves in the scroll-stop window; the viewer has left before the content starts.</p>
+        <p class="score" style="color:var(--ember-500)">Hook 41 · Scroll-stop 37 · Save p 1.1% <span class="chip chip-demo" style="margin-left:8px">Example data</span></p>
+      </div>
+      <div class="card after rv">
+        <span class="tag">After — re-cut from the fix list</span>
+        <p><strong style="color:var(--mist-100)">Fix applied:</strong> open mid-action at 0.0s, payoff teaser as on-screen text by 0.6s, logo moved to the end card. Same footage, re-ordered.</p>
+        <p class="score" style="color:var(--pulse-400)">Hook 84 · Scroll-stop 79 · Save p 4.8% <span class="chip chip-demo" style="margin-left:8px">Example data</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS RECOMMENDATION: explainability example -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="grid g2">
+      <div class="panel rv">
+        <span class="chip chip-demo">Example data</span>
+        <h3 style="margin:12px 0 10px">“Why am I being told this?”</h3>
+        <p style="font-size:14.5px;color:var(--mist-400)">Every recommendation opens into its evidence. This one reads: <em>“Tighten 0:11–0:26”</em> because cut rhythm drops to 1.9 cuts/10s there, this account's top-quartile Reels hold 3.0–4.5, and across similar accounts that pacing gap correlates with the largest retention losses. Confidence: B — solid data for this niche, thinner for this exact format.</p>
+        <p style="font-size:14.5px;color:var(--mist-400);margin-top:10px">If a number can't show where it came from, we don't show the number.</p>
+      </div>
+      <div class="panel panel-9 rv">
+        <h3 style="margin-bottom:10px">The honest limits, up front</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--mist-400)">
+          <li><span class="x">✕</span>&nbsp; We can't see who saved or shared — nobody can. We work with counts and probabilities.</li>
+          <li><span class="x">✕</span>&nbsp; Predictions aren't promises. Instagram's distribution has real randomness; we state confidence and show our track record.</li>
+          <li><span class="tick">✓</span>&nbsp; What we can do: measure your creative, learn your account's patterns, and move your odds — visibly.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section>
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">The engine room</span>
       <h2>Analytics tells you what happened.<br>EchoSight tells you <span class="grad-text">why</span>.</h2>
-      <p class="sub">Eight engines, one loop: understand your content, predict its performance, improve it, and create what's next.</p>
     </div>
     <div class="grid g3">
-      <div class="card rv"><div class="ic" aria-hidden="true">◉</div><h3>Content teardowns</h3><p>Frame-by-frame AI analysis of every Reel and post: hook, first frame, pacing, cuts, storytelling, caption, CTA, audio, colour and emotion — with a plain-English explanation of what drove the result.</p></div>
-      <div class="card rv"><div class="ic" aria-hidden="true">◈</div><h3>Pre-Flight prediction</h3><p>Upload before you publish. Get Virality, Hook, Scroll-Stop and Save/Share/Follow probability scores with honest confidence grades — then re-score each edit until it's ready.</p></div>
-      <div class="card rv"><div class="ic" aria-hidden="true">✦</div><h3>AI Coach</h3><p>A weekly plan built from your own data: what worked, what didn't, and at most three concrete experiments — each with a hypothesis and a measurable target. It tells you when it's wrong, too.</p></div>
-      <div class="card rv"><div class="ic" aria-hidden="true">◭</div><h3>Trend radar</h3><p>Daily reports on emerging formats, hooks and audio in your niche — labelled with the evidence behind them and a one-click brief to make each trend yours.</p></div>
-      <div class="card rv"><div class="ic" aria-hidden="true">⊞</div><h3>Competitor intelligence</h3><p>Track public professional accounts: posting cadence, format mix, estimated engagement quality, breakout content — and the gaps they're leaving open for you.</p></div>
-      <div class="card rv"><div class="ic" aria-hidden="true">✎</div><h3>Creative generator</h3><p>Hooks, captions, scripts, carousels and storyboards conditioned on your brand voice and your measured winners — plus complete Higgsfield and Fable production prompt packs.</p></div>
+      <div class="card rv"><h3>Content teardowns</h3><p>Frame-by-frame analysis of any Reel or post, ending in plain English: what worked, what cost you, what to change. <a href="teardowns.html" style="color:var(--echo-400)">More →</a></p></div>
+      <div class="card rv"><h3>Pre-Flight prediction</h3><p>Scores before you publish, each with a confidence grade — because sometimes we genuinely don't know, and we say so. <a href="pre-flight.html" style="color:var(--echo-400)">More →</a></p></div>
+      <div class="card rv"><h3>AI Coach</h3><p>Weekly plans of at most three experiments, measured against your own baselines. Not tips. Tests. <a href="coach.html" style="color:var(--echo-400)">More →</a></p></div>
+      <div class="card rv"><h3>Trend intelligence</h3><p>Daily niche reads with the evidence printed on every card and a lifecycle stage, so you're not shipping day-30 content on a day-3 format. <a href="trends.html" style="color:var(--echo-400)">More →</a></p></div>
+      <div class="card rv"><h3>Competitor intelligence</h3><p>Public professional accounts through the official API, estimates labelled as estimates, gaps turned into opportunities. <a href="competitors.html" style="color:var(--echo-400)">More →</a></p></div>
+      <div class="card rv"><h3>Creative generator</h3><p>Hooks, scripts and storyboards trained on your winners — plus Higgsfield and Fable production packs. <a href="creative-generator.html" style="color:var(--echo-400)">More →</a></p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section id="how">
+<!-- HOW IT WORKS -->
+<section style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">One loop</span>
-      <h2>From insight to published post, and back.</h2>
-    </div>
-    <div class="grid g3 loop">
-      <div class="card rv"><h3>Connect or upload</h3><p>Link your professional Instagram account through the official API, or just drag a video in — your first full teardown lands in about a minute.</p></div>
-      <div class="card rv"><h3>Understand &amp; predict</h3><p>See exactly why past content flew or flopped, and score new content before it goes live. Every score shows its top drivers and a confidence grade.</p></div>
-      <div class="card rv"><h3>Improve &amp; create</h3><p>Apply ranked fixes, run the Coach's weekly experiments, generate what's next — then EchoSight reconciles prediction against reality and gets sharper every week.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOLUTIONS ============ -->
-<section id="solutions" class="persona">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Solutions</span>
-      <h2>Built for the people who live in the feed.</h2>
+      <span class="kicker">How it works</span>
+      <h2>Upload to “now I get it” in about a minute.</h2>
     </div>
     <div class="grid g3">
-      <div class="card rv">
-        <h3>Creators</h3>
-        <ul>
-          <li>Know why every post performed — no more guessing</li>
-          <li>Score Reels before posting; fix the hook while it's cheap</li>
-          <li>A weekly coach plan measured against your own baselines</li>
-        </ul>
-      </div>
-      <div class="card rv">
-        <h3>Agencies</h3>
-        <ul>
-          <li>White-label monthly reports drafted in 60 seconds — with the “why” written for you</li>
-          <li>Every client account in one portfolio view with health status</li>
-          <li>Team roles, approvals, and an API to plug into your stack</li>
-        </ul>
-      </div>
-      <div class="card rv">
-        <h3>Brands &amp; enterprise</h3>
-        <ul>
-          <li>Brand-consistency scoring across the whole grid</li>
-          <li>Campaign-level lift vs. baseline, competitor benchmarks</li>
-          <li>SSO, audit logs, data residency and custom models</li>
-        </ul>
-      </div>
+      <div class="card rv"><h3>1 · Upload or connect</h3><p>Drag a Reel in, or connect your professional account through the official API for your own baselines. Either way works; connecting is never required.</p></div>
+      <div class="card rv"><h3>2 · Understand &amp; predict</h3><p>Scores with confidence grades, and a teardown that cites its own numbers. See exactly why past posts flew or died.</p></div>
+      <div class="card rv"><h3>3 · Improve &amp; create</h3><p>Apply ranked fixes, re-score the new cut, run the Coach's weekly experiments — and watch predicted-vs-actual reconcile after you post.</p></div>
     </div>
+    <div class="rv" style="margin-top:24px"><a class="btn btn-ghost" href="how-it-works.html">The full walkthrough →</a></div>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section>
+<!-- FREE VALUE CTA -->
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">What early users say</span>
-      <h2>The “why” changes everything.</h2>
+    <div class="cta-band rv">
+      <span class="kicker">Free, actually useful</span>
+      <h2>One Reel. Full teardown. Free.</h2>
+      <p class="sub">The complete read on one piece of your content — hook verdict, pacing risks, three ranked fixes. No card, no countdown timer.</p>
+      <a class="btn btn-primary" href="free-reel-review.html">Get my free review</a>
     </div>
-    <div class="grid g3">
-      <div class="card quote rv">
-        <p>“I stopped arguing with the algorithm and started fixing my first three seconds. Saves are up 42% in six weeks — and I know exactly why.”</p>
-        <div class="who"><span class="avatar" aria-hidden="true"></span><span><b>Fitness creator</b> · 120k followers · beta cohort</span></div>
-      </div>
-      <div class="card quote rv">
-        <p>“Monthly client reports used to take my analysts a full day each. EchoSight drafts the commentary — with evidence — and we edit. It pays for itself on one client.”</p>
-        <div class="who"><span class="avatar" aria-hidden="true"></span><span><b>Agency director</b> · 40 client accounts · beta cohort</span></div>
-      </div>
-      <div class="card quote rv">
-        <p>“Pre-Flight caught a weak hook on a launch Reel before it went live. We re-cut it, the score jumped, and it became our best performer of the quarter.”</p>
-        <div class="who"><span class="avatar" aria-hidden="true"></span><span><b>DTC brand social lead</b> · beta cohort</span></div>
-      </div>
-    </div>
-    <p class="note-illustrative rv">Quotes are illustrative of beta-program goals until published case studies go live at launch — we hold marketing to the same honesty bar as our scores.</p>
   </div>
 </section>
 
-<!-- ============ PRICING ============ -->
-<section id="pricing">
+<!-- PRICING PREVIEW -->
+<section style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Pricing</span>
-      <h2>Start free. Upgrade when it earns it.</h2>
-      <p class="sub">Every paid plan includes teardowns, Pre-Flight prediction, the AI Coach and trend reports. Annual billing gets two months free.</p>
+      <h2>Every price public. Including add-ons.</h2>
+      <p class="sub">Free forever tier, Starter $29, Pro $79, Agency $199 — and the full add-on price list on the pricing page, because finding the real cost after signup is this category's worst habit.</p>
     </div>
-    <div class="price-grid">
-      <div class="plan rv">
-        <div class="name">Free</div>
-        <div class="amt">$0</div>
-        <div class="for">Try the real thing — real scores, not teasers.</div>
-        <ul>
-          <li>1 connected account</li>
-          <li>5 Pre-Flight analyses / month</li>
-          <li>Content scores &amp; teardowns</li>
-          <li>Weekly trend report</li>
-        </ul>
-        <a class="btn btn-ghost" href="#top">Start free</a>
-      </div>
-      <div class="plan rv">
-        <div class="name">Starter</div>
-        <div class="amt">$29<span>/mo</span></div>
-        <div class="for">For solo creators getting serious.</div>
-        <ul>
-          <li>30 analyses / month</li>
-          <li>AI Coach with weekly experiments</li>
-          <li>Daily trend reports</li>
-          <li>2 tracked competitors</li>
-          <li>100 generation credits</li>
-        </ul>
-        <a class="btn btn-ghost" href="#top">Choose Starter</a>
-      </div>
-      <div class="plan hot rv">
-        <div class="name">Pro <span class="pop">Most popular</span></div>
-        <div class="amt">$79<span>/mo</span></div>
-        <div class="for">For creators and brands who post to win.</div>
-        <ul>
-          <li>3 accounts · 150 analyses / month</li>
-          <li>Everything in Starter</li>
-          <li>10 tracked competitors + alerts</li>
-          <li>Higgsfield &amp; Fable prompt packs</li>
-          <li>500 generation credits</li>
-        </ul>
-        <a class="btn btn-primary" href="#top">Choose Pro</a>
-      </div>
-      <div class="plan rv">
-        <div class="name">Agency</div>
-        <div class="amt">$199<span>/mo</span></div>
-        <div class="for">15 client accounts included, then $9 each.</div>
-        <ul>
-          <li>600 pooled analyses / month</li>
-          <li>White-label reports &amp; scheduling</li>
-          <li>Team roles &amp; client permissions</li>
-          <li>API access &amp; webhooks</li>
-          <li>2,000 pooled credits</li>
-        </ul>
-        <a class="btn btn-ghost" href="#top">Choose Agency</a>
-      </div>
-    </div>
-    <p class="note-illustrative rv" style="text-align:center">Need SSO, custom models, data residency or volume API? <a href="#faq" style="color:var(--echo-400)">Talk to us about Enterprise →</a></p>
+    <div class="rv"><a class="btn btn-primary" href="pricing.html">See the whole price list</a></div>
   </div>
 </section>
 
-<!-- ============ TRUST DETAIL ============ -->
-<section id="trust-detail">
+<!-- OBJECTIONS -->
+<section style="padding-top:64px">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">Trust, by design</span>
-      <h2>What we will never do.</h2>
-      <p class="sub">A wave of tools claims to show you who saved your post or viewed your profile. No legitimate tool can — that data doesn't exist outside Instagram, and apps that pretend otherwise get their users banned.</p>
+      <span class="kicker">Fair worries</span>
+      <h2>The questions sharp people ask first.</h2>
     </div>
-    <div class="grid g2">
-      <div class="card rv">
-        <h3>Never</h3>
-        <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--mist-400)">
-          <li>✕ &nbsp;Claim to reveal who saved, shared or viewed your content</li>
-          <li>✕ &nbsp;Touch private accounts, DMs, or anything outside authorised APIs</li>
-          <li>✕ &nbsp;Scrape Instagram or buy scraped data</li>
-          <li>✕ &nbsp;Sell your data, or use it to build ad audiences</li>
-        </ul>
-      </div>
-      <div class="card rv">
-        <h3>Always</h3>
-        <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--mist-400)">
-          <li><span class="tick">✓</span> &nbsp;Official Instagram Graph API, minimal permissions, explained in plain English</li>
-          <li><span class="tick">✓</span> &nbsp;Predictions with confidence grades — and a public record of our accuracy</li>
-          <li><span class="tick">✓</span> &nbsp;Encryption everywhere, deletion on request, GDPR &amp; Australian Privacy Act compliance</li>
-          <li><span class="tick">✓</span> &nbsp;An answer to “where does this number come from?” on every insight</li>
-        </ul>
-      </div>
+    <div class="grid g3">
+      <div class="card rv"><h3>“Will this risk my account?”</h3><p>No. Official API, read-only scopes, no automation, no scraping. We never post on your behalf and never ask for your password.</p></div>
+      <div class="card rv"><h3>“AI predictions are astrology.”</h3><p>Some are. Ours carry confidence grades and get reconciled against your actual results — your accuracy page shows the misses too. Judge the track record, not the promise.</p></div>
+      <div class="card rv"><h3>“Another subscription…”</h3><p>Start free — it's genuinely useful, not a teaser. If one insight saves one dead Reel a month, the maths handles itself.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ FAQ ============ -->
-<section id="faq">
+<!-- FAQ (short) -->
+<section style="padding-top:0">
   <div class="wrap" style="max-width:760px">
-    <div class="sec-head rv">
-      <span class="kicker">FAQ</span>
-      <h2>Fair questions, straight answers.</h2>
-    </div>
-    <details class="rv"><summary>Can EchoSight show me who saved or shared my post?</summary>
-      <p>No — and no legitimate tool can. Instagram doesn't expose that data to anyone. What we do instead: analyse your creative and your aggregate results to explain <em>why</em> people save and share, and predict how likely your next post is to earn saves and shares before you publish it.</p></details>
-    <details class="rv"><summary>Is this against Instagram's rules?</summary>
-      <p>The opposite. EchoSight uses the official Instagram Graph API with your explicit permission, requests only the scopes it needs, and never scrapes. Tools that break the rules put your account at risk — that's exactly what we built EchoSight to replace.</p></details>
-    <details class="rv"><summary>How accurate are the predictions?</summary>
-      <p>Every score carries a confidence grade, and we reconcile predictions against actual results for your account — you can see our track record for you at any time. When we don't have enough similar data to predict reliably, we say so and give you the analysis instead.</p></details>
-    <details class="rv"><summary>Do I need to connect my Instagram account?</summary>
-      <p>No. Studio mode lets you upload content and get full teardowns and scores against niche benchmarks. Connecting your professional account adds your personal baselines, real outcomes and the AI Coach.</p></details>
-    <details class="rv"><summary>What happens to my data?</summary>
-      <p>It's encrypted, never sold, and deleted when you ask (or when you disconnect your account). Model training on your outcome data is disclosed up front and you can opt out without losing features. Full detail is in our privacy policy.</p></details>
-    <details class="rv"><summary>Which accounts does competitor tracking work on?</summary>
-      <p>Public professional (business/creator) accounts, via Instagram's Business Discovery API. Private accounts can't be tracked — by anyone — and we'll tell you that rather than pretend otherwise. Engagement quality for competitors is clearly labelled as an estimate.</p></details>
+    <div class="sec-head rv"><h2>Quick answers</h2></div>
+    <details class="rv"><summary>Can EchoSight show me who saved or shared my post?</summary><div class="a"><p>No — and no legitimate tool can. Instagram doesn't expose that data to anyone. We explain <em>why</em> people save and share, and predict how likely your next post is to earn them.</p></div></details>
+    <details class="rv"><summary>Do I need to connect my Instagram account?</summary><div class="a"><p>No. Studio mode analyses anything you upload against niche benchmarks. Connecting adds your personal baselines and the Coach — your choice, changeable any time.</p></div></details>
+    <details class="rv"><summary>When can I use it?</summary><div class="a"><p>Closed beta is next: 200 founding seats with an onboarding call included. The <a href="waitlist.html" style="color:var(--echo-400)">beta page</a> has the honest timeline.</p></div></details>
+    <div class="rv" style="margin-top:18px"><a href="faq.html" style="color:var(--echo-400);font-size:14.5px">All questions →</a></div>
   </div>
 </section>
 
-<!-- ============ FINAL CTA ============ -->
-<section>
+<!-- FINAL CTA -->
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="final rv">
-      <span class="kicker">Get started</span>
+    <div class="cta-band rv">
       <h2>Your next post deserves better than a guess.</h2>
-      <p class="sub">Analyse your first Reel free in about a minute. No credit card, no scraping, no nonsense.</p>
-      <a class="btn btn-primary" href="#top">Start free with EchoSight</a>
+      <p class="sub">Free Reel review, or 200 founding seats with a real onboarding call. Both honest, both on the next page.</p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-primary" href="free-reel-review.html">Get a free Reel review</a>
+        <a class="btn btn-ghost" href="waitlist.html">Join the founding cohort</a>
+      </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="logo" href="#top" style="margin-bottom:14px"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
-        <p style="max-width:280px">Instagram content intelligence for creators, agencies and brands. Know why. Before you post.</p>
+        <a class="logo" href="index.html" style="margin-bottom:14px"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
+        <p style="max-width:260px;font-size:13.5px">Instagram content intelligence for creators, agencies and brands. Know why. Before you post.</p>
       </div>
       <div>
         <h4>Product</h4>
-        <a href="#features">Features</a><a href="#solutions">Solutions</a><a href="#pricing">Pricing</a><a href="#pricing">Enterprise</a><a href="#faq">API</a>
+        <a href="product.html">Overview</a><a href="pre-flight.html">Pre-Flight analysis</a><a href="teardowns.html">Content teardowns</a><a href="coach.html">AI Coach</a><a href="trends.html">Trend intelligence</a><a href="competitors.html">Competitor intelligence</a><a href="creative-generator.html">Creative generator</a><a href="demo.html">Interactive demo</a>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <a href="creators.html">For creators</a><a href="brands.html">For brands</a><a href="agencies.html">For agencies</a><a href="free-reel-review.html">Free Reel review</a><a href="examples.html">Examples</a><a href="pricing.html">Pricing</a>
       </div>
       <div>
         <h4>Company</h4>
-        <a href="#top">About</a><a href="#top">Blog</a><a href="#top">Careers</a><a href="#top">Affiliates</a><a href="#top">Contact</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a><a href="waitlist.html">Join the beta</a><a href="login.html">Log in</a><a href="signup.html">Sign up</a>
       </div>
       <div>
         <h4>Trust</h4>
-        <a href="#trust-detail">What we never do</a><a href="#trust-detail">Privacy</a><a href="#trust-detail">Terms</a><a href="#trust-detail">Security</a><a href="#trust-detail">Status</a>
+        <a href="trust.html">Trust &amp; privacy</a><a href="security.html">Security</a><a href="privacy-policy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="cookie-policy.html">Cookie policy</a><a href="acceptable-use.html">Acceptable use</a><a href="data-processing.html">Data processing</a>
       </div>
     </div>
     <div class="legal">
-      <span>© 2026 EchoSight AI Pty Ltd. All rights reserved.</span>
+      <span>© 2026 EchoSight AI Pty Ltd (in formation). All rights reserved.</span>
       <span>Not affiliated with or endorsed by Instagram or Meta Platforms, Inc.</span>
     </div>
   </div>
 </footer>
 
-<div class="sticky-cta" aria-hidden="false">
-  <a class="btn btn-primary" href="#pricing">Analyse your first Reel free</a>
+<div class="consent" role="dialog" aria-label="Cookie consent">
+  <strong style="color:var(--mist-100)">Cookies, minimally.</strong> This site uses no tracking today. If we add privacy-respecting analytics later, it will load only if you allow it here.
+  <div class="row">
+    <button class="btn btn-primary btn-sm" data-consent="granted">Allow analytics</button>
+    <button class="btn btn-ghost btn-sm" data-consent="denied">Essential only</button>
+  </div>
 </div>
 
-<script>
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.15});
-  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+<div class="sticky-cta"><a class="btn btn-primary" href="free-reel-review.html">Get a free Reel review</a></div>
 
-  // Animate hero score card when visible
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const mock = document.querySelector('.mock');
-  const ringFill = document.getElementById('ringFill');
-  const ringVal = document.getElementById('ringVal');
-  const TARGET = 74, CIRC = 326.7;
-  function runMock(){
-    document.querySelectorAll('.fill').forEach(f=>{ f.style.width = f.dataset.w; });
-    if(reduce){ ringFill.style.strokeDashoffset = CIRC*(1-TARGET/100); ringVal.textContent = TARGET; return; }
-    ringFill.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)';
-    ringFill.style.strokeDashoffset = CIRC*(1-TARGET/100);
-    const t0 = performance.now();
-    (function tick(t){
-      const p = Math.min((t-t0)/1200,1);
-      ringVal.textContent = Math.round(TARGET*(0.5-0.5*Math.cos(Math.PI*p)));
-      if(p<1) requestAnimationFrame(tick);
-    })(t0);
-  }
-  const mio = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ runMock(); mio.disconnect(); } }); },{threshold:.4});
-  mio.observe(mock);
+<script src="assets/site.js"></script>
+<script>
+  // Hero score animation (respects reduced motion)
+  (function(){
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mock = document.querySelector('.mock');
+    var ringFill = document.getElementById('ringFill');
+    var ringVal = document.getElementById('ringVal');
+    if (!mock || !ringFill) return;
+    var TARGET = 74, CIRC = 301.6;
+    function run(){
+      document.querySelectorAll('.mock .fill').forEach(function(f){ f.style.width = f.getAttribute('data-w'); });
+      if (reduce){ ringFill.style.strokeDashoffset = CIRC*(1-TARGET/100); ringVal.textContent = TARGET; return; }
+      ringFill.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)';
+      ringFill.style.strokeDashoffset = CIRC*(1-TARGET/100);
+      var t0 = performance.now();
+      (function tick(t){
+        var p = Math.min((t-t0)/1200,1);
+        ringVal.textContent = Math.round(TARGET*(0.5-0.5*Math.cos(Math.PI*p)));
+        if(p<1) requestAnimationFrame(tick);
+      })(t0);
+    }
+    if ('IntersectionObserver' in window){
+      var mio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(); mio.disconnect(); } }); },{threshold:.4});
+      mio.observe(mock);
+    } else run();
+  })();
 </script>
 </body>
 </html>
