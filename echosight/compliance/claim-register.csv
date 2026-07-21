@@ -1,0 +1,18 @@
+claim,location,evidence,status,owner,safe_wording_rule,legal_review_required
+"Explains why content performs / predicts before posting",sitewide,Product design; demo shows the format; no accuracy % claimed,QUALIFIED,product,"Always paired with confidence-grade language; never 'accurately predicts'",no
+"Official Instagram API only; no scraping",sitewide + trust page,Architecture docs 04/06/09; no scraping code paths exist by design,VERIFIED (as commitment),engineering,"State as design commitment; product must ship this way",no
+"Nobody can see who saved/shared/viewed — no legitimate tool can",trust/faq/marketing,Meta Graph API documentation exposes aggregate counts only,VERIFIED,compliance,"Keep exact phrasing; this is the brand's central factual claim",no
+"Hook 41→84 / virality 74 / all demo scores",home/demo/examples/app,Example data by construction,DEMO ONLY,product,"'Example data' chip must be visible in the same viewport, not only in captions",no
+"Free plan: 5 analyses/mo with real scores",pricing,Pricing decision docs/23,VERIFIED (as offer),product,Must match shipped product before GA,no
+"Every price public including add-ons",pricing,The page itself lists them,VERIFIED,marketing,Keep table complete as prices change,no
+"200 founding seats capped by onboarding-call capacity",waitlist/day-28 video,docs/24 operational commitment,VERIFIED (as commitment),founder,"Cap must be honoured; if capacity changes, page changes first",no
+"14-day no-questions refund + 90-day pro-rata founding refund",waitlist/terms,docs/24 policy decision,VERIFIED (as policy),founder,Must be operationalised in Stripe before selling,yes
+"Predictions carry confidence grades; accuracy page shows misses",sitewide,Product spec docs/02-03; not yet shipped,QUALIFIED,product,"Present tense only after beta ships it; currently framed as product design",no
+"Trend 'rising across accounts we track' (day-12 etc.)",content system,Trend engine spec; no live tracking yet,DEMO ONLY,marketing,"Until live: only in demo-labelled contexts; never as current fact in ads",no
+"~1/3 consumers less likely to choose brands using obvious AI ads",research only,Secondary source E5; primary survey not located,ESTIMATE,research,NOT used in public marketing until primary source verified,no
+"Competitor pricing figures (Later/Iconosquare/etc.)",research only,Third-party roundups July 2026,ESTIMATE,research,Never in public marketing; re-verify before any comparison page,yes (if comparison page ever ships)
+"SOC 2 / pen test",security page,Roadmap commitments,QUALIFIED,engineering,"Stated as 'planned/targeted' with explicit 'no badges we haven't earned' line",no
+"Legal pages (privacy/terms/cookies/AUP/DPS)",site legal pages,Drafted this cycle,LEGAL REVIEW,founder,Draft banner stays on every page until AU solicitor sign-off,yes
+"Testimonial-style quotes",previous site v1,None — no customers exist,REMOVE (DONE),marketing,Removed in v2; only labelled example scenarios remain (examples page),no
+"EchoSight AI Pty Ltd (in formation)",footer,Company not yet registered,QUALIFIED,founder,"'(in formation)' suffix mandatory until ASIC registration",yes
+"Beta timeline ('closed beta is next')",login/waitlist/faq,Current true state,VERIFIED (as of 2026-07-21),founder,Update the moment reality changes; stale-date check monthly,no
