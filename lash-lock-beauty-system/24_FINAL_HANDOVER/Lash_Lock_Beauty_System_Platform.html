@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Lash Lock Beauty System — Full Platform</title>
+<style>
+  :root{
+    --oat:#F4EEE6; --sand:#E4D6C3; --cream:#FBF7F1; --ink:#3B2E26; --clay:#C1745A;
+    --clay-soft:#E7C9BC; --sage:#8A9A83; --line:#DAC9B6; --muted:#7A6B5E;
+    --green:#3F7D57; --amber:#C79A3A; --red:#B4553E;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:16mm 14mm; }
+  html,body{margin:0;padding:0;}
+  body{font-family:'Helvetica Neue',Arial,sans-serif; color:var(--ink); font-size:10.5pt; line-height:1.5; background:#fff;}
+  h1,h2,h3,h4{font-family:Georgia,'Times New Roman',serif; color:var(--ink); line-height:1.2; margin:0 0 .35em;}
+  h2{font-size:19pt; border-bottom:2px solid var(--clay); padding-bottom:.2em; margin-top:0;}
+  h3{font-size:13.5pt; color:var(--clay); margin-top:1.1em;}
+  h4{font-size:11pt; margin-top:.9em;}
+  p{margin:.35em 0;}
+  small{color:var(--muted);}
+  .section{page-break-before:always; padding-top:2mm;}
+  .no-break{page-break-inside:avoid;}
+  .lead{font-size:11pt;color:var(--muted);}
+  ul,ol{margin:.3em 0 .3em 1.1em; padding:0;}
+  li{margin:.15em 0;}
+  table{width:100%; border-collapse:collapse; margin:.5em 0; font-size:8.7pt;}
+  th,td{border:1px solid var(--line); padding:4px 6px; text-align:left; vertical-align:top;}
+  th{background:var(--sand); font-family:Georgia,serif; font-weight:normal;}
+  tr:nth-child(even) td{background:var(--cream);}
+  code,.mono{font-family:'Courier New',monospace; font-size:8.5pt; background:var(--oat); padding:1px 4px; border-radius:3px;}
+  .tag{display:inline-block; padding:1px 8px; border-radius:999px; font-size:8pt; font-weight:bold; color:#fff; letter-spacing:.02em;}
+  .g{background:var(--green);} .a{background:var(--amber);} .r{background:var(--red);}
+  .pill{display:inline-block;padding:1px 7px;border-radius:999px;background:var(--clay-soft);color:var(--ink);font-size:8pt;margin:1px 2px;}
+  .card{border:1px solid var(--line); border-radius:8px; padding:10px 12px; margin:8px 0; background:var(--cream); page-break-inside:avoid;}
+  .callout{border-left:4px solid var(--clay); background:var(--oat); padding:8px 12px; margin:10px 0; border-radius:0 6px 6px 0;}
+  .warn{border-left:4px solid var(--red); background:#faece7;}
+  .ok{border-left:4px solid var(--green); background:#eaf3ee;}
+  /* storyboard */
+  .frames{display:flex; gap:6px; margin:6px 0;}
+  .frame{flex:1; border:1px solid var(--line); border-radius:6px; background:#fff; min-height:74px; padding:6px; font-size:7.6pt; position:relative; overflow:hidden;}
+  .frame b{display:block; font-size:7pt; color:var(--clay); text-transform:uppercase; letter-spacing:.04em; margin-bottom:3px;}
+  .frame::after{content:""; position:absolute; inset:0; background:linear-gradient(135deg,rgba(193,116,90,.06),rgba(138,154,131,.06)); pointer-events:none;}
+  .thumbchip{display:inline-block; background:var(--ink); color:var(--oat); font-family:Georgia,serif; font-size:8.5pt; padding:3px 9px; border-radius:5px; margin:3px 0;}
+  .kicker{font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:var(--clay); font-weight:bold;}
+  .grid2{display:flex; gap:12px;} .grid2>div{flex:1;}
+  .cover{height:265mm; display:flex; flex-direction:column; justify-content:center; text-align:center;
+    background:linear-gradient(160deg,var(--oat),var(--sand)); border-radius:12px; padding:0 20mm;}
+  .cover h1{font-size:40pt; margin-bottom:.1em;}
+  .cover .sub{font-size:15pt; color:var(--muted); font-family:Georgia,serif; font-style:italic;}
+  .cover .rule{width:70px;height:4px;background:var(--clay);margin:18px auto;border-radius:2px;}
+  .toc li{margin:.28em 0;}
+  .metricbig{font-size:26pt;font-family:Georgia,serif;color:var(--clay);}
+  .foot{position:running(f);}
+  .price{font-family:Georgia,serif;color:var(--clay);font-weight:bold;}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="kicker">NorthPath · Gold Coast, Australia</div>
+  <h1>Lash&nbsp;Lock Beauty System</h1>
+  <div class="rule"></div>
+  <div class="sub">The full platform — brand, mini-class, video engine, funnel, operations, and launch-readiness assurance</div>
+  <div style="margin-top:26px;font-size:10pt;color:var(--muted)">
+    Prepared for <b>James &amp; Kat</b> &nbsp;·&nbsp; Currency AUD &nbsp;·&nbsp; Australian spelling<br>
+    Compiled 21 July 2026 &nbsp;·&nbsp; Branch <span class="mono">claude/lash-lock-beauty-system-ckcxha</span>
+  </div>
+  <div style="margin-top:30px">
+    <span class="tag g">GREEN&nbsp;·&nbsp;Class &amp; content</span>
+    <span class="tag a">AMBER&nbsp;·&nbsp;Tool-adjacent copy</span>
+    <span class="tag r">RED&nbsp;·&nbsp;Product claims</span>
+  </div>
+</div>
+
+<!-- HONESTY BANNER + TOC -->
+<div class="section">
+  <h2>How to read this document</h2>
+  <div class="callout warn no-break">
+    <b>Honesty &amp; compliance banner (read first).</b> This platform was built by an AI assistant and is grounded in live research + clearly-labelled assumptions.
+    It contains <b>no fabricated testimonials, no invented statistics, and no verified product claims</b>. No physical product testing, supplier
+    verification, or legal approval has been performed by the AI — those are <b>owner/qualified-party actions</b> (Gates A/B/C).
+    <br><br>
+    <b>About the "videos".</b> Real demonstration footage cannot exist yet: nothing has been filmed, Kat's likeness is not consented for AI, and the
+    product's performance is unverified. Presenting AI-generated product-performance video as proof would breach the compliance rules this system is built on.
+    So the video section below is the <b>production-ready video platform</b> — every script, storyboard, thumbnail and generation prompt needed to shoot —
+    with claim-safe copy. Actual videos are produced at the real batch shoot, after Gates A/B/C.
+  </div>
+
+  <h3>Contents</h3>
+  <ol class="toc">
+    <li>Platform at a glance &amp; launch statuses</li>
+    <li>Positioning &amp; brand</li>
+    <li>The product: "Eyeshadow Without the Mess" mini-class + offer ladder</li>
+    <li>Final launch-safe copy: landing page &amp; emails</li>
+    <li><b>The video engine</b> — pillars, hooks, storyboards, reel &amp; ad scripts, thumbnails, Higgsfield prompts</li>
+    <li>Funnel &amp; operations</li>
+    <li>Claim register &amp; the three launch gates</li>
+    <li><b>Red-team review (v1 + v2)</b></li>
+    <li><b>Expert council review (v1 + v2)</b></li>
+    <li>Do these five things next</li>
+  </ol>
+</div>
+
+<!-- 1. AT A GLANCE -->
+<div class="section">
+  <h2>1 · Platform at a glance</h2>
+  <p class="lead">A working Gold Coast makeup artist teaches a clean, repeatable eye-makeup <i>method</i> — the un-glamorous professional steps that make everyday makeup look good in person, on camera, and in real Australian heat — paired with the Lash Lock tool and one-page checklists.</p>
+
+  <div class="grid2">
+    <div class="card no-break">
+      <div class="kicker">The white space</div>
+      <h4>Own "the clean method"</h4>
+      <p>AU makeup education is dominated by <b>$2,500–$5,000 career certificates</b>; social tutorials are free but unstructured. The <b>$19–79 focused micro-class</b> tier is wide open. Kat owns <b>method + honesty + Australian conditions</b> — a moat US tool brands and big schools can't copy.</p>
+    </div>
+    <div class="card no-break">
+      <div class="kicker">The engine</div>
+      <h4>Tool ↔ class reinforce</h4>
+      <p>The class <i>is</i> the honest Lash Lock demo; the tool makes the method effortless. Value-to-product ratio held at <b>4:1</b> so it never feels like an ad channel. Real-footage-first; AI for B-roll only.</p>
+    </div>
+  </div>
+
+  <h3>Launch statuses</h3>
+  <table class="no-break">
+    <tr><th>Status</th><th>What it covers</th><th>Can it go live?</th></tr>
+    <tr><td><span class="tag g">GREEN</span></td><td>The $27 mini-class, free Method Card lead magnet, all <b>educational</b> content, Kat's authority story, the technical/security blueprint, operations</td><td>Yes — now, on launch-safe copy</td></tr>
+    <tr><td><span class="tag a">AMBER</span></td><td>Any content near the tool; marketing claims (only ✅ register items); paid ads (after organic proof); privacy policy (draft)</td><td>Only with interim-safe wording / limited scope</td></tr>
+    <tr><td><span class="tag r">RED</span></td><td>Selling Lash Lock the physical tool + the $69 bundle; any material / safety / hypoallergenic / therapeutic / durability / "lasts all day" claim</td><td>No — until Gates A/B/C clear</td></tr>
+  </table>
+
+  <h3>The 24+6 folder platform (all committed &amp; pushed)</h3>
+  <p><span class="pill">01 Research</span><span class="pill">02 Positioning</span><span class="pill">03 Brand Bible</span><span class="pill">04 Product Verification</span><span class="pill">05 Offer Ladder</span><span class="pill">06 Mini-Course</span><span class="pill">07 Lesson Scripts</span><span class="pill">08 Downloadables</span><span class="pill">09 Organic Content</span><span class="pill">10 Ad Scripts</span><span class="pill">11 Higgsfield Prompts</span><span class="pill">12 Filming Plans</span><span class="pill">13 Audio &amp; Voice</span><span class="pill">14 Editing System</span><span class="pill">15 Landing Page</span><span class="pill">16 Email Funnel</span><span class="pill">17 Content Calendar</span><span class="pill">18 Testing</span><span class="pill">19 Red Team</span><span class="pill">20 Council</span><span class="pill">21 Budget</span><span class="pill">22 Launch Plan</span><span class="pill">23 Owner Verification</span><span class="pill">24 Handover</span><span class="pill">25 Supplier DD</span><span class="pill">26 Legal Compliance</span><span class="pill">27 Security</span><span class="pill">28 Privacy</span><span class="pill">29 AI Rights &amp; QC</span><span class="pill">30 Operations</span></p>
+</div>
+
+<!-- 2. POSITIONING & BRAND -->
+<div class="section">
+  <h2>2 · Positioning &amp; brand</h2>
+  <div class="callout no-break"><b>Positioning statement.</b> For time-poor Australian women and beginner makeup lovers tired of messy, complicated, doesn't-work-on-me makeup, <b>Kat</b> is the Gold Coast working makeup artist who teaches a <b>clean, repeatable eye-makeup method</b> — unlike expensive career certificates or endless free tutorials — because she pairs a named method with the exact tool and one-page checklists that make it repeatable at home.</p></div>
+
+  <div class="grid2">
+    <div>
+      <h4>Voice — words she USES</h4>
+      <p><span class="pill">clean</span><span class="pill">controlled</span><span class="pill">fallout</span><span class="pill">under-eyes</span><span class="pill">the step</span><span class="pill">repeatable</span><span class="pill">looks done</span><span class="pill">holds up</span><span class="pill">in the heat</span><span class="pill">what you actually need</span><span class="pill">without redoing</span><span class="pill">watch this</span></p>
+      <h4>Words she AVOIDS</h4>
+      <p><span class="pill">game-changer</span><span class="pill">viral</span><span class="pill">miracle</span><span class="pill">guaranteed</span><span class="pill">#1</span><span class="pill">Hi guys</span><span class="pill">anti-ageing</span><span class="pill">hypoallergenic*</span><span class="pill">waterproof*</span> <small>*unless verified</small></p>
+    </div>
+    <div>
+      <h4>Visual world</h4>
+      <p>Premium, feminine, real, warm, cinematic-but-honest. Australian daylight — never plastic AI skin.</p>
+      <p><b>Palette:</b> oat <code>#F4EEE6</code>, sand <code>#E4D6C3</code>, espresso ink <code>#3B2E26</code>, clay accent <code>#C1745A</code>, sage <code>#8A9A83</code>.</p>
+      <p><b>Type:</b> warm serif headlines (Fraunces/Canela feel) + clean humanist sans captions.</p>
+    </div>
+  </div>
+
+  <h3>Signature devices (ownable)</h3>
+  <table class="no-break">
+    <tr><th>Device</th><th>What it is</th></tr>
+    <tr><td>The Split-Face</td><td>Messy side vs clean side, real-time, uncut on the reveal — the brand's signature proof.</td></tr>
+    <tr><td>The Step Stamp</td><td>Each method step appears as a numbered clay tag ("STEP 3 · CONTROL").</td></tr>
+    <tr><td>The Catch Reveal</td><td>Macro of what the tool catches before it reaches the concealer.</td></tr>
+    <tr><td>The Heat Check</td><td>End-of-day timestamp ("6 hrs · 31°C") — the Australian-conditions moat.</td></tr>
+    <tr><td>The Honest Note</td><td>A recurring "here's where it <i>won't</i> help" beat — trust over hype.</td></tr>
+  </table>
+</div>
+
+<!-- 3. PRODUCT -->
+<div class="section">
+  <h2>3 · The product &amp; offer ladder</h2>
+  <div class="grid2">
+    <div class="card no-break">
+      <h3 style="margin-top:0">Eyeshadow Without the Mess</h3>
+      <div class="thumbchip">Kat's Clean Eye Mini-Class · <span class="price">$27</span></div>
+      <p><b>Promise (interim-safe draft):</b> "Learn a repeatable method for controlled eye makeup, cleaner under-eyes and a polished finish — without complicated professional techniques."</p>
+      <p><b>The method — P·B·C·A·S:</b> Prep → Base → Control → Apply → Set. 8 short lessons (~45 min) + a 10-piece toolkit.</p>
+    </div>
+    <div class="card no-break">
+      <h4 style="margin-top:0">The ladder</h4>
+      <table>
+        <tr><th>Tier</th><th>Offer</th><th>Price</th></tr>
+        <tr><td>Lead</td><td>Clean Eye Method Card</td><td>Free</td></tr>
+        <tr><td>Tripwire</td><td>5-Minute Everyday Eye</td><td>$19</td></tr>
+        <tr><td>Core</td><td>Eyeshadow Without the Mess</td><td>$27</td></tr>
+        <tr><td>Bump</td><td>Even-Eyeliner add-on</td><td>$14</td></tr>
+        <tr><td>Upsell <span class="tag r">RED</span></td><td>Fallout-Proof System (+ Lash Lock)</td><td>$69</td></tr>
+        <tr><td>Flagship</td><td>Complete Clean Eye System</td><td>$147</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Curriculum</h3>
+  <table class="no-break">
+    <tr><th>#</th><th>Lesson</th><th>Maps to</th><th>Type</th></tr>
+    <tr><td>0</td><td>Welcome + the Clean Method in 60 sec</td><td>overview</td><td>Talking-head</td></tr>
+    <tr><td>1</td><td>The tools you actually need (8, not 40)</td><td>setup</td><td>Flat-lay</td></tr>
+    <tr><td>2</td><td>Prep: skin &amp; eye base that won't ruin later</td><td>P</td><td>Demo</td></tr>
+    <tr><td>3</td><td>Base the lid so shadow grips &amp; won't crease</td><td>B</td><td>Demo</td></tr>
+    <tr><td>4</td><td><b>Control: catch fallout with Lash Lock ★ hero</b></td><td>C</td><td>Macro demo</td></tr>
+    <tr><td>5</td><td>Apply shadow the clean way (3 shades)</td><td>A</td><td>Demo</td></tr>
+    <tr><td>6</td><td>Clean liner &amp; lashes without the print</td><td>A+</td><td>Demo</td></tr>
+    <tr><td>7</td><td>The 5 mistakes that make it look messy (+ rescue)</td><td>mistakes</td><td>Diagnosis</td></tr>
+    <tr><td>8</td><td>Put it together: real-time run + does it hold in the heat?</td><td>result</td><td>Real-time</td></tr>
+    <tr><td>+</td><td>Lash Lock care (bundle only) <span class="tag r">RED</span></td><td>care</td><td>Demo</td></tr>
+  </table>
+</div>
+
+<!-- 4. FINAL COPY -->
+<div class="section">
+  <h2>4 · Final launch-safe copy</h2>
+  <p class="lead">Landing-page copy shown in its <b>interim-safe form</b> — the class is fully sellable now; tool-performance claims wait for Gate A. Gated claims are marked.</p>
+
+  <div class="card no-break">
+    <div class="kicker">Landing page</div>
+    <h3 style="margin-top:.2em">Eyeshadow that stops ruining your under-eyes.</h3>
+    <p><b>Sub:</b> A working Gold Coast makeup artist's clean, repeatable method for controlled eyes that look done — in person, on camera, and in real Australian heat. In under an hour.</p>
+    <p><b>Primary CTA:</b> Get the mini-class — $27</p>
+    <p><b>Problem — "Sound familiar?"</b> You perfect your under-eyes… then eyeshadow fallout wrecks them. You wipe it, smear your concealer, and start over — late again. Tutorials are for advanced glam, not your morning. It looks fine in the mirror and messy in photos. <i>It's not you. It's a missing step nobody shows you.</i></p>
+    <p><b>Inclusions:</b> 8 short video lessons · the 5-step Clean Method card · beginner tool list (8 things, not 40) · fallout-prevention &amp; troubleshooting guides · practice tracker · FAQ. Lifetime access, any device.</p>
+    <p><b>Lash Lock (honest):</b> "In the class I use Lash Lock, my reusable fallout-control tool — but the method works with a folded tissue too, so you're never blocked." <span class="tag a">AMBER — no performance claim until Gate A</span></p>
+    <p><b>Guarantee:</b> a simple satisfaction refund (not a results guarantee) — <span class="tag a">pending AU review</span>.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="card no-break">
+      <div class="kicker">Email — nurture E2</div>
+      <p><b>Subj:</b> This is why your under-eyes get ruined</p>
+      <p>The messy-face problem isn't your shadow — it's a missing <i>control</i> step. {30s split-face clip}. There's a full clean-eye class if you want the whole method → {LP}. No pressure. — Kat</p>
+    </div>
+    <div class="card no-break">
+      <div class="kicker">Email — objection</div>
+      <p><b>Subj:</b> Isn't this all on YouTube?</p>
+      <p>Honestly? The tips are. What's not free: a short ordered <i>system</i>, the exact 8 tools, and me showing the un-glam steps in order so it sticks. That's the $27 class → {LP}.</p>
+    </div>
+  </div>
+  <p><small>Full sequences (nurture ×5, purchase ×8, cart-abandon ×3, 7-day launch ×6) in <span class="mono">16_EMAIL_FUNNEL</span>.</small></p>
+</div>
+
+<!-- 5. VIDEO ENGINE -->
+<div class="section">
+  <h2>5 · The video engine</h2>
+  <p class="lead">20 content pillars · 52 hooks · 30 concepts · 20 reel scripts · 5 ad scripts. Below: the storyboards for the hero videos (frame-by-frame), the ad scripts, thumbnail system and generation prompts. Everything needed to shoot — production happens at the batch shoot.</p>
+
+  <h3>Content pillars (top 8 of 20)</h3>
+  <table class="no-break">
+    <tr><th>Pillar</th><th>Objective</th><th>Format</th><th>/wk</th></tr>
+    <tr><td>Split-Face "Clean or Messy?"</td><td>Signature scroll-stopper</td><td>Split-face</td><td>2×</td></tr>
+    <tr><td>Makeup mistakes</td><td>Identify her problem</td><td>Diagnosis</td><td>1–2×</td></tr>
+    <tr><td>"The step you're skipping"</td><td>Pro micro-lessons</td><td>Demo</td><td>1–2×</td></tr>
+    <tr><td>Lash Lock demos <span class="tag r">RED*</span></td><td>Honest product proof</td><td>Macro</td><td>≤1:4</td></tr>
+    <tr><td>AU heat "Does it hold?"</td><td>Ownable moat</td><td>Heat-check</td><td>fortnightly</td></tr>
+    <tr><td>Mature-skin</td><td>Serve underserved</td><td>Demo</td><td>1×</td></tr>
+    <tr><td>Honest failure testing</td><td>Differentiator/trust</td><td>Demo</td><td>fortnightly</td></tr>
+    <tr><td>Kat's story/authority</td><td>Trust → convert</td><td>Talking-head</td><td>fortnightly</td></tr>
+  </table>
+  <p><small>*Lash Lock claims stay interim-safe/demo-led until Gate A.</small></p>
+
+  <h3>Hook bank (12 of 52)</h3>
+  <ol>
+    <li>"This is why your under-eye makeup gets ruined after eyeshadow."</li>
+    <li>"You're not bad at makeup. You're skipping one step."</li>
+    <li>"Stop wiping fallout across your finished concealer."</li>
+    <li>"You don't need 40 brushes. You need 3."</li>
+    <li>"I did the clean side and the messy side so you can see."</li>
+    <li>"Watch what this catches before it hits my concealer." <span class="tag a">gate</span></li>
+    <li>"I'm a makeup artist, and this is the step I refuse to skip."</li>
+    <li>"A clean, done eye in under 10 minutes — real time."</li>
+    <li>"Concealer settling into your lines? It's not your age."</li>
+    <li>"'Isn't this all free on YouTube?' Kind of."</li>
+    <li>"Here's where my fallout tool <i>won't</i> help you."</li>
+    <li>"The clean eye that holds in 30-degree heat." <span class="tag a">gate</span></li>
+  </ol>
+</div>
+
+<!-- STORYBOARDS -->
+<div class="section">
+  <h2>5 · Video storyboards (hero set)</h2>
+
+  <div class="card">
+    <div class="kicker">C04 · Lash Lock hero — "Watch what it catches" · 20s · <b>real footage only</b></div>
+    <span class="thumbchip">Thumbnail: "Watch what this catches"</span>
+    <div class="frames">
+      <div class="frame"><b>0–2s Hook</b>Macro: tool held under lash line. OST: "Watch the catch". Sound: near-silence.</div>
+      <div class="frame"><b>3–7s</b>Unprotected eye — pack shadow — fallout drops onto finished under-eye.</div>
+      <div class="frame"><b>8–13s</b>Wipe it → smears concealer. "Sound familiar?"</div>
+      <div class="frame"><b>14–18s Reveal</b>Protected eye — macro catch on tool — <b>uncut</b>. Music back in.</div>
+      <div class="frame"><b>19–20s CTA</b>Clean lift, no cleanup. "How I use it — link."</div>
+    </div>
+    <p><small><b>Script:</b> "Same shadow, both eyes. No protection — fallout, straight onto my under-eye. Now I hold the tool under my lash line like a shelf… and watch. [pause] Nothing reached my under-eye. Lift, no cleanup. That's the whole difference." · <b>QC:</b> catch uncut &amp; sharp; tissue alternative shown; no over-claim.</small></p>
+  </div>
+
+  <div class="card">
+    <div class="kicker">C01 · Split-face "Clean or Messy?" · 20s · real footage</div>
+    <span class="thumbchip">Thumbnail: "Clean vs messy"</span>
+    <div class="frames">
+      <div class="frame"><b>0–2s</b>Half-and-half face freeze. OST: "Same eye. Same shadow."</div>
+      <div class="frame"><b>3–9s</b>Messy side: no control step → fallout everywhere.</div>
+      <div class="frame"><b>10–16s</b>Clean side: method → nothing to wipe.</div>
+      <div class="frame"><b>17–20s</b>Dual result side-by-side. "Full method free — link."</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="kicker">C16 · Honest failure — "Where it won't help" · 25s · real footage</div>
+    <span class="thumbchip">Thumbnail: "What it WON'T do"</span>
+    <div class="frames">
+      <div class="frame"><b>0–3s</b>Kat straight to lens: "Here's where my tool won't help you."</div>
+      <div class="frame"><b>4–14s</b>Honest demo: won't fix a heavy hand / won't blend for you.</div>
+      <div class="frame"><b>15–22s</b>"The tool helps the method; it doesn't replace it."</div>
+      <div class="frame"><b>23–25s</b>"The method's the point — link."</div>
+    </div>
+    <p><small>This trust-first asset is mandatory in rotation (council + red-team resolution).</small></p>
+  </div>
+
+  <div class="card">
+    <div class="kicker">C07 · Real-time "Under 10 minutes" · 30s · real footage (AI lifestyle opener optional)</div>
+    <span class="thumbchip">Thumbnail: "Under 10 min"</span>
+    <div class="frames">
+      <div class="frame"><b>0–2s</b>Timer starts. "Clean eye, real time."</div>
+      <div class="frame"><b>3–22s</b>Prep→Base→Control→3 shades→liner→mascara, step tags stamp in.</div>
+      <div class="frame"><b>23–27s</b>Done. Honest time on screen.</div>
+      <div class="frame"><b>28–30s</b>"Repeatable eye you can do half-asleep — link."</div>
+    </div>
+  </div>
+</div>
+
+<!-- AD SCRIPTS -->
+<div class="section">
+  <h2>5 · Direct-response ad scripts (5)</h2>
+  <table>
+    <tr><th>Ad</th><th>Angle</th><th>Hook</th><th>CTA / status</th></tr>
+    <tr><td>AD1</td><td>Problem-led (cold)</td><td>"This is why your under-eye makeup gets ruined after eyeshadow."</td><td>$27 class · <span class="tag g">GREEN</span></td></tr>
+    <tr><td>AD2</td><td>Proof-led (cold)</td><td>"I did the messy side and the clean side so you can see."</td><td>$27 class · <span class="tag g">GREEN</span></td></tr>
+    <tr><td>AD3</td><td>Time-poor</td><td>"A clean, done eye in under 10 minutes — real time."</td><td>$27 class · <span class="tag g">GREEN</span></td></tr>
+    <tr><td>AD4</td><td>Bundle (retarget)</td><td>"The reusable tool I use to catch fallout — and the method."</td><td>$69 · <span class="tag r">RED until Gate A/B/C</span></td></tr>
+    <tr><td>AD5</td><td>Objection (mid-funnel)</td><td>"'Isn't this all free on YouTube?'"</td><td>$27 class · <span class="tag g">GREEN</span></td></tr>
+  </table>
+  <div class="card no-break">
+    <div class="kicker">AD1 full script</div>
+    <p>"You perfect your under-eyes, then eyeshadow fallout wrecks them — so you wipe, smear, and start over. I'm Kat, a Gold Coast makeup artist, and there's one control step that fixes it. My clean-eye method is a short class — under an hour — for $27. Clean eyes, no redo. Link's right here."</p>
+    <p><small><b>Primary text:</b> "Eyeshadow fallout ruining your under-eyes? A working MUA's clean method — under an hour, $27. No fluff, no $3,000 course." · <b>A/B hook:</b> "You're not bad at makeup — you're skipping one step." · <b>Compliance:</b> results-vary disclaimer; no guaranteed results.</small></p>
+  </div>
+
+  <h3>Thumbnail / cover system</h3>
+  <p>One high-contrast phrase (2–4 words), macro or face proof (never a logo), clay accent bar, consistent lower-third so the grid reads as a series:
+  <span class="thumbchip">Watch the catch</span> <span class="thumbchip">SET before shadow</span> <span class="thumbchip">Clean vs messy</span> <span class="thumbchip">Under 10 min</span> <span class="thumbchip">5 mistakes</span></p>
+
+  <h3>Higgsfield generation prompts (AI = B-roll only)</h3>
+  <div class="card no-break mono" style="font-size:8pt">
+    ASSET Campaign: LLBS | Scene: product hero | 9:16 | 3–4s | image-to-video | Ref: lashlock_front.jpg<br>
+    SUBJECT LOCK Lash Lock exactly as reference — same shape/colour/logo. Never change: silhouette, logo, proportions.<br>
+    SCENE clean oat surface, soft neutral bg, out-of-focus brushes, morning light, subtle real texture.<br>
+    ACTION product still; slow 4s parallax push-in + gentle rack focus. No hand, no morph.<br>
+    CAMERA macro-medium, 50mm feel, slight high angle, slider push-in, shallow DoF, text-safe top/bottom.<br>
+    NEGATIVE warped shape, drifting/duplicated logo, wrong scale, blown highlights, text artifacts.<br>
+    ACCEPTANCE pass only if shape/logo/colour match reference &amp; motion smooth; else regenerate or shoot real.
+  </div>
+  <p><small>Rule: all technique/proof/interaction = real footage. AI limited to product beauty B-roll, lifestyle ambience, transitions — never as performance proof (<span class="mono">29_AI_RIGHTS_QC</span>).</small></p>
+</div>
+
+<!-- 6. FUNNEL & OPS -->
+<div class="section">
+  <h2>6 · Funnel &amp; operations</h2>
+  <div class="callout no-break"><b>Funnel:</b> Free Method Card → email capture → nurture → <b>$27 core</b> → $14 order bump → $69 Lash Lock upsell <span class="tag r">RED</span> → follow-up → flagship. Checkout runs on a hosted, PCI-compliant platform; access granted only on <b>server-side webhook</b> confirmation (never client-side "success").</div>
+
+  <div class="grid2">
+    <div>
+      <h4>Operations pack (built)</h4>
+      <ul>
+        <li>Support macros + refund workflow + onboarding</li>
+        <li>Review-request system + feedback survey + master FAQ</li>
+        <li>Launch-day checklist + incident / defect / recall procedures</li>
+        <li>Analytics dashboard + weekly review + 90-day board</li>
+        <li>Course production checklist + call sheets + trackers</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Budget (AUD)</h4>
+      <ul>
+        <li>Pre-first-sale outlay: <b>~$55–170</b> (phone, tripod, lav mic, free editing, hosted course)</li>
+        <li>AI-generation cap: ~$30/mo to start; max 3 regenerations/shot</li>
+        <li>Paid-ad test cap: $10–30/day; stop-loss if CPA &gt; contribution</li>
+        <li>Organic funds paid; premium tools on evidence only</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Checks run this build</h4>
+  <p><span class="tag g">PASS</span> <span class="mono">npm test</span> 20/20 &nbsp; · &nbsp; <span class="tag g">CLEAN</span> secret scan (no keys/PII committed) &nbsp; · &nbsp; <span class="tag a">NOTED</span> <span class="mono">npm audit</span> 2 dev-only advisories (out-of-scope app; documented, not force-upgraded).</p>
+</div>
+
+<!-- 7. CLAIM REGISTER & GATES -->
+<div class="section">
+  <h2>7 · Claim register &amp; the three launch gates</h2>
+  <table class="no-break">
+    <tr><th>Claim</th><th>Class.</th><th>Status</th><th>Safe interim wording</th></tr>
+    <tr><td>Reusable eye-makeup tool</td><td>Factual</td><td><span class="tag g">OK</span></td><td>Use as-is</td></tr>
+    <tr><td>Catches eyeshadow fallout</td><td>Needs test T1</td><td><span class="tag r">❌</span></td><td>"I use it to help keep fallout off my under-eyes — watch" (demo-led)</td></tr>
+    <tr><td>Cleaner mascara / less lid print</td><td>Needs test T3</td><td><span class="tag r">❌</span></td><td>Demo only</td></tr>
+    <tr><td>Reusable / durable / lasts</td><td>Needs test + supplier</td><td><span class="tag r">❌</span></td><td>"reusable" only (no lifespan number)</td></tr>
+    <tr><td>Made from [material] / silicone</td><td>Needs supplier cert</td><td><span class="tag r">❌</span></td><td>Do not state material</td></tr>
+    <tr><td>Hypoallergenic / non-toxic / de-puffs / anti-ageing</td><td>Medical/therapeutic</td><td><span class="tag r">Prohibited</span></td><td>Never use</td></tr>
+    <tr><td>Guaranteed results</td><td>Prohibited</td><td><span class="tag r">Prohibited</span></td><td>Satisfaction refund only</td></tr>
+    <tr><td>Course: "repeatable clean method"</td><td>Factual</td><td><span class="tag g">OK</span></td><td>Use as-is</td></tr>
+  </table>
+
+  <h3>The three gates (human / qualified-party actions — not bypassable)</h3>
+  <table class="no-break">
+    <tr><th>Gate</th><th>Owner</th><th>Action</th><th>Pack ready</th></tr>
+    <tr><td><b>A — Physical testing</b></td><td>Kat + volunteers</td><td>Run the 20-test protocol; photograph the catch; log incidents</td><td><span class="mono">04/02</span></td></tr>
+    <tr><td><b>B — Supplier evidence</b></td><td>Supplier</td><td>Material/SDS/compliance/IP/insurance; score responses</td><td><span class="mono">25/01–02</span></td></tr>
+    <tr><td><b>C — AU compliance</b></td><td>Qualified adviser</td><td>Review all claims + refund/guarantee + disclosure/privacy</td><td><span class="mono">26/01</span></td></tr>
+  </table>
+</div>
+
+<!-- 8. RED TEAM -->
+<div class="section">
+  <h2>8 · Red-team review — v1</h2>
+  <p class="lead">Hostile audit of the whole system. Severity/Likelihood H/M/L. Selected 12 of 22 findings; full set in <span class="mono">19_RED_TEAM</span>.</p>
+  <table>
+    <tr><th>#</th><th>Risk</th><th>Sev</th><th>Fix</th><th>Blocks?</th></tr>
+    <tr><td>1</td><td>Unverified product claims</td><td>H</td><td>Claim register gates every claim; demo-as-proof</td><td><b>YES</b></td></tr>
+    <tr><td>2</td><td>Product safety near eye / skin reaction</td><td>H</td><td>Supplier spec + wear-test; no medical claims</td><td><b>YES</b></td></tr>
+    <tr><td>3</td><td>"Gimmick" perception</td><td>M</td><td>Honest tests incl. "won't help"; tissue alt shown</td><td>No</td></tr>
+    <tr><td>4</td><td>"It's all free online" objection</td><td>M</td><td>System/outcome framing; finished lead magnet</td><td>No</td></tr>
+    <tr><td>6</td><td>AI visual defects / uncanny / bad hands</td><td>M</td><td>Real footage for interaction; AI B-roll only; frame-check</td><td>No</td></tr>
+    <tr><td>8</td><td>Misleading (staged) demonstration</td><td>H</td><td>Uncut reveal rule; honest timing/heat numbers</td><td>Partial</td></tr>
+    <tr><td>9</td><td>AU advertising / consumer-law</td><td>H</td><td>Qualified review of claims/guarantee/refund</td><td><b>YES</b></td></tr>
+    <tr><td>11</td><td>Poor bundle margins</td><td>M</td><td>Fill unit economics before scaling paid</td><td>No</td></tr>
+    <tr><td>14</td><td>No proof at launch</td><td>M</td><td>Lead with demonstration; gather consented proof in soft launch</td><td>No</td></tr>
+    <tr><td>15</td><td>Production workload / burnout</td><td>H</td><td>Batch shoots; sustainable calendar; reuse B-roll</td><td>No</td></tr>
+    <tr><td>17</td><td>Refund risk from over-promise</td><td>M</td><td>Match hook to payoff; honest promise</td><td>No</td></tr>
+    <tr><td>18</td><td>Accessibility (captions/contrast)</td><td>M</td><td>Always-caption; high contrast; off-eye text</td><td>No</td></tr>
+  </table>
+
+  <h3>Red-team — v2 (post-finalisation: security, privacy, payments, ops)</h3>
+  <table>
+    <tr><th>#</th><th>Finding</th><th>Sev</th><th>Fix applied</th><th>Blocks?</th></tr>
+    <tr><td>N1</td><td>Course access on client-side "success" redirect</td><td>H</td><td>Server-side webhook entitlement (blueprint)</td><td>Paid course</td></tr>
+    <tr><td>N2</td><td>Unsigned webhooks spoofable</td><td>H</td><td>Require signature verification</td><td>Yes</td></tr>
+    <tr><td>N3</td><td>Secrets committed to git</td><td>H</td><td>Hardened .gitignore + .env.example; scan clean</td><td>No (clean)</td></tr>
+    <tr><td>N5</td><td>Card data stored</td><td>H</td><td>Hosted checkout; never store cards</td><td>Payments</td></tr>
+    <tr><td>N7</td><td>Testimonial without release / fake</td><td>H</td><td>Release required; real-only policy</td><td>That asset</td></tr>
+    <tr><td>N8</td><td>AI clip implies real customer / fake proof</td><td>H</td><td>Hard prohibition + visual QC checklist</td><td>That asset</td></tr>
+    <tr><td>N9</td><td>Skin reaction from unverified product</td><td>H</td><td>Gate A T8 + incident/recall; no sale pre-verify</td><td><b>Product</b></td></tr>
+    <tr><td>N10</td><td>Refund wording waives ACL rights</td><td>M</td><td>Draft preserves consumer guarantees</td><td>Copy</td></tr>
+    <tr><td>N11</td><td>Dev-dependency vuln (root app)</td><td>L</td><td>Documented; fix on that app's branch (dev-only)</td><td>No</td></tr>
+  </table>
+  <div class="callout ok no-break"><b>Stop condition met.</b> No fixable critical/high issue remains unaddressed — each is fixed-in-blueprint or converted to an owned gate with an exact action. Three external gates (A/B/C) remain and are not bypassable.</div>
+</div>
+
+<!-- 9. COUNCIL -->
+<div class="section">
+  <h2>9 · Expert council review</h2>
+  <p class="lead"><b>Simulated analytical review — not real external certification.</b> No simulated reviewer can override missing physical evidence or professional legal advice. Scores /10.</p>
+
+  <h3>v1 council (15 reviewers) — average ≈ 7.5</h3>
+  <table>
+    <tr><th>Reviewer</th><th>One change</th><th>Score</th></tr>
+    <tr><td>Beauty educator</td><td>Keep each lesson ≤6 min</td><td>8</td></tr>
+    <tr><td>Working MUA</td><td>Lead with demo, not claims</td><td>8</td></tr>
+    <tr><td>Direct-response marketer</td><td>Soft-launch to harvest proof first</td><td>7</td></tr>
+    <tr><td>Organic strategist</td><td>Rotate pillars; mine comments</td><td>8</td></tr>
+    <tr><td>AU consumer-law</td><td>Formal review before any claim</td><td>6</td></tr>
+    <tr><td>Ecommerce conversion</td><td>End-to-end checkout test</td><td>7</td></tr>
+    <tr><td>Sceptical customer</td><td>More unpolished real results</td><td>7</td></tr>
+    <tr><td>Accessibility</td><td>Contrast + caption QC every asset</td><td>7</td></tr>
+    <tr><td colspan="2"><small>+ cinematographer, editor, Higgsfield, product designer, CX, conservative operator, director</small></td><td>8 avg</td></tr>
+  </table>
+
+  <h3>v2 council (20 reviewers) — before ≈ 6.2 → after ≈ 8.4</h3>
+  <table>
+    <tr><th>Reviewer</th><th>Before</th><th>After</th><th>Launch status</th></tr>
+    <tr><td>Product-safety</td><td>5</td><td>8</td><td><span class="tag r">RED (product)</span></td></tr>
+    <tr><td>AU consumer-law</td><td>5</td><td>8</td><td><span class="tag a">AMBER→RED claims</span></td></tr>
+    <tr><td>Advertising-claims</td><td>5</td><td>9</td><td><span class="tag a">AMBER</span></td></tr>
+    <tr><td>Privacy</td><td>4</td><td>8</td><td><span class="tag a">AMBER</span></td></tr>
+    <tr><td>Cybersecurity</td><td>5</td><td>9</td><td><span class="tag g">GREEN (docs)</span></td></tr>
+    <tr><td>Secure engineer</td><td>5</td><td>9</td><td><span class="tag g">GREEN (spec)</span></td></tr>
+    <tr><td>Payment/fraud</td><td>5</td><td>8</td><td><span class="tag g">GREEN (spec)</span></td></tr>
+    <tr><td>AI-realism</td><td>6</td><td>9</td><td><span class="tag g">GREEN</span></td></tr>
+    <tr><td>Accessibility</td><td>6</td><td>8</td><td><span class="tag g">GREEN</span></td></tr>
+    <tr><td>Conservative operator</td><td>7</td><td>9</td><td><span class="tag g">GREEN</span></td></tr>
+    <tr><td>Working MUA</td><td>8</td><td>9</td><td><span class="tag g">GREEN (class)</span></td></tr>
+    <tr><td>Sceptical customer</td><td>6</td><td>8</td><td><span class="tag a">AMBER</span></td></tr>
+    <tr><td colspan="2"><small>+ DevOps, ecommerce, beauty educator, marketer, organic, director, Higgsfield, CX (all 8–9)</small></td><td></td><td></td></tr>
+  </table>
+
+  <div class="callout no-break"><b>Disagreements resolved by evidence, not vote:</b> marketer wanted proof now vs safety/law want evidence first → soft-launch harvests real proof, no claim before evidence. Higgsfield scale vs realism → real-footage-first holds. Operator zero-spend vs polished funnel → hosted platform satisfies both.
+  <br><br><b>Verdict:</b> the education + content + technical system is GREEN/AMBER (launchable on interim-safe copy). The physical product &amp; its claims are RED until Gates A/B/C — no score changes that.</div>
+</div>
+
+<!-- 10. NEXT -->
+<div class="section">
+  <h2>10 · Do these five things next</h2>
+  <div class="card no-break"><b>1. Run Gate A physical testing.</b> Execute the 20-test protocol and photograph the catch. This unlocks every product claim.</div>
+  <div class="card no-break"><b>2. Send the supplier pack &amp; book the AU compliance review.</b> Emails are written and ready in <span class="mono">25/01</span> and <span class="mono">26/01</span>.</div>
+  <div class="card no-break"><b>3. Batch-shoot the class + organic footage</b> (over-shoot the macro catch), then build the mini-class + free Method Card.</div>
+  <div class="card no-break"><b>4. Stand up hosted course + checkout securely</b> (server-side entitlement, 2FA) and run a self-purchase test end-to-end.</div>
+  <div class="card no-break"><b>5. Publish Week-1 educational content</b> (interim-safe copy) to grow the email list, then soft-launch the class to gather real proof before the public launch. Sell the tool/bundle only after Gates A/B/C.</div>
+
+  <div style="margin-top:24px;text-align:center;color:var(--muted);font-size:9pt">
+    Lash Lock Beauty System · NorthPath · Compiled by Claude Code · 21 July 2026<br>
+    Full working files on branch <span class="mono">claude/lash-lock-beauty-system-ckcxha</span> · This document contains no fabricated claims, testimonials, or test results.
+  </div>
+</div>
+
+</body>
+</html>
