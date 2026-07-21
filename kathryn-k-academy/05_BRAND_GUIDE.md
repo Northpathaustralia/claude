@@ -52,6 +52,14 @@ Kat started at seventeen with a certificate and a brush belt, and spent twelve y
 
 ### Visual system
 - **Colours:** Ink Black `#101014` · Warm Ivory `#F7F2EC` · **Signature Copper-Rose `#B76E5B`** (metallic accent) · Deep Teal `#14424A` (Tier 3/SFX accent) · Blush `#E8C9BD` (backgrounds). Light-first with a dark premium variant for Tier 3.
+
+<div class="swatch-row">
+<div class="swatch" style="background:#101014"><span>Ink Black<br>#101014</span></div>
+<div class="swatch" style="background:#F7F2EC;color:#101014"><span>Warm Ivory<br>#F7F2EC</span></div>
+<div class="swatch" style="background:#B76E5B"><span>Copper-Rose<br>#B76E5B</span></div>
+<div class="swatch" style="background:#14424A"><span>Deep Teal<br>#14424A</span></div>
+<div class="swatch" style="background:#E8C9BD;color:#101014"><span>Blush<br>#E8C9BD</span></div>
+</div>
 - **Type:** Display: an elegant high-contrast serif (e.g. Fraunces / Canela-alike). Body/UI: clean geometric sans (e.g. Inter / Söhne-alike). License-check before use.
 - **Logo direction:** primary wordmark "KATHRYN K" with "ACADEMY" letterspaced beneath; secondary monogram "KK" with the second K mirrored to suggest a compact mirror / open book; icon = the KK monogram in copper-rose on ink.
 - **Photography:** natural Gold Coast light, real skin texture visible (no blur-filter retouching — brand proof point), copper/ivory palette, hands-working shots, before/during/after triptychs.

@@ -60,7 +60,9 @@ This is a **LOCKED decision with evidence behind it** (see Section 3). It is the
 | Anniversary presentation (25–35 slides) | R21 | **NOT STARTED** | 0% |
 | Codex/build handover package | R22 | **NOT STARTED** (this document is a *different* handover — a model-to-model one, not the final build package) | 0% |
 
-**Overall project completion: approximately 30–35%.** The foundational/strategic layer (problem, market, product, brand, validation) is essentially done. The execution/production layer (financials, marketing content, website copy, operations, the presentation itself) has not been started.
+**UPDATE (same-day continuation, still 21 July 2026): the project is now 100% complete.** All docs 06–15 were built in a single non-stop pass following this handover, and the full package was rendered into 5 designed PDFs with charts, colour swatches, and a styled cover per document (see `PDF/` folder). Red-team (Round 19) and expert council (Round 18) both ran; final verdict is **GO AFTER VALIDATION** (`12_RED_TEAM_COUNCIL_VERDICT.md`). The section below is left as a historical record of the mid-project state; treat `15_BUILD_HANDOVER.md` as the current source of truth for what exists.
+
+**Overall project completion (historical, at time of first handover): approximately 30–35%.** The foundational/strategic layer (problem, market, product, brand, validation) is essentially done. The execution/production layer (financials, marketing content, website copy, operations, the presentation itself) has not been started.
 
 ### What was being worked on at time of pause
 Document 05 (Brand Guide) had just been completed and saved when the pause instruction arrived. No document 06 had been started.
