@@ -1,0 +1,7 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.5,the 18-second desert,VO line 1,hard cut in
+2,shot-2 (generated) ,0,6.5,nothing signals that staying pays,VO line 2,hard cut in
+3,shot-3 (generated) ,0,8.0,"the tell: scrub 10s, miss nothing",VO line 3,hard cut in
+4,shot-4 (generated) ,0,10.0,① mid-reveal ② new frame every 4s ③ cut it,VO line 4,hard cut in
+5,shot-5 (generated) ,0,10.0,save → then go find yours,VO line 5,hard cut in
+6,captions.srt,0,38,,,import subtitles; Inter SemiBold; scrim under text

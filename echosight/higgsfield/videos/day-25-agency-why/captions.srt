@@ -1,0 +1,16 @@
+1
+00:00:00,000 --> 00:00:03,500
+Your client asks why engagement dropped. You write two paragraphs of educated guessing. There’s a better answer.
+
+2
+00:00:03,500 --> 00:00:11,000
+Every account manager knows the Tuesday document. “Reach softened due to, uh, seasonal factors and, um, algorithm shifts.” We’ve all shipped that sentence.
+
+3
+00:00:11,000 --> 00:00:20,000
+But the real answer exists. It’s in the content: which hooks held, which formats earned saves, where the pacing lost people. It’s just hours of frame-by-frame work nobody billed for.
+
+4
+00:00:20,000 --> 00:00:32,000
+So that’s the thing we’re building for agencies: the why, written as a first draft, from the client’s own data — you edit, you own it, your logo on it. If your Tuesdays look like mine did, the waitlist is in the caption.
+

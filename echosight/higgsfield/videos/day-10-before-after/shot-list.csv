@@ -1,0 +1,6 @@
+shot,start_s,end_s,duration_s,camera,description,text_overlay,generation_status
+1,0,3,3.0,LOCKED,"Maya holds up two fingers, then gestures to both sides of the frame as if presenting two panels",same reel. one fix. watch.,READY FOR HIGGSFIELD GENERATION
+2,3,12,9.0,LOCKED,"Split-screen composite placeholder: left panel plays the “before” example cut (composited in edit from example footage), Maya watches from right panel, unimpressed",BEFORE — content starts at 0:04 (example data),READY FOR HIGGSFIELD GENERATION
+3,12,20,8.0,LOCKED,"Split-screen: right-panel Maya now leans in, engaged, small nod at the after-cut playing left",AFTER — promise at 0:00.6 (example data),READY FOR HIGGSFIELD GENERATION
+4,20,30,10.0,PUSH-IN-SLOW,"Maya full-frame again, draws the number jump in the air with one rising hand",hook 41 → 84 (example data),READY FOR HIGGSFIELD GENERATION
+5,30,40,10.0,LOCKED,"Maya taps her temple, then points down-left toward bio position, relaxed",rule: nothing before the promise,READY FOR HIGGSFIELD GENERATION

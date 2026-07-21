@@ -1,0 +1,5 @@
+shot,start_s,end_s,duration_s,camera,description,text_overlay,generation_status
+1,0,3.5,3.5,HANDHELD-CALM,"Danh mid-typing, stops, stares at the screen (dark, composited), slowly removes glasses",“why did engagement drop?” “well…”,READY FOR HIGGSFIELD GENERATION
+2,3.5,11,7.5,LOCKED,"Danh air-quotes both phrases, then puts his face briefly in one hand — solidarity, not despair",“…seasonal factors and algorithm shifts”,READY FOR HIGGSFIELD GENERATION
+3,11,20,9.0,3Q-SWITCH,"Danh gestures at an imaginary wall of clips, scrubbing through them faster and faster",the real answer = hours nobody billed,READY FOR HIGGSFIELD GENERATION
+4,20,32,12.0,PUSH-IN-SLOW,"Danh puts glasses back on, straightens, talks plainly to the lens — pitch without pitch-voice","the “why”, drafted from the data",READY FOR HIGGSFIELD GENERATION

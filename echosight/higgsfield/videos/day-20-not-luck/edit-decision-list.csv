@@ -1,0 +1,7 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.0,3.1× · not luck (example data),VO line 1,hard cut in
+2,shot-2 (generated) ,0,8.0,① open on the RESULT,VO line 2,hard cut in
+3,shot-3 (generated) ,0,7.0,"② new frame every 3s, one lane",VO line 3,hard cut in
+4,shot-4 (generated) ,0,8.0,③ built-in save moment ④ caption = promise,VO line 4,hard cut in
+5,shot-5 (generated) ,0,10.0,boring. repeatable. on purpose.,VO line 5,hard cut in
+6,captions.srt,0,36,,,import subtitles; Inter SemiBold; scrim under text

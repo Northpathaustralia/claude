@@ -1,0 +1,6 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.5,send me your worst reel,VO line 1,hard cut in
+2,shot-2 (generated) ,0,6.5,flops aren’t embarrassing. they’re data.,VO line 2,hard cut in
+3,shot-3 (generated) ,0,8.0,first 30 · real replies · real cap,VO line 3,hard cut in
+4,shot-4 (generated) ,0,8.0,comments. go. 👇,VO line 4,hard cut in
+5,captions.srt,0,26,,,import subtitles; Inter SemiBold; scrim under text
