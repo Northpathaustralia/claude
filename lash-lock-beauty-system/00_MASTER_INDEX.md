@@ -21,7 +21,12 @@
 | **08** | Red-team · council review · revised strategy · launch checklist · action plan · final handover | ✅ |
 
 **STATUS: COMPLETE.** All 37 Definition-of-Complete deliverables present. See `24_FINAL_HANDOVER/01_final_handover.md`.
-Remaining work is **owner actions** (product testing, supplier spec, AU compliance) tracked in `23_OWNER_VERIFICATION/`.
+
+### Finalisation pass (security · compliance · privacy · ops · launch-readiness)
+Added folders `25_`–`30_` and the finalisation report. New: physical-test protocol + claim register + interim-safe copy (`04_`), supplier due-diligence (`25_`), AU compliance reviewer pack (`26_`), security blueprint + hygiene (`27_` + root `.gitignore`/`.env.example`/`SECURITY.md`), privacy/data governance (`28_`), AI rights + QC (`29_`), operations pack (`30_`), Higgsfield production package (`11_02`), cost-control review (`21_02`), launch-readiness test suite (`18_02`), red-team v2 (`19_02`), 20-reviewer council v2 (`20_02`), finalisation report + PR package (`24_02`,`24_03`).
+Checks run: `npm test` 20/20 pass · secret scan clean · `npm audit` 2 dev-only advisories documented.
+**Launch statuses:** GREEN = class/content/tech · AMBER = tool-adjacent copy (interim-safe only) · RED = physical tool/bundle + claims (until Gates A/B/C).
+Remaining work is **owner/qualified-party actions** (Gate A product testing, Gate B supplier spec, Gate C AU compliance) tracked in `23_OWNER_VERIFICATION/` + `24_FINAL_HANDOVER/02`.
 
 ---
 
