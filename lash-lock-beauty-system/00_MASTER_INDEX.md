@@ -11,16 +11,17 @@
 
 | Batch | Deliverables (brief §3 numbering) | Status |
 |-------|-----------------------------------|--------|
-| **01** | 1 Market audit · 2 Customer pain map · 3 Positioning · 5 Product-claim checklist · 6 Offer ladder · 7 Recommended first product · (partial 4 creative direction) · 36 Owner Verification (started) | ✅ **Complete (this turn)** |
-| 02 | 4 Brand & creative direction (full Brand Bible) · 14 Realism & continuity bible · 24 Voice/audio standards | ⬜ Pending |
-| 03 | 8 Full curriculum · 9 All lesson scripts · 10 Filming plan per lesson · 11 Downloadables | ⬜ Pending |
-| 04 | 12 Funnel · 13 Landing page · 14 Bumps/upsell · 16 Email sequences | ⬜ Pending |
-| 05 | 15 Content pillars · 16 50+ hooks · 17 30+ concepts · 18 15 promo scripts · 19 10 edu scripts · 20 5 ad scripts · 21 5 demo concepts | ⬜ Pending |
-| 06 | 22 Higgsfield prompt package · 23 Human-filming instructions · 25 Editing/caption standards · 26 Thumbnails | ⬜ Pending |
-| 07 | 27 30-day calendar · 28 Test-and-learn framework · 33 Budget · 34 90-day roadmap | ⬜ Pending |
-| 08 | 29 Red-team · 30 Council review · 31 Revised strategy · 32 Launch checklist · 35 File structure · 37 Do These Five Things Next | ⬜ Pending |
+| **01** | Market audit · pain map · positioning · product-claim checklist · offer ladder · first product · Owner Verification | ✅ |
+| **02** | Full Brand Bible · Realism & Continuity Bible · Voice/audio standards | ✅ |
+| **03** | Full curriculum · all lesson scripts · downloadables · batch-shoot plan | ✅ |
+| **04** | Funnel · landing page · bump/upsell · email sequences | ✅ |
+| **05** | Content pillars · 52 hooks · 30 concepts · 20 reel scripts · 5 ad scripts | ✅ |
+| **06** | Higgsfield prompt package · human-vs-AI rules · editing/caption/thumbnail standards | ✅ |
+| **07** | 30-day calendar · testing framework · lean budget · 90-day roadmap | ✅ |
+| **08** | Red-team · council review · revised strategy · launch checklist · action plan · final handover | ✅ |
 
-**CONTINUE FROM: BATCH 02, ITEM 1 (Brand & Creative Direction — full Brand Bible)**
+**STATUS: COMPLETE.** All 37 Definition-of-Complete deliverables present. See `24_FINAL_HANDOVER/01_final_handover.md`.
+Remaining work is **owner actions** (product testing, supplier spec, AU compliance) tracked in `23_OWNER_VERIFICATION/`.
 
 ---
 
