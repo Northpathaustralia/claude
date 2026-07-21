@@ -1,0 +1,564 @@
+<title>Project North Harbour — Investment Deck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --paper:#FBFAF6; --ink:#1C1913; --ink-2:#57503F; --ink-3:#8A8371;
+  --line:#E3DECF; --panel:#F3F0E6; --panel-2:#ECE8DA;
+  --brass:#A8842C; --brass-deep:#7C611E; --pine:#237A54; --slate:#3E6FA8;
+  --bar-muted:#CFC7AE; --grid:#EAE5D6;
+  --hero-ink:#F2EEE3; --hero-bg:#16140F; --hero-line:#3A3526; --hero-brass:#C9A24B;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#16140F; --ink:#EDE8DB; --ink-2:#B4AC98; --ink-3:#7E775F;
+    --line:#332F22; --panel:#1E1B13; --panel-2:#252115;
+    --brass:#B08A34; --brass-deep:#C9A24B; --pine:#379263; --slate:#5585C7;
+    --bar-muted:#4A4432; --grid:#2A2618;
+  }
+}
+:root[data-theme="light"]{
+  --paper:#FBFAF6; --ink:#1C1913; --ink-2:#57503F; --ink-3:#8A8371;
+  --line:#E3DECF; --panel:#F3F0E6; --panel-2:#ECE8DA;
+  --brass:#A8842C; --brass-deep:#7C611E; --pine:#237A54; --slate:#3E6FA8;
+  --bar-muted:#CFC7AE; --grid:#EAE5D6;
+}
+:root[data-theme="dark"]{
+  --paper:#16140F; --ink:#EDE8DB; --ink-2:#B4AC98; --ink-3:#7E775F;
+  --line:#332F22; --panel:#1E1B13; --panel-2:#252115;
+  --brass:#B08A34; --brass-deep:#C9A24B; --pine:#379263; --slate:#5585C7;
+  --bar-muted:#4A4432; --grid:#2A2618;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  font-size:17px;line-height:1.62;}
+.disp,.eyebrow,.stat b,.slide-no,th,.tag,.axis,.leg,button{
+  font-family:"Avenir Next Condensed","Helvetica Neue Condensed","Arial Narrow",Arial,sans-serif;}
+h1,h2,h3{text-wrap:balance;margin:0}
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+p{max-width:66ch}
+
+/* ---------- hero (deliberately single-mood dark, both themes) ---------- */
+.hero{background:var(--hero-bg);color:var(--hero-ink);padding:84px 0 64px;
+  border-bottom:4px solid var(--hero-brass)}
+.hero .eyebrow{color:var(--hero-brass)}
+.hero h1{font-family:"Avenir Next Condensed","Arial Narrow",Arial,sans-serif;
+  font-weight:700;font-size:clamp(44px,7.5vw,86px);line-height:.95;
+  text-transform:uppercase;letter-spacing:.01em;margin:14px 0 8px}
+.hero h1 span{color:var(--hero-brass)}
+.hero .sub{font-size:20px;color:#CFC8B4;max-width:62ch;margin-top:18px}
+.hero .rule{height:1px;background:var(--hero-line);margin:38px 0 30px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hero-line);border:1px solid var(--hero-line)}
+.stat{background:var(--hero-bg);padding:16px 16px 14px}
+.stat b{display:block;font-size:30px;font-weight:700;letter-spacing:.01em;font-variant-numeric:tabular-nums;color:var(--hero-ink)}
+.stat i{font-style:normal;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#96906F}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+
+/* ---------- sections ---------- */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.slide-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px}
+.slide-no{color:var(--brass);font-weight:700;font-size:15px;letter-spacing:.15em}
+h2{font-family:"Avenir Next Condensed","Arial Narrow",Arial,sans-serif;font-weight:700;
+  font-size:clamp(26px,3.4vw,38px);text-transform:uppercase;letter-spacing:.02em}
+h3{font-size:19px;margin:26px 0 8px}
+.lede{font-size:19px;color:var(--ink-2)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:800px){.cols{grid-template-columns:1fr}}
+ul{padding-left:20px;margin:10px 0}
+li{margin:6px 0;max-width:62ch}
+.panel{background:var(--panel);border:1px solid var(--line);padding:22px 24px;border-radius:6px}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid var(--brass);color:var(--brass);padding:2px 9px;border-radius:99px;margin-right:6px}
+table{border-collapse:collapse;width:100%;font-size:15.5px;margin:14px 0}
+th{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;
+  border-bottom:2px solid var(--brass);padding:8px 10px 6px;font-weight:600}
+td{border-bottom:1px solid var(--line);padding:9px 10px;vertical-align:top}
+td.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tbl{overflow-x:auto}
+.win td{background:color-mix(in srgb,var(--brass) 9%,transparent);font-weight:600}
+
+/* ---------- charts ---------- */
+.fig{margin:26px 0}
+.fig figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px;max-width:70ch}
+.axis{font-size:12px;fill:var(--ink-3);letter-spacing:.04em}
+.dlab{font-size:12.5px;font-weight:600;fill:var(--ink-2);font-variant-numeric:tabular-nums;
+  font-family:"Avenir Next Condensed","Arial Narrow",Arial,sans-serif}
+.leg{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:6px 0 2px;letter-spacing:.03em}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+svg{max-width:100%;height:auto;display:block}
+svg text{font-family:"Avenir Next Condensed","Arial Narrow",Arial,sans-serif}
+.gridline{stroke:var(--grid);stroke-width:1}
+.refline{stroke:var(--ink-3);stroke-width:1.5;stroke-dasharray:5 5}
+[data-tip]{cursor:default}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--paper);
+  font:600 13px/1.4 "Avenir Next Condensed","Arial Narrow",Arial,sans-serif;letter-spacing:.03em;
+  padding:7px 11px;border-radius:5px;opacity:0;transition:opacity .12s;z-index:9;max-width:260px}
+@media (prefers-reduced-motion: reduce){#tip{transition:none}}
+
+/* floor plan blocks */
+.plan{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;margin:14px 0}
+.blk{border-radius:3px;padding:7px 8px;font:600 12px/1.25 "Avenir Next Condensed","Arial Narrow",Arial,sans-serif;
+  letter-spacing:.04em;text-transform:uppercase;color:var(--paper);min-height:52px;display:flex;flex-direction:column;justify-content:space-between}
+.blk small{font-weight:400;opacity:.85;font-variant-numeric:tabular-nums}
+.b-train{background:var(--brass)} .b-well{background:var(--pine)} .b-soc{background:var(--slate)} .b-sup{background:var(--bar-muted);color:var(--ink-2)}
+
+.foot{padding:44px 0 70px;color:var(--ink-3);font-size:13.5px}
+.foot p{max-width:88ch}
+.confbar{background:var(--ink);color:var(--paper);text-align:center;font:600 11.5px/1.4 "Avenir Next Condensed","Arial Narrow",Arial,sans-serif;letter-spacing:.14em;padding:8px 14px}
+a{color:var(--brass-deep)}
+</style>
+
+<div id="tip" role="status"></div>
+
+<div class="confbar">PRIVATE AND CONFIDENTIAL · PREPARED BY JAMES FORYCKI · PROJECT NORTH HARBOUR · NOT FOR CIRCULATION OR DISTRIBUTION WITHOUT WRITTEN PERMISSION</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Private &amp; Confidential · Prepared by James Forycki · July 2026</div>
+    <h1>Project<br><span>North Harbour</span></h1>
+    <div class="eyebrow" style="color:#96906F">Confidential Hope Island Health Club Development Opportunity · Wellness &amp; Performance Precinct</div>
+    <p class="sub">The wealthiest fast-growing catchment on the northern Gold Coast has no full-service health club.
+      Two pieces of state infrastructure just switched on at its gateway. This is the window.</p>
+    <div class="rule"></div>
+    <div class="stats">
+      <div class="stat"><b>$1,934<span style="font-size:16px">/wk</span></b><i>Median household income, 4212</i></div>
+      <div class="stat"><b>+26.7%</b><i>Population growth since 2021</i></div>
+      <div class="stat"><b>~31,000</b><i>Vehicles/day, Hope Island Rd</i></div>
+      <div class="stat"><b>$47m</b><i>Total development cost (VE)</i></div>
+      <div class="stat"><b>$4.05m</b><i>Mature EBITDAR (38.5%)</i></div>
+      <div class="stat"><b>17–19%</b><i>Levered 10-yr IRR, base case</i></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">01</span><h2>The Opportunity</h2></div>
+    <p class="lede">Not a gym — a precinct. A 6,200&nbsp;m² flagship integrating a serious training floor,
+      spa-grade recovery, 44-bed reformer Pilates, allied health, licensed café and co-working on
+      ~10,000&nbsp;m² of freehold at the Hope Island Road western gateway.</p>
+    <div class="cols" style="margin-top:22px">
+      <div>
+        <h3>Three clocks started in the last seven months</h3>
+        <ul>
+          <li><b>Dec 2025</b> — Coomera Connector (M9) Stage&nbsp;1 North opened, a second motorway spine immediately west of Hope Island.</li>
+          <li><b>May 2026</b> — Hope Island rail station opened off Hope Island Road, serving Hope Island, Helensvale and Oxenford.</li>
+          <li><b>Oct 2026</b> — Merse Wellness Spa (a $2.5m bathhouse) opens at Coomera, proving corridor wellness demand.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Underwritten three ways</h3>
+        <ul>
+          <li><b>Operating business</b> — 4,070 mature members at $36.10 blended weekly yield.</li>
+          <li><b>Real estate</b> — freehold gateway corridor land beside new rail, with pad-site land bank.</li>
+          <li><b>Operator-agnostic design</b> — a wellness precinct any premium operator could run; the value doesn't die with one tenant. That is what makes it lendable.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">02</span><h2>Why Hope Island — Honestly</h2></div>
+    <p class="lede">Affluent, booming — and older than you think. Median age 50, ~28% over 65.
+      That kills the case for a discount box and makes the case for premium wellness.</p>
+    <div class="cols" style="margin-top:20px">
+      <div class="panel">
+        <span class="tag">Verified</span>
+        <ul style="margin-top:12px">
+          <li>Population 14,665 (2021) → <b>~18,585 (Feb 2026)</b>; growth led by interstate migration (ABS / AreaSearch).</li>
+          <li>Median household income <b>$1,934/wk</b> — well above the QLD median. Unemployment 2.4%.</li>
+          <li>10-min catchment adds Helensvale, Oxenford, Coomera, Paradise Point — <b>~68,000 people</b>, growing &gt;3% p.a. <em>(catchment figure to be confirmed by drive-time study)</em>.</li>
+          <li>~15% of Australians hold gym memberships; adult gym participation ~28% and rising (AusPlay / IBISWorld).</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What the demographic actually buys</h3>
+        <p>Recovery, reformer Pilates, strength-for-longevity, allied health, social amenity — the
+        highest-margin lines in the industry, bought by people with daytime availability. The design
+        allocates <b>~35% of floor area</b> to these lines and monetises the 10am–3pm trough every
+        big-box operator writes off. The serious 700&nbsp;m² iron floor still anchors the corridor's
+        25–45 market driving in from Oxenford and Coomera.</p>
+        <p style="color:var(--ink-2)">We tested the counter-case: a value gym here would be wrong.
+        A premium precinct is the only format this data supports — and the southern Gold Coast,
+        where that format already exists, is contested. The north is not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">03</span><h2>Site Selection</h2></div>
+    <p class="lede">Five options scored on a weighted matrix — catchment, growth, exposure, availability,
+      planning risk, competition, cost, access, brand and portfolio fit.</p>
+
+    <figure class="fig">
+      <svg viewBox="0 0 960 250" role="img" aria-label="Weighted site scores: Western Gateway 8.3, Oxenford 7.0, Town Centre 6.6, Coomera fringe 6.2, HAVEN 5.9">
+        <g class="axis">
+          <line x1="240" y1="10" x2="240" y2="218" class="gridline"/>
+          <line x1="420" y1="10" x2="420" y2="218" class="gridline"/>
+          <line x1="600" y1="10" x2="600" y2="218" class="gridline"/>
+          <line x1="780" y1="10" x2="780" y2="218" class="gridline"/>
+          <text x="240" y="236" text-anchor="middle">2.5</text>
+          <text x="420" y="236" text-anchor="middle">5.0</text>
+          <text x="600" y="236" text-anchor="middle">7.5</text>
+          <text x="780" y="236" text-anchor="middle">10</text>
+        </g>
+        <g font-size="14" font-weight="600">
+          <text x="52" y="38" fill="var(--ink)">B · Western Gateway</text>
+          <text x="52" y="78" fill="var(--ink-2)">E · Oxenford corridor</text>
+          <text x="52" y="118" fill="var(--ink-2)">A · Town Centre</text>
+          <text x="52" y="158" fill="var(--ink-2)">D · Coomera fringe</text>
+          <text x="52" y="198" fill="var(--ink-2)">C · HAVEN mixed-use</text>
+        </g>
+        <g>
+          <rect x="242" y="24" width="356" height="18" rx="0" fill="var(--brass)" data-tip="Western Gateway — 8.3/10. Dual catchment, ~31k vpd exposure, station adjacency, full site control."/>
+          <rect x="242" y="64" width="263" height="18" fill="var(--bar-muted)" data-tip="Oxenford — 7.0/10. Cheap land, weaker brand statement."/>
+          <rect x="242" y="104" width="234" height="18" fill="var(--bar-muted)" data-tip="Hope Island Town Centre — 6.6/10. Prestige + co-location, but developer-timing risk and no site control. Designated fallback."/>
+          <rect x="242" y="144" width="205" height="18" fill="var(--bar-muted)" data-tip="Westfield Coomera fringe — 6.2/10. Deepest growth but collides with Goodlife, World Gym and the nearby Merse spa."/>
+          <rect x="242" y="184" width="184" height="18" fill="var(--bar-muted)" data-tip="HAVEN Activa Way — 5.9/10. Mixed-use zoning suits a boutique, too small for a flagship."/>
+          <path d="M598,24 h4 v18 h-4 z" fill="var(--brass-deep)"/>
+        </g>
+        <g class="dlab">
+          <text x="606" y="38" fill="var(--brass-deep)" font-size="15">8.3</text>
+          <text x="513" y="78">7.0</text>
+          <text x="484" y="118">6.6</text>
+          <text x="455" y="158">6.2</text>
+          <text x="434" y="198">5.9</text>
+        </g>
+      </svg>
+      <figcaption>Weighted scores /10. Full criteria and weights in the Phase 1 report. Fallback pre-committed: anchor pre-lease in the approved Town Centre if no gateway parcel is optioned within 9 months on terms.</figcaption>
+    </figure>
+
+    <figure class="fig panel" style="padding:26px">
+      <svg viewBox="0 0 960 330" role="img" aria-label="Schematic corridor diagram — not to scale">
+        <text x="14" y="22" class="axis" style="letter-spacing:.18em">SCHEMATIC — NOT TO SCALE</text>
+        <!-- M9 -->
+        <path d="M150,320 C150,220 165,120 205,10" stroke="var(--slate)" stroke-width="7" fill="none" opacity=".9"/>
+        <text x="112" y="60" fill="var(--slate)" font-size="14" font-weight="700">M9 CONNECTOR</text>
+        <text x="112" y="76" class="axis">opened Dec 2025</text>
+        <!-- rail -->
+        <path d="M220,320 C225,230 235,130 275,14" stroke="var(--ink-3)" stroke-width="3" fill="none" stroke-dasharray="10 6"/>
+        <circle cx="243" cy="205" r="9" fill="var(--pine)" stroke="var(--paper)" stroke-width="2.5"/>
+        <text x="150" y="248" fill="var(--pine)" font-size="14" font-weight="700">HOPE ISLAND STATION</text>
+        <text x="150" y="264" class="axis">opened May 2026</text>
+        <!-- Hope Island Rd -->
+        <path d="M170,232 C360,180 620,160 940,150" stroke="var(--ink-2)" stroke-width="6" fill="none"/>
+        <text x="560" y="140" class="axis" style="font-size:13px;font-weight:700;letter-spacing:.12em" fill="var(--ink-2)">HOPE ISLAND ROAD · ~31,000 VPD</text>
+        <!-- site star -->
+        <g data-tip="THE SITE — ~10,000 m² benchmark parcel: arterial exposure + station walk-up, catching island wealth eastbound and corridor growth westbound.">
+          <circle cx="330" cy="196" r="17" fill="var(--brass)"/>
+          <circle cx="330" cy="196" r="24" fill="none" stroke="var(--brass)" stroke-width="2" opacity=".5"/>
+          <text x="330" y="201" text-anchor="middle" font-size="13" font-weight="800" fill="var(--paper)">NH</text>
+        </g>
+        <text x="310" y="245" fill="var(--brass-deep)" font-size="15" font-weight="700">THE SITE</text>
+        <!-- island cluster -->
+        <circle cx="650" cy="158" r="8" fill="var(--ink-3)" data-tip="Hope Island Marketplace — Woolworths + Aldi + 36 specialties"/>
+        <text x="640" y="185" class="axis">Marketplace</text>
+        <circle cx="750" cy="152" r="8" fill="var(--ink-3)" data-tip="Approved Hope Island Town Centre DA (~18,700 m²) — the fallback site"/>
+        <text x="736" y="127" class="axis">Town Centre (DA)</text>
+        <circle cx="880" cy="90" r="8" fill="var(--ink-3)" data-tip="Sanctuary Cove — resort, golf, Country Club"/>
+        <text x="852" y="70" class="axis">Sanctuary Cove</text>
+        <!-- west anchors -->
+        <circle cx="150" cy="320" r="8" fill="var(--ink-3)" data-tip="Westfield Helensvale + G:link — Goodlife Helensvale in-centre"/>
+        <text x="170" y="318" class="axis">Westfield Helensvale</text>
+        <circle cx="205" cy="12" r="8" fill="var(--ink-3)" data-tip="Coomera: Westfield, Goodlife, World Gym, Merse (Oct 2026), future hospital"/>
+        <text x="225" y="18" class="axis">Coomera precinct</text>
+        <!-- water -->
+        <path d="M430,250 C560,235 760,225 950,215 L950,330 L430,330 Z" fill="var(--slate)" opacity=".12"/>
+        <text x="700" y="295" class="axis" opacity=".8">Coomera River / Broadwater — half of a mid-island drive-time circle is water</text>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">04</span><h2>The Competitive Gap</h2></div>
+    <p class="lede">Volume boxes in the Westfields, one resort club, capacity-constrained boutiques —
+      and no integrated premium flagship anywhere in the northern corridor.</p>
+    <div class="tbl"><table>
+      <tr><th>Operator</th><th>Where</th><th>Format</th><th>Structural weakness vs North Harbour</th></tr>
+      <tr><td>Goodlife ×2</td><td>Westfield Helensvale / Coomera</td><td>Full-service chain</td><td>In-centre: shared parking, no land, no pools, no 24/7 independence — cannot copy this asset</td></tr>
+      <tr><td>World Gym</td><td>Upper Coomera</td><td>Iron-first big box</td><td>No premium amenity; weak with the 45+ wallet</td></tr>
+      <tr><td>Sanctuary Cove CC</td><td>Sanctuary Cove</td><td>Resort members' club (from $20.50/wk)</td><td>Proves premium willingness-to-pay; limited training floor, gated, no 24/7</td></tr>
+      <tr><td>Fitstop / Studio Pilates / Flolo</td><td>Hope Island / Helensvale</td><td>Boutiques ($50–80/wk equiv.)</td><td>Members pay 2–3 venues ≈ $90–130/wk — Diamond tier consolidates at $47.95</td></tr>
+      <tr><td>Merse Wellness <span class="tag" style="margin-left:6px">market signal</span></td><td>Coomera, Oct 2026</td><td>Standalone bathhouse + Pilates</td><td>Validates corridor wellness demand. Product separation + co-marketing funnel; overlap bounded &lt;8% of one revenue line</td></tr>
+      <tr class="win"><td>Project North Harbour (premium operator TBC)</td><td>Gateway corridor</td><td>Integrated precinct</td><td>—</td></tr>
+    </table></div>
+    <p style="color:var(--ink-2)">Within 4212 itself: <b>no full-service club of any tier.</b> ~18,600 residents drive 10+ minutes or settle for boutiques.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">05</span><h2>The Facility — 6,200 m²</h2></div>
+    <div class="leg" role="list">
+      <span><i class="b-train" style="background:var(--brass)"></i>Training</span>
+      <span><i style="background:var(--pine)"></i>Wellness &amp; recovery</span>
+      <span><i style="background:var(--slate)"></i>Social &amp; commercial</span>
+      <span><i style="background:var(--bar-muted)"></i>Support</span>
+    </div>
+    <h3 style="margin-top:18px">Ground — 4,100 m²</h3>
+    <div class="plan" aria-label="Ground floor schematic blocks, area-proportional">
+      <div class="blk b-train" style="grid-column:span 4" data-tip="Free weights: 40+ racks/benches, 6 platforms">Strength<small>700 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 3" data-tip="Sled track, rig, comp ergs; HYROX-affiliate events">Functional / HYROX<small>520 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 3" data-tip="Premium plate-loaded line-up">Bodybuilding<small>450 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 3" data-tip="Cold plunges, magnesium pools, 3 saunas, steam, compression lounge">Recovery centre<small>520 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 2" data-tip="Hotel-grade wet change, towel service">Lux change<small>320 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 2" data-tip="8 consult rooms + rehab gym — leased to physio/sports-med group">Allied health<small>300 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 3" data-tip="Double-height arrival, concierge, lounge">Reception<small>260 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 2" data-tip="60-pax studio">Studio 1<small>180 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 2" data-tip="Licensed, trades to street + terrace">Café<small>180 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 2" data-tip="Licensed ~40 children, secure drop-off">Kids club<small>160 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 2" data-tip="40 bikes, immersive AV">Cycle<small>120 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 2" data-tip="4 combo racks, calibrated plates, isolated slab">Powerlifting<small>180 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 1" data-tip="Supplements, apparel, recovery tech">Retail<small>90</small></div>
+      <div class="blk b-sup" style="grid-column:span 2" data-tip="Back of house, plant, loading">BOH<small>120 m²</small></div>
+    </div>
+    <h3>Level 1 — 2,100 m²</h3>
+    <div class="plan" aria-label="Level 1 schematic blocks, area-proportional">
+      <div class="blk b-train" style="grid-column:span 5" data-tip="Overlooks the gym floor">Cardio mezzanine<small>450 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 4" data-tip="Studio A 28 beds + Studio B 16 beds">Reformer Pilates<small>340 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 3" data-tip="Co-work lounge + 2 corporate meeting rooms">Co-working<small>220 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 2" data-tip="Covered members' terrace">Terrace<small>200 m²</small></div>
+      <div class="blk b-sup" style="grid-column:span 2" data-tip="Admin, staff, training academy">Admin<small>180 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 2" data-tip="Hot-capable yoga / mind-body">Yoga<small>160 m²</small></div>
+      <div class="blk b-train" style="grid-column:span 2" data-tip="4 private PT studios">PT<small>160 m²</small></div>
+      <div class="blk b-well" style="grid-column:span 2" data-tip="Stretch & mobility deck">Mobility<small>150 m²</small></div>
+      <div class="blk b-soc" style="grid-column:span 1" data-tip="Podcast + 2 content rooms">Media<small>90</small></div>
+      <div class="blk b-sup" style="grid-column:span 2" data-tip="Circulation & amenities">Circ.<small>150 m²</small></div>
+    </div>
+    <p style="color:var(--ink-2);margin-top:14px">Deliberate exclusion: a full basketball court was tested and rejected — 700&nbsp;m² of low-yield
+      volume serving this catchment's weakest segment. Land is banked for a future court pavilion, allied-health pads and an
+      optional 25&nbsp;m outdoor magnesium lap pool (Stage 2). ~290 parking bays incl. 20 EV; 12-shot photorealistic render
+      brief is costed and ready for a visualisation studio (~$35k).</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">06</span><h2>Development Cost — $52.4m → $47m</h2></div>
+    <p class="lede">Class 5 elemental estimate (±20–25%), SEQ Q3-2026 rates, value-engineering path identified.</p>
+    <figure class="fig">
+      <svg viewBox="0 0 960 420" role="img" aria-label="Elemental cost breakdown, $ millions">
+        <g class="axis">
+          <line x1="250" y1="8" x2="250" y2="392" class="gridline"/>
+          <line x1="425" y1="8" x2="425" y2="392" class="gridline"/>
+          <line x1="600" y1="8" x2="600" y2="392" class="gridline"/>
+          <line x1="775" y1="8" x2="775" y2="392" class="gridline"/>
+          <text x="425" y="410" text-anchor="middle">$3m</text>
+          <text x="600" y="410" text-anchor="middle">$6m</text>
+          <text x="775" y="410" text-anchor="middle">$9m</text>
+        </g>
+        <g font-size="14" font-weight="600" fill="var(--ink-2)">
+          <text x="20" y="34">Shell &amp; core</text>
+          <text x="20" y="72">Land + duty + legals</text>
+          <text x="20" y="110">Equip &amp; FF&amp;E pack</text>
+          <text x="20" y="148">Site &amp; civil works</text>
+          <text x="20" y="186">Building services</text>
+          <text x="20" y="224">Contingency + escal.</text>
+          <text x="20" y="262">Fees + statutory</text>
+          <text x="20" y="300">Interior fitout</text>
+          <text x="20" y="338">Finance &amp; holding</text>
+          <text x="20" y="376">Pools &amp; recovery</text>
+        </g>
+        <g fill="var(--brass)">
+          <rect x="252" y="20" width="525" height="18" data-tip="Structural steel long-span frame, precast cores, roof, cladding, feature façade — $9.0m"/>
+          <rect x="252" y="58" width="470" height="18" data-tip="10,000 m² @ $750/m² + ~5.7% duty + legals — $8.05m"/>
+          <rect x="252" y="96" width="332" height="18" data-tip="Gym equipment $3.2m + FF&E $0.6m + tech/AV $0.9m + signage $0.35m + landscape $0.65m — $5.7m"/>
+          <rect x="252" y="134" width="330" height="18" data-tip="Fill + ASS treatment, piling, stormwater, external services, 290-bay parking — $5.65m"/>
+          <rect x="252" y="172" width="327" height="18" data-tip="High-air-change HVAC, electrical + 350kW solar, hydraulics, fire, BMS — $5.6m"/>
+          <rect x="252" y="210" width="262" height="18" data-tip="10% contingency $3.19m + 4% escalation $1.3m"/>
+          <rect x="252" y="248" width="268" height="18" data-tip="Professional fees $2.3m + DA/infrastructure charges allowance $2.3m"/>
+          <rect x="252" y="286" width="233" height="18" data-tip="Luxury change, café, studios, joinery, acoustics @ ~$650/m² — $4.0m"/>
+          <rect x="252" y="324" width="175" height="18" data-tip="Capitalised interest ~20 months at 65% LVR + fees — $3.0m"/>
+          <rect x="252" y="362" width="128" height="18" data-tip="Plunge court, magnesium pools, saunas, steam, tanking, plant — $2.2m"/>
+        </g>
+        <g class="dlab">
+          <text x="783" y="34">9.00</text><text x="728" y="72">8.05</text><text x="590" y="110">5.70</text>
+          <text x="588" y="148">5.65</text><text x="585" y="186">5.60</text><text x="520" y="224">4.49</text>
+          <text x="526" y="262">4.60</text><text x="491" y="300">4.00</text><text x="433" y="338">3.00</text><text x="386" y="376">2.20</text>
+        </g>
+      </svg>
+      <figcaption>All-in built cost ≈ $5,470/m² — consistent with a premium aquatic/recovery club, sanity-checked against national fitout benchmarks ($1,500–3,000/m² dry fitout; equipment 50–70% of fitout). Registered QS to produce the Class 3 plan at concept design.</figcaption>
+    </figure>
+    <div class="panel"><b>Recommended structure — OpCo/PropCo:</b> PropCo funds land + building (~$47m ex-equipment) against a
+      15+5+5-year triple-net lease at $2.3m p.a. with 3% escalators; the anchor operator's OpCo funds equipment (&lt;$5m) and operates.
+      The operator gets a flagship for under $5m of capital; the partner gets an institutional-grade national-brand covenant.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">07</span><h2>Business Model</h2></div>
+    <div class="leg">
+      <span><i style="background:var(--pine)"></i>Upside — 5,520 mature</span>
+      <span><i style="background:var(--brass)"></i>Base — 4,070 mature</span>
+      <span><i style="background:var(--slate)"></i>Conservative — 2,900 mature</span>
+    </div>
+    <figure class="fig">
+      <svg viewBox="0 0 960 360" role="img" aria-label="Membership ramp scenarios from pre-sale to year three">
+        <g class="axis">
+          <line x1="70" y1="300" x2="930" y2="300" class="gridline"/>
+          <line x1="70" y1="220" x2="930" y2="220" class="gridline"/>
+          <line x1="70" y1="140" x2="930" y2="140" class="gridline"/>
+          <line x1="70" y1="60" x2="930" y2="60" class="gridline"/>
+          <text x="58" y="304" text-anchor="end">0</text>
+          <text x="58" y="224" text-anchor="end">2,000</text>
+          <text x="58" y="144" text-anchor="end">4,000</text>
+          <text x="58" y="64" text-anchor="end">6,000</text>
+          <text x="90" y="330" text-anchor="middle">Pre-sale</text>
+          <text x="300" y="330" text-anchor="middle">Year 1</text>
+          <text x="510" y="330" text-anchor="middle">Year 2</text>
+          <text x="650" y="330" text-anchor="middle">Yr 2.5</text>
+          <text x="860" y="330" text-anchor="middle">Year 3</text>
+        </g>
+        <line x1="70" y1="202" x2="930" y2="202" class="refline"/>
+        <text x="928" y="194" text-anchor="end" class="axis" fill="var(--ink-2)">cash break-even ≈ 2,450</text>
+        <!-- capacity -->
+        <line x1="70" y1="80" x2="930" y2="80" class="refline" opacity=".45"/>
+        <text x="928" y="72" text-anchor="end" class="axis">design capacity 5,500</text>
+        <!-- lines: y = 300 - members*0.04 -->
+        <path d="M90,228 L300,164 L510,112 L650,79.2 L860,76" fill="none" stroke="var(--pine)" stroke-width="2.5"/>
+        <path d="M90,244 L300,192 L510,156 L650,137.2 L860,134" fill="none" stroke="var(--brass)" stroke-width="3.5"/>
+        <path d="M90,264 L300,224 L510,196 L650,184 L860,182" fill="none" stroke="var(--slate)" stroke-width="2.5"/>
+        <g stroke="var(--paper)" stroke-width="2">
+          <circle cx="90" cy="228" r="5" fill="var(--pine)" data-tip="Upside pre-sale: 1,800 foundation members"/>
+          <circle cx="300" cy="164" r="5" fill="var(--pine)" data-tip="Upside yr 1: 3,400"/>
+          <circle cx="510" cy="112" r="5" fill="var(--pine)" data-tip="Upside yr 2: 4,700"/>
+          <circle cx="650" cy="79.2" r="5" fill="var(--pine)" data-tip="Upside mature: 5,520"/>
+          <circle cx="860" cy="76" r="5" fill="var(--pine)" data-tip="Upside yr 3: ~5,600 (at capacity)"/>
+          <circle cx="90" cy="244" r="6" fill="var(--brass)" data-tip="Base pre-sale: 1,400 foundation members (gate: <900 at month −2 delays opex ramp)"/>
+          <circle cx="300" cy="192" r="6" fill="var(--brass)" data-tip="Base yr 1: 2,700 — crosses break-even months 14–18"/>
+          <circle cx="510" cy="156" r="6" fill="var(--brass)" data-tip="Base yr 2: 3,600"/>
+          <circle cx="650" cy="137.2" r="6" fill="var(--brass)" data-tip="Base mature (month 30): 4,070 = 74% of capacity"/>
+          <circle cx="860" cy="134" r="6" fill="var(--brass)" data-tip="Base yr 3: ~4,150"/>
+          <circle cx="90" cy="264" r="5" fill="var(--slate)" data-tip="Conservative pre-sale: 900"/>
+          <circle cx="300" cy="224" r="5" fill="var(--slate)" data-tip="Conservative yr 1: 1,900"/>
+          <circle cx="510" cy="196" r="5" fill="var(--slate)" data-tip="Conservative yr 2: 2,600"/>
+          <circle cx="650" cy="184" r="5" fill="var(--slate)" data-tip="Conservative mature: 2,900 — below institutional hurdle; this is the case the gates protect against"/>
+          <circle cx="860" cy="182" r="5" fill="var(--slate)" data-tip="Conservative yr 3: ~2,950"/>
+        </g>
+        <g class="dlab">
+          <text x="872" y="80" fill="var(--pine)">5,520</text>
+          <text x="872" y="138" fill="var(--brass-deep)" font-size="14">4,070</text>
+          <text x="872" y="186" fill="var(--slate)">2,900</text>
+        </g>
+      </svg>
+      <figcaption>Calibrated against ~10,500 existing gym memberships inside the 10-minute catchment (15–16% penetration of ~68,000 people) and a comparable QLD premium flagship's reported 5,000+ members. The model's centre of gravity is membership count: below ~3,000 the project misses institutional hurdles; above ~3,800 it clears them.</figcaption>
+    </figure>
+
+    <div class="cols">
+      <div class="tbl"><table>
+        <tr><th>Revenue line (mature yr 3)</th><th style="text-align:right">$m</th></tr>
+        <tr><td>Memberships + joining (4,070 × $36.10/wk blended)</td><td class="num">7.57</td></tr>
+        <tr><td>Recovery casual &amp; day passes</td><td class="num">0.62</td></tr>
+        <tr><td>PT &amp; coaching</td><td class="num">0.55</td></tr>
+        <tr><td>Café (net)</td><td class="num">0.47</td></tr>
+        <tr><td>Pilates packs (non-Diamond)</td><td class="num">0.42</td></tr>
+        <tr><td>Corporate, events, content studio</td><td class="num">0.28</td></tr>
+        <tr><td>Retail + kids club + allied rents</td><td class="num">0.62</td></tr>
+        <tr class="win"><td>Total revenue</td><td class="num">10.53</td></tr>
+        <tr><td>Operating costs (pre-rent)</td><td class="num">(6.48)</td></tr>
+        <tr class="win"><td>EBITDAR — 38.5% margin</td><td class="num">4.05</td></tr>
+      </table></div>
+      <div>
+        <h3>Pricing architecture</h3>
+        <div class="tbl"><table>
+          <tr><th>Tier</th><th>$/wk</th><th>Mix</th></tr>
+          <tr><td>Core 24/7</td><td class="num">22.95</td><td class="num">30%</td></tr>
+          <tr><td>Black — + recovery, towel, kids</td><td class="num">32.95</td><td class="num">35%</td></tr>
+          <tr><td>Diamond — + unlimited recovery &amp; reformer</td><td class="num">47.95</td><td class="num">25%</td></tr>
+          <tr><td>Platinum Wellness — + allied credits, co-work</td><td class="num">69.95</td><td class="num">10%</td></tr>
+        </table></div>
+        <p style="font-size:15.5px;color:var(--ink-2)">Boutique-stackers currently pay $90–130/wk across 2–3 venues;
+        Diamond consolidates that wallet at $47.95. Sensitivities: ±500 members = ±$0.91m EBITDAR;
+        ±$3/wk blended = ±$0.63m; +100bp exit cap = −$5.2m terminal value.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">08</span><h2>Risk — Named and Priced</h2></div>
+    <div class="tbl"><table>
+      <tr><th>Risk</th><th>Mitigation already in the plan</th></tr>
+      <tr><td>Flood &amp; soft soils (the defining constraint of Hope Island land)</td><td>Contract conditional on RPEQ flood study + geotech; DFE + 500mm freeboard and piling base-cased in the cost plan, not discovered later</td></tr>
+      <tr><td>Membership ramp shortfall</td><td>Pre-sale gate (&lt;900 at month −2 delays opex ramp); pre-leased allied health + 400-seat corporate pipeline income from day one</td></tr>
+      <tr><td>SEQ construction escalation pre-2032 Olympics</td><td>ECI builder, early steel/equipment procurement, 10% contingency + 4% escalation carried</td></tr>
+      <tr><td>TMR arterial access refusal</td><td>Pre-lodgement meeting; prefer lot with secondary street frontage; gating DD item</td></tr>
+      <tr><td>Overlap with nearby Merse Coomera spa</td><td>Product separation (training-integrated recovery vs standalone ritual bathhouse) + co-marketing funnel; bounded &lt;8% of one revenue line</td></tr>
+      <tr><td>Competitor pre-emption of the corridor</td><td>9-month option strategy with two live alternates; incumbents structurally locked inside Westfields</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="slide-head"><span class="slide-no">09</span><h2>The Ask</h2></div>
+    <div class="cols">
+      <div class="panel">
+        <h3 style="margin-top:0">Decisions requested</h3>
+        <ul>
+          <li><b>Shortlisted anchor operators:</b> enter the competitive operator process; the lead candidate signs heads of agreement on the OpCo lease. In parallel the sponsor approves the <b>$350k pre-development budget</b> (site option, flood/geotech/traffic DD, concept architecture, catchment survey).</li>
+          <li><b>Capital partner:</b> term sheet for PropCo fund-through at cap-on-cost against a 15-year national-brand triple-net lease.</li>
+          <li><b>Council/TMR:</b> pre-lodgement meeting — code-assessable pathway, charges estimate, access position.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Timeline — board approval to open</h3>
+        <div class="tbl"><table>
+          <tr><td>Site optioned, gating DD complete</td><td class="num">mo 0–6</td></tr>
+          <tr><td>Unconditional + DA lodged</td><td class="num">mo 7</td></tr>
+          <tr><td>Approval, detailed design, ECI tender</td><td class="num">mo 12–14</td></tr>
+          <tr><td>Construction start</td><td class="num">mo 15</td></tr>
+          <tr><td>Pre-sale launch (target 1,400)</td><td class="num">mo 24</td></tr>
+          <tr class="win"><td>Doors open</td><td class="num">mo 29–31</td></tr>
+        </table></div>
+        <p style="color:var(--ink-2)">Every month of delay compounds three clocks: corridor land pricing post-station,
+          SEQ construction escalation, and competitor site-hunting. The window is measured in quarters, not years.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <p><b>Standard of information.</b> Demographic, traffic, infrastructure and market facts are drawn from cited public sources
+    (ABS 2021 Census / AreaSearch; TMR TARS traffic census; TMR / Cross River Rail project pages; Gold Coast City Plan and Hope Island LAP;
+    operator websites and industry statistics incl. IBISWorld and AusPlay) as compiled in the accompanying reports.
+    Engineering, planning-rate, cost and financial figures are professional-grade working assumptions flagged for confirmation by licensed
+    consultants (RPEQ engineers, registered QS, town planner, valuer) during the pre-development phase. This document is not financial advice
+    and does not replace statutory due diligence. Project North Harbour is an independent, operator-agnostic proposal: any operator or wellness brands named appear solely as market comparison or as candidate operators under evaluation, none is affiliated with or has endorsed this proposal, no third-party trademark rights are claimed, and no third-party branding will be used in public documents, domain names or social media without written agreement. Visualisation imagery is stylised concept illustration; photorealistic renders are produced by an architectural visualisation studio per the Phase 4–5 brief.</p>
+    <p>Full package: 00 Investment Memorandum · 01 Location Analysis · 02 Due Diligence · 03 Facility Design · 04 Cost Plan · 05 Financial Model · 06 Market Research · 07 Financial Model CSV · 08 Engagement Pack · 09 Design Package · Concept Drawing Set (14 sheets) · Visualisation Suite.</p>
+  </div>
+</footer>
+<div class="confbar">PRIVATE AND CONFIDENTIAL · PREPARED BY JAMES FORYCKI · PROJECT NORTH HARBOUR · NOT FOR CIRCULATION OR DISTRIBUTION WITHOUT WRITTEN PERMISSION</div>
+<footer style="display:none"><div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  var show=function(e){
+    var t=e.target.closest('[data-tip]'); if(!t){tip.style.opacity=0;return;}
+    tip.textContent=t.getAttribute('data-tip');
+    tip.style.opacity=1;
+    var x=Math.min(e.clientX+14,window.innerWidth-tip.offsetWidth-10);
+    var y=e.clientY+16;
+    if(y+tip.offsetHeight>window.innerHeight-8) y=e.clientY-tip.offsetHeight-12;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  };
+  document.addEventListener('mousemove',show);
+  document.addEventListener('touchstart',function(e){
+    var t=e.target.closest('[data-tip]'); if(!t){tip.style.opacity=0;return;}
+    tip.textContent=t.getAttribute('data-tip'); tip.style.opacity=1;
+    tip.style.left='16px'; tip.style.top=(e.touches[0].clientY+18)+'px';
+  },{passive:true});
+})();
+</script>

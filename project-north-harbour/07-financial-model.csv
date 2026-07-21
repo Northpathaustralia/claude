@@ -1,0 +1,53 @@
+PROJECT NORTH HARBOUR - OPCO 10-YEAR FINANCIAL MODEL (BASE CASE / AUD millions ex GST unless noted)
+PRIVATE AND CONFIDENTIAL - Prepared by James Forycki - Project North Harbour - Not for circulation or distribution without written permission. Operator-agnostic proposal; any operators named are market comparison / candidates under evaluation, no affiliation or endorsement.
+Structure: OpCo-PropCo. OpCo funds equipment/FF&E ($4.70m) and pays triple-net rent $2.30m pa +3% escalators. Pre-feasibility model - assumptions flagged in package docs.
+Note: Investment memorandum quotes mature POINT-IN-TIME run-rate (4,070 members -> $10.5m rev / $4.05m EBITDAR). This model uses AVERAGE members through each year, so the same run-rate is reached during Y3 and appears as a full-year result in Y4.
+
+ASSUMPTIONS
+Blended membership yield ($/wk),36.10 (Y1-Y3) then +3%/yr
+Collections rate,97%
+Membership EOY Y1/Y2/Y3 (mature),"2,700 / 3,600 / 4,070 then ~+1%/yr"
+Ancillary ramp,60% Y1 / 85% Y2 / 100% Y3 then +3%/yr
+Marketing,6% of revenue Y1 then 4%
+Brand/management fee,3% of revenue
+Maintenance capex reserve,1.5% of revenue
+Pre-sale foundation members at open,"1,400"
+
+Line,Y1,Y2,Y3,Y4,Y5,Y6,Y7,Y8,Y9,Y10
+Members (end of year),2700,3600,4070,4150,4192,4234,4276,4319,4362,4406
+Members (average),2050,3150,3835,4110,4171,4213,4255,4298,4341,4384
+Blended yield $/wk,36.10,36.10,36.10,37.18,38.30,39.45,40.63,41.85,43.11,44.40
+
+Membership revenue,3.73,5.74,6.98,7.71,8.06,8.38,8.72,9.07,9.44,9.82
+Joining/admin fees,0.27,0.22,0.16,0.15,0.16,0.16,0.17,0.17,0.18,0.18
+PT & coaching,0.33,0.47,0.55,0.57,0.58,0.60,0.62,0.64,0.66,0.68
+Reformer Pilates (non-Diamond),0.25,0.36,0.42,0.43,0.45,0.46,0.47,0.49,0.50,0.52
+Recovery casual/day passes,0.37,0.53,0.62,0.64,0.66,0.68,0.70,0.72,0.74,0.76
+Cafe (net),0.28,0.40,0.47,0.48,0.50,0.51,0.53,0.54,0.56,0.58
+Retail & supplements (net),0.14,0.20,0.24,0.25,0.25,0.26,0.27,0.28,0.29,0.30
+Kids club,0.13,0.18,0.21,0.22,0.22,0.23,0.24,0.24,0.25,0.26
+Allied health rents,0.10,0.14,0.17,0.18,0.18,0.19,0.19,0.20,0.20,0.21
+Corporate & events & studio,0.17,0.24,0.28,0.29,0.30,0.31,0.32,0.32,0.33,0.34
+TOTAL REVENUE,5.78,8.47,10.10,10.91,11.36,11.78,12.22,12.68,13.15,13.64
+
+Wages & on-costs,3.12,3.37,3.55,3.66,3.77,3.88,4.00,4.12,4.24,4.37
+Utilities,0.46,0.49,0.52,0.54,0.55,0.57,0.59,0.60,0.62,0.64
+Repairs & equipment refresh,0.42,0.46,0.48,0.49,0.51,0.52,0.54,0.56,0.57,0.59
+Marketing,0.35,0.34,0.40,0.44,0.45,0.47,0.49,0.51,0.53,0.55
+Insurance & rates,0.33,0.36,0.38,0.39,0.40,0.42,0.43,0.44,0.45,0.47
+Software & payments,0.27,0.29,0.31,0.32,0.33,0.34,0.35,0.36,0.37,0.38
+Consumables & amenities,0.21,0.23,0.24,0.25,0.25,0.26,0.27,0.28,0.29,0.30
+Brand/management fee (3%),0.17,0.25,0.30,0.33,0.34,0.35,0.37,0.38,0.39,0.41
+Other/admin,0.23,0.25,0.26,0.27,0.28,0.28,0.29,0.30,0.31,0.32
+TOTAL OPEX,5.57,6.05,6.45,6.68,6.88,7.10,7.32,7.54,7.77,8.01
+
+EBITDAR,0.21,2.42,3.65,4.23,4.47,4.68,4.90,5.13,5.37,5.63
+EBITDAR margin %,3.6,28.6,36.2,38.8,39.4,39.8,40.1,40.5,40.9,41.2
+Rent (triple-net to PropCo),2.30,2.37,2.44,2.51,2.59,2.67,2.75,2.83,2.91,3.00
+OPCO EBITDA,-2.09,0.05,1.21,1.72,1.88,2.02,2.16,2.31,2.46,2.63
+Maintenance capex reserve,0.09,0.13,0.15,0.16,0.17,0.18,0.18,0.19,0.20,0.20
+OpCo pre-tax cash flow,-2.18,-0.07,1.06,1.56,1.71,1.84,1.97,2.11,2.26,2.42
+Cumulative OpCo cash flow (incl -4.70 equipment capex Y0),-6.88,-6.95,-5.89,-4.33,-2.62,-0.78,1.19,3.31,5.57,7.99
+
+PROPCO VIEW,TDC ex-equipment ~$47.0m,Rent Y1 $2.30m net,Cap rate 6.25%,Completed value ~$36.8m + pad land bank
+SCENARIOS (mature EBITDAR),Conservative $2.6m @ 2,900 members,Base $4.05m @ 4,070,Upside $5.6m @ 5,520

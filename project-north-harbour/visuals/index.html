@@ -1,0 +1,285 @@
+<title>Project North Harbour — Visualisation Suite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --paper:#F7F5EF; --ink:#1C1913; --ink-2:#57503F; --ink-3:#8A8371;
+  --line:#E3DECF; --panel:#F0ECE0; --brass:#A8842C; --brass-deep:#7C611E; --pine:#237A54; --slate:#3E6FA8;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#14120D; --ink:#EDE8DB; --ink-2:#B4AC98; --ink-3:#7E775F;
+    --line:#2E2A1E; --panel:#1C190F; --brass:#C9A24B; --brass-deep:#D8B45A; --pine:#4FAE7F; --slate:#6FA0D6; }
+}
+:root[data-theme="dark"]{ --paper:#14120D; --ink:#EDE8DB; --ink-2:#B4AC98; --ink-3:#7E775F;
+  --line:#2E2A1E; --panel:#1C190F; --brass:#C9A24B; --brass-deep:#D8B45A; --pine:#4FAE7F; --slate:#6FA0D6; }
+:root[data-theme="light"]{ --paper:#F7F5EF; --ink:#1C1913; --ink-2:#57503F; --ink-3:#8A8371;
+  --line:#E3DECF; --panel:#F0ECE0; --brass:#A8842C; --brass-deep:#7C611E; --pine:#237A54; --slate:#3E6FA8; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;line-height:1.6}
+.disp,.eyebrow,.cap b,.confbar,.tag{font-family:"Avenir Next Condensed","Helvetica Neue Condensed","Arial Narrow",Arial,sans-serif}
+.confbar{background:var(--ink);color:var(--paper);text-align:center;font-size:11.5px;font-weight:600;letter-spacing:.14em;padding:8px 14px;text-transform:uppercase}
+header{background:#16140F;color:#F2EEE3;padding:60px 0 44px;border-bottom:4px solid #C9A24B}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C9A24B}
+h1{font-family:"Avenir Next Condensed","Arial Narrow",Arial,sans-serif;font-weight:700;
+  font-size:clamp(34px,6vw,64px);line-height:.98;text-transform:uppercase;margin:12px 0 8px}
+header p{color:#CFC8B4;max-width:70ch}
+.disclaimer{background:var(--panel);border:1px solid var(--brass);border-left:5px solid var(--brass);
+  padding:14px 18px;margin:28px 0;font-size:14.5px;border-radius:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:26px;margin:26px 0 40px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+figure svg{display:block;width:100%;height:auto}
+figcaption{padding:14px 16px}
+.cap b{display:block;font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.cap span{font-size:13.5px;color:var(--ink-2)}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--brass-deep);border:1px solid var(--brass);border-radius:99px;padding:1px 8px;margin-top:8px}
+.foot{padding:34px 0 60px;color:var(--ink-3);font-size:13.5px}
+</style>
+<div class="confbar">Private and Confidential · Prepared by James Forycki · Project North Harbour · Not for circulation or distribution without written permission</div>
+
+<header><div class="wrap">
+  <div class="eyebrow">Project North Harbour · Visualisation Suite</div>
+  <h1>The Experience</h1>
+  <p>Concept visualisations of Australia's next flagship wellness &amp; performance precinct — the arrival, the halls,
+  the recovery house and the social heart, rendered in the project's material language of concrete, timber, brass, stone and water.</p>
+</div></header>
+
+<div class="wrap">
+<div class="disclaimer"><b>About these images.</b> These are <b>stylised concept visualisations</b> — composed illustrations
+that fix the atmosphere, materials, lighting and spatial intent of each space. They are not photographs and not photorealistic
+CGI. The photorealistic render pack (12 hero images) is produced by an architectural visualisation studio from the concept design,
+per the Phase 4–5 brief (~$35k); this suite is the art-direction that briefs it. Operator identity is shown as a neutral
+"North Harbour" placeholder.</div>
+
+<div class="grid">
+
+  <!-- 1. GOLDEN HOUR EXTERIOR -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Golden hour exterior concept">
+    <defs>
+      <linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3C98A"/><stop offset=".5" stop-color="#E8A96A"/><stop offset="1" stop-color="#C97B4E"/></linearGradient>
+      <linearGradient id="ghg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF4D8"/><stop offset="1" stop-color="#F0C878"/></linearGradient>
+    </defs>
+    <rect width="500" height="230" fill="url(#gh)"/>
+    <circle cx="380" cy="110" r="46" fill="#FFEFC8" opacity=".8"/>
+    <!-- building -->
+    <rect x="40" y="120" width="420" height="140" fill="#2A2620"/>
+    <rect x="40" y="120" width="420" height="8" fill="#3A342A"/>
+    <!-- engine room glow -->
+    <rect x="70" y="150" width="200" height="110" fill="url(#ghg)"/>
+    <g stroke="#2A2620" stroke-width="3"><line x1="120" y1="150" x2="120" y2="260"/><line x1="170" y1="150" x2="170" y2="260"/><line x1="220" y1="150" x2="220" y2="260"/></g>
+    <!-- portal -->
+    <rect x="300" y="170" width="80" height="90" fill="#141210"/><rect x="296" y="164" width="88" height="8" fill="#C9A24B"/>
+    <text x="340" y="215" text-anchor="middle" font-size="10" font-weight="800" fill="#C9A24B" font-family="Arial">NORTH</text>
+    <text x="340" y="228" text-anchor="middle" font-size="9" font-weight="800" fill="#C9A24B" font-family="Arial">HARBOUR</text>
+    <!-- charred batten wing -->
+    <rect x="392" y="150" width="68" height="110" fill="#1E1B16"/>
+    <g stroke="#33302a" stroke-width="1.5"><line x1="404" y1="150" x2="404" y2="260"/><line x1="416" y1="150" x2="416" y2="260"/><line x1="428" y1="150" x2="428" y2="260"/><line x1="440" y1="150" x2="440" y2="260"/><line x1="452" y1="150" x2="452" y2="260"/></g>
+    <!-- pylon -->
+    <rect x="24" y="96" width="8" height="164" fill="#2A2620"/><rect x="12" y="96" width="32" height="40" fill="#141210" stroke="#C9A24B" stroke-width="2"/>
+    <!-- foreground -->
+    <rect x="0" y="260" width="500" height="80" fill="#1E2A20"/>
+    <g fill="#16211a"><ellipse cx="120" cy="262" rx="50" ry="16"/><ellipse cx="440" cy="262" rx="46" ry="14"/></g>
+    <!-- palms -->
+    <g stroke="#16211a" stroke-width="4" fill="none"><path d="M300,300 q4,-40 0,-56"/><path d="M330,306 q6,-44 -2,-60"/></g>
+  </svg><figcaption class="cap"><b>Golden-hour exterior</b><span>The glazed engine-room reads as a lantern; charred-timber wing, brass portal and pylon at the arterial corner.</span><span class="tag">Exterior hero</span></figcaption></figure>
+
+  <!-- 2. AERIAL MASTERPLAN -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Aerial masterplan concept">
+    <rect width="500" height="340" fill="#B9CBB4" fill-opacity=".4"/>
+    <rect x="0" y="0" width="500" height="340" fill="#EDEBE0"/>
+    <!-- road -->
+    <rect x="0" y="300" width="500" height="40" fill="#C9C2AE"/>
+    <!-- site outline -->
+    <rect x="60" y="30" width="380" height="270" fill="none" stroke="#57503F" stroke-width="1.5" stroke-dasharray="8 4"/>
+    <!-- building roof w/ PV -->
+    <rect x="120" y="120" width="240" height="120" fill="#3A342A"/>
+    <rect x="132" y="132" width="120" height="60" fill="#A8842C" fill-opacity=".5"/>
+    <g stroke="#7C611E" stroke-width="0.6"><line x1="132" y1="147" x2="252" y2="147"/><line x1="132" y1="162" x2="252" y2="162"/><line x1="132" y1="177" x2="252" y2="177"/><line x1="162" y1="132" x2="162" y2="192"/><line x1="192" y1="132" x2="192" y2="192"/><line x1="222" y1="132" x2="222" y2="192"/></g>
+    <text x="300" y="185" fill="#EDEBE0" font-size="9" font-family="Arial" font-weight="700">PLANT</text>
+    <!-- parking -->
+    <g stroke="#8A8371" stroke-width="1"><line x1="120" y1="250" x2="360" y2="250"/><line x1="120" y1="270" x2="360" y2="270"/></g>
+    <g stroke="#8A8371" stroke-width="0.6">
+      <line x1="140" y1="250" x2="140" y2="290"/><line x1="160" y1="250" x2="160" y2="290"/><line x1="180" y1="250" x2="180" y2="290"/><line x1="200" y1="250" x2="200" y2="290"/><line x1="220" y1="250" x2="220" y2="290"/><line x1="240" y1="250" x2="240" y2="290"/></g>
+    <!-- outdoor training -->
+    <rect x="370" y="50" width="60" height="70" fill="#237A54" fill-opacity=".3"/>
+    <!-- palms/greenery -->
+    <g fill="#237A54" opacity=".7"><circle cx="90" cy="60" r="7"/><circle cx="110" cy="60" r="7"/><circle cx="90" cy="290" r="7"/><circle cx="410" cy="290" r="7"/><circle cx="430" cy="290" r="7"/></g>
+    <!-- detention -->
+    <path d="M70,40 h70 v50 q-35,14 -70,0 z" fill="#3E6FA8" fill-opacity=".25"/>
+    <text x="70" y="325" fill="#57503F" font-size="10" font-family="Arial" font-weight="700">HOPE ISLAND ROAD</text>
+    <text x="130" y="112" fill="#57503F" font-size="9" font-family="Arial">CLUB ROOF · 350 kW PV</text>
+  </svg><figcaption class="cap"><b>Masterplan aerial</b><span>The whole precinct: club, 290-bay parking under tree canopy, outdoor training, rain-garden detention and Stage-2 land.</span><span class="tag">Drone / masterplan</span></figcaption></figure>
+
+  <!-- 3. ARRIVAL / PORTE-COCHERE -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Arrival porte-cochere at dusk concept">
+    <defs><linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3457"/><stop offset="1" stop-color="#6E5A6A"/></linearGradient></defs>
+    <rect width="500" height="220" fill="url(#dusk)"/>
+    <rect x="0" y="220" width="500" height="120" fill="#20201C"/>
+    <!-- canopy -->
+    <rect x="60" y="120" width="380" height="20" fill="#2A2620"/>
+    <g stroke="#141210" stroke-width="8"><line x1="90" y1="140" x2="90" y2="240"/><line x1="410" y1="140" x2="410" y2="240"/></g>
+    <!-- warm underlight -->
+    <rect x="70" y="140" width="360" height="10" fill="#E8B558" opacity=".5"/>
+    <!-- entry glass glowing -->
+    <rect x="160" y="150" width="180" height="90" fill="#F0C878" opacity=".85"/>
+    <g stroke="#2A2620" stroke-width="3"><line x1="220" y1="150" x2="220" y2="240"/><line x1="280" y1="150" x2="280" y2="240"/></g>
+    <!-- brass portal frame -->
+    <rect x="154" y="144" width="192" height="8" fill="#C9A24B"/><rect x="154" y="144" width="8" height="96" fill="#C9A24B"/><rect x="338" y="144" width="8" height="96" fill="#C9A24B"/>
+    <!-- water feature -->
+    <rect x="70" y="250" width="360" height="14" fill="#3E6FA8" fill-opacity=".4"/>
+    <!-- figures -->
+    <g fill="#141210"><rect x="250" y="205" width="6" height="34"/><circle cx="253" cy="200" r="5"/><rect x="300" y="208" width="6" height="31"/><circle cx="303" cy="203" r="5"/></g>
+    <!-- palms uplit -->
+    <g stroke="#1A2E22" stroke-width="4" fill="none"><path d="M110,240 q5,-46 0,-64"/><path d="M400,240 q-5,-46 0,-64"/></g>
+  </svg><figcaption class="cap"><b>Arrival &amp; porte-cochère</b><span>Hotel-style drop-off: brass portal, warm-lit soffit, weir water feature and uplit palms. The building says "destination" before you enter.</span><span class="tag">Arrival sequence</span></figcaption></figure>
+
+  <!-- 4. RECEPTION -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Reception and lounge interior concept">
+    <rect width="500" height="340" fill="#EDE7DA"/>
+    <!-- floor travertine -->
+    <rect x="0" y="250" width="500" height="90" fill="#DED3BC"/>
+    <g stroke="#CFC2A6" stroke-width="1"><line x1="0" y1="280" x2="500" y2="280"/><line x1="120" y1="250" x2="120" y2="340"/><line x1="260" y1="250" x2="260" y2="340"/><line x1="400" y1="250" x2="400" y2="340"/></g>
+    <!-- green wall -->
+    <rect x="0" y="30" width="130" height="220" fill="#237A54" fill-opacity=".55"/>
+    <g fill="#1c5e42" opacity=".5"><circle cx="30" cy="70" r="12"/><circle cx="70" cy="100" r="14"/><circle cx="40" cy="150" r="13"/><circle cx="90" cy="180" r="12"/><circle cx="30" cy="210" r="11"/></g>
+    <!-- walnut monolith desk -->
+    <rect x="180" y="170" width="180" height="80" fill="#6B4A2E"/><rect x="180" y="170" width="180" height="10" fill="#7C5636"/>
+    <text x="270" y="215" text-anchor="middle" font-size="13" font-weight="800" fill="#C9A24B" font-family="Arial" letter-spacing="2">NORTH HARBOUR</text>
+    <!-- brass ring light -->
+    <circle cx="290" cy="70" r="46" fill="none" stroke="#C9A24B" stroke-width="5"/>
+    <!-- ceiling slats -->
+    <g stroke="#B79A6A" stroke-width="3"><line x1="360" y1="20" x2="500" y2="20"/><line x1="360" y1="32" x2="500" y2="32"/><line x1="360" y1="44" x2="500" y2="44"/></g>
+    <!-- stools -->
+    <g fill="#B0724A"><rect x="200" y="250" width="14" height="24" rx="3"/><rect x="240" y="250" width="14" height="24" rx="3"/><rect x="330" y="250" width="14" height="24" rx="3"/></g>
+    <!-- display -->
+    <rect x="410" y="90" width="60" height="100" fill="#20201C"/><rect x="414" y="94" width="52" height="92" fill="#3E6FA8" fill-opacity=".3"/>
+  </svg><figcaption class="cap"><b>Reception &amp; lounge</b><span>7 m volume, solid-walnut monolith with backlit lettering, living green wall, brass ring feature light and a live "club pulse" display.</span><span class="tag">Interior</span></figcaption></figure>
+
+  <!-- 5. CAFE -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Cafe and terrace concept">
+    <rect width="500" height="340" fill="#F0EADD"/>
+    <rect x="0" y="250" width="500" height="90" fill="#D8CBB2"/>
+    <!-- terrazzo bar -->
+    <rect x="40" y="150" width="200" height="70" fill="#E6DFD0" stroke="#B79A6A" stroke-width="2"/>
+    <g fill="#B0724A" opacity=".5"><circle cx="70" cy="175" r="3"/><circle cx="120" cy="195" r="3"/><circle cx="180" cy="170" r="3"/><circle cx="210" cy="200" r="3"/></g>
+    <rect x="40" y="220" width="200" height="6" fill="#C9A24B"/>
+    <text x="60" y="140" font-size="11" font-weight="700" fill="#7C611E" font-family="Arial">JUICE + ESPRESSO BAR</text>
+    <!-- pendant cluster -->
+    <g stroke="#C9A24B" stroke-width="2"><line x1="90" y1="40" x2="90" y2="80"/><line x1="130" y1="40" x2="130" y2="70"/><line x1="170" y1="40" x2="170" y2="90"/></g>
+    <g fill="#C9A24B"><circle cx="90" cy="86" r="8"/><circle cx="130" cy="76" r="8"/><circle cx="170" cy="96" r="8"/></g>
+    <!-- ceiling raft -->
+    <g stroke="#B79A6A" stroke-width="3"><line x1="280" y1="30" x2="470" y2="30"/><line x1="280" y1="42" x2="470" y2="42"/><line x1="280" y1="54" x2="470" y2="54"/></g>
+    <!-- tables -->
+    <g><circle cx="320" cy="240" r="22" fill="#E6DFD0" stroke="#B79A6A"/><circle cx="410" cy="250" r="22" fill="#E6DFD0" stroke="#B79A6A"/></g>
+    <g fill="#B0724A"><rect x="300" y="250" width="12" height="22" rx="3"/><rect x="330" y="250" width="12" height="22" rx="3"/><rect x="392" y="258" width="12" height="22" rx="3"/><rect x="422" y="258" width="12" height="22" rx="3"/></g>
+    <!-- planting -->
+    <g fill="#237A54" opacity=".6"><circle cx="470" cy="170" r="20"/><circle cx="270" cy="200" r="14"/></g>
+  </svg><figcaption class="cap"><b>Café &amp; terrace</b><span>Terrazzo bar, brass foot-rail, walnut ceiling raft and pendant clusters. Licensed, dual-facing — the club's "third place".</span><span class="tag">Interior · F&amp;B</span></figcaption></figure>
+
+  <!-- 6. STRENGTH FLOOR -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Strength floor engine room concept">
+    <rect width="500" height="340" fill="#201F1C"/>
+    <!-- graphite floor -->
+    <rect x="0" y="250" width="500" height="90" fill="#2C2B27"/>
+    <!-- exposed ceiling services -->
+    <g stroke="#3A3934" stroke-width="4"><line x1="0" y1="40" x2="500" y2="40"/><line x1="0" y1="60" x2="500" y2="60"/></g>
+    <g stroke="#4a4942" stroke-width="2"><line x1="80" y1="20" x2="80" y2="70"/><line x1="200" y1="20" x2="200" y2="70"/><line x1="320" y1="20" x2="320" y2="70"/><line x1="440" y1="20" x2="440" y2="70"/></g>
+    <!-- cool linear lights -->
+    <g fill="#DDE8F0"><rect x="60" y="34" width="120" height="4"/><rect x="240" y="34" width="120" height="4"/></g>
+    <!-- glazed engine room to street (right) with dusk -->
+    <rect x="380" y="80" width="120" height="170" fill="#3A4a63"/>
+    <g stroke="#20201C" stroke-width="3"><line x1="420" y1="80" x2="420" y2="250"/><line x1="460" y1="80" x2="460" y2="250"/></g>
+    <!-- racks -->
+    <g stroke="#C9A24B" stroke-width="6" fill="none"><path d="M60,120 v130 M100,120 v130 M60,120 h40"/><path d="M150,120 v130 M190,120 v130 M150,120 h40"/></g>
+    <!-- platform -->
+    <rect x="240" y="220" width="90" height="30" fill="#7C611E" fill-opacity=".5" stroke="#C9A24B"/>
+    <!-- figures lifting -->
+    <g fill="#0E0D0B"><rect x="120" y="200" width="7" height="50"/><circle cx="123" cy="194" r="6"/><rect x="280" y="200" width="7" height="50"/><circle cx="283" cy="194" r="6"/></g>
+    <!-- mirror strip -->
+    <rect x="20" y="100" width="10" height="150" fill="#3A4453" opacity=".6"/>
+  </svg><figcaption class="cap"><b>Strength &amp; performance hall</b><span>7 m clear span, blackened-steel ceiling, cool performance lighting, competition platforms — framed by the 9 m glazed street façade.</span><span class="tag">Training</span></figcaption></figure>
+
+  <!-- 7. RECOVERY POOLS -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Recovery centre plunge and magnesium pools concept">
+    <rect width="500" height="340" fill="#221E1A"/>
+    <!-- warm stone walls -->
+    <rect x="0" y="0" width="500" height="200" fill="#3A322A"/>
+    <!-- fibre-optic starlight ceiling -->
+    <g fill="#E8D8A8"><circle cx="60" cy="30" r="1.5"/><circle cx="120" cy="20" r="1.5"/><circle cx="200" cy="35" r="1.5"/><circle cx="280" cy="22" r="1.5"/><circle cx="360" cy="34" r="1.5"/><circle cx="440" cy="24" r="1.5"/><circle cx="160" cy="50" r="1.5"/><circle cx="320" cy="52" r="1.5"/><circle cx="90" cy="55" r="1.5"/></g>
+    <!-- magnesium warm pool -->
+    <rect x="40" y="150" width="200" height="120" rx="8" fill="#3E6FA8" fill-opacity=".4"/>
+    <rect x="40" y="150" width="200" height="20" rx="8" fill="#6FA0D6" fill-opacity=".3"/>
+    <text x="60" y="215" fill="#CDE0F0" font-size="11" font-weight="700" font-family="Arial">MAGNESIUM POOL</text>
+    <!-- cold plunge -->
+    <rect x="270" y="170" width="90" height="100" rx="6" fill="#2E86C1" fill-opacity=".5"/>
+    <text x="278" y="230" fill="#DDEEFB" font-size="9" font-weight="700" font-family="Arial">COLD PLUNGE</text>
+    <!-- sauna glow (right) -->
+    <rect x="380" y="150" width="110" height="120" fill="#C97B4E" fill-opacity=".5"/>
+    <g stroke="#8a4f30" stroke-width="2"><line x1="380" y1="170" x2="490" y2="170"/><line x1="380" y1="190" x2="490" y2="190"/><line x1="380" y1="210" x2="490" y2="210"/></g>
+    <text x="392" y="255" fill="#F0D5B8" font-size="10" font-weight="700" font-family="Arial">SAUNA</text>
+    <!-- steam rising -->
+    <g stroke="#CDE0F0" stroke-width="2" fill="none" opacity=".4"><path d="M120,150 q-8,-20 0,-40"/><path d="M180,150 q8,-24 0,-46"/></g>
+    <!-- ferns -->
+    <g stroke="#1c5e42" stroke-width="3" fill="none"><path d="M460,270 q6,-30 0,-46"/><path d="M20,270 q-6,-26 0,-44"/></g>
+  </svg><figcaption class="cap"><b>Recovery centre</b><span>Fibre-optic starlight ceiling over the plunge court; warm magnesium pools, cold plunges, panoramic sauna to a fern courtyard. The uncopyable space.</span><span class="tag">Wellness · signature</span></figcaption></figure>
+
+  <!-- 8. PILATES -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Reformer Pilates studio concept">
+    <rect width="500" height="340" fill="#F0EBDE"/>
+    <rect x="0" y="250" width="500" height="90" fill="#D8C7A8"/>
+    <!-- oak floor lines -->
+    <g stroke="#C4B08A" stroke-width="1"><line x1="0" y1="280" x2="500" y2="280"/><line x1="0" y1="310" x2="500" y2="310"/></g>
+    <!-- timber slat ceiling -->
+    <g stroke="#B79A6A" stroke-width="4"><line x1="0" y1="24" x2="500" y2="24"/><line x1="0" y1="40" x2="500" y2="40"/><line x1="0" y1="56" x2="500" y2="56"/></g>
+    <!-- full-height glazing to terrace (right) -->
+    <rect x="380" y="70" width="120" height="180" fill="#237A54" fill-opacity=".18"/>
+    <g stroke="#EDE7DA" stroke-width="3"><line x1="420" y1="70" x2="420" y2="250"/><line x1="460" y1="70" x2="460" y2="250"/></g>
+    <g fill="#237A54" opacity=".5"><circle cx="440" cy="150" r="24"/></g>
+    <!-- reformers (rows) -->
+    <g fill="#6B4A2E">
+      <rect x="40" y="150" width="90" height="22" rx="4"/><rect x="150" y="150" width="90" height="22" rx="4"/><rect x="260" y="150" width="90" height="22" rx="4"/>
+      <rect x="40" y="200" width="90" height="22" rx="4"/><rect x="150" y="200" width="90" height="22" rx="4"/><rect x="260" y="200" width="90" height="22" rx="4"/>
+    </g>
+    <g fill="#B0724A"><rect x="40" y="150" width="10" height="22"/><rect x="150" y="150" width="10" height="22"/><rect x="260" y="150" width="10" height="22"/></g>
+    <!-- moss panel -->
+    <rect x="0" y="70" width="30" height="180" fill="#237A54" fill-opacity=".45"/>
+  </svg><figcaption class="cap"><b>Reformer Pilates studio</b><span>Warm oak floor, timber-slat acoustic ceiling, full-height glazing to the members' terrace and a preserved-moss wall. 44 beds across two studios.</span><span class="tag">Studio</span></figcaption></figure>
+
+  <!-- 9. NIGHT EXTERIOR -->
+  <figure><svg viewBox="0 0 500 340" role="img" aria-label="Night exterior hero concept">
+    <defs><linearGradient id="nite" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1626"/><stop offset="1" stop-color="#243049"/></linearGradient></defs>
+    <rect width="500" height="230" fill="url(#nite)"/>
+    <g fill="#3A4660"><circle cx="80" cy="40" r="1"/><circle cx="180" cy="30" r="1"/><circle cx="300" cy="46" r="1"/><circle cx="420" cy="34" r="1"/></g>
+    <rect x="0" y="230" width="500" height="110" fill="#14120E"/>
+    <!-- building -->
+    <rect x="40" y="120" width="420" height="120" fill="#0E0D0B"/>
+    <!-- glowing engine room -->
+    <rect x="70" y="145" width="200" height="95" fill="#F0C878"/>
+    <g stroke="#0E0D0B" stroke-width="3"><line x1="120" y1="145" x2="120" y2="240"/><line x1="170" y1="145" x2="170" y2="240"/><line x1="220" y1="145" x2="220" y2="240"/></g>
+    <!-- portal -->
+    <rect x="300" y="165" width="80" height="75" fill="#050505"/><rect x="296" y="159" width="88" height="7" fill="#E8B558"/>
+    <text x="340" y="205" text-anchor="middle" font-size="10" font-weight="800" fill="#E8B558" font-family="Arial">NORTH</text>
+    <!-- façade wash on batten wing -->
+    <rect x="392" y="145" width="68" height="95" fill="#2A2418"/>
+    <g stroke="#4a3f28" stroke-width="1.5"><line x1="404" y1="145" x2="404" y2="240"/><line x1="420" y1="145" x2="420" y2="240"/><line x1="436" y1="145" x2="436" y2="240"/><line x1="452" y1="145" x2="452" y2="240"/></g>
+    <!-- pylon lit -->
+    <rect x="24" y="90" width="8" height="150" fill="#0E0D0B"/><rect x="12" y="90" width="32" height="40" fill="#141210" stroke="#E8B558" stroke-width="2"/>
+    <text x="28" y="115" text-anchor="middle" font-size="11" font-weight="800" fill="#E8B558" font-family="Arial">NH</text>
+    <!-- reflection / carpark light trails -->
+    <g stroke="#E8B558" stroke-width="2" opacity=".5"><line x1="80" y1="280" x2="140" y2="280"/><line x1="200" y1="290" x2="260" y2="290"/><line x1="330" y1="285" x2="390" y2="285"/></g>
+    <!-- solar canopy silhouette -->
+    <rect x="410" y="270" width="80" height="6" fill="#2A2620"/>
+  </svg><figcaption class="cap"><b>Night exterior hero</b><span>After dark the strength hall glows, the batten wing takes a warm façade wash and the pylon reads from the arterial. The building is the billboard.</span><span class="tag">Night hero</span></figcaption></figure>
+
+</div>
+</div>
+
+<div class="foot"><div class="wrap">
+  <p>The complete visualisation programme (photorealistic) covers 40+ viewpoints across exterior, arrival, every training and
+  wellness zone, recovery, studios, lounge, kids club, outdoor training and Stage-2 expansion — the shot list is scheduled in the
+  Facility Design brief. These stylised concept illustrations establish the art direction. Prepared for Project North Harbour;
+  private and confidential; not for circulation without written permission. Operator identity shown as a neutral placeholder.</p>
+</div></div>
+<div class="confbar">Private and Confidential · Prepared by James Forycki · Project North Harbour · Not for circulation or distribution without written permission</div>
