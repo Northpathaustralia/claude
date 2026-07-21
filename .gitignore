@@ -1,6 +1,50 @@
+# Dependencies / build
 node_modules
 dist
 dist-ssr
+release/*.local
 *.local
+
+# OS / editor
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Secrets & environment — NEVER commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.json
+credentials.json
+service-account*.json
+
+# Private business/legal/customer material — keep OUT of git
+# (store in a secure drive with access control, not the repo)
+lash-lock-beauty-system/**/PRIVATE/
+**/supplier-documents/
+**/signed-consents/
+**/customer-data/
+**/test-participant-records/
+**/*_SIGNED.*
+**/legal-advice/
+
+# Media capture (large; store in cloud, reference by path)
+*.mp4
+*.mov
+*.zip
+refs/*.jpg
+refs/*.png
+refs/*.jpeg
+!**/placeholder*
