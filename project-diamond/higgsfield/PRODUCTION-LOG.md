@@ -3,7 +3,7 @@ Run date: 2026-07-22 · Account plan: Plus · Credits at start: 987.5 · Model: 
 
 | Card | Asset | Job ID | Notes |
 |---|---|---|---|
-| 01 47 Tabs (UGC) | master clip | ac71a036-0549-477f-b242-23da226e b921 | Spoken hook line included |
+| 01 47 Tabs (UGC) | master clip | ac71a036-0549-477f-b242-23da226eb921 | Spoken hook line included |
 | 02 The Pour (demo/ASMR) | master clip | 48003c27-0a32-4c63-9b16-626e447fb09c | Foley-led; also the Pinterest loop source |
 | 03 You Did Enough (emotional) | master clip | 83680116-a7a1-4067-8c41-65ab8481fc7a | Cold→warm grade turn |
 | 04 Honest Founder (b-roll only) | inserts | 99b3e624-0df6-4c45-b312-273496a8c749 | Founder must be filmed REAL — AI b-roll only, by design |
@@ -25,3 +25,15 @@ Run date: 2026-07-22 · Account plan: Plus · Credits at start: 987.5 · Model: 
 - A/B variants: re-run the same job prompt with the variation line from the card file (~37.5 cr each). Only cut variants for proven winners (SOP-09 kill/scale rule).
 - Re-rolls: if a clip has a bad shot, regenerate with the same prompt — budget 1 re-roll per card max before human review.
 - Remaining credit budget after batch 1: ~680 — enough for ~18 more clips; reserve ≥300 for post-launch iteration on winners.
+
+## Batch 1 result: ALL 9 ASSETS COMPLETED (2026-07-22). Credits after run: 685.5.
+Download URLs (also in your Higgsfield app under Generations):
+- Card 01: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102320_ac71a036-0549-477f-b242-23da226eb921.mp4
+- Card 02: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102325_48003c27-0a32-4c63-9b16-626e447fb09c.mp4
+- Card 03: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102334_83680116-a7a1-4067-8c41-65ab8481fc7a.mp4
+- Card 04: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102340_99b3e624-0df6-4c45-b312-273496a8c749.mp4
+- Card 05: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102351_6107878a-17f0-4e31-8510-fbb1be8c870e.mp4
+- Card 06: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102402_f6d2cb26-72ad-452e-9c64-a07cdf629f36.mp4
+- Card 07: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102414_21ce50f5-cfd2-4347-a7ca-d9544bb0a19b.mp4
+- Card 08: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102419_3bb3316b-f0ed-41e1-9be1-1ff0934b0a63.mp4
+- Card end: https://d8j0ntlcm91z4.cloudfront.net/user_3GiLJ140oRU6OsglOq1lkwVP0tR/hf_20260722_102554_3e325ec5-817b-40a2-ab0a-9e688aa2445c.png
