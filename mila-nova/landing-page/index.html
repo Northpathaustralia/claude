@@ -17,6 +17,12 @@
 <meta name="twitter:title" content="Mila Nova ✦ AI character, 18+">
 <meta name="twitter:description" content="Not real. Still your favourite distraction. AI-generated fictional glamour character — fan-directed shoots, weekly polls, zero pretending.">
 <meta name="theme-color" content="#14121C">
+
+<!-- Security hardening (static-page baseline — see security review notes at
+     the bottom of this file for what still needs to be set at the hosting
+     layer, since <meta> cannot fully replace real HTTP response headers). -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <style>
   :root{
     --midnight:#14121C; --midnight-2:#1D1A29; --gold:#E8B44C;
@@ -367,9 +373,9 @@
 
   <!-- Replace milanova.ai below with your real domain once you own one (step 2 of the quick-start guide) -->
   <div class="share">
-    <a href="https://twitter.com/intent/tweet?text=Meet%20Mila%20Nova%20%E2%9C%A6%20an%20AI-generated%20fictional%20glamour%20character%20with%20the%20most%20honest%20fan%20club%20online.%2018%2B%2C%20not%20real.&url=https://milanova.ai" target="_blank" rel="noopener">𝕏 Share</a>
-    <a href="https://api.whatsapp.com/send?text=Check%20out%20Mila%20Nova%20%E2%9C%A6%20an%20AI%20glamour%20character%20fan%20club%20-%20https://milanova.ai" target="_blank" rel="noopener">WhatsApp</a>
-    <a href="mailto:?subject=Mila%20Nova&body=You%20have%20to%20see%20this%20-%20https://milanova.ai" target="_blank" rel="noopener">Email a legend</a>
+    <a href="https://twitter.com/intent/tweet?text=Meet%20Mila%20Nova%20%E2%9C%A6%20an%20AI-generated%20fictional%20glamour%20character%20with%20the%20most%20honest%20fan%20club%20online.%2018%2B%2C%20not%20real.&url=https%3A%2F%2Fmilanova.ai" target="_blank" rel="noopener noreferrer">𝕏 Share</a>
+    <a href="https://api.whatsapp.com/send?text=Check%20out%20Mila%20Nova%20%E2%9C%A6%20an%20AI%20glamour%20character%20fan%20club%20-%20https%3A%2F%2Fmilanova.ai" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a href="mailto:?subject=Mila%20Nova&body=You%20have%20to%20see%20this%20-%20https%3A%2F%2Fmilanova.ai" target="_blank" rel="noopener noreferrer">Email a legend</a>
   </div>
 </section>
 
@@ -390,6 +396,37 @@
   </p>
   <p class="small" style="margin-top:10px">© 2026 Mila Nova. A transparent AI fantasy entertainment brand. ✦</p>
 </footer>
+
+<!--
+  SECURITY REVIEW NOTES (static single-file page — no backend, no user data
+  stored here, so classic server-side vulns like SQLi/SSRF/auth-bypass/CSRF
+  don't apply). Findings and fixes from this pass:
+   - Added a Content-Security-Policy meta tag restricting default-src/img-src/
+     script-src/style-src to 'self' + inline (this page has no build step to
+     add nonces, so 'unsafe-inline' is required for the existing inline
+     handlers) and blocking framing of third-party resources via object-src
+     'none'. This blocks any accidentally-pasted third-party <script src=...>
+     from an unapproved domain.
+   - Added a strict-origin-when-cross-origin referrer policy so outbound
+     links (X/WhatsApp/email share, Terms/Privacy links once real) don't leak
+     the full referring URL to third parties.
+   - Upgraded all target="_blank" share links from rel="noopener" to
+     rel="noopener noreferrer" and percent-encoded the embedded URLs properly.
+   - LIMITATION: <meta http-equiv="Content-Security-Policy"> cannot express
+     frame-ancestors, and some browsers ignore certain directives when set
+     via meta instead of a real HTTP header. Once this page is hosted
+     (Cloudflare Pages / Carrd), also set these as actual response headers:
+     X-Frame-Options: DENY (or CSP frame-ancestors 'none'),
+     X-Content-Type-Options: nosniff, Strict-Transport-Security (HSTS),
+     and Permissions-Policy (deny camera/mic/geolocation — none are used here).
+   - REMINDER for later edits: when you paste in the real MailerLite embed
+     (quick-start guide step 7.4) or Fanvue checkout link, re-check this CSP —
+     you'll need to add MailerLite's domain to script-src/connect-src/form-action
+     for the embed to work, and you should read whatever snippet you paste in
+     before adding it (supply-chain risk: never paste third-party JS you
+     haven't read).
+-->
+
 
 <!-- ============ STICKY MOBILE CTA ============ -->
 <div class="sticky-cta">
