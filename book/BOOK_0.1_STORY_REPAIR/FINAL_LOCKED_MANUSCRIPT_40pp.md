@@ -42,10 +42,19 @@ Author: James Forycki · All fixes applied · This is the version to publish.
 30. "Is your backpack heavy too?" Pip asked.
 31. "Sometimes I'm scared I'll fall," whispered Kangaroo. "Sometimes I'm scared I won't be enough."
 32. "You don't have to bounce to be loved," Pip said. They sat still together.
-33. **[NEW]** Pip had thought Kangaroo's backpack was light. Now he understood. A smile did not show everything someone carried.
-34. **[NEW]** When Pip found Koala again, his backpack was still very heavy. "What's inside?" Pip asked.
-35. **[NEW]** Koala held the straps tight. "I don't know," he whispered. "I only know I'm tired of carrying it."
-36. **[NEW]** Pip wished he could make the heaviness disappear. But he could not. So he sat beside Koala. "I can stay with you," he said.
+33. **[STORM BRIDGE — canonical, from James's book]** Then dark clouds rolled in. Rain fell hard. Thunder rumbled.
+34. Everyone ran to the hollow log. Everyone except Koala.
+35. Pip walked into the storm and sat beside him. "I'm here," he said.
+36. "My backpack feels too heavy today," Koala whispered.
+
+> **EDITORIAL DECISION (13 Jul 2026):** James's book already contained a
+> storm bridge for pages 33–36. It is adopted as canonical over the
+> earlier "sunny" bridge I drafted when those pages weren't yet visible.
+> Reasons: (1) page 38's "When the clouds cleared" REQUIRES the storm to
+> make sense; (2) the storm climax ("Pip walked into the storm… 'I'm
+> here'") is more powerful; (3) it passes the trauma-informed safety
+> gate (gentle art, brave/warm beat, reassuring resolution). The sunny
+> alternate pages are archived, NOT used. Do not include both.
 37. One by one, the others joined them. No one let Koala carry it alone.
 38. When the clouds cleared, Koala smiled. "It still feels heavy, but lighter than before."
 39. **For Parents & Teachers**
