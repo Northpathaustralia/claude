@@ -11,6 +11,7 @@ import Home from './pages/Home.jsx';
 import { ShopAll, DropPage, StylingPage, CollectionPage } from './pages/Shop.jsx';
 import ProductPage from './pages/Product.jsx';
 import Uniform from './pages/Uniform.jsx';
+import Riviera from './pages/Riviera.jsx';
 import Account from './pages/Account.jsx';
 import {
   About, Construction, FitGuide, Contact, FAQ, Shipping, Returns,
@@ -64,6 +65,7 @@ export default function App() {
               <Route path="/shop" element={<ShopAll />} />
               <Route path="/drop/first-light" element={<DropPage />} />
               <Route path="/uniform" element={<Uniform />} />
+              <Route path="/riviera" element={<Riviera />} />
               <Route path="/mens" element={<StylingPage variant="mens" />} />
               <Route path="/womens" element={<StylingPage variant="womens" />} />
               <Route path="/collections/:handle" element={<CollectionPage />} />

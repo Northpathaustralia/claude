@@ -7,6 +7,7 @@ import GarmentArt from './GarmentArt.jsx';
 const NAV = [
   { to: '/shop', label: 'Shop All' },
   { to: '/drop/first-light', label: 'Drop 001' },
+  { to: '/riviera', label: 'The Riviera Set' },
   { to: '/uniform', label: 'Build Your State' },
   { to: '/mens', label: 'Men' },
   { to: '/womens', label: 'Women' },

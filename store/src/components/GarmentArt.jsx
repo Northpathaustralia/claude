@@ -1,5 +1,8 @@
 import React, { useId } from 'react';
 import { COLOURS } from '../data/products.js';
+import { RIVIERA_COLOURS } from '../data/riviera.js';
+
+const ALL_COLOURS = { ...COLOURS, ...RIVIERA_COLOURS };
 
 /**
  * Vector product renders — placeholder photography for the prototype.
@@ -88,7 +91,43 @@ const Jersey = ({ c }) => (
   </g>
 );
 
-const KINDS = { tee: Tee, short: Short, hoodie: Hoodie, cap: Cap, jersey: Jersey };
+/** Camp-collar short-sleeve shirt — Riviera capsule. Supports stripe/check/solid fill. */
+const CampShirt = ({ c, pattern = 'solid', uid }) => {
+  const stripeId = `stripe-${uid}`;
+  const checkId = `check-${uid}`;
+  const fill = pattern === 'stripe' ? `url(#${stripeId})` : pattern === 'check' ? `url(#${checkId})` : c.hex;
+  return (
+    <g>
+      <defs>
+        <pattern id={stripeId} width="10" height="10" patternUnits="userSpaceOnUse">
+          <rect width="10" height="10" fill={c.hex} />
+          <rect width="5" height="10" fill="#F1EEE6" opacity="0.92" />
+        </pattern>
+        <pattern id={checkId} width="10" height="10" patternUnits="userSpaceOnUse">
+          <rect width="10" height="10" fill="#F1EEE6" />
+          <rect width="10" height="2" fill={c.hex} opacity="0.85" />
+          <rect width="2" height="10" fill={c.hex} opacity="0.85" />
+        </pattern>
+      </defs>
+      {/* shirt: open camp collar, short sleeve */}
+      <path
+        d="M64 84 L100 60 L112 72 L108 84 L120 92 L132 84 L128 72 L140 60 L176 84 L166 116 L146 106 L146 194 Q120 202 94 194 L94 106 L74 116 Z"
+        fill={fill} stroke="rgba(9,9,9,0.2)" strokeWidth="1.5"
+      />
+      {/* open collar V + placket */}
+      <path d="M108 84 L120 150 L132 84" fill="none" stroke="rgba(9,9,9,0.22)" strokeWidth="1.5" />
+      <circle cx="120" cy="106" r="1.6" fill="rgba(9,9,9,0.35)" />
+      <circle cx="120" cy="128" r="1.6" fill="rgba(9,9,9,0.35)" />
+      <circle cx="120" cy="150" r="1.6" fill="rgba(9,9,9,0.35)" />
+      {/* chest pocket */}
+      <rect x="96" y="108" width="16" height="18" fill="none" stroke="rgba(9,9,9,0.28)" strokeWidth="1.2" />
+      {/* matching short, grounded lower in frame */}
+      <path d="M84 178 L156 178 L162 208 L128 212 L120 190 L112 212 L78 208 Z" fill={fill} stroke="rgba(9,9,9,0.2)" strokeWidth="1.5" />
+    </g>
+  );
+};
+
+const KINDS = { tee: Tee, short: Short, hoodie: Hoodie, cap: Cap, jersey: Jersey, campshirt: CampShirt };
 
 /**
  * Product visual. If the product has a real `photo` URL it renders that (this is
@@ -97,8 +136,8 @@ const KINDS = { tee: Tee, short: Short, hoodie: Hoodie, cap: Cap, jersey: Jersey
  * vector "studio" render: soft top-light, radial vignette, grounded floor
  * shadow — deliberately moody, not clip-art.
  */
-export default function GarmentArt({ kind, colour = 'Washed Ink', className = '', bg = true, photo, alt }) {
-  const c = COLOURS[colour] || COLOURS['Washed Ink'];
+export default function GarmentArt({ kind, colour = 'Washed Ink', className = '', bg = true, photo, alt, pattern }) {
+  const c = ALL_COLOURS[colour] || COLOURS['Washed Ink'];
   const Body = KINDS[kind] || Tee;
   const uid = useId().replace(/:/g, '');
 
@@ -127,7 +166,7 @@ export default function GarmentArt({ kind, colour = 'Washed Ink', className = ''
           <text x="12" y="228" fontSize="7.5" fill="#B4AF9F" fontFamily="monospace" letterSpacing="1.5">28.0167°S / 153.4000°E</text>
         </>
       )}
-      <Body c={c} />
+      <Body c={c} pattern={pattern} uid={uid} />
     </svg>
   );
 }

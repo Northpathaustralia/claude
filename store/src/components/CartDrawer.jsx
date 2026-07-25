@@ -4,6 +4,7 @@ import { useStore } from '../context/StoreContext.jsx';
 import { getProduct, fmt, FREE_SHIPPING_THRESHOLD } from '../data/products.js';
 import GarmentArt from './GarmentArt.jsx';
 import { Btn } from './ui.jsx';
+import ExpressCheckout from './ExpressCheckout.jsx';
 
 export default function CartDrawer() {
   const { cart, cartOpen, setCartOpen, updateQty, removeLine, cartTotal, clearCart } = useStore();
@@ -86,14 +87,10 @@ export default function CartDrawer() {
               <strong data-testid="cart-subtotal">{fmt(cartTotal)}</strong>
             </div>
             <p className="mt-1 font-mono text-[10px] text-ink/50">GST included. Shipping calculated at checkout.</p>
-            <Btn className="mt-4 w-full" onClick={() => alert('Prototype checkout — connects to Shopify checkout in production (see docs/SHOPIFY_HANDOFF.md).')}>
-              Checkout · {fmt(cartTotal)}
+            <ExpressCheckout amount={cartTotal} className="mt-4" />
+            <Btn className="w-full" onClick={() => alert('Prototype checkout — connects to Shopify checkout in production (see docs/SHOPIFY_HANDOFF.md).')}>
+              Checkout with card · {fmt(cartTotal)}
             </Btn>
-            <div className="mt-2 grid grid-cols-3 gap-2" aria-hidden="true">
-              {['Apple Pay', 'Google Pay', 'Shop Pay'].map((w) => (
-                <div key={w} className="border border-ink/15 py-1.5 text-center font-mono text-[10px] uppercase tracking-wide text-ink/60">{w}</div>
-              ))}
-            </div>
             <button className="mt-3 w-full text-center font-mono text-[11px] uppercase tracking-widest2 text-ink/40 underline" onClick={clearCart} data-testid="cart-clear">
               Clear cart
             </button>

@@ -2,6 +2,8 @@
 // Mirrors /data/products.csv (Shopify import) and docs/PRODUCT_RANGE.md.
 // Stock numbers are honest prototype inventory; the UI only surfaces counts ≤ 10.
 
+import { RIVIERA_PRODUCTS } from './riviera.js';
+
 export const COLOURS = {
   'Washed Ink': { hex: '#1d1d1b', text: '#F1EEE6' },
   Bone: { hex: '#F1EEE6', text: '#090909' },
@@ -231,7 +233,10 @@ export const FREE_SHIPPING_THRESHOLD = 150;
 export const fmt = (n) =>
   new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', minimumFractionDigits: n % 1 ? 2 : 0 }).format(n);
 
-export const getProduct = (id) => PRODUCTS.find((p) => p.id === id);
+// Merged with the Riviera capsule catalogue (docs/RIVIERA_CAPSULE.md) so both
+// resolve through the same cart/checkout lookup. riviera.js does not import this
+// file, so this stays a one-way, non-circular dependency.
+export const getProduct = (id) => PRODUCTS.find((p) => p.id === id) || RIVIERA_PRODUCTS.find((p) => p.id === id);
 export const stockFor = (p, colour, size) => p?.stock?.[colour]?.[size] ?? 0;
 export const totalStock = (p) =>
   Object.values(p.stock).reduce((a, sizes) => a + Object.values(sizes).reduce((x, y) => x + y, 0), 0);
