@@ -9,7 +9,10 @@
     "build": "vite build",
     "build:standalone": "vite build --config vite.standalone.config.js && mv release/index.html release/NorthPath-AI-OS.html",
     "preview": "vite preview",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "store:dev": "vite --config store/vite.config.js",
+    "store:build": "vite build --config store/vite.config.js",
+    "store:preview": "vite preview --config store/vite.config.js"
   },
   "dependencies": {
     "react": "^18.3.1",

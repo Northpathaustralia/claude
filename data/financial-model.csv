@@ -1,0 +1,43 @@
+section,scenario,month,orders,aov_aud,revenue_inc_gst,revenue_ex_gst,cogs_pct,gross_profit_ex_gst,variable_order_costs,ad_spend,opex,net_profit,notes
+assumptions,all,,,"AOV $138 M1 growing ~1%/mo","GST 10% included in retail","ex-GST = revenue/1.1","30% M1-3 then 24%","ex-GST rev - COGS","ship+pack+payment+returns+discounts ~22% ex-GST rev","per scenario","tools/accounting/events","GP - variable - ads - opex","Models not guarantees; update with actuals"
+monthly,conservative,1,90,138,12420,11291,0.30,7904,2484,3000,1200,1220,launch month Model 1
+monthly,conservative,2,98,139,13622,12384,0.30,8669,2724,3200,1300,1445,
+monthly,conservative,3,110,141,15510,14100,0.30,9870,3102,3500,1400,1868,
+monthly,conservative,4,128,142,18176,16524,0.24,12558,3635,4200,1600,3123,Model 2 + Drop 002
+monthly,conservative,5,140,144,20160,18327,0.24,13929,4032,4500,1700,3697,
+monthly,conservative,6,155,145,22475,20432,0.24,15528,4495,4800,1900,4333,
+monthly,conservative,7,168,147,24696,22451,0.24,17063,4939,5100,2000,5024,Drop 003
+monthly,conservative,8,182,148,26936,24487,0.24,18610,5387,5400,2200,5623,
+monthly,conservative,9,200,150,30000,27273,0.24,20727,6000,5800,2400,6527,
+monthly,conservative,10,218,151,32918,29926,0.24,22744,6584,6100,2600,7460,Drop 004
+monthly,conservative,11,240,153,36720,33382,0.24,25370,7344,6500,2900,8626,
+monthly,conservative,12,260,154,40040,36400,0.24,27664,8008,6800,3100,9756,
+monthly,expected,1,150,138,20700,18818,0.30,13173,4140,5500,1200,2333,launch month Model 1
+monthly,expected,2,165,139,22935,20850,0.30,14595,4587,6000,1400,2608,
+monthly,expected,3,190,141,26790,24355,0.30,17048,5358,7000,1500,3190,
+monthly,expected,4,240,142,34080,30982,0.24,23546,6816,8500,1800,6430,Model 2 + Drop 002
+monthly,expected,5,270,144,38880,35345,0.24,26862,7776,9000,2000,8086,
+monthly,expected,6,310,145,44950,40864,0.24,31056,8990,9500,2200,10366,
+monthly,expected,7,340,147,49980,45436,0.24,34531,9996,10000,2400,12135,Drop 003
+monthly,expected,8,380,148,56240,51127,0.24,38857,11248,10500,2600,14509,
+monthly,expected,9,420,150,63000,57273,0.24,43527,12600,11000,2800,17127,Drop 004
+monthly,expected,10,455,151,68705,62459,0.24,47469,13741,11500,3000,19228,
+monthly,expected,11,490,153,74970,68155,0.24,51798,14994,12000,3200,21604,
+monthly,expected,12,520,154,80080,72800,0.24,55328,16016,12500,3500,23312,
+monthly,strong,1,220,138,30360,27600,0.30,19320,6072,8000,1500,3748,
+monthly,strong,3,300,141,42300,38455,0.30,26918,8460,10500,1800,6158,
+monthly,strong,6,480,145,69600,63273,0.24,48087,13920,13000,2600,18567,
+monthly,strong,9,660,150,99000,90000,0.24,68400,19800,15000,3200,30400,
+monthly,strong,12,900,154,138600,126000,0.24,95760,27720,17000,4000,47040,
+monthly,breakout,1,350,138,48300,43909,0.30,30736,9660,12000,2000,7076,requires inventory finance from M2
+monthly,breakout,6,900,145,130500,118636,0.24,90164,26100,22000,4000,38064,
+monthly,breakout,12,1800,154,277200,252000,0.22,196560,55440,32000,6500,102620,Model 3 economics
+unit_economics,model1,,,"AOV 138","","125.45 ex-GST","0.30","COGS 37.60","ship+pack 12.30 payment 2.92 returns+disc 13.80","contribution pre-ads 58.83 (47%)","","break-even ROAS 2.13","startup cash ~10100"
+unit_economics,model2,,,"AOV 138","","125.45 ex-GST","0.24","COGS 30.10","ship+pack 12.30 payment 2.92 returns+disc 13.80","contribution pre-ads 66.33 (53%)","","break-even ROAS 1.89","startup cash ~40600"
+unit_economics,model3,,,"AOV 138","","125.45 ex-GST","0.20","COGS 25.09","ship+pack 12.30 payment 2.92 returns+disc 13.80","contribution pre-ads 71.34 (57%)","","break-even ROAS 1.75","startup cash ~84000"
+product_margin,,,,"product","retail_inc_gst","ex_gst_rev","landed_cost","gm_dollars","gm_pct",,,,
+product_margin,,,,HEATFORM TEE,89,80.91,19.50,61.41,0.759,,,,Model 2 landed
+product_margin,,,,TRANSIT SHORT,119,108.18,24.00,84.18,0.778,,,,
+product_margin,,,,AFTERDARK HOODIE,179,162.73,42.00,120.73,0.742,,,,
+product_margin,,,,BREAKLINE CAP,54,49.09,9.50,39.59,0.806,,,,
+product_margin,,,,AIRLINE JERSEY,129,117.27,28.00,89.27,0.761,,,,
