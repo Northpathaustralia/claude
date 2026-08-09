@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Commission Reconciliation Checker</title>
+<meta name="description" content="Free, offline commission &amp; trail reconciliation checker for Australian mortgage brokers. Nothing leaves your browser." />
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --gridline: #e1e0d9;
+    --border: rgba(11,11,11,0.10);
+    --good: #0ca30c;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #d03b3b;
+    --accent: #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted: #898781;
+      --gridline: #2c2c2a;
+      --border: rgba(255,255,255,0.10);
+      --good: #0ca30c;
+      --warning: #fab219;
+      --serious: #ec835a;
+      --critical: #d03b3b;
+      --accent: #3987e5;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text-primary);
+    font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  .tagline { color: var(--text-secondary); margin: 0 0 20px; }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 15px; margin: 0 0 12px; }
+  .notice {
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+  }
+  .notice strong { color: var(--text-primary); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  textarea {
+    width: 100%; min-height: 140px; font: 12px/1.4 ui-monospace, monospace;
+    padding: 10px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--page); color: var(--text-primary); resize: vertical;
+  }
+  input[type="file"] { font-size: 12px; margin-top: 6px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+  button {
+    font: inherit; font-weight: 600; font-size: 13px; padding: 9px 16px;
+    border-radius: 8px; border: 1px solid var(--border); cursor: pointer;
+    background: var(--surface-1); color: var(--text-primary);
+  }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button.ghost { background: transparent; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .sample-link { font-size: 12px; color: var(--accent); background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; }
+  .checkbox-row { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-secondary); margin-top: 12px; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .stat-row { grid-template-columns: 1fr 1fr; } }
+  .stat-tile {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px;
+  }
+  .stat-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .stat-value { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat-value.negative { color: var(--critical); }
+  .stat-value.positive { color: var(--good); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--gridline); font-variant-numeric: tabular-nums; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.02em; }
+  td.num { text-align: right; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600;
+    padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); white-space: nowrap;
+  }
+  .badge .dot { width: 8px; height: 8px; border-radius: 999px; flex: none; }
+  .badge.ok .dot { background: var(--good); }
+  .badge.over .dot { background: var(--warning); }
+  .badge.unmatched .dot { background: var(--warning); }
+  .badge.short .dot { background: var(--serious); }
+  .badge.missing .dot { background: var(--critical); }
+  .badge.coverage_gap .dot { background: var(--critical); }
+  .warnings { font-size: 12px; color: var(--text-secondary); }
+  .warnings li { margin-bottom: 3px; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 30px; }
+  .empty { color: var(--muted); font-size: 13px; text-align: center; padding: 24px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Commission &amp; Trail Reconciliation Checker</h1>
+  <p class="tagline">Find out what your aggregator owes you before you send the query email.</p>
+
+  <div class="notice">
+    <strong>How this works:</strong> everything runs in this browser tab. Your loan book and
+    statement never leave your device — there is no server, no upload, no analytics in this
+    tool. Results are a reconciliation calculation, not financial or credit advice, and not a
+    guarantee your aggregator owes you anything — always verify a flagged discrepancy with your
+    aggregator before acting on it. Some aggregator agreements restrict re-sharing commission
+    schedules with third parties; this tool only processes data on your own device, but check
+    your agreement before forwarding exported statements to anyone else.
+  </div>
+
+  <div class="card">
+    <h2>1. Paste or upload your data</h2>
+    <div class="grid2">
+      <div>
+        <label for="loanBookInput">Loan book CSV</label>
+        <textarea id="loanBookInput" placeholder="loan_ref,client_name,lender,settlement_date,loan_amount,upfront_rate_pct,trail_rate_pct,status"></textarea>
+        <div class="row">
+          <input type="file" id="loanBookFile" accept=".csv,text/csv" />
+          <button type="button" class="sample-link" data-sample="loanbook">Load example</button>
+        </div>
+      </div>
+      <div>
+        <label for="statementInput">Aggregator statement CSV</label>
+        <textarea id="statementInput" placeholder="loan_ref,lender,payment_date,type,amount"></textarea>
+        <div class="row">
+          <input type="file" id="statementFile" accept=".csv,text/csv" />
+          <button type="button" class="sample-link" data-sample="statement">Load example</button>
+        </div>
+      </div>
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="rememberMe" />
+      <label for="rememberMe" style="margin:0; font-weight:400;">Remember this data in this browser only (localStorage, never sent anywhere)</label>
+    </div>
+    <div class="row">
+      <button type="button" class="primary" id="runBtn">Reconcile</button>
+      <button type="button" class="ghost" id="clearBtn">Clear</button>
+      <span id="status" style="font-size:12px;color:var(--muted);"></span>
+    </div>
+  </div>
+
+  <div id="warningsCard" class="card" hidden>
+    <h2>Data warnings</h2>
+    <ul class="warnings" id="warningsList"></ul>
+  </div>
+
+  <div id="resultsCard" class="card" hidden>
+    <h2>2. Results</h2>
+    <div class="stat-row" id="statRow"></div>
+    <div class="row" style="margin-top:16px;">
+      <button type="button" id="exportBtn">Export discrepancy report (CSV)</button>
+    </div>
+    <div style="overflow-x:auto; margin-top:16px;">
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Loan</th><th>Client</th><th>Lender</th><th>Type</th><th>Status</th>
+            <th class="num">Expected</th><th class="num">Paid</th><th class="num">Variance</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Free tool · runs entirely offline · no data collection ·
+    <a href="../01-mvp-design.md" style="color:inherit;">design notes</a>
+  </footer>
+</main>
+
+<script>
+// ---------------------------------------------------------------------------
+// Commission & trail reconciliation engine.
+//
+// Pure functions only — no DOM, no network, no globals — so this file runs
+// unmodified in the browser (as an ES module) and under `node --test`.
+// Everything here is arithmetic over data the broker already holds; it does
+// not recommend a lender or product, so it stays outside NCCP credit-
+// assistance / Best Interests Duty territory. See ../01-mvp-design.md.
+// ---------------------------------------------------------------------------
+
+const VALID_STATUSES = new Set(['active', 'discharged', 'refinanced']);
+const DEFAULT_TOLERANCE = 2;
+const TRAIL_GRACE_MONTHS = 1;
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/** Round to cents, avoiding binary float noise (e.g. 0.1 + 0.2). */
+function round2(n) {
+  return Math.round((n + Number.EPSILON) * 100) / 100;
+}
+
+/**
+ * Escape a value for a CSV cell, and defuse spreadsheet formula injection.
+ * Loan/client names in the export come from the broker's uploaded CSV, which may
+ * itself have been populated from an untrusted source upstream (a web lead form, a
+ * client-supplied intake). A cell starting with =, +, -, @, tab or CR is executed as
+ * a formula by Excel/Sheets on open, so it's neutralised with a leading apostrophe —
+ * the standard mitigation (OWASP "CSV Injection").
+ */
+function esc(value) {
+  if (value === null || value === undefined) return '';
+  let s = String(value);
+  // Only string-typed fields (loan ref, client, lender, ...) carry injected text from
+  // the broker's CSV — numeric fields (expected/paid/variance) are computed internally
+  // and must stay real numbers, so a negative variance like -50 isn't mistaken for one.
+  if (typeof value === 'string' && /^[=+\-@\t\r]/.test(s)) s = `'${s}`;
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+/**
+ * Minimal CSV parser (handles quoted cells, escaped quotes, \n and \r\n).
+ * Returns an array of row objects keyed by trimmed header text.
+ */
+function parseCSV(text) {
+  const rows = [];
+  let cell = '';
+  let row = [];
+  let inQuotes = false;
+  const pushCell = () => { row.push(cell); cell = ''; };
+  const pushRow = () => { if (row.length > 1 || row[0] !== '') rows.push(row); row = []; };
+
+  const src = text || '';
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i];
+    if (inQuotes) {
+      if (ch === '"' && src[i + 1] === '"') { cell += '"'; i++; }
+      else if (ch === '"') inQuotes = false;
+      else cell += ch;
+    } else if (ch === '"') inQuotes = true;
+    else if (ch === ',') pushCell();
+    else if (ch === '\n' || ch === '\r') {
+      if (ch === '\r' && src[i + 1] === '\n') i++;
+      pushCell();
+      pushRow();
+    } else cell += ch;
+  }
+  if (cell !== '' || row.length) { pushCell(); pushRow(); }
+  if (rows.length < 2) return [];
+
+  const [header, ...body] = rows;
+  const keys = header.map((h) => h.trim());
+  return body.map((r) => Object.fromEntries(keys.map((k, i) => [k, (r[i] || '').trim()])));
+}
+
+/** Normalise a header/label so column matching is case- and spacing-insensitive. */
+function normaliseKey(k) {
+  return String(k || '').trim().toLowerCase().replace(/[\s-]+/g, '_');
+}
+
+/** Look up a value from a row using a normalised field name, regardless of the row's own casing. */
+function field(row, name) {
+  for (const key of Object.keys(row)) {
+    if (normaliseKey(key) === name) return row[key];
+  }
+  return undefined;
+}
+
+/** Parse a money-ish string. Accepts "$1,234.50" and accounting-style negatives "(1,234.50)". */
+function toNumber(v) {
+  if (v === undefined || v === null || String(v).trim() === '') return NaN;
+  let s = String(v).trim();
+  const isParenNegative = /^\(.*\)$/.test(s);
+  s = s.replace(/[$,()]/g, '');
+  const n = Number(s);
+  return isParenNegative ? -n : n;
+}
+
+/** Whole months elapsed from `a` to `b` (both 'YYYY-MM-DD'), floored, 0 if b <= a or invalid. */
+function monthsBetween(a, b) {
+  if (!DATE_RE.test(a) || !DATE_RE.test(b)) return 0;
+  const da = new Date(`${a}T00:00:00Z`);
+  const db = new Date(`${b}T00:00:00Z`);
+  if (Number.isNaN(da.getTime()) || Number.isNaN(db.getTime()) || db <= da) return 0;
+  let months = (db.getUTCFullYear() - da.getUTCFullYear()) * 12 + (db.getUTCMonth() - da.getUTCMonth());
+  if (db.getUTCDate() < da.getUTCDate()) months -= 1;
+  return Math.max(0, months);
+}
+
+/**
+ * Parse the loan book CSV.
+ * Columns (any order, case-insensitive): loan_ref, client_name, lender,
+ * settlement_date, loan_amount, upfront_rate_pct, trail_rate_pct, status.
+ * @returns {{loans: object[], warnings: string[]}}
+ */
+function parseLoanBook(text) {
+  const rows = parseCSV(text);
+  const loans = [];
+  const warnings = [];
+  const seenRefs = new Set();
+
+  rows.forEach((row, i) => {
+    const line = i + 2; // account for the header row
+    const loanRef = String(field(row, 'loan_ref') || '').trim();
+    if (!loanRef) { warnings.push(`Row ${line}: missing loan_ref — skipped.`); return; }
+    if (seenRefs.has(loanRef.toLowerCase())) {
+      warnings.push(`Row ${line}: duplicate loan_ref "${loanRef}" — first occurrence kept, this row skipped.`);
+      return;
+    }
+
+    const loanAmount = toNumber(field(row, 'loan_amount'));
+    const upfrontRatePct = toNumber(field(row, 'upfront_rate_pct'));
+    const trailRatePct = toNumber(field(row, 'trail_rate_pct'));
+    const settlementDate = String(field(row, 'settlement_date') || '').trim();
+
+    if (!Number.isFinite(loanAmount) || loanAmount < 0) {
+      warnings.push(`Row ${line} (${loanRef}): invalid loan_amount — skipped.`); return;
+    }
+    if (!Number.isFinite(upfrontRatePct) || upfrontRatePct < 0) {
+      warnings.push(`Row ${line} (${loanRef}): invalid upfront_rate_pct — skipped.`); return;
+    }
+    if (!Number.isFinite(trailRatePct) || trailRatePct < 0) {
+      warnings.push(`Row ${line} (${loanRef}): invalid trail_rate_pct — skipped.`); return;
+    }
+    if (settlementDate && !DATE_RE.test(settlementDate)) {
+      warnings.push(`Row ${line} (${loanRef}): settlement_date not in YYYY-MM-DD format — trail coverage-gap check will be skipped for this loan.`);
+    }
+
+    let status = String(field(row, 'status') || 'active').trim().toLowerCase();
+    if (!VALID_STATUSES.has(status)) {
+      warnings.push(`Row ${line} (${loanRef}): unrecognised status "${status || '(blank)'}" — treated as "active".`);
+      status = 'active';
+    }
+
+    seenRefs.add(loanRef.toLowerCase());
+    loans.push({
+      loanRef,
+      clientName: String(field(row, 'client_name') || '').trim(),
+      lender: String(field(row, 'lender') || '').trim(),
+      settlementDate: DATE_RE.test(settlementDate) ? settlementDate : '',
+      loanAmount,
+      upfrontRatePct,
+      trailRatePct,
+      status,
+    });
+  });
+
+  return { loans, warnings };
+}
+
+/**
+ * Parse the aggregator statement CSV.
+ * Columns (any order, case-insensitive): loan_ref, lender, payment_date, type, amount.
+ * @returns {{lines: object[], warnings: string[]}}
+ */
+function parseStatement(text) {
+  const rows = parseCSV(text);
+  const lines = [];
+  const warnings = [];
+
+  rows.forEach((row, i) => {
+    const lineNo = i + 2;
+    const loanRef = String(field(row, 'loan_ref') || '').trim();
+    if (!loanRef) { warnings.push(`Row ${lineNo}: missing loan_ref — skipped.`); return; }
+
+    const amount = toNumber(field(row, 'amount'));
+    if (!Number.isFinite(amount)) {
+      warnings.push(`Row ${lineNo} (${loanRef}): invalid amount — skipped.`); return;
+    }
+
+    let type = String(field(row, 'type') || '').trim().toLowerCase();
+    if (type !== 'upfront' && type !== 'trail') {
+      warnings.push(`Row ${lineNo} (${loanRef}): type must be "upfront" or "trail" — skipped.`); return;
+    }
+
+    const paymentDate = String(field(row, 'payment_date') || '').trim();
+    if (paymentDate && !DATE_RE.test(paymentDate)) {
+      warnings.push(`Row ${lineNo} (${loanRef}): payment_date not in YYYY-MM-DD format — ignored for date-based checks.`);
+    }
+
+    lines.push({
+      loanRef,
+      lender: String(field(row, 'lender') || '').trim(),
+      paymentDate: DATE_RE.test(paymentDate) ? paymentDate : '',
+      type,
+      amount,
+    });
+  });
+
+  return { lines, warnings };
+}
+
+function classify(expected, paid, tolerance) {
+  const variance = round2(paid - expected);
+  if (Math.abs(variance) <= tolerance) return { status: 'ok', variance };
+  if (variance < 0) return { status: paid <= 0 ? 'missing' : 'short', variance };
+  return { status: 'over', variance };
+}
+
+/**
+ * Reconcile a parsed loan book against parsed statement lines.
+ *
+ * The trail coverage-gap check needs a reference "as of" date. If `options.asOfDate`
+ * is omitted it falls back to the latest `payment_date` found in `lines` — which is
+ * empty (and so silently skips every coverage-gap check) if the statement has no
+ * usable dates at all. Callers should pass today's date explicitly rather than rely
+ * on the fallback; this function stays a pure function of its inputs and does not
+ * read the system clock itself.
+ * @param {object[]} loans
+ * @param {object[]} lines
+ * @param {{tolerance?: number, asOfDate?: string}} [options]
+ * @returns {{rows: object[], summary: object}}
+ */
+function reconcile(loans, lines, options = {}) {
+  const tolerance = options.tolerance ?? DEFAULT_TOLERANCE;
+  const asOfDate = options.asOfDate
+    || lines.reduce((max, l) => (l.paymentDate && l.paymentDate > max ? l.paymentDate : max), '');
+
+  const byRef = new Map();
+  for (const loan of loans) byRef.set(loan.loanRef.toLowerCase(), loan);
+
+  const linesByRef = new Map();
+  for (const line of lines) {
+    const key = line.loanRef.toLowerCase();
+    if (!linesByRef.has(key)) linesByRef.set(key, []);
+    linesByRef.get(key).push(line);
+  }
+
+  const rows = [];
+
+  for (const loan of loans) {
+    const key = loan.loanRef.toLowerCase();
+    const loanLines = linesByRef.get(key) || [];
+    const base = { loanRef: loan.loanRef, clientName: loan.clientName, lender: loan.lender };
+
+    // Upfront: all upfront lines for this loan are summed (split payouts happen).
+    const expectedUpfront = round2(loan.loanAmount * (loan.upfrontRatePct / 100));
+    const upfrontLines = loanLines.filter((l) => l.type === 'upfront');
+    const paidUpfront = round2(upfrontLines.reduce((sum, l) => sum + l.amount, 0));
+    const upfrontResult = classify(expectedUpfront, paidUpfront, tolerance);
+    rows.push({
+      ...base,
+      kind: 'upfront',
+      paymentDate: upfrontLines[upfrontLines.length - 1]?.paymentDate || '',
+      expected: expectedUpfront,
+      paid: paidUpfront,
+      ...upfrontResult,
+    });
+
+    // Trail: active loans only accrue trail.
+    const trailLines = loanLines.filter((l) => l.type === 'trail');
+    const expectedTrailPerPeriod = round2(loan.loanAmount * (loan.trailRatePct / 100) / 12);
+
+    if (trailLines.length > 0) {
+      for (const line of trailLines) {
+        const expected = loan.status === 'active' ? expectedTrailPerPeriod : 0;
+        const result = classify(expected, round2(line.amount), tolerance);
+        rows.push({
+          ...base, kind: 'trail', paymentDate: line.paymentDate,
+          expected, paid: round2(line.amount), ...result,
+        });
+      }
+    } else if (loan.status === 'active' && loan.trailRatePct > 0 && loan.settlementDate && asOfDate) {
+      const monthsElapsed = monthsBetween(loan.settlementDate, asOfDate);
+      const expectedMonths = Math.max(0, monthsElapsed - TRAIL_GRACE_MONTHS);
+      if (expectedMonths > 0) {
+        const expected = round2(expectedTrailPerPeriod * expectedMonths);
+        rows.push({
+          ...base, kind: 'trail', paymentDate: '',
+          expected, paid: 0, status: 'coverage_gap', variance: -expected,
+          periodsAffected: expectedMonths,
+        });
+      }
+    }
+  }
+
+  // Statement lines that don't match any loan in the book at all.
+  for (const line of lines) {
+    if (!byRef.has(line.loanRef.toLowerCase())) {
+      rows.push({
+        loanRef: line.loanRef, clientName: '', lender: line.lender, kind: line.type,
+        paymentDate: line.paymentDate, expected: 0, paid: round2(line.amount),
+        status: 'unmatched', variance: round2(line.amount),
+      });
+    }
+  }
+
+  rows.sort((a, b) => Math.abs(b.variance) - Math.abs(a.variance));
+
+  const totalExpected = round2(rows.reduce((s, r) => s + r.expected, 0));
+  const totalReceived = round2(rows.reduce((s, r) => s + r.paid, 0));
+  const totalVariance = round2(rows.reduce((s, r) => s + r.variance, 0));
+  const countByStatus = rows.reduce((acc, r) => {
+    acc[r.status] = (acc[r.status] || 0) + 1;
+    return acc;
+  }, {});
+
+  return {
+    rows,
+    summary: {
+      totalExpected,
+      totalReceived,
+      totalVariance,
+      variancePct: totalExpected > 0 ? round2((totalVariance / totalExpected) * 100) : 0,
+      countByStatus,
+      asOfDate,
+    },
+  };
+}
+
+/** Serialise reconciliation rows to a CSV a broker can attach to an aggregator query. */
+function toDiscrepancyCSV(rows) {
+  const columns = [
+    ['loanRef', 'Loan Ref'], ['clientName', 'Client'], ['lender', 'Lender'],
+    ['kind', 'Type'], ['status', 'Status'], ['paymentDate', 'Payment Date'],
+    ['expected', 'Expected'], ['paid', 'Paid'], ['variance', 'Variance'],
+  ];
+  const header = columns.map(([, label]) => esc(label)).join(',');
+  const body = rows.map((r) => columns.map(([key]) => esc(r[key])).join(','));
+  return [header, ...body].join('\n');
+}
+
+</script>
+<script>
+  const $ = (id) => document.getElementById(id);
+  const money = (n) => (n < 0 ? '-' : '') + '$' + Math.abs(n).toLocaleString('en-AU', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const STATUS_LABEL = {
+    ok: 'OK', short: 'Short', missing: 'Missing', over: 'Overpaid',
+    coverage_gap: 'Coverage gap', unmatched: 'Unmatched',
+  };
+
+  const SAMPLE_LOAN_BOOK = `loan_ref,client_name,lender,settlement_date,loan_amount,upfront_rate_pct,trail_rate_pct,status
+L-1001,Jane Doe,ANZ,2025-01-15,520000,0.65,0.15,active
+L-1002,Sam Nguyen,CBA,2025-02-01,410000,0.65,0.15,active
+L-1003,Priya Singh,Westpac,2024-11-10,650000,0.60,0.15,active
+L-1004,Michael Chen,NAB,2024-08-05,380000,0.65,0.15,discharged`;
+
+  const SAMPLE_STATEMENT = `loan_ref,lender,payment_date,type,amount
+L-1001,ANZ,2025-01-30,upfront,3380
+L-1001,ANZ,2025-03-01,trail,65
+L-1002,CBA,2025-02-20,upfront,2600
+L-1003,Westpac,2024-11-25,upfront,3900
+L-1004,NAB,2025-01-05,trail,47.5`;
+
+  $('loanBookFile').addEventListener('change', (e) => readFileInto(e, $('loanBookInput')));
+  $('statementFile').addEventListener('change', (e) => readFileInto(e, $('statementInput')));
+  function readFileInto(e, target) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => { target.value = String(reader.result || ''); };
+    reader.readAsText(file);
+  }
+
+  document.querySelectorAll('[data-sample]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.sample === 'loanbook') $('loanBookInput').value = SAMPLE_LOAN_BOOK;
+      else $('statementInput').value = SAMPLE_STATEMENT;
+    });
+  });
+
+  const STORAGE_KEY = 'brokerCommissionCheck.v1';
+  (function restore() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      if (saved) {
+        $('loanBookInput').value = saved.loanBook || '';
+        $('statementInput').value = saved.statement || '';
+        $('rememberMe').checked = true;
+      }
+    } catch { /* ignore corrupt storage */ }
+  })();
+
+  let lastRows = [];
+
+  $('runBtn').addEventListener('click', () => {
+    const loanBookText = $('loanBookInput').value;
+    const statementText = $('statementInput').value;
+
+    if ($('rememberMe').checked) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ loanBook: loanBookText, statement: statementText }));
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    const { loans, warnings: loanWarnings } = parseLoanBook(loanBookText);
+    const { lines, warnings: statementWarnings } = parseStatement(statementText);
+    const warnings = [...loanWarnings, ...statementWarnings];
+
+    $('warningsCard').hidden = warnings.length === 0;
+    $('warningsList').innerHTML = warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join('');
+
+    if (loans.length === 0) {
+      $('status').textContent = 'No valid loans found — check the loan book CSV format.';
+      $('resultsCard').hidden = true;
+      return;
+    }
+
+    // Always pass today's date explicitly — relying on the latest statement payment_date
+    // as the fallback silently skips the trail coverage-gap check on any statement export
+    // whose date column isn't recognised.
+    const today = new Date().toISOString().slice(0, 10);
+    const { rows, summary } = reconcile(loans, lines, { asOfDate: today });
+    lastRows = rows;
+    renderResults(rows, summary);
+    $('status').textContent = `Reconciled ${loans.length} loan(s) against ${lines.length} statement line(s), as of ${today}.`;
+  });
+
+  $('clearBtn').addEventListener('click', () => {
+    $('loanBookInput').value = '';
+    $('statementInput').value = '';
+    $('resultsCard').hidden = true;
+    $('warningsCard').hidden = true;
+    $('status').textContent = '';
+    localStorage.removeItem(STORAGE_KEY);
+    $('rememberMe').checked = false;
+  });
+
+  $('exportBtn').addEventListener('click', () => {
+    const csv = toDiscrepancyCSV(lastRows);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'commission-reconciliation-report.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  function renderResults(rows, summary) {
+    $('resultsCard').hidden = false;
+    const flagged = rows.filter((r) => r.status !== 'ok').length;
+    $('statRow').innerHTML = [
+      tile('Total expected', money(summary.totalExpected)),
+      tile('Total received', money(summary.totalReceived)),
+      tile('Net variance', money(summary.totalVariance), summary.totalVariance < 0 ? 'negative' : (summary.totalVariance > 0 ? 'positive' : '')),
+      tile('Rows flagged', String(flagged) + ` / ${rows.length}`),
+    ].join('');
+
+    if (rows.length === 0) {
+      $('resultsBody').innerHTML = '';
+      $('resultsBody').closest('table').style.display = 'none';
+      return;
+    }
+    $('resultsBody').closest('table').style.display = '';
+    $('resultsBody').innerHTML = rows.map((r) => `
+      <tr>
+        <td>${escapeHtml(r.loanRef)}</td>
+        <td>${escapeHtml(r.clientName || '—')}</td>
+        <td>${escapeHtml(r.lender || '—')}</td>
+        <td>${escapeHtml(r.kind)}</td>
+        <td><span class="badge ${r.status}"><span class="dot"></span>${STATUS_LABEL[r.status] || r.status}</span></td>
+        <td class="num">${money(r.expected)}</td>
+        <td class="num">${money(r.paid)}</td>
+        <td class="num">${money(r.variance)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function tile(label, value, cls = '') {
+    return `<div class="stat-tile"><div class="stat-label">${label}</div><div class="stat-value ${cls}">${value}</div></div>`;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+</script>
+</body>
+</html>
