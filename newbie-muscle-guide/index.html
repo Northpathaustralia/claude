@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Muscle Basics — A Beginner's Guide to Getting Into Shape</title>
+<meta name="description" content="A free, self-contained beginner's guide to building muscle and getting into shape: muscle map, 4-week starter program, exercise library, nutrition and recovery basics, and a progress tracker.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💪%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f7f7f5; --bg-elev:#ffffff; --text:#1c1c1e; --text-dim:#5b5b60;
+    --border:#e2e2e0; --accent:#b8452f; --accent-ink:#ffffff; --accent-soft:#f4ded8;
+    --ok:#2f7a4d; --warn:#a5580a; --focus:#2f6fed;
+    --radius:14px; --shadow:0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+    --maxw:920px;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121212; --bg-elev:#1b1b1d; --text:#f1f1ef; --text-dim:#a8a8ad;
+      --border:#2c2c2f; --accent:#e07a5f; --accent-ink:#1b1b1d; --accent-soft:#3a2620;
+      --ok:#6fce93; --warn:#e0a53f; --focus:#7aa2ff;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121212; --bg-elev:#1b1b1d; --text:#f1f1ef; --text-dim:#a8a8ad;
+    --border:#2c2c2f; --accent:#e07a5f; --accent-ink:#1b1b1d; --accent-soft:#3a2620;
+    --ok:#6fce93; --warn:#e0a53f; --focus:#7aa2ff;
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent)}
+  button{font-family:inherit}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+
+  header.top{border-bottom:1px solid var(--border); background:var(--bg-elev); position:sticky; top:0; z-index:20}
+  header.top .row{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px}
+  header.top h1{font-size:17px; margin:0; font-weight:700; letter-spacing:-.01em}
+  header.top .sub{font-size:12px; color:var(--text-dim); margin-top:1px}
+  .icon-btn{
+    border:1px solid var(--border); background:var(--bg-elev); color:var(--text);
+    width:36px; height:36px; border-radius:10px; cursor:pointer; font-size:16px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .icon-btn:hover{background:var(--accent-soft)}
+
+  nav.tabs{border-bottom:1px solid var(--border); background:var(--bg-elev); overflow-x:auto; -webkit-overflow-scrolling:touch}
+  nav.tabs .row{display:flex; gap:4px; padding:8px 16px}
+  nav.tabs button{
+    white-space:nowrap; border:none; background:transparent; color:var(--text-dim);
+    padding:8px 12px; border-radius:999px; cursor:pointer; font-size:13.5px; font-weight:600;
+  }
+  nav.tabs button:hover{background:var(--accent-soft); color:var(--text)}
+  nav.tabs button[aria-selected="true"]{background:var(--accent); color:var(--accent-ink)}
+
+  main{padding:24px 0 80px}
+  section.tab{display:none}
+  section.tab[data-active="true"]{display:block; animation:fade .15s ease}
+  @keyframes fade{from{opacity:0} to{opacity:1}}
+
+  h2.page-title{font-size:22px; margin:0 0 4px; letter-spacing:-.01em}
+  p.page-lede{color:var(--text-dim); margin:0 0 20px; font-size:14.5px}
+
+  .card{
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:var(--radius);
+    padding:18px; margin-bottom:14px; box-shadow:var(--shadow);
+  }
+  .card h3{margin:0 0 8px; font-size:15.5px}
+  .card ul, .card ol{margin:8px 0; padding-left:20px}
+  .card li{margin:4px 0; font-size:14.5px}
+  .card p{font-size:14.5px; margin:8px 0}
+
+  .banner{
+    display:flex; gap:10px; align-items:flex-start; background:var(--accent-soft);
+    border:1px solid var(--accent); border-radius:var(--radius); padding:14px 16px; margin-bottom:20px;
+    font-size:13.5px; color:var(--text);
+  }
+  .banner b{display:block; margin-bottom:2px}
+
+  .chip{
+    display:inline-block; font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+    padding:3px 8px; border-radius:999px; background:var(--accent-soft); color:var(--accent); margin-right:6px;
+  }
+
+  /* Muscle map */
+  .map-wrap{display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start}
+  .map-figure{flex:0 0 auto; text-align:center}
+  .map-figure svg{width:180px; height:auto; touch-action:manipulation}
+  .map-figure .cap{font-size:12px; color:var(--text-dim); margin-top:6px}
+  .muscle-shape{cursor:pointer; fill:#c98f7c; fill-opacity:.55; stroke:var(--accent); stroke-width:1; transition:fill-opacity .12s}
+  .muscle-shape:hover, .muscle-shape:focus-visible{fill-opacity:.9}
+  .muscle-shape.selected{fill-opacity:1; fill:var(--accent)}
+  .body-outline{fill:none; stroke:var(--text-dim); stroke-width:1.5; opacity:.5}
+  .body-fill{fill:var(--text-dim); opacity:.12}
+
+  .muscle-list{display:flex; flex-wrap:wrap; gap:8px; flex:1; min-width:220px}
+  .muscle-list button{
+    border:1px solid var(--border); background:var(--bg-elev); color:var(--text);
+    padding:8px 12px; border-radius:10px; cursor:pointer; font-size:13px; font-weight:600;
+  }
+  .muscle-list button[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink); border-color:var(--accent)}
+
+  #muscleDetail{margin-top:16px}
+
+  /* Program table */
+  table{width:100%; border-collapse:collapse; font-size:13.5px}
+  table caption{text-align:left; font-weight:700; margin-bottom:6px}
+  th,td{text-align:left; padding:7px 8px; border-bottom:1px solid var(--border)}
+  th{color:var(--text-dim); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.03em}
+
+  /* Exercise library */
+  .lib-controls{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px}
+  .lib-controls input[type="search"]{
+    flex:1; min-width:160px; padding:9px 12px; border-radius:10px; border:1px solid var(--border);
+    background:var(--bg-elev); color:var(--text); font-size:14px;
+  }
+  select{padding:9px 10px; border-radius:10px; border:1px solid var(--border); background:var(--bg-elev); color:var(--text); font-size:13.5px}
+  .ex-item{display:none}
+  .ex-item.match{display:block}
+  .ex-item summary{cursor:pointer; font-weight:700; font-size:14.5px; padding:2px 0}
+  .ex-item summary .chip{margin-left:0; margin-right:6px}
+  .ex-item[open] summary{margin-bottom:8px}
+  .empty-state{color:var(--text-dim); font-size:14px; padding:20px 0; text-align:center}
+
+  /* Tracker */
+  .week-block{margin-bottom:16px}
+  .week-block h4{margin:0 0 8px; font-size:14px}
+  .session-row{display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--border)}
+  .session-row:last-child{border-bottom:none}
+  .session-row label{flex:1; font-size:14px; cursor:pointer}
+  .session-row input[type="checkbox"]{width:20px; height:20px; accent-color:var(--accent); cursor:pointer}
+  .progress-bar{height:10px; border-radius:999px; background:var(--border); overflow:hidden; margin:10px 0 18px}
+  .progress-bar > div{height:100%; background:var(--accent); transition:width .2s}
+
+  .bw-form{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px}
+  .bw-form input[type="number"]{width:110px; padding:9px 10px; border-radius:10px; border:1px solid var(--border); background:var(--bg-elev); color:var(--text); font-size:14px}
+  .bw-form input[type="date"]{padding:9px 10px; border-radius:10px; border:1px solid var(--border); background:var(--bg-elev); color:var(--text); font-size:14px}
+  .btn{
+    background:var(--accent); color:var(--accent-ink); border:none; padding:9px 16px;
+    border-radius:10px; font-weight:700; font-size:13.5px; cursor:pointer;
+  }
+  .btn:hover{filter:brightness(1.05)}
+  .btn.ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
+  .btn.danger{background:transparent; color:var(--warn); border:1px solid var(--warn)}
+  .field-error{color:var(--warn); font-size:12.5px; margin-top:-4px; min-height:16px}
+
+  .bw-table{margin-top:4px}
+  .bw-row{display:flex; align-items:center; gap:10px; padding:6px 0; border-bottom:1px solid var(--border); font-size:13.5px}
+  .bw-row button{background:none; border:none; color:var(--text-dim); cursor:pointer; font-size:12px}
+  .bw-row button:hover{color:var(--warn)}
+  .sparkline{width:100%; height:70px; margin:6px 0 14px}
+
+  dl.glossary dt{font-weight:700; margin-top:10px}
+  dl.glossary dd{margin:2px 0 0; color:var(--text-dim); font-size:14px}
+
+  footer.foot{border-top:1px solid var(--border); padding:20px 16px; font-size:12px; color:var(--text-dim); text-align:center}
+  footer.foot a{color:var(--text-dim); text-decoration:underline}
+
+  .visually-hidden{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap row">
+    <div>
+      <h1>Muscle Basics</h1>
+      <div class="sub">A beginner's guide to muscle &amp; getting into shape</div>
+    </div>
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">🌓</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Chapters">
+  <div class="wrap row" id="tabRow" role="tablist"></div>
+</nav>
+
+<main class="wrap">
+
+  <section class="tab" id="tab-start" role="tabpanel" aria-labelledby="tabbtn-start">
+    <h2 class="page-title">Start Here</h2>
+    <p class="page-lede">Everything you need to go from "never worked out" to a confident beginner — in one place.</p>
+
+    <div class="banner">
+      <span>⚠️</span>
+      <div>
+        <b>Educational content only — not medical advice.</b>
+        This guide is general information for healthy adults, not a personalised training or nutrition plan.
+        Talk to a doctor before starting a new exercise program, especially if you're pregnant, over 45 and
+        inactive, or have a heart, joint, or other medical condition. Stop and seek medical help if you feel
+        chest pain, dizziness, or sharp joint pain.
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>How to use this guide</h3>
+      <ol>
+        <li><b>How Muscle Grows</b> — the three things that actually build muscle, in plain English.</li>
+        <li><b>Muscle Map</b> — tap a muscle group to see what it does and how to train it.</li>
+        <li><b>Your Program</b> — a ready-to-use 4-week, 3-day-a-week beginner routine.</li>
+        <li><b>Exercise Library</b> — step-by-step form for every exercise in the program.</li>
+        <li><b>Nutrition</b> and <b>Recovery &amp; Safety</b> — the basics that make the training actually work.</li>
+        <li><b>My Progress</b> — tick off workouts and log your bodyweight. Saved on this device only.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>The 5 things that matter most for a beginner</h3>
+      <ul>
+        <li>Show up consistently — 3 sessions a week beats 6 sessions you can't sustain.</li>
+        <li>Use full range of motion and good form before adding weight.</li>
+        <li>Progress slowly: add a rep or a small amount of weight when it starts feeling easy.</li>
+        <li>Eat enough protein and calories to recover — you can't build from a deficit of either.</li>
+        <li>Sleep and rest days are part of training, not time off from it.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-basics" role="tabpanel" aria-labelledby="tabbtn-basics">
+    <h2 class="page-title">How Muscle Grows</h2>
+    <p class="page-lede">Muscle growth (hypertrophy) comes down to three ingredients working together.</p>
+
+    <div class="card">
+      <h3>1. Progressive overload</h3>
+      <p>Your muscles adapt to demands placed on them. To keep growing, you need to gradually ask more of them
+      over time — more reps, more weight, or more sets. Doing the exact same workout forever stops producing results
+      once your body adapts.</p>
+      <p><b>How to apply it:</b> use "double progression" — for each exercise, aim for a rep range (e.g. 8–12).
+      When you can comfortably hit the top of the range with good form, add a small amount of weight next session
+      and drop back to the bottom of the range.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. Enough protein and calories</h3>
+      <p>Training creates the stimulus; food provides the raw material. A commonly cited target for building
+      muscle is roughly <b>1.6–2.2 g of protein per kg of bodyweight per day</b>, spread across meals, alongside
+      enough total calories to support training (not a deep calorie deficit while trying to build muscle).</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Recovery</h3>
+      <p>Muscle doesn't grow during the workout — it grows afterwards, while you rest and sleep. Aim for
+      <b>7–9 hours of sleep</b>, leave at least 48 hours before training the same muscle group hard again, and
+      expect some muscle soreness in the first few weeks as normal.</p>
+    </div>
+
+    <div class="card">
+      <h3>A word on "toning" vs "building"</h3>
+      <p>There's no separate kind of training that "tones without bulking" — the exercises here build strength and
+      muscle, and how visible that muscle is depends mostly on body-fat levels, which is a nutrition and consistency
+      question, not a special set of exercises.</p>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-map" role="tabpanel" aria-labelledby="tabbtn-map">
+    <h2 class="page-title">Muscle Map</h2>
+    <p class="page-lede">Tap a muscle group — on the diagram or in the list — to see what it does and how beginners train it.</p>
+
+    <div class="card">
+      <div class="map-wrap">
+        <div class="map-figure">
+          <svg viewBox="0 0 200 420" role="group" aria-label="Front view body diagram">
+            <ellipse class="body-fill" cx="100" cy="30" rx="22" ry="24"/>
+            <rect class="body-fill" x="92" y="50" width="16" height="16" rx="4"/>
+            <rect class="body-fill" x="65" y="64" width="70" height="112" rx="16"/>
+            <rect class="body-fill" x="72" y="174" width="56" height="32" rx="10"/>
+            <ellipse class="body-fill" cx="42" cy="205" rx="8" ry="8"/>
+            <ellipse class="body-fill" cx="158" cy="205" rx="8" ry="8"/>
+            <ellipse class="body-fill" cx="80" cy="392" rx="14" ry="7"/>
+            <ellipse class="body-fill" cx="120" cy="392" rx="14" ry="7"/>
+
+            <circle class="muscle-shape" data-muscle="shoulders" tabindex="0" role="button" aria-label="Shoulders" cx="58" cy="76" r="16"/>
+            <circle class="muscle-shape" data-muscle="shoulders" tabindex="0" role="button" aria-label="Shoulders" cx="142" cy="76" r="16"/>
+            <rect class="muscle-shape" data-muscle="chest" tabindex="0" role="button" aria-label="Chest" x="68" y="68" width="64" height="42" rx="10"/>
+            <rect class="muscle-shape" data-muscle="abs" tabindex="0" role="button" aria-label="Abs" x="78" y="114" width="44" height="58" rx="8"/>
+            <rect class="muscle-shape" data-muscle="biceps" tabindex="0" role="button" aria-label="Biceps" x="38" y="88" width="18" height="55" rx="9"/>
+            <rect class="muscle-shape" data-muscle="biceps" tabindex="0" role="button" aria-label="Biceps" x="144" y="88" width="18" height="55" rx="9"/>
+            <rect class="muscle-shape" data-muscle="forearms" tabindex="0" role="button" aria-label="Forearms" x="34" y="146" width="16" height="50" rx="8"/>
+            <rect class="muscle-shape" data-muscle="forearms" tabindex="0" role="button" aria-label="Forearms" x="150" y="146" width="16" height="50" rx="8"/>
+            <rect class="muscle-shape" data-muscle="quads" tabindex="0" role="button" aria-label="Quads" x="70" y="206" width="26" height="80" rx="12"/>
+            <rect class="muscle-shape" data-muscle="quads" tabindex="0" role="button" aria-label="Quads" x="104" y="206" width="26" height="80" rx="12"/>
+            <rect class="muscle-shape" data-muscle="calves" tabindex="0" role="button" aria-label="Calves" x="72" y="288" width="22" height="70" rx="10"/>
+            <rect class="muscle-shape" data-muscle="calves" tabindex="0" role="button" aria-label="Calves" x="106" y="288" width="22" height="70" rx="10"/>
+          </svg>
+          <div class="cap">Front</div>
+        </div>
+
+        <div class="map-figure">
+          <svg viewBox="0 0 200 420" role="group" aria-label="Back view body diagram">
+            <ellipse class="body-fill" cx="100" cy="30" rx="22" ry="24"/>
+            <rect class="body-fill" x="92" y="50" width="16" height="16" rx="4"/>
+            <rect class="body-fill" x="65" y="64" width="70" height="112" rx="16"/>
+            <rect class="body-fill" x="72" y="174" width="56" height="32" rx="10"/>
+            <ellipse class="body-fill" cx="42" cy="205" rx="8" ry="8"/>
+            <ellipse class="body-fill" cx="158" cy="205" rx="8" ry="8"/>
+            <ellipse class="body-fill" cx="80" cy="392" rx="14" ry="7"/>
+            <ellipse class="body-fill" cx="120" cy="392" rx="14" ry="7"/>
+
+            <circle class="muscle-shape" data-muscle="shoulders" tabindex="0" role="button" aria-label="Rear shoulders" cx="58" cy="76" r="16"/>
+            <circle class="muscle-shape" data-muscle="shoulders" tabindex="0" role="button" aria-label="Rear shoulders" cx="142" cy="76" r="16"/>
+            <rect class="muscle-shape" data-muscle="traps" tabindex="0" role="button" aria-label="Traps" x="76" y="66" width="48" height="26" rx="10"/>
+            <rect class="muscle-shape" data-muscle="back" tabindex="0" role="button" aria-label="Back" x="68" y="94" width="64" height="64" rx="10"/>
+            <rect class="muscle-shape" data-muscle="triceps" tabindex="0" role="button" aria-label="Triceps" x="38" y="88" width="18" height="55" rx="9"/>
+            <rect class="muscle-shape" data-muscle="triceps" tabindex="0" role="button" aria-label="Triceps" x="144" y="88" width="18" height="55" rx="9"/>
+            <rect class="muscle-shape" data-muscle="forearms" tabindex="0" role="button" aria-label="Forearms" x="34" y="146" width="16" height="50" rx="8"/>
+            <rect class="muscle-shape" data-muscle="forearms" tabindex="0" role="button" aria-label="Forearms" x="150" y="146" width="16" height="50" rx="8"/>
+            <rect class="muscle-shape" data-muscle="glutes" tabindex="0" role="button" aria-label="Glutes" x="72" y="176" width="56" height="34" rx="14"/>
+            <rect class="muscle-shape" data-muscle="hamstrings" tabindex="0" role="button" aria-label="Hamstrings" x="70" y="210" width="26" height="76" rx="12"/>
+            <rect class="muscle-shape" data-muscle="hamstrings" tabindex="0" role="button" aria-label="Hamstrings" x="104" y="210" width="26" height="76" rx="12"/>
+            <rect class="muscle-shape" data-muscle="calves" tabindex="0" role="button" aria-label="Calves" x="72" y="288" width="22" height="70" rx="10"/>
+            <rect class="muscle-shape" data-muscle="calves" tabindex="0" role="button" aria-label="Calves" x="106" y="288" width="22" height="70" rx="10"/>
+          </svg>
+          <div class="cap">Back</div>
+        </div>
+
+        <div class="muscle-list" id="muscleList" role="group" aria-label="Muscle group list"></div>
+      </div>
+
+      <div id="muscleDetail"></div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-program" role="tabpanel" aria-labelledby="tabbtn-program">
+    <h2 class="page-title">Your First Program</h2>
+    <p class="page-lede">A 4-week, full-body, 3-days-a-week beginner routine. Two workouts (A and B) alternate so every
+    muscle group is trained about twice a week with a rest day in between.</p>
+
+    <div class="card">
+      <h3>Weekly pattern</h3>
+      <table>
+        <tr><th>Week</th><th>Day 1</th><th>Day 2</th><th>Day 3</th></tr>
+        <tr><td>1 &amp; 3</td><td>Workout A</td><td>Workout B</td><td>Workout A</td></tr>
+        <tr><td>2 &amp; 4</td><td>Workout B</td><td>Workout A</td><td>Workout B</td></tr>
+      </table>
+      <p>Leave at least one rest (or light activity) day between sessions — e.g. Mon / Wed / Fri.</p>
+    </div>
+
+    <div class="card">
+      <h3>Before every session</h3>
+      <ul>
+        <li>5–10 minutes of light cardio or brisk walking to warm up.</li>
+        <li>One light "warm-up set" of the first exercise before your working sets.</li>
+      </ul>
+    </div>
+
+    <div id="programTables"></div>
+
+    <div class="card">
+      <h3>After 4 weeks</h3>
+      <p>Reassess: if every exercise still feels like a real effort by the last couple of reps, keep running the
+      same structure and keep adding small amounts of weight. If it feels too easy across the board, you're ready
+      for a slightly more advanced program.</p>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-library" role="tabpanel" aria-labelledby="tabbtn-library">
+    <h2 class="page-title">Exercise Library</h2>
+    <p class="page-lede">Step-by-step form for every exercise in the program, plus common mistakes to avoid.</p>
+
+    <div class="lib-controls">
+      <input type="search" id="exSearch" placeholder="Search exercises…" aria-label="Search exercises">
+      <select id="exFilter" aria-label="Filter by muscle group">
+        <option value="">All muscle groups</option>
+      </select>
+    </div>
+
+    <div id="exList"></div>
+    <p class="empty-state" id="exEmpty" hidden>No exercises match your search.</p>
+  </section>
+
+  <section class="tab" id="tab-nutrition" role="tabpanel" aria-labelledby="tabbtn-nutrition">
+    <h2 class="page-title">Nutrition Basics</h2>
+    <p class="page-lede">You don't need a strict diet to get started — just a few habits that support the training.</p>
+
+    <div class="card">
+      <h3>Protein</h3>
+      <p>Aim for roughly <b>1.6–2.2 g per kg of bodyweight per day</b>, spread across 3–4 meals. Good sources:
+      eggs, dairy, chicken, fish, tofu, legumes, and protein powder if it's convenient — it's not required.</p>
+    </div>
+
+    <div class="card">
+      <h3>Calories</h3>
+      <p>To build muscle you generally need to eat at or slightly above maintenance. A large calorie deficit will
+      work against muscle growth even if training is perfect. If your goal is losing fat first, a small, gradual
+      deficit while still training and eating enough protein preserves muscle better than crash dieting.</p>
+    </div>
+
+    <div class="card">
+      <h3>Hydration &amp; whole foods</h3>
+      <ul>
+        <li>Drink water throughout the day; more on training days.</li>
+        <li>Build meals around whole foods (protein, vegetables, whole grains, fruit) most of the time.</li>
+        <li>No single food or supplement is required to see results — consistency matters far more than any one meal.</li>
+      </ul>
+    </div>
+
+    <div class="banner">
+      <span>ℹ️</span>
+      <div>This is general nutrition education, not a prescribed diet. If you have a medical condition, are
+      pregnant, or have a history of disordered eating, talk to a doctor or accredited dietitian before changing
+      your diet.</div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-recovery" role="tabpanel" aria-labelledby="tabbtn-recovery">
+    <h2 class="page-title">Recovery &amp; Safety</h2>
+
+    <div class="card">
+      <h3>Sleep</h3>
+      <p>Sleep is when most muscle repair and growth hormone release happens. Aim for 7–9 hours a night — it will
+      affect your strength and recovery more than almost anything else on this list.</p>
+    </div>
+
+    <div class="card">
+      <h3>Rest days</h3>
+      <p>Beginners benefit from at least one full rest day between sessions and 1–2 rest days a week overall.
+      Rest days aren't wasted time — they're when adaptation happens.</p>
+    </div>
+
+    <div class="card">
+      <h3>Soreness vs. injury</h3>
+      <p>Mild muscle soreness 1–2 days after training (DOMS) is normal, especially when starting out or trying a
+      new exercise. <b>Sharp pain, joint pain, or pain during the movement itself is different</b> — stop the
+      exercise, rest, and see a doctor or physiotherapist if it doesn't settle within a few days.</p>
+    </div>
+
+    <div class="card">
+      <h3>Form first</h3>
+      <ul>
+        <li>Learn an exercise with light weight or bodyweight before adding load.</li>
+        <li>If you can't complete a rep with good form, that's your working weight — not a lighter "cheat" version.</li>
+        <li>Consider one or two sessions with a qualified trainer early on to check your form on the big lifts.</li>
+      </ul>
+    </div>
+
+    <div class="banner">
+      <span>🚑</span>
+      <div><b>Stop immediately</b> and seek medical attention for chest pain, unusual shortness of breath,
+      dizziness, or fainting during exercise.</div>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-progress" role="tabpanel" aria-labelledby="tabbtn-progress">
+    <h2 class="page-title">My Progress</h2>
+    <p class="page-lede">Tick off sessions and log your bodyweight. Everything here is saved only in this browser,
+    on this device — nothing is uploaded anywhere.</p>
+
+    <div class="card">
+      <h3>Workout checklist</h3>
+      <div class="progress-bar"><div id="progressFill" style="width:0%"></div></div>
+      <div id="progressPct" class="page-lede" style="margin:0 0 12px"></div>
+      <div id="weeksWrap"></div>
+      <button class="btn ghost" id="resetTracker" type="button">Reset workout checklist</button>
+    </div>
+
+    <div class="card">
+      <h3>Bodyweight log</h3>
+      <div class="bw-form">
+        <input type="date" id="bwDate" aria-label="Date">
+        <input type="number" id="bwValue" placeholder="Weight (kg)" min="20" max="300" step="0.1" aria-label="Bodyweight in kilograms">
+        <button class="btn" id="bwAdd" type="button">Add entry</button>
+      </div>
+      <div class="field-error" id="bwError" role="alert"></div>
+      <svg class="sparkline" id="bwChart" viewBox="0 0 300 70" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="bw-table" id="bwTable"></div>
+      <button class="btn danger" id="bwClear" type="button">Clear bodyweight log</button>
+    </div>
+  </section>
+
+  <section class="tab" id="tab-glossary" role="tabpanel" aria-labelledby="tabbtn-glossary">
+    <h2 class="page-title">Glossary</h2>
+    <div class="card">
+      <dl class="glossary" id="glossaryList"></dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    Muscle Basics is general educational content, not medical, health, or nutrition advice — see
+    <a href="#" data-goto="start">Start Here</a> for the full disclaimer. All your data stays on this device.
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var STORAGE_KEY = "muscleBasics.v1";
+  var THEME_KEY = "muscleBasics.theme";
+
+  var TABS = [
+    {id:"start", label:"Start Here"},
+    {id:"basics", label:"How Muscle Grows"},
+    {id:"map", label:"Muscle Map"},
+    {id:"program", label:"Your Program"},
+    {id:"library", label:"Exercise Library"},
+    {id:"nutrition", label:"Nutrition"},
+    {id:"recovery", label:"Recovery & Safety"},
+    {id:"progress", label:"My Progress"},
+    {id:"glossary", label:"Glossary"}
+  ];
+
+  var MUSCLES = [
+    {id:"chest", name:"Chest", desc:"Pushes the arms forward and together — used in pressing movements.", exercises:["pushup","inclinepress"]},
+    {id:"back", name:"Back", desc:"Pulls the arms toward the body and supports posture — used in rowing and pulling movements.", exercises:["row","pulldown"]},
+    {id:"shoulders", name:"Shoulders", desc:"Lifts the arms out and overhead, and stabilises almost every upper-body exercise.", exercises:["ohp","lateralraise"]},
+    {id:"traps", name:"Traps", desc:"Runs from the neck to the mid-back; shrugs and stabilises the shoulder blades.", exercises:["shrug","farmerscarry"]},
+    {id:"biceps", name:"Biceps", desc:"Front of the upper arm; bends the elbow and rotates the forearm.", exercises:["dbcurl","hammercurl"]},
+    {id:"triceps", name:"Triceps", desc:"Back of the upper arm; straightens the elbow — used in all pressing movements.", exercises:["dip","overheadext"]},
+    {id:"forearms", name:"Forearms", desc:"Controls grip strength and wrist movement — worked indirectly by almost every lift.", exercises:["farmerscarry","wristcurl"]},
+    {id:"abs", name:"Abs", desc:"Core muscles that stabilise the spine and control the pelvis.", exercises:["plank","deadbug"]},
+    {id:"glutes", name:"Glutes", desc:"The largest muscle group in the body; extends the hip — key for squatting, hinging and walking power.", exercises:["glutebridge","hipthrust"]},
+    {id:"quads", name:"Quads", desc:"Front of the thigh; straightens the knee — used in squatting and stepping movements.", exercises:["squat","gobletsquat"]},
+    {id:"hamstrings", name:"Hamstrings", desc:"Back of the thigh; bends the knee and extends the hip — used in hinging movements.", exercises:["rdl","lunge"]},
+    {id:"calves", name:"Calves", desc:"Back of the lower leg; points the foot down — used in walking, running and jumping.", exercises:["calfraise","seatedcalfraise"]}
+  ];
+
+  var EXERCISES = {
+    pushup: {name:"Push-Up", muscle:"chest", equipment:"Bodyweight", setsReps:"3 x 8–12",
+      steps:["Hands slightly wider than shoulders, body in a straight line from head to heels.","Lower your chest to just above the floor, elbows at about 45°.","Push back up to a full arm extension without locking out hard."],
+      mistakes:["Letting the hips sag or pike up.","Only doing half the range of motion."],
+      tip:"Too hard? Do them from your knees, or hands elevated on a bench, until you can do 8+ full reps."},
+    inclinepress: {name:"Incline Dumbbell Press", muscle:"chest", equipment:"Dumbbells + bench", setsReps:"3 x 8–12",
+      steps:["Set a bench to a slight incline (20–30°).","Press dumbbells up over your chest until arms are extended, without locking elbows hard.","Lower under control until you feel a stretch across the chest."],
+      mistakes:["Flaring elbows out to 90° (raises shoulder-injury risk).","Bouncing the weights at the bottom."],
+      tip:"Start light — this exercise punishes bad form more than most."},
+    row: {name:"Bent-Over Row", muscle:"back", equipment:"Dumbbells or barbell", setsReps:"3 x 8–12",
+      steps:["Hinge at the hips with a flat back, torso close to parallel with the floor.","Pull the weight to your lower ribs, squeezing your shoulder blades together.","Lower under control to a full stretch."],
+      mistakes:["Rounding the lower back.","Using momentum/yanking the weight up."],
+      tip:"If your lower back struggles, try a chest-supported row instead."},
+    pulldown: {name:"Lat Pulldown (or Band Pull-Down)", muscle:"back", equipment:"Cable machine or resistance band", setsReps:"3 x 8–12",
+      steps:["Grip slightly wider than shoulder-width.","Pull the bar/band down to your upper chest, leading with your elbows.","Control the weight back up to a full stretch."],
+      mistakes:["Leaning back excessively and turning it into a row.","Using only the arms instead of pulling with the back."],
+      tip:"No machine? An assisted pull-up machine or resistance-band pull-apart both train the same movement pattern."},
+    ohp: {name:"Overhead Press", muscle:"shoulders", equipment:"Dumbbells or barbell", setsReps:"3 x 6–10",
+      steps:["Start with the weight at shoulder height, core braced.","Press straight overhead until arms are fully extended.","Lower under control back to shoulder height."],
+      mistakes:["Arching the lower back excessively to press.","Pressing the bar forward instead of straight up."],
+      tip:"Too hard standing? Do it seated with back support while you build strength."},
+    lateralraise: {name:"Lateral Raise", muscle:"shoulders", equipment:"Light dumbbells", setsReps:"3 x 12–15",
+      steps:["Hold a light dumbbell in each hand at your sides.","Raise arms out to the sides until roughly shoulder height.","Lower slowly and under control."],
+      mistakes:["Using weight so heavy you have to swing/use momentum.","Shrugging the shoulders up toward the ears."],
+      tip:"This is a finishing/accessory move — go light, it should still feel like effort by rep 12."},
+    shrug: {name:"Shrug", muscle:"traps", equipment:"Dumbbells or barbell", setsReps:"3 x 10–15",
+      steps:["Hold weights at your sides, arms straight.","Shrug your shoulders straight up toward your ears.","Lower slowly under control."],
+      mistakes:["Rolling the shoulders instead of a straight up-down path.","Using the arms to help lift."],
+      tip:"Squeeze and hold for a second at the top."},
+    farmerscarry: {name:"Farmer's Carry", muscle:"forearms", equipment:"Dumbbells or kettlebells", setsReps:"3 x 30–45 sec walk",
+      steps:["Pick up a heavy dumbbell or kettlebell in each hand.","Stand tall, shoulders back, core braced.","Walk for the set distance/time keeping posture upright."],
+      mistakes:["Letting the shoulders round forward.","Shuffling instead of walking with normal steps."],
+      tip:"Great grip and core exercise that needs almost no technique to learn."},
+    dbcurl: {name:"Dumbbell Curl", muscle:"biceps", equipment:"Dumbbells", setsReps:"3 x 8–12",
+      steps:["Stand with a dumbbell in each hand, arms extended, palms forward.","Curl the weight up toward your shoulders, keeping elbows tucked.","Lower under control to a full stretch."],
+      mistakes:["Swinging the body to help lift the weight.","Only doing the top half of the movement."],
+      tip:"Keep elbows pinned to your sides throughout."},
+    hammercurl: {name:"Hammer Curl", muscle:"biceps", equipment:"Dumbbells", setsReps:"3 x 8–12",
+      steps:["Same as a dumbbell curl, but palms face each other throughout.","Curl up keeping elbows tucked.","Lower under control."],
+      mistakes:["Letting elbows drift forward.","Using momentum."],
+      tip:"Also works the forearms more than a regular curl."},
+    dip: {name:"Bench Dip", muscle:"triceps", equipment:"Bench or chair", setsReps:"3 x 8–12",
+      steps:["Hands on the edge of a bench behind you, legs extended out in front.","Lower your body by bending the elbows to about 90°.","Press back up to full extension."],
+      mistakes:["Letting the shoulders roll forward and up toward the ears.","Going so low it strains the shoulder joint."],
+      tip:"Bend your knees to make it easier while you build strength."},
+    overheadext: {name:"Overhead Tricep Extension", muscle:"triceps", equipment:"One dumbbell", setsReps:"3 x 10–12",
+      steps:["Hold one dumbbell with both hands overhead, arms extended.","Lower it behind your head by bending the elbows.","Extend back to the start."],
+      mistakes:["Flaring the elbows out wide.","Arching the lower back."],
+      tip:"Keep elbows pointed forward and close to your head throughout."},
+    wristcurl: {name:"Wrist Curl", muscle:"forearms", equipment:"Light dumbbell", setsReps:"2 x 15–20",
+      steps:["Rest your forearm on your thigh or a bench, palm up, wrist hanging off the edge.","Curl the weight up using just your wrist.","Lower under control to a full stretch."],
+      mistakes:["Using a weight so heavy the elbow has to help.","Rushing the reps."],
+      tip:"Small range of motion, light weight — this one doesn't need much load."},
+    plank: {name:"Plank", muscle:"abs", equipment:"Bodyweight", setsReps:"3 x 20–40 sec",
+      steps:["Forearms and toes on the floor, body in a straight line.","Brace your core like you're about to be lightly punched in the stomach.","Hold, breathing normally, without letting the hips sag or pike."],
+      mistakes:["Holding your breath.","Letting the lower back sag."],
+      tip:"Quality over duration — a strict 20-second plank beats a sagging 60-second one."},
+    deadbug: {name:"Dead Bug", muscle:"abs", equipment:"Bodyweight", setsReps:"3 x 8–10 per side",
+      steps:["Lie on your back, arms up toward the ceiling, knees bent at 90°.","Slowly lower one arm and the opposite leg toward the floor without arching your back.","Return to start and switch sides."],
+      mistakes:["Letting the lower back arch off the floor.","Moving too fast to control."],
+      tip:"Press your lower back into the floor and keep it there the whole set."},
+    glutebridge: {name:"Glute Bridge", muscle:"glutes", equipment:"Bodyweight", setsReps:"3 x 12–15",
+      steps:["Lie on your back, knees bent, feet flat on the floor.","Squeeze your glutes and lift your hips until your body forms a straight line knee-to-shoulder.","Lower under control."],
+      mistakes:["Overarching the lower back at the top instead of squeezing the glutes.","Pushing through the toes instead of the heels."],
+      tip:"Pause and squeeze for a second at the top of every rep."},
+    hipthrust: {name:"Hip Thrust", muscle:"glutes", equipment:"Bench + dumbbell/barbell (optional)", setsReps:"3 x 8–12",
+      steps:["Upper back braced against a bench, feet flat on the floor.","Drive through your heels, lifting your hips until your torso is roughly parallel to the floor.","Lower under control."],
+      mistakes:["Overextending the lower back at the top.","Feet placed too far forward or back."],
+      tip:"Start with bodyweight; add a dumbbell across your hips once the form is solid."},
+    squat: {name:"Bodyweight Squat", muscle:"quads", equipment:"Bodyweight", setsReps:"3 x 10–15",
+      steps:["Feet shoulder-width apart, toes slightly out.","Sit your hips back and down, keeping your chest up.","Go as low as comfortable while keeping your heels on the floor, then stand back up."],
+      mistakes:["Knees caving inward.","Heels lifting off the floor."],
+      tip:"Hold a sturdy rail or doorframe lightly for balance while you learn the movement."},
+    gobletsquat: {name:"Goblet Squat", muscle:"quads", equipment:"One dumbbell or kettlebell", setsReps:"3 x 8–12",
+      steps:["Hold a dumbbell vertically against your chest with both hands.","Squat down between your knees, chest up.","Drive back up to standing."],
+      mistakes:["Letting the weight pull your torso forward.","Rushing the descent."],
+      tip:"The weight held at the chest naturally helps keep your torso upright — great first loaded squat."},
+    rdl: {name:"Romanian Deadlift", muscle:"hamstrings", equipment:"Dumbbells or barbell", setsReps:"3 x 8–12",
+      steps:["Hold the weight in front of your thighs, knees softly bent.","Push your hips back, lowering the weight along your legs while keeping your back flat.","Feel a stretch in the hamstrings, then drive your hips forward to stand back up."],
+      mistakes:["Rounding the lower back.","Bending the knees like a squat instead of hinging at the hips."],
+      tip:"Keep the weight close to your legs the whole way down."},
+    lunge: {name:"Reverse Lunge", muscle:"hamstrings", equipment:"Bodyweight or dumbbells", setsReps:"3 x 8–10 per side",
+      steps:["Step one leg back and lower your back knee toward the floor.","Keep your front shin roughly vertical.","Push through the front heel to return to standing."],
+      mistakes:["Front knee traveling far past the toes.","Losing balance from too long or too short a step."],
+      tip:"Stepping backward is gentler on the knees than stepping forward for most beginners."},
+    calfraise: {name:"Standing Calf Raise", muscle:"calves", equipment:"Bodyweight, optional dumbbells", setsReps:"3 x 12–20",
+      steps:["Stand on flat ground (or a step edge for extra range).","Rise up onto the balls of your feet as high as you can.","Lower under control to a full stretch."],
+      mistakes:["Bouncing instead of a controlled tempo.","Using a small, rushed range of motion."],
+      tip:"Hold onto something for balance and pause briefly at the top of each rep."},
+    seatedcalfraise: {name:"Seated Calf Raise", muscle:"calves", equipment:"Chair + dumbbell on knees", setsReps:"3 x 15–20",
+      steps:["Sit with feet flat, a weight resting across your lower thighs/knees.","Raise your heels as high as possible.","Lower under control to a full stretch."],
+      mistakes:["Using a weight so heavy the range of motion shrinks.","Rushing the tempo."],
+      tip:"Seated targets a slightly different part of the calf than standing — useful variety, not required."}
+  };
+
+  var PROGRAM = {
+    A: [ {ex:"squat"}, {ex:"pushup"}, {ex:"row"}, {ex:"plank"}, {ex:"glutebridge"} ],
+    B: [ {ex:"rdl"}, {ex:"ohp"}, {ex:"pulldown"}, {ex:"lunge"}, {ex:"deadbug"} ]
+  };
+  var WEEK_PATTERN = { 1:["A","B","A"], 2:["B","A","B"], 3:["A","B","A"], 4:["B","A","B"] };
+
+  var GLOSSARY = [
+    ["Hypertrophy", "The technical term for muscle growth in size."],
+    ["Progressive overload", "Gradually increasing the demand on a muscle over time (more reps, weight, or sets) so it keeps adapting."],
+    ["Rep (repetition)", "One complete movement of an exercise, e.g. one push-up."],
+    ["Set", "A group of consecutive reps performed without stopping, e.g. \"3 sets of 10 reps.\""],
+    ["Rest day", "A day without hard training, used for recovery and adaptation."],
+    ["DOMS", "Delayed Onset Muscle Soreness — normal mild soreness 1–2 days after training, especially with new exercises."],
+    ["Compound exercise", "A multi-joint movement that works several muscle groups at once (e.g. squat, row)."],
+    ["Working set", "A set performed at real effort toward your goal, as opposed to a light warm-up set."],
+    ["Form", "The technique/positioning used to perform an exercise safely and effectively."],
+    ["Full range of motion", "Moving a joint through its complete, comfortable range during an exercise rather than a partial movement."]
+  ];
+
+  function todayLocalIso(){
+    var d = new Date();
+    var m = String(d.getMonth() + 1).padStart(2, "0");
+    var day = String(d.getDate()).padStart(2, "0");
+    return d.getFullYear() + "-" + m + "-" + day;
+  }
+
+  var EXERCISE_MUSCLES = {};
+  MUSCLES.forEach(function(m){
+    m.exercises.forEach(function(exId){
+      (EXERCISE_MUSCLES[exId] = EXERCISE_MUSCLES[exId] || []).push(m.id);
+    });
+  });
+
+  var state = {
+    tracker: {},
+    bodyweight: []
+  };
+
+  function loadState(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var parsed = JSON.parse(raw);
+      if (parsed && typeof parsed === "object"){
+        if (parsed.tracker && typeof parsed.tracker === "object") state.tracker = parsed.tracker;
+        if (Array.isArray(parsed.bodyweight)) {
+          state.bodyweight = parsed.bodyweight.filter(function(e){
+            return e && typeof e.date === "string" && typeof e.weight === "number" && isFinite(e.weight);
+          });
+        }
+      }
+    } catch (err) {
+      state = { tracker:{}, bodyweight:[] };
+    }
+  }
+
+  function saveState(){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch (err) { /* storage unavailable (private mode / quota) — fail silently, in-memory state still works */ }
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+    });
+  }
+
+  // ---------- Tabs ----------
+  function initTabs(){
+    var row = document.getElementById("tabRow");
+    TABS.forEach(function(t){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.id = "tabbtn-" + t.id;
+      btn.textContent = t.label;
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", "false");
+      btn.setAttribute("aria-controls", "tab-" + t.id);
+      btn.addEventListener("click", function(){ goto(t.id); });
+      row.appendChild(btn);
+    });
+    var initial = (location.hash || "").replace("#", "");
+    var valid = TABS.some(function(t){ return t.id === initial; });
+    goto(valid ? initial : "start");
+  }
+
+  function goto(id){
+    TABS.forEach(function(t){
+      var sec = document.getElementById("tab-" + t.id);
+      var btn = document.getElementById("tabbtn-" + t.id);
+      var active = t.id === id;
+      if (sec) sec.setAttribute("data-active", active ? "true" : "false");
+      if (btn) btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+    if (history.replaceState) history.replaceState(null, "", "#" + id);
+    var main = document.querySelector("main");
+    if (main) main.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+
+  document.addEventListener("click", function(e){
+    var el = e.target.closest && e.target.closest("[data-goto]");
+    if (el) { e.preventDefault(); goto(el.getAttribute("data-goto")); }
+  });
+
+  // ---------- Theme ----------
+  function initTheme(){
+    var saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch(err){}
+    if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+    document.getElementById("themeToggle").addEventListener("click", function(){
+      var current = document.documentElement.getAttribute("data-theme");
+      var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var effectiveDark = current ? current === "dark" : prefersDark;
+      var next = effectiveDark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem(THEME_KEY, next); } catch(err){}
+    });
+  }
+
+  // ---------- Muscle map ----------
+  function initMuscleMap(){
+    var list = document.getElementById("muscleList");
+    MUSCLES.forEach(function(m){
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = m.name;
+      btn.setAttribute("aria-pressed", "false");
+      btn.dataset.muscle = m.id;
+      btn.addEventListener("click", function(){ selectMuscle(m.id); });
+      list.appendChild(btn);
+    });
+
+    document.querySelectorAll(".muscle-shape").forEach(function(shape){
+      shape.addEventListener("click", function(){ selectMuscle(shape.dataset.muscle); });
+      shape.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); selectMuscle(shape.dataset.muscle); }
+      });
+    });
+  }
+
+  function selectMuscle(id){
+    var muscle = MUSCLES.filter(function(m){ return m.id === id; })[0];
+    if (!muscle) return;
+
+    document.querySelectorAll(".muscle-shape").forEach(function(s){
+      s.classList.toggle("selected", s.dataset.muscle === id);
+    });
+    document.querySelectorAll("#muscleList button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.dataset.muscle === id ? "true" : "false");
+    });
+
+    var detail = document.getElementById("muscleDetail");
+    var exList = muscle.exercises.map(function(exId){
+      var ex = EXERCISES[exId];
+      return ex ? "<li>" + escapeHtml(ex.name) + " — <span style=\"color:var(--text-dim)\">" + escapeHtml(ex.setsReps) + "</span></li>" : "";
+    }).join("");
+
+    detail.innerHTML =
+      "<div class=\"card\">" +
+        "<h3>" + escapeHtml(muscle.name) + "</h3>" +
+        "<p>" + escapeHtml(muscle.desc) + "</p>" +
+        "<p><b>Beginner exercises:</b></p>" +
+        "<ul>" + exList + "</ul>" +
+        "<button class=\"btn ghost\" type=\"button\" data-open-library=\"" + escapeHtml(muscle.id) + "\">View in Exercise Library</button>" +
+      "</div>";
+
+    var openBtn = detail.querySelector("[data-open-library]");
+    if (openBtn) openBtn.addEventListener("click", function(){
+      goto("library");
+      document.getElementById("exSearch").value = "";
+      var filter = document.getElementById("exFilter");
+      filter.value = muscle.id;
+      filterExercises();
+    });
+  }
+
+  // ---------- Program ----------
+  function exSummary(exId){
+    var ex = EXERCISES[exId];
+    return ex ? { name: ex.name, setsReps: ex.setsReps, equipment: ex.equipment } : null;
+  }
+
+  function renderProgram(){
+    var wrap = document.getElementById("programTables");
+    wrap.innerHTML = "";
+    ["A","B"].forEach(function(letter){
+      var card = document.createElement("div");
+      card.className = "card";
+      var rows = PROGRAM[letter].map(function(item){
+        var s = exSummary(item.ex);
+        if (!s) return "";
+        return "<tr><td>" + escapeHtml(s.name) + "</td><td>" + escapeHtml(s.setsReps) + "</td><td>" + escapeHtml(s.equipment) + "</td></tr>";
+      }).join("");
+      card.innerHTML =
+        "<table><caption>Workout " + letter + "</caption>" +
+        "<tr><th>Exercise</th><th>Sets x Reps</th><th>Equipment</th></tr>" + rows + "</table>";
+      wrap.appendChild(card);
+    });
+  }
+
+  // ---------- Exercise library ----------
+  function initLibrary(){
+    var filter = document.getElementById("exFilter");
+    MUSCLES.forEach(function(m){
+      var opt = document.createElement("option");
+      opt.value = m.id;
+      opt.textContent = m.name;
+      filter.appendChild(opt);
+    });
+
+    var listEl = document.getElementById("exList");
+    Object.keys(EXERCISES).forEach(function(id){
+      var ex = EXERCISES[id];
+      var muscleName = (MUSCLES.filter(function(m){ return m.id === ex.muscle; })[0] || {}).name || ex.muscle;
+      var details = document.createElement("details");
+      details.className = "ex-item match";
+      details.dataset.muscle = ex.muscle;
+      details.dataset.muscles = (EXERCISE_MUSCLES[id] || [ex.muscle]).join(" ");
+      details.dataset.name = ex.name.toLowerCase();
+
+      var stepsHtml = ex.steps.map(function(s){ return "<li>" + escapeHtml(s) + "</li>"; }).join("");
+      var mistakesHtml = ex.mistakes.map(function(s){ return "<li>" + escapeHtml(s) + "</li>"; }).join("");
+
+      details.innerHTML =
+        "<summary><span class=\"chip\">" + escapeHtml(muscleName) + "</span>" + escapeHtml(ex.name) + "</summary>" +
+        "<div class=\"card\" style=\"box-shadow:none; margin:0; border:none; padding:0 0 0 2px\">" +
+          "<p><b>" + escapeHtml(ex.setsReps) + "</b> · " + escapeHtml(ex.equipment) + "</p>" +
+          "<p><b>How to do it:</b></p><ol>" + stepsHtml + "</ol>" +
+          "<p><b>Common mistakes:</b></p><ul>" + mistakesHtml + "</ul>" +
+          "<p><b>Beginner tip:</b> " + escapeHtml(ex.tip) + "</p>" +
+        "</div>";
+      listEl.appendChild(details);
+    });
+
+    document.getElementById("exSearch").addEventListener("input", filterExercises);
+    filter.addEventListener("change", filterExercises);
+  }
+
+  function filterExercises(){
+    var q = document.getElementById("exSearch").value.trim().toLowerCase();
+    var muscle = document.getElementById("exFilter").value;
+    var any = false;
+    document.querySelectorAll(".ex-item").forEach(function(item){
+      var matchesMuscle = !muscle || (" " + item.dataset.muscles + " ").indexOf(" " + muscle + " ") !== -1;
+      var matchesQuery = !q || item.dataset.name.indexOf(q) !== -1;
+      var visible = matchesMuscle && matchesQuery;
+      item.classList.toggle("match", visible);
+      if (visible) any = true;
+    });
+    document.getElementById("exEmpty").hidden = any;
+  }
+
+  // ---------- Progress tracker ----------
+  function renderTracker(){
+    var wrap = document.getElementById("weeksWrap");
+    wrap.innerHTML = "";
+    var totalSessions = 0, doneSessions = 0;
+
+    Object.keys(WEEK_PATTERN).forEach(function(weekNum){
+      var pattern = WEEK_PATTERN[weekNum];
+      var block = document.createElement("div");
+      block.className = "week-block";
+      var heading = document.createElement("h4");
+      heading.textContent = "Week " + weekNum;
+      block.appendChild(heading);
+
+      pattern.forEach(function(letter, i){
+        totalSessions++;
+        var key = "w" + weekNum + "s" + i;
+        var checked = !!state.tracker[key];
+        if (checked) doneSessions++;
+
+        var row = document.createElement("div");
+        row.className = "session-row";
+        var cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.id = "chk-" + key;
+        cb.checked = checked;
+        cb.addEventListener("change", function(){
+          state.tracker[key] = cb.checked;
+          saveState();
+          renderTracker();
+        });
+        var label = document.createElement("label");
+        label.htmlFor = "chk-" + key;
+        label.textContent = "Session " + (i + 1) + " — Workout " + letter;
+        row.appendChild(cb);
+        row.appendChild(label);
+        block.appendChild(row);
+      });
+
+      wrap.appendChild(block);
+    });
+
+    var pct = totalSessions ? Math.round((doneSessions / totalSessions) * 100) : 0;
+    document.getElementById("progressFill").style.width = pct + "%";
+    document.getElementById("progressPct").textContent = doneSessions + " of " + totalSessions + " sessions complete (" + pct + "%)";
+  }
+
+  function initTrackerControls(){
+    document.getElementById("resetTracker").addEventListener("click", function(){
+      if (!confirm("Reset your workout checklist? This can't be undone.")) return;
+      state.tracker = {};
+      saveState();
+      renderTracker();
+    });
+  }
+
+  // ---------- Bodyweight log ----------
+  function initBodyweight(){
+    var dateInput = document.getElementById("bwDate");
+    var todayIso = todayLocalIso();
+    dateInput.value = todayIso;
+    dateInput.max = todayIso;
+
+    document.getElementById("bwAdd").addEventListener("click", addBodyweightEntry);
+    document.getElementById("bwClear").addEventListener("click", function(){
+      if (!confirm("Clear your entire bodyweight log? This can't be undone.")) return;
+      state.bodyweight = [];
+      saveState();
+      renderBodyweight();
+    });
+
+    renderBodyweight();
+  }
+
+  function addBodyweightEntry(){
+    var errorEl = document.getElementById("bwError");
+    errorEl.textContent = "";
+    var dateVal = document.getElementById("bwDate").value;
+    var weightVal = parseFloat(document.getElementById("bwValue").value);
+
+    if (!dateVal) { errorEl.textContent = "Pick a date."; return; }
+    if (dateVal > todayLocalIso()) {
+      errorEl.textContent = "Date can't be in the future.";
+      return;
+    }
+    if (!isFinite(weightVal) || weightVal < 20 || weightVal > 300) {
+      errorEl.textContent = "Enter a weight between 20 and 300 kg.";
+      return;
+    }
+
+    state.bodyweight = state.bodyweight.filter(function(e){ return e.date !== dateVal; });
+    state.bodyweight.push({ date: dateVal, weight: Math.round(weightVal * 10) / 10 });
+    state.bodyweight.sort(function(a, b){ return a.date < b.date ? -1 : 1; });
+    saveState();
+    document.getElementById("bwValue").value = "";
+    renderBodyweight();
+  }
+
+  function removeBodyweightEntry(date){
+    state.bodyweight = state.bodyweight.filter(function(e){ return e.date !== date; });
+    saveState();
+    renderBodyweight();
+  }
+
+  function renderBodyweight(){
+    var tableEl = document.getElementById("bwTable");
+    tableEl.innerHTML = "";
+    var entries = state.bodyweight;
+
+    if (!entries.length) {
+      var empty = document.createElement("p");
+      empty.className = "empty-state";
+      empty.textContent = "No entries yet — add your first weigh-in above.";
+      tableEl.appendChild(empty);
+    } else {
+      entries.slice().reverse().forEach(function(e){
+        var row = document.createElement("div");
+        row.className = "bw-row";
+        var dateSpan = document.createElement("span");
+        dateSpan.style.flex = "1";
+        dateSpan.textContent = e.date;
+        var weightSpan = document.createElement("span");
+        weightSpan.textContent = e.weight + " kg";
+        var delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.textContent = "Remove";
+        delBtn.addEventListener("click", function(){ removeBodyweightEntry(e.date); });
+        row.appendChild(dateSpan);
+        row.appendChild(weightSpan);
+        row.appendChild(delBtn);
+        tableEl.appendChild(row);
+      });
+    }
+
+    renderSparkline(entries);
+  }
+
+  function renderSparkline(entries){
+    var svg = document.getElementById("bwChart");
+    if (entries.length < 2) { svg.innerHTML = ""; return; }
+
+    var weights = entries.map(function(e){ return e.weight; });
+    var min = Math.min.apply(null, weights);
+    var max = Math.max.apply(null, weights);
+    var range = max - min;
+    var w = 300, h = 70, pad = 6;
+
+    var points = entries.map(function(e, i){
+      var x = entries.length === 1 ? w / 2 : pad + (i / (entries.length - 1)) * (w - pad * 2);
+      var y = range === 0 ? h / 2 : h - pad - ((e.weight - min) / range) * (h - pad * 2);
+      return x.toFixed(1) + "," + y.toFixed(1);
+    }).join(" ");
+
+    svg.innerHTML =
+      "<polyline points=\"" + points + "\" fill=\"none\" stroke=\"var(--accent)\" stroke-width=\"2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"/>";
+  }
+
+  // ---------- Glossary ----------
+  function renderGlossary(){
+    var dl = document.getElementById("glossaryList");
+    dl.innerHTML = GLOSSARY.map(function(pair){
+      return "<dt>" + escapeHtml(pair[0]) + "</dt><dd>" + escapeHtml(pair[1]) + "</dd>";
+    }).join("");
+  }
+
+  // ---------- Init ----------
+  document.addEventListener("DOMContentLoaded", function(){
+    loadState();
+    initTheme();
+    initTabs();
+    initMuscleMap();
+    renderProgram();
+    initLibrary();
+    renderTracker();
+    initTrackerControls();
+    initBodyweight();
+    renderGlossary();
+  });
+})();
+</script>
+</body>
+</html>
