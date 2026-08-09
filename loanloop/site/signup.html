@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Get your embed code — LoanLoop</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Loan<span>Loop</span></a>
+    <nav>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="demo.html">Live demo</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="wrap">
+    <h2>Get your embed code</h2>
+    <p class="sub">
+      This is a self-serve demo of the LoanLoop sign-up flow. In production this step also creates a
+      Stripe customer for billing — see <a href="../docs/MVP_LAUNCH_STEPS.md">docs/MVP_LAUNCH_STEPS.md</a>.
+      No real account or payment is created here; everything is stored only in your browser.
+    </p>
+
+    <form class="signup-form" id="signup-form" novalidate>
+      <label>Business name
+        <input type="text" name="businessName" required maxlength="80" />
+      </label>
+      <label>Email
+        <input type="email" name="email" required maxlength="254" />
+      </label>
+      <label>Plan
+        <select name="plan">
+          <option value="free">Free — 20 leads/mo, LoanLoop badge</option>
+          <option value="pro">Pro — $49/mo, white-label</option>
+          <option value="growth">Growth — $99/mo, multi-site</option>
+        </select>
+      </label>
+      <label>Brand colour
+        <input type="color" name="primaryColor" value="#0f766e" />
+      </label>
+      <label>Widget headline
+        <input type="text" name="headline" maxlength="120" value="See what you could borrow" />
+      </label>
+      <div class="loanloop-signup-errors" role="alert" style="color:#b91c1c;font-size:0.875rem;"></div>
+      <button class="btn" type="submit">Create my embed code</button>
+    </form>
+
+    <div id="result" hidden>
+      <h3 style="margin-top:32px;">Your embed code</h3>
+      <p class="sub">Paste this onto your website, right where you want the calculator to appear.</p>
+      <pre class="snippet" id="snippet"></pre>
+      <div class="toolbar">
+        <button class="btn secondary" id="copy-btn" type="button">Copy code</button>
+        <a class="btn secondary" id="dashboard-link" href="#">Open my dashboard</a>
+        <a class="btn secondary" id="demo-link" href="#">Preview on a demo site</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  import { isValidEmail, sanitiseText, escapeHtml } from '../widget/loanloop.js';
+
+  const form = document.getElementById('signup-form');
+  const errorBox = form.querySelector('.loanloop-signup-errors');
+  const resultBox = document.getElementById('result');
+  const snippetEl = document.getElementById('snippet');
+  const copyBtn = document.getElementById('copy-btn');
+  const dashboardLink = document.getElementById('dashboard-link');
+  const demoLink = document.getElementById('demo-link');
+
+  const slugify = (value) =>
+    value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '')
+      .slice(0, 40);
+
+  const loadBrokers = () => {
+    try {
+      return JSON.parse(window.localStorage.getItem('loanloop_brokers') || '[]');
+    } catch {
+      return [];
+    }
+  };
+
+  const saveBroker = (broker) => {
+    const brokers = loadBrokers();
+    brokers.push(broker);
+    window.localStorage.setItem('loanloop_brokers', JSON.stringify(brokers));
+  };
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    errorBox.textContent = '';
+
+    const data = new FormData(form);
+    const businessName = String(data.get('businessName') || '').trim();
+    const email = String(data.get('email') || '').trim();
+    const plan = String(data.get('plan') || 'free');
+    const primaryColor = String(data.get('primaryColor') || '#0f766e');
+    const headline = sanitiseText(String(data.get('headline') || 'See what you could borrow').trim());
+
+    const errors = [];
+    if (!businessName) errors.push('Business name is required.');
+    if (!isValidEmail(email)) errors.push('Please enter a valid email address.');
+
+    if (errors.length > 0) {
+      errorBox.textContent = errors.join(' ');
+      return;
+    }
+
+    let brokerId = slugify(businessName) || 'broker';
+    const existingIds = new Set(loadBrokers().map((b) => b.id));
+    let candidate = brokerId;
+    let suffix = 1;
+    while (existingIds.has(candidate)) {
+      candidate = `${brokerId}-${suffix}`;
+      suffix += 1;
+    }
+    brokerId = candidate;
+
+    const broker = {
+      id: brokerId,
+      businessName,
+      email,
+      plan,
+      primaryColor,
+      headline,
+      createdAt: new Date().toISOString(),
+    };
+    saveBroker(broker);
+
+    const attrs = [
+      `data-loanloop-id="${escapeHtml(brokerId)}"`,
+      `data-primary-color="${escapeHtml(primaryColor)}"`,
+      `data-headline="${escapeHtml(headline)}"`,
+    ].join('\n     ');
+
+    snippetEl.textContent =
+      `<div class="loanloop-widget"\n` +
+      `     ${attrs}></div>\n` +
+      `<link rel="stylesheet" href="https://cdn.loanloop.example/loanloop.css">\n` +
+      `<script type="module" src="https://cdn.loanloop.example/loanloop.js"></` + `script>`;
+
+    dashboardLink.href = `dashboard.html?brokerId=${encodeURIComponent(brokerId)}`;
+    demoLink.href = `demo.html?brokerId=${encodeURIComponent(brokerId)}`;
+    resultBox.hidden = false;
+    resultBox.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  copyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(snippetEl.textContent);
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => (copyBtn.textContent = 'Copy code'), 1500);
+    } catch {
+      errorBox.textContent = 'Could not copy automatically — please select and copy the code manually.';
+    }
+  });
+</script>
+</body>
+</html>

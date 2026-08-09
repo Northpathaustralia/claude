@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demo: a broker's website with LoanLoop embedded</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="../widget/loanloop.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Loan<span>Loop</span></a>
+    <nav>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="signup.html">Get your embed code</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="wrap">
+    <h2>Live demo</h2>
+    <p class="sub">
+      This page plays the part of a mortgage broker's own website with the LoanLoop widget
+      embedded via the exact snippet a real broker would paste in. Fill in the calculator below —
+      the lead it captures will appear in the <a href="dashboard.html">dashboard</a>.
+    </p>
+
+    <div class="demo-frame">
+      <div class="demo-browser-chrome">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        &nbsp; example-broker.com.au
+      </div>
+      <div class="host-site">
+        <h3 id="host-heading">Welcome to Example Finance Broking</h3>
+        <p style="color:#475569;">
+          We help everyday Australians find the right home loan. Curious what you could borrow?
+          Try our calculator below.
+        </p>
+
+        <!-- This is the exact embed snippet a broker pastes onto their site. -->
+        <div class="loanloop-widget"
+             id="loanloop-embed"
+             data-loanloop-id="broker_demo"
+             data-primary-color="#0f766e"
+             data-headline="See what you could borrow"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  // Demo-only convenience: if this page was reached from signup.html with a
+  // ?brokerId= param, load that broker's saved customisation so the preview
+  // matches what they just configured. A real embed on a real broker site
+  // never does this lookup — its data-* attributes are set directly in the
+  // HTML the broker pasted.
+  const params = new URLSearchParams(window.location.search);
+  const brokerId = params.get('brokerId');
+  if (brokerId) {
+    try {
+      const brokers = JSON.parse(window.localStorage.getItem('loanloop_brokers') || '[]');
+      const broker = brokers.find((b) => b.id === brokerId);
+      const el = document.getElementById('loanloop-embed');
+      if (broker && el) {
+        el.dataset.loanloopId = broker.id;
+        el.dataset.primaryColor = broker.primaryColor;
+        el.dataset.headline = broker.headline;
+        document.getElementById('host-heading').textContent = `Welcome to ${broker.businessName}`;
+      }
+    } catch {
+      /* ignore — demo convenience only */
+    }
+  }
+</script>
+<script type="module" src="../widget/loanloop.js"></script>
+</body>
+</html>

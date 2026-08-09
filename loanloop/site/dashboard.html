@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leads dashboard — LoanLoop</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">Loan<span>Loop</span></a>
+    <nav>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="demo.html">Live demo</a>
+      <a href="signup.html">Get your embed code</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="wrap">
+    <h2>Leads dashboard</h2>
+    <p class="sub">
+      In production, leads arrive here automatically via the webhook (see
+      <a href="../docs/AUTOMATION_WORKFLOW.md">docs/AUTOMATION_WORKFLOW.md</a>) with zero manual
+      steps. This demo reads leads captured locally by the widget on <a href="demo.html">demo.html</a>.
+    </p>
+
+    <form class="dashboard-filter" id="broker-select-form">
+      <label>Website
+        <select id="broker-select"></select>
+      </label>
+    </form>
+
+    <div class="toolbar">
+      <button class="btn secondary" id="export-btn" type="button">Export CSV</button>
+      <span id="lead-count" style="color:#475569;font-size:0.875rem;"></span>
+    </div>
+
+    <div id="table-wrap"></div>
+  </div>
+</main>
+
+<script type="module">
+  const select = document.getElementById('broker-select');
+  const tableWrap = document.getElementById('table-wrap');
+  const exportBtn = document.getElementById('export-btn');
+  const leadCountEl = document.getElementById('lead-count');
+
+  const params = new URLSearchParams(window.location.search);
+
+  const loadBrokers = () => {
+    try {
+      return JSON.parse(window.localStorage.getItem('loanloop_brokers') || '[]');
+    } catch {
+      return [];
+    }
+  };
+
+  const loadLeads = (brokerId) => {
+    try {
+      return JSON.parse(window.localStorage.getItem(`loanloop_demo_leads_${brokerId}`) || '[]');
+    } catch {
+      return [];
+    }
+  };
+
+  const escapeHtml = (str) =>
+    String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const formatCurrency = (value) =>
+    new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', maximumFractionDigits: 0 }).format(value);
+
+  const renderTable = (brokerId) => {
+    const leads = loadLeads(brokerId);
+    leadCountEl.textContent = `${leads.length} lead${leads.length === 1 ? '' : 's'}`;
+
+    if (leads.length === 0) {
+      tableWrap.innerHTML = '';
+      const empty = document.createElement('div');
+      empty.className = 'empty-state';
+      empty.textContent = 'No leads yet for this website. Try the live demo to capture one.';
+      tableWrap.appendChild(empty);
+      return;
+    }
+
+    const table = document.createElement('table');
+    table.className = 'leads-table';
+    table.innerHTML =
+      '<thead><tr><th>Submitted</th><th>Name</th><th>Email</th><th>Phone</th>' +
+      '<th>Estimate</th><th>Marketing OK</th></tr></thead>';
+    const tbody = document.createElement('tbody');
+    for (const lead of [...leads].reverse()) {
+      const tr = document.createElement('tr');
+      tr.innerHTML =
+        `<td>${escapeHtml(new Date(lead.submittedAt).toLocaleString('en-AU'))}</td>` +
+        `<td>${escapeHtml(lead.name)}</td>` +
+        `<td>${escapeHtml(lead.email)}</td>` +
+        `<td>${escapeHtml(lead.phone || '—')}</td>` +
+        `<td>${escapeHtml(formatCurrency(lead.estimate.low))} – ${escapeHtml(formatCurrency(lead.estimate.high))}</td>` +
+        `<td>${lead.marketingConsent ? 'Yes' : 'No'}</td>`;
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    tableWrap.innerHTML = '';
+    tableWrap.appendChild(table);
+  };
+
+  const toCsv = (leads) => {
+    const header = ['submittedAt', 'name', 'email', 'phone', 'estimateLow', 'estimateHigh', 'purchaseBudgetHigh', 'marketingConsent', 'source'];
+    const escapeCsv = (value) => `"${String(value ?? '').replace(/"/g, '""')}"`;
+    const rows = leads.map((lead) =>
+      [
+        lead.submittedAt,
+        lead.name,
+        lead.email,
+        lead.phone,
+        lead.estimate.low,
+        lead.estimate.high,
+        lead.estimate.purchaseBudgetHigh,
+        lead.marketingConsent,
+        lead.source,
+      ]
+        .map(escapeCsv)
+        .join(',')
+    );
+    return [header.join(','), ...rows].join('\r\n');
+  };
+
+  const populateBrokerSelect = () => {
+    const brokers = loadBrokers();
+    select.innerHTML = '';
+    const knownIds = new Set(brokers.map((b) => b.id));
+
+    // The shared demo broker always exists even before anyone signs up.
+    if (!knownIds.has('broker_demo')) {
+      brokers.unshift({ id: 'broker_demo', businessName: 'Example Finance Broking (shared demo)' });
+    }
+
+    for (const broker of brokers) {
+      const option = document.createElement('option');
+      option.value = broker.id;
+      option.textContent = broker.businessName;
+      select.appendChild(option);
+    }
+
+    const requested = params.get('brokerId');
+    if (requested && knownIds.has(requested)) {
+      select.value = requested;
+    } else if (requested === 'broker_demo') {
+      select.value = 'broker_demo';
+    }
+  };
+
+  populateBrokerSelect();
+  renderTable(select.value);
+
+  select.addEventListener('change', () => renderTable(select.value));
+
+  exportBtn.addEventListener('click', () => {
+    const leads = loadLeads(select.value);
+    const csv = toCsv(leads);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `loanloop-leads-${select.value}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+</script>
+</body>
+</html>
