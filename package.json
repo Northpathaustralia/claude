@@ -12,7 +12,11 @@
     "test": "node --test tests/*.test.js",
     "store:dev": "vite --config store/vite.config.js",
     "store:build": "vite build --config store/vite.config.js",
-    "store:preview": "vite preview --config store/vite.config.js"
+    "store:preview": "vite preview --config store/vite.config.js",
+    "stillup:dev": "vite --config stillup/vite.config.js",
+    "stillup:build": "vite build --config stillup/vite.config.js",
+    "stillup:build:standalone": "vite build --config stillup/vite.standalone.config.js && mv release/stillup/index.html release/StillUp.html && rmdir release/stillup",
+    "stillup:preview": "vite preview --config stillup/vite.config.js"
   },
   "dependencies": {
     "react": "^18.3.1",
