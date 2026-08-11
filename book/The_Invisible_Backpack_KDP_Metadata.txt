@@ -1,0 +1,141 @@
+THE INVISIBLE BACKPACK — AMAZON KDP METADATA PACK
+==================================================
+Revised to match the actual illustrated book (previous version referenced
+a storm subplot that is not part of this story — corrected).
+
+TITLE
+The Invisible Backpack
+
+SUBTITLE
+A story about kindness, empathy and the things we cannot see.
+
+AUTHOR
+James Forycki
+
+--------------------------------------------------
+AMAZON BOOK DESCRIPTION (paste into KDP "Description")
+--------------------------------------------------
+
+Everyone carries something we cannot see.
+
+In a warm little forest lives a tiny echidna named Pip — a little friend who
+notices things others sometimes miss. One morning, Pip discovers something
+amazing: every animal in the forest is carrying a backpack. Not a backpack
+you could touch. These backpacks were invisible.
+
+Kangaroo's looks light. Birdie's looks tiny. But Koala's backpack looks very
+heavy indeed, and Koala sits alone, not climbing, not playing.
+
+Through small, gentle moments — helping Wombat pick up dropped berries,
+listening when Birdie is too shy to sing, noticing that a very bright smile
+can still be carrying something heavy — Pip discovers a simple truth:
+kindness makes backpacks lighter.
+
+The Invisible Backpack is a warm, gentle picture book about empathy,
+emotional awareness and everyday kindness, perfect for children aged 3 to 7
+and for the grown-ups who read with them.
+
+This heartfelt story helps little readers understand that:
+- Everyone is carrying something, even when we can't see it
+- Small acts of kindness really do make a difference
+- Noticing a friend, and simply being kind, matters
+
+Because we may not see what someone is carrying, but we can always choose
+to be kind.
+
+Includes a "For Parents & Teachers" page with gentle discussion questions
+for talking about feelings with your child.
+
+--------------------------------------------------
+SEVEN SEARCH KEYWORDS (one per KDP keyword slot)
+--------------------------------------------------
+1. kindness books for kids ages 3-7
+2. empathy picture book for children
+3. Australian animals picture book
+4. feelings and emotions book for toddlers
+5. social emotional learning preschool book
+6. books about kindness for preschoolers
+7. friendship picture book kindergarten
+
+--------------------------------------------------
+SUGGESTED CATEGORIES (choose up to 3 in KDP)
+--------------------------------------------------
+1. Children's eBooks > Growing Up & Facts of Life > Friendship, Social Skills & School Life > Emotions & Feelings
+2. Children's eBooks > Growing Up & Facts of Life > Friendship, Social Skills & School Life > Friendship
+3. Children's eBooks > Animals > Marsupials
+
+--------------------------------------------------
+READING AGE (KDP fields)
+--------------------------------------------------
+Reading age: 3 - 7 years
+Grade level: Preschool - Grade 2
+
+--------------------------------------------------
+RECOMMENDED KINDLE PRICE
+--------------------------------------------------
+Launch price: USD $3.99 (AUD ~$5.99)
+- Sits in Amazon's 70% royalty band ($2.99-$9.99)
+- Note: Kindle delivery fees apply per megabyte on the 70% plan, and
+  picture books have large image files. Compare royalties at 70% vs 35%
+  in the KDP pricing screen and pick whichever earns more per sale.
+- Optional launch tactic: $0.99 for the first week to gather early
+  reviews, then raise to $3.99.
+
+ISBN: none required. Kindle ebooks do not need an ISBN, and Amazon
+assigns its own ASIN automatically. A paperback edition (if pursued
+later) gets a free KDP-assigned ISBN. Do NOT invent or reuse any
+ISBN or barcode.
+
+--------------------------------------------------
+AUTHOR BIOGRAPHY (paste into Author Central / About the Author)
+--------------------------------------------------
+James Forycki is an Australian author who writes gentle, heartfelt
+stories for young children. Inspired by the animals and quiet corners
+of the Australian bush, James writes about the small feelings little
+people carry — and the small kindnesses that make them lighter.
+The Invisible Backpack is his debut picture book.
+
+--------------------------------------------------
+LAUNCH CHECKLIST
+--------------------------------------------------
+BEFORE UPLOAD
+[ ] Pages 23-30 (currently placeholder pages) replaced with final
+    illustrations matching Pip and Birdie's established appearance
+[ ] Page 22 backpack colour cleanly corrected (draft recolour has a
+    visible halo - needs a clean regeneration or tighter mask)
+[ ] Page 32 Birdie redrawn as the correct blue bird (barcode/ISBN
+    already removed and confirmed clean)
+[ ] All 32 pages re-run through the 17-point quality audit once
+    replacement art is in
+[ ] Final proofread pass (spelling, punctuation, no cut-off text)
+[ ] Square fixed-layout file rebuilt with the real pages 23-30 in
+    place of the placeholders
+[ ] Cover image finalised (2,048 x 2,048 px minimum for a square
+    book; Amazon requires under 10,000 px per side and under 50 MB, JPG)
+
+KDP SETUP (kdp.amazon.com)
+[ ] Create/verify KDP account with bank and tax details (Australia:
+    complete the tax interview - the US-AU tax treaty reduces withholding)
+[ ] Create new title: "Kindle eBook"
+[ ] Enter title, subtitle, author exactly as in this file
+[ ] Paste book description
+[ ] Enter the 7 keywords
+[ ] Choose the 3 categories
+[ ] Set reading age 3-7
+[ ] Upload the fixed-layout ebook file
+[ ] Upload the cover
+[ ] Use Amazon's Online Previewer to check EVERY page on phone,
+    tablet and Kindle previews
+[ ] Set price $3.99 USD (check the per-marketplace prices, especially
+    Amazon AU)
+[ ] Do NOT enrol in KDP Select yet if you might sell the ebook
+    elsewhere - you can enrol later
+
+AFTER PUBLISHING (goes live in ~72 hours)
+[ ] Buy a copy yourself and page through it on a real phone/tablet
+[ ] Set up your free Author Central profile and add the bio and photo
+[ ] Ask 5-10 friendly early readers to leave honest reviews
+[ ] Share the Amazon link (school newsletters, local parents' groups,
+    Facebook community pages)
+[ ] Consider a paperback edition next - KDP Print gives a free ISBN
+    for print books, and picture books sell best in print
