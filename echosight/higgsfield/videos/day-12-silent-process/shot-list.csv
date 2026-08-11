@@ -1,0 +1,6 @@
+shot,start_s,end_s,duration_s,camera,description,text_overlay,generation_status
+1,0,3,3.0,OVERHEAD-LOCK,"Overhead: Danh’s hands slide a chopping board into frame, knife taps once — crisp real audio",this format is quietly winning right now,READY FOR HIGGSFIELD GENERATION
+2,3,9,6.0,OVERHEAD-LOCK,"Overhead chopping rhythm, steam drifting from a pan at frame edge",no voiceover · ambient sound · rising in accounts we track,READY FOR HIGGSFIELD GENERATION
+3,9,16,7.0,3Q-SWITCH,"3/4 shot: Danh tips vegetables into the pan, real sizzle, slight steam on glasses",why it works: it reads as REAL against AI-voiced everything,READY FOR HIGGSFIELD GENERATION
+4,16,23,7.0,INSERT-MACRO,"Insert macro: wooden spoon fold, texture detail, steam",the catch: your text hook has to do ALL the work — frame one,READY FOR HIGGSFIELD GENERATION
+5,23,30,7.0,OVERHEAD-LOCK,"Overhead: finished bowl placed on bench, Danh’s hands withdraw, one beat of stillness","weekly trend reads, evidence attached → follow",READY FOR HIGGSFIELD GENERATION

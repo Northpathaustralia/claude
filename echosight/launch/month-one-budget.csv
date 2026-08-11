@@ -1,0 +1,26 @@
+item,category,level,necessity,cost_aud_once,cost_aud_monthly,notes
+Domain echosight.ai,infrastructure,A,compulsory,90,0,".ai registration ~A$60–120/yr depending on registrar; price is annual, shown once"
+Static hosting (Cloudflare Pages),infrastructure,A,compulsory,0,0,Free tier covers a static site comfortably
+Form backend (Tally/Formspree free),infrastructure,A,compulsory,0,0,Upgrade only if >50 submissions/mo (a good problem)
+Email receiving (Cloudflare Email Routing),infrastructure,A,compulsory,0,0,hello@/privacy@/security@ forward to one inbox
+Cookieless analytics (Cloudflare),analytics,A,recommended,0,0,No consent burden; matches cookie policy
+Meta Business Suite scheduling,marketing,A,recommended,0,0,IG native scheduling; TikTok/Shorts manual
+Canva free (carousels),marketing,A,recommended,0,0,6 carousels + thumbnails
+Higgsfield credits — first 2 videos,content,A,recommended,45,0,Validation slice: day-01 and day-16 packs first
+Higgsfield credits — remaining 10 videos,content,B,recommended,205,0,Top of the conservative band; stop-losses per video
+Character reference sheets (images),content,B,recommended,8,0,Generated once and reused
+Voiceover,content,A,recommended,0,0,Founder-recorded (better for authenticity anyway)
+Editing (CapCut free),content,A,compulsory,0,0,
+Email sending (Resend/Buttondown free tier),marketing,B,recommended,0,0,Paid (~A$15/mo) only past ~1k subscribers
+Uptime monitoring (UptimeRobot free),ops,B,recommended,0,0,
+Meta developer account + app,product,B,compulsory-for-beta,0,0,Free; time cost is the real cost (see guide step 8)
+AU legal review of privacy/terms drafts,legal,B,compulsory-before-payments,1200,0,Fixed-fee review; midpoint of A$800–1500 quotes assumption
+Company registration (Pty Ltd),legal,C,defer-until-revenue,600,0,ASIC fee ~A$597; do with legal review when charging
+Stripe,payments,C,defer-until-revenue,0,0,No fixed cost; fees per transaction when live
+Auth (Clerk free tier),product,C,defer-until-revenue,0,0,Free to 10k MAU
+Database (Neon/Supabase free tier),product,C,defer-until-revenue,0,0,
+Error monitoring (Sentry free),product,C,defer-until-revenue,0,0,
+Paid ads,marketing,C,optional,0,0,"Off by policy until organic signal; cap A$300/mo if ever used"
+TOTAL LEVEL A (validation),,,,135,0,"Domain + first 2 videos; everything else free"
+TOTAL LEVEL B (lean professional),,,,1548,0,"Adds full video month + legal review; drop legal (defer) = A$348"
+TOTAL LEVEL B monthly ongoing,,,,0,15,"Only if email list passes free tier"

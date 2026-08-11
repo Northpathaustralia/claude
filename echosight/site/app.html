@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App prototype — EchoSight AI</title>
+<meta name="description" content="EchoSight application prototype: dashboard, Pre-Flight, teardowns, Coach, trends, competitors and settings — demo data throughout.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://echosight.ai/app.html">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  body{display:block}
+  .shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+  .side{background:var(--ink-900);border-right:1px solid var(--ink-700);padding:20px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+  .side .logo{margin-bottom:22px;padding-left:8px}
+  .side a{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;font-size:14px;color:var(--mist-400);margin-bottom:2px}
+  .side a:hover{color:var(--mist-100);background:var(--ink-800)}
+  .side a.on{color:var(--mist-100);background:var(--ink-800);border:1px solid var(--ink-700)}
+  .side .sec{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mist-400);margin:18px 8px 8px}
+  .content{padding:26px 30px 60px;max-width:1040px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap}
+  .topbar h2.vh1{font-size:24px;font-weight:700;letter-spacing:-.02em}
+  .view{display:none}
+  .view.on{display:block}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+  .kpi{background:var(--ink-800);border:1px solid var(--ink-700);border-radius:12px;padding:16px}
+  .kpi .l{font-size:12px;color:var(--mist-400)}
+  .kpi .v{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px}
+  .kpi .d{font-size:12px;margin-top:4px}
+  .up{color:var(--pulse-400)} .down{color:var(--ember-500)}
+  .list-item{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--ink-700);font-size:14px}
+  .list-item:last-child{border:none}
+  .drop{border:2px dashed var(--ink-700);border-radius:14px;padding:46px 20px;text-align:center;color:var(--mist-400);cursor:pointer;transition:border-color .2s}
+  .drop:hover,.drop.hover{border-color:var(--echo-500)}
+  .prog{height:8px;background:var(--ink-700);border-radius:999px;overflow:hidden;margin:14px 0 6px}
+  .prog i{display:block;height:100%;background:var(--signal);width:0;transition:width .4s var(--ease)}
+  .steps{font-size:13px;color:var(--mist-400)}
+  .empty{text-align:center;padding:48px 20px;color:var(--mist-400)}
+  .empty .big{font-size:38px;margin-bottom:10px}
+  .fail{background:rgba(255,107,129,.08);border:1px solid rgba(255,107,129,.35);border-radius:12px;padding:16px 18px;font-size:14px;color:var(--mist-400)}
+  .btn-danger{border:1px solid rgba(255,107,129,.5);color:var(--ember-500);background:transparent}
+  .toggle{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--ink-700);font-size:14px}
+  .toggle:last-child{border:none}
+  .toggle .t{color:var(--mist-400);font-size:13px;margin-top:3px}
+  .switch{position:relative;width:42px;height:24px;flex:none}
+  .switch input{opacity:0;width:100%;height:100%;position:absolute;cursor:pointer;z-index:1}
+  .switch span{position:absolute;inset:0;background:var(--ink-700);border-radius:999px;transition:.2s}
+  .switch span::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--mist-100);top:3px;left:3px;transition:.2s}
+  .switch input:checked + span{background:var(--echo-500)}
+  .switch input:checked + span::after{transform:translateX(18px)}
+  .menu-fab{display:none}
+  @media (max-width:860px){
+    .shell{grid-template-columns:1fr}
+    .side{position:fixed;z-index:60;width:250px;transform:translateX(-100%);transition:transform .25s var(--ease)}
+    .side.open{transform:none}
+    .menu-fab{display:inline-flex;position:fixed;bottom:18px;left:18px;z-index:61}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .content{padding:20px 16px 80px}
+  }
+</style>
+</head>
+<body>
+<div class="demo-banner">Product prototype — <strong>demo data</strong> everywhere. Nothing here is a real account, and no backend is connected yet.</div>
+<div class="shell">
+  <aside class="side" id="side">
+    <a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true"></span>echosight</a>
+    <a href="#home" data-v="home" class="on">🏠 Today</a>
+    <a href="#preflight" data-v="preflight">🛫 Pre-Flight</a>
+    <a href="#teardown" data-v="teardown">🔍 Teardowns</a>
+    <a href="#coach" data-v="coach">🎯 Coach</a>
+    <a href="#trends" data-v="trends">📈 Trends</a>
+    <a href="#competitors" data-v="competitors">👀 Competitors</a>
+    <a href="#briefs" data-v="briefs">🎬 Creative briefs</a>
+    <div class="sec">Account</div>
+    <a href="#connect" data-v="connect">🔗 Connections</a>
+    <a href="#settings" data-v="settings">⚙️ Settings &amp; privacy</a>
+    <a href="#billing" data-v="billing">💳 Billing</a>
+    <div class="sec">States (prototype)</div>
+    <a href="#empty" data-v="empty">▫ Empty state</a>
+    <a href="#failure" data-v="failure">▪ Failure state</a>
+  </aside>
+
+  <div class="content"><h1 style="position:absolute;left:-9999px">EchoSight app prototype (demo data)</h1>
+
+    <!-- TODAY -->
+    <section class="view on" id="v-home">
+      <div class="topbar"><h2 class="vh1">Today</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="kpis">
+        <div class="kpi"><div class="l">Followers</div><div class="v">84,213</div><div class="d up">▲ 412 this week</div></div>
+        <div class="kpi"><div class="l">Reach (7d)</div><div class="v">402k</div><div class="d up">▲ 1.4× your median</div></div>
+        <div class="kpi"><div class="l">Saves (7d)</div><div class="v">3,188</div><div class="d up">▲ 2.1× median</div></div>
+        <div class="kpi"><div class="l">Engagement quality</div><div class="v">B+</div><div class="d">saves/shares weighted</div></div>
+      </div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:10px">Today's brief</h3>
+        <p style="font-size:14px;color:var(--mist-400)">Tuesday's Reel is outperforming your median by 3.1× — the 0.8s pattern-interrupt hook is the main driver (hook score 91). Your carousel from Thursday is under median; the teardown points at a weak cover slide. One Coach experiment is waiting on results (question-hooks, 1 of 2 posts published).</p>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:6px">Priority actions</h3>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">Post experiment Reel 2 of 2</strong> — question-hook test needs its second data point</span><a class="btn btn-ghost btn-sm" href="#coach" data-v="coach">Open</a></div>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">Re-cut Thursday's carousel cover</strong> — teardown suggests outcome-first text</span><a class="btn btn-ghost btn-sm" href="#teardown" data-v="teardown">Teardown</a></div>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">“Silent process” trend fits your niche</strong> — emerging, est. 3–5 weeks shelf life</span><a class="btn btn-ghost btn-sm" href="#trends" data-v="trends">View</a></div>
+      </div>
+    </section>
+
+    <!-- PRE-FLIGHT -->
+    <section class="view" id="v-preflight">
+      <div class="topbar"><h2 class="vh1">Pre-Flight</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="drop" id="drop" role="button" tabindex="0" aria-label="Upload a Reel for analysis (prototype)">
+          <div style="font-size:30px;margin-bottom:8px">⬆️</div>
+          Drop a Reel here or click to choose<br>
+          <span style="font-size:12.5px">MP4/MOV up to 500MB · this prototype simulates the analysis pipeline</span>
+        </div>
+        <div id="analysis" style="display:none">
+          <div class="prog"><i id="prog-i"></i></div>
+          <p class="steps" id="prog-step">Queued…</p>
+        </div>
+        <div id="analysis-done" style="display:none;margin-top:16px">
+          <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+            <div class="score-ring"><svg width="110" height="110" viewBox="0 0 110 110" aria-hidden="true"><circle cx="55" cy="55" r="48" fill="none" stroke="#1E2740" stroke-width="9"/><circle cx="55" cy="55" r="48" fill="none" stroke="#3DD6C3" stroke-width="9" stroke-linecap="round" stroke-dasharray="301.6" stroke-dashoffset="84.4"/></svg><div class="val"><b>72</b><span>Virality</span></div></div>
+            <div style="flex:1;min-width:220px">
+              <p style="font-size:14px;color:var(--mist-400)"><strong style="color:var(--mist-100)">upload_v1.mp4</strong> · hook 79 · scroll-stop 74 · save p 5.1% · <span class="chip chip-grade">Confidence B</span></p>
+              <p style="font-size:13.5px;color:var(--mist-400);margin-top:8px">Top fix: your CTA lands at 0:41 but retention risk starts at 0:33 — move the save-prompt earlier or tighten the middle by ~6s.</p>
+              <div style="display:flex;gap:10px;margin-top:12px"><a class="btn btn-primary btn-sm" href="#teardown" data-v="teardown">Full teardown</a><button class="btn btn-ghost btn-sm" id="rescore">Simulate re-scored cut</button></div>
+            </div>
+          </div>
+          <p id="rescore-out" style="display:none;font-size:13.5px;color:var(--pulse-400);margin-top:12px">v2 scored: virality 78 (+6), save p 6.0% — the tightened middle did the work. In the real product every version is kept and diffed.</p>
+        </div>
+      </div>
+      <div class="panel"><h3 style="margin-bottom:6px">Recent analyses</h3>
+        <div class="list-item"><span>mobility_fix_v3.mp4 · virality 74 · <span class="chip chip-grade">B</span></span><span style="color:var(--mist-400);font-size:13px">2h ago</span></div>
+        <div class="list-item"><span>carousel_cover_test.png · save p 2.1% · <span class="chip chip-grade">A</span></span><span style="color:var(--mist-400);font-size:13px">yesterday</span></div>
+      </div>
+    </section>
+
+    <!-- TEARDOWN -->
+    <section class="view" id="v-teardown">
+      <div class="topbar"><h2 class="vh1">Teardown — mobility_fix_v3.mp4</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="timeline" aria-hidden="true"><i style="height:22px" class="risk"></i><i style="height:22px" class="risk"></i><i style="height:46px" class="hot"></i><i style="height:46px" class="hot"></i><i style="height:40px" class="hot"></i><i style="height:46px" class="hot"></i><i style="height:30px"></i><i style="height:22px" class="risk"></i><i style="height:22px" class="risk"></i><i style="height:40px" class="hot"></i><i style="height:46px" class="hot"></i><i style="height:30px"></i></div>
+        <p style="font-size:11.5px;color:var(--mist-400)">Pacing map — red zones are where retention risk concentrates</p>
+      </div>
+      <div class="grid g2" style="margin-bottom:14px">
+        <div class="panel panel-9"><h3 style="font-size:15px;margin-bottom:8px">Hook · 41/100</h3><p style="font-size:13.5px;color:var(--mist-400)">Logo sting for 1.8s before anything moves or is claimed. The scroll-stop window closes before your content opens. This is the binding constraint on the whole Reel.</p></div>
+        <div class="panel panel-9"><h3 style="font-size:15px;margin-bottom:8px">Story · strong, buried</h3><p style="font-size:13.5px;color:var(--mist-400)">Problem→payoff shape with a genuinely good payoff at 0:38 — after most viewers have left. Moving a 0.4s payoff flash into the hook rescues it.</p></div>
+        <div class="panel panel-9"><h3 style="font-size:15px;margin-bottom:8px">Caption &amp; CTA</h3><p style="font-size:13.5px;color:var(--mist-400)">CTA buried at line 6; your account's saves correlate with line-1 outcome framing. Hashtags over-broad: 4 of 8 are >10M-post tags doing nothing for you.</p></div>
+        <div class="panel panel-9"><h3 style="font-size:15px;margin-bottom:8px">Audio</h3><p style="font-size:13.5px;color:var(--mist-400)">Speech rate fine (3.9 w/s); music energy flat across the payoff — a small lift at 0:36 would mark the moment. No trending-audio match, which is fine for tutorial formats.</p></div>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:6px">Saved recommendations</h3>
+        <div class="list-item"><span>1 · Open mid-action at 0.0s <strong class="up">high impact</strong></span><button class="btn btn-ghost btn-sm rec-btn">Mark adopted</button></div>
+        <div class="list-item"><span>2 · Payoff teaser in hook <strong class="up">high impact</strong></span><button class="btn btn-ghost btn-sm rec-btn">Mark adopted</button></div>
+        <div class="list-item"><span>3 · Rewrite caption line 1 <strong style="color:var(--flare-400)">medium</strong></span><button class="btn btn-ghost btn-sm rec-btn">Mark adopted</button></div>
+      </div>
+    </section>
+
+    <!-- COACH -->
+    <section class="view" id="v-coach">
+      <div class="topbar"><h2 class="vh1">Coach — week of 20 July</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:8px">Last week's verdict</h3>
+        <p style="font-size:14px;color:var(--mist-400)"><strong class="up">Won:</strong> question-hooks beat your median saves by 38% across 4 posts. Adopting as your default hook style — you can override this in settings. <strong style="color:var(--mist-100)">One honest note:</strong> sample is 4 posts; the effect size will wobble. We'll keep measuring.</p>
+      </div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:8px">This week's experiments (max 3, by design)</h3>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">1 · Carousel closer test</strong> — save-bait summary slide on 2 carousels. Target: beat 30-day carousel save median (41).</span><span class="chip chip-live">active</span></div>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">2 · Question-hook Reel 2 of 2</strong> — completes last week's confirmation run.</span><span class="chip chip-live">1/2 done</span></div>
+      </div>
+      <div class="panel"><h3 style="margin-bottom:8px">Ask the coach</h3>
+        <p style="font-size:13.5px;color:var(--mist-400)">Prototype note: the conversational coach is not wired in this demo — in the product it answers from your data bundle only, and says so when it can't know something (e.g. “who shared this?” gets the honest API-ceiling answer).</p>
+      </div>
+    </section>
+
+    <!-- TRENDS -->
+    <section class="view" id="v-trends">
+      <div class="topbar"><h2 class="vh1">Trends — fitness niche</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="grid g2">
+        <div class="panel"><span class="chip chip-live">emerging</span><h3 style="margin:10px 0 6px">“Silent process” format</h3><p style="font-size:13.5px;color:var(--mist-400)">No-voiceover process videos with ambient audio. Seen across 34 tracked public accounts; engagement quality est. 2.1× niche baseline. Est. shelf life 3–5 weeks.</p><button class="btn btn-primary btn-sm" style="margin-top:12px" data-v="briefs" data-nav="briefs">Make this yours →</button></div>
+        <div class="panel"><span class="chip" style="background:rgba(255,184,107,.12);color:var(--flare-400);border:1px solid rgba(255,184,107,.4)">peaking</span><h3 style="margin:10px 0 6px">“Wrong vs right” split-screens</h3><p style="font-size:13.5px;color:var(--mist-400)">Peaking — day-3 adopters did well; you'd be day-20. Worth doing only with a genuinely fresh angle. Evidence: 61 tracked accounts, growth curve flattening.</p></div>
+        <div class="panel"><span class="chip" style="background:rgba(255,107,129,.12);color:var(--ember-500);border:1px solid rgba(255,107,129,.4)">declining</span><h3 style="margin:10px 0 6px">Voiceover “day in the life”</h3><p style="font-size:13.5px;color:var(--mist-400)">Engagement quality fell below baseline two weeks running. Skip unless your take is structural, not cosmetic.</p></div>
+      </div>
+    </section>
+
+    <!-- COMPETITORS -->
+    <section class="view" id="v-competitors">
+      <div class="topbar"><h2 class="vh1">Competitors</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:6px">@formcoach_kate <span style="font-weight:400;font-size:12.5px;color:var(--mist-400)">public professional account · tracked 6 weeks</span></h3>
+        <div class="kpis" style="margin:12px 0 4px">
+          <div class="kpi"><div class="l">Cadence</div><div class="v">5/wk</div><div class="d">vs your 3</div></div>
+          <div class="kpi"><div class="l">Eng. quality (est.)</div><div class="v">0.6×</div><div class="d up">you lead 1.6×</div></div>
+          <div class="kpi"><div class="l">Top format</div><div class="v" style="font-size:16px">Tutorials</div><div class="d">hard product shots</div></div>
+          <div class="kpi"><div class="l">Gap open</div><div class="v" style="font-size:16px">“Mistakes”</div><div class="d">format unused</div></div>
+        </div>
+        <p style="font-size:12.5px;color:var(--flare-400)">Engagement figures for accounts with hidden likes are modelled estimates — read direction, not decimals.</p>
+      </div>
+      <div class="panel"><h3 style="margin-bottom:6px">Breakout alert</h3>
+        <div class="list-item"><span>@mobility_max posted 3.4× their typical engagement yesterday (public teardown available)</span><button class="btn btn-ghost btn-sm rec-btn">View teardown</button></div>
+      </div>
+    </section>
+
+    <!-- BRIEFS -->
+    <section class="view" id="v-briefs">
+      <div class="topbar"><h2 class="vh1">Creative briefs</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:8px">Generate from…</h3>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm brief-src">Trend: silent process</button>
+          <button class="btn btn-ghost btn-sm brief-src">Teardown: mobility_fix_v3</button>
+          <button class="btn btn-ghost btn-sm brief-src">Blank brief</button>
+        </div>
+        <div id="brief-out" style="display:none;margin-top:16px" class="mono panel panel-9">
+Brief drafted (demo): “Silent mobility reset” — 30s, ambient audio, text hook frame 1:
+“Your back isn't tight. It's this.” · 7 shots · pacing target 3–4 cuts/10s ·
+save-card at 0:26 · full Higgsfield pack available on Pro in the real product.
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--mist-400)">The full generator (10 ranked hooks, scripts, storyboards, complete Higgsfield/Fable packs) runs server-side in the product. This prototype shows the workflow shape only. <a href="demo.html" style="color:var(--echo-400)">The live demo</a> has a complete sample pack.</p>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="view" id="v-connect">
+      <div class="topbar"><h2 class="vh1">Connections</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <h3 style="margin-bottom:8px">Instagram professional account</h3>
+        <p style="font-size:14px;color:var(--mist-400)">Connecting uses Meta's official login — we never see your password. We request read-only access to: your profile basics, your media list, and aggregate insight metrics (reach, saves counts, shares counts). That's the whole list. We cannot see who interacted with your content, private accounts, or messages — Instagram gives that to no one.</p>
+        <button class="btn btn-primary" style="margin-top:14px" id="connect-btn">Connect via Meta (disabled in prototype)</button>
+        <p id="connect-note" style="display:none;font-size:13px;color:var(--flare-400);margin-top:10px">Prototype: the Meta OAuth flow requires an approved Meta app — that's external setup step 8 in the launch guide. Nothing is simulated here because a fake OAuth screen would be exactly the pattern we tell you to distrust.</p>
+      </div>
+      <div class="panel"><h3 style="margin-bottom:8px">Studio mode</h3><p style="font-size:14px;color:var(--mist-400)">Active. Uploads are analysed against niche benchmarks without any account connection. This mode stays fully functional even if you never connect.</p></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" id="v-settings">
+      <div class="topbar"><h2 class="vh1">Settings &amp; privacy</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="toggle"><div><strong>Model training</strong><div class="t">Allow your content features and aggregate outcomes to improve EchoSight's models (pseudonymised). Opting out never reduces your features.</div></div><label class="switch"><input type="checkbox" checked aria-label="Model training consent"><span></span></label></div>
+        <div class="toggle"><div><strong>Weekly Coach email</strong><div class="t">The Monday plan, in your inbox.</div></div><label class="switch"><input type="checkbox" checked aria-label="Weekly coach email"><span></span></label></div>
+        <div class="toggle"><div><strong>Breakout alerts</strong><div class="t">Push/email when a tracked competitor posts 3×+ their typical engagement.</div></div><label class="switch"><input type="checkbox" aria-label="Breakout alerts"><span></span></label></div>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:8px">Your data</h3>
+        <div class="list-item"><span>Export everything you've stored with us (JSON)</span><button class="btn btn-ghost btn-sm rec-btn">Export</button></div>
+        <div class="list-item"><span>Delete synced Instagram data (keeps your account)</span><button class="btn btn-ghost btn-sm rec-btn">Delete synced data</button></div>
+        <div class="list-item"><span><strong style="color:var(--ember-500)">Delete account and all data</strong> — permanent after a 30-day grace window</span><button class="btn btn-danger btn-sm" id="del-btn">Request deletion</button></div>
+        <p id="del-note" style="display:none;font-size:13px;color:var(--mist-400);margin-top:10px">Prototype: in the product this queues deletion with email confirmation, a 30-day grace period, and an audit-logged certificate. No dark patterns, no “are you sure” maze — one confirmation, done.</p>
+      </div>
+    </section>
+
+    <!-- BILLING -->
+    <section class="view" id="v-billing">
+      <div class="topbar"><h2 class="vh1">Billing</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel" style="margin-bottom:14px">
+        <div class="list-item"><span><strong style="color:var(--mist-100)">Plan:</strong> Pro — $79/mo</span><button class="btn btn-ghost btn-sm rec-btn">Change plan</button></div>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">Analyses:</strong> 61 of 150 used this cycle</span><span style="color:var(--mist-400);font-size:13px">resets Aug 1</span></div>
+        <div class="list-item"><span><strong style="color:var(--mist-100)">Credits:</strong> 214 remaining</span><button class="btn btn-ghost btn-sm rec-btn">Buy pack ($10/100)</button></div>
+        <div class="list-item"><span>Cancel subscription — effective end of period, no retention maze</span><button class="btn btn-danger btn-sm rec-btn">Cancel</button></div>
+      </div>
+      <p style="font-size:13px;color:var(--mist-400)">Payments run through Stripe in the product; the full public price list is on the <a href="pricing.html" style="color:var(--echo-400)">pricing page</a>.</p>
+    </section>
+
+    <!-- EMPTY -->
+    <section class="view" id="v-empty">
+      <div class="topbar"><h2 class="vh1">Teardowns</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="panel"><div class="empty">
+        <div class="big">🗂️</div>
+        <h3 style="margin-bottom:8px">No teardowns yet — and that's fine</h3>
+        <p style="font-size:14px;max-width:400px;margin:0 auto">Upload any Reel in Pre-Flight and your first teardown lands in about a minute. No account connection needed.</p>
+        <a class="btn btn-primary btn-sm" style="margin-top:16px" href="#preflight" data-v="preflight">Analyse your first Reel</a>
+      </div></div>
+    </section>
+
+    <!-- FAILURE -->
+    <section class="view" id="v-failure">
+      <div class="topbar"><h2 class="vh1">Pre-Flight</h2><span class="chip chip-demo">Demo data</span></div>
+      <div class="fail" style="margin-bottom:14px">
+        <strong style="color:var(--mist-100)">Analysis failed at the audio stage.</strong> The file's audio track appears corrupted (0 readable samples). Your allowance was not charged. Fix: re-export from your editor with AAC audio, or upload without audio and we'll skip audio analysis — scores will carry a lower confidence grade and say why.
+        <div style="margin-top:12px"><button class="btn btn-ghost btn-sm rec-btn">Retry</button> <button class="btn btn-ghost btn-sm rec-btn">Upload different file</button></div>
+      </div>
+      <div class="fail">
+        <strong style="color:var(--mist-100)">Instagram token expired.</strong> Your data is safe; syncing paused 2 hours ago. Reconnect via Meta login to resume — takes about 20 seconds.
+        <div style="margin-top:12px"><a class="btn btn-ghost btn-sm" href="#connect" data-v="connect">Reconnect</a></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+<button class="btn btn-primary btn-sm menu-fab" id="fab" aria-label="Open navigation">☰ Menu</button>
+
+<script>
+(function(){
+  const views = document.querySelectorAll('.view');
+  const links = document.querySelectorAll('[data-v]');
+  const side = document.getElementById('side');
+  function show(name){
+    views.forEach(v => v.classList.toggle('on', v.id === 'v-' + name));
+    document.querySelectorAll('.side a').forEach(a => a.classList.toggle('on', a.dataset.v === name));
+    side.classList.remove('open');
+  }
+  links.forEach(a => a.addEventListener('click', (e) => {
+    const v = a.dataset.v; if (!v) return;
+    if (a.tagName === 'BUTTON') e.preventDefault();
+    show(v);
+    if (a.tagName !== 'BUTTON') return;
+  }));
+  window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (document.getElementById('v-'+h)) show(h); });
+  if (location.hash) { const h = location.hash.slice(1); if (document.getElementById('v-'+h)) show(h); }
+  document.getElementById('fab').addEventListener('click', () => side.classList.toggle('open'));
+
+  // Pre-Flight simulation (clearly labelled)
+  const drop = document.getElementById('drop');
+  const steps = ['Queued…','Normalising media…','Detecting scenes and cuts…','Reading frames (hook window)…','Audio analysis…','Scoring…','Writing the teardown…'];
+  function runSim(){
+    drop.style.display = 'none';
+    document.getElementById('analysis').style.display = 'block';
+    let i = 0;
+    const bar = document.getElementById('prog-i'), lab = document.getElementById('prog-step');
+    const t = setInterval(() => {
+      i++;
+      bar.style.width = Math.round(i/steps.length*100) + '%';
+      lab.textContent = steps[Math.min(i, steps.length-1)] + ' (simulated)';
+      if (i >= steps.length){
+        clearInterval(t);
+        document.getElementById('analysis').style.display = 'none';
+        document.getElementById('analysis-done').style.display = 'block';
+      }
+    }, 550);
+  }
+  drop.addEventListener('click', runSim);
+  drop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); runSim(); } });
+  ['dragover','dragenter'].forEach(ev => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('hover'); }));
+  ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('hover'); if (ev === 'drop') runSim(); }));
+  document.getElementById('rescore').addEventListener('click', () => { document.getElementById('rescore-out').style.display = 'block'; });
+
+  // Honest no-op buttons
+  document.querySelectorAll('.rec-btn').forEach(b => b.addEventListener('click', () => {
+    b.textContent = 'Prototype only'; b.disabled = true; setTimeout(() => location.reload.bind(location), 0);
+  }));
+  document.getElementById('connect-btn').addEventListener('click', () => { document.getElementById('connect-note').style.display = 'block'; });
+  document.getElementById('del-btn').addEventListener('click', () => { document.getElementById('del-note').style.display = 'block'; });
+  document.querySelectorAll('.brief-src').forEach(b => b.addEventListener('click', () => { document.getElementById('brief-out').style.display = 'block'; }));
+})();
+</script>
+</body>
+</html>

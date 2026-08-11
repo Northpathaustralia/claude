@@ -1,0 +1,7 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.0,3 jobs. 0.8 seconds.,VO line 1,hard cut in
+2,shot-2 (generated) ,0,8.0,① something MOVES,VO line 2,hard cut in
+3,shot-3 (generated) ,0,8.0,② a CLAIM lands (≤6 words),VO line 3,hard cut in
+4,shot-4 (generated) ,0,8.0,③ a FACE with intent,VO line 4,hard cut in
+5,shot-5 (generated) ,0,9.0,✓ move ✓ claim ✓ face — by 0:00.8,VO line 5,hard cut in
+6,captions.srt,0,36,,,import subtitles; Inter SemiBold; scrim under text

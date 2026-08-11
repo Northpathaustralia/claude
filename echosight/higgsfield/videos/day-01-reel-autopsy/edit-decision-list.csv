@@ -1,0 +1,8 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,2.5,died at 212 views,VO line 1,audio: single dry tap foley with VO onset
+2,shot-2 (generated) ,0,4.5,one second killed it,VO line 2,hard cut in
+3,shot-3 (generated) ,0,7.0,0:02 — nothing has happened yet,VO line 3,hard cut in
+4,shot-4 (generated) ,0,7.0,it doesn’t slope. it cliffs.,VO line 4,hard cut in
+5,shot-5 (generated) ,0,7.0,open mid-action · promise by 0:01,VO line 5,hard cut in
+6,shot-6 (generated) ,0,6.0,daily teardowns → follow,VO line 6,hard cut in
+7,captions.srt,0,34,,,import subtitles; Inter SemiBold; scrim under text

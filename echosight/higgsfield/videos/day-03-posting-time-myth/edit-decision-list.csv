@@ -1,0 +1,7 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.0,it’s not WHEN you post,VO line 1,hard cut in
+2,shot-2 (generated) ,0,6.0,6:03pm vs 7:03pm ≠ strategy,VO line 2,hard cut in
+3,shot-3 (generated) ,0,7.0,the test audience decides. not the clock.,VO line 3,hard cut in
+4,shot-4 (generated) ,0,8.0,1st second > payoff > save-worthy >>> clock,VO line 4,hard cut in
+5,shot-5 (generated) ,0,8.0,free the spreadsheet friend → share,VO line 5,hard cut in
+6,captions.srt,0,32,,,import subtitles; Inter SemiBold; scrim under text

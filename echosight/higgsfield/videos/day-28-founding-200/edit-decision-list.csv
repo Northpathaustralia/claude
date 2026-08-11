@@ -1,0 +1,6 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.5,200 seats. real reason: calendars.,VO line 1,hard cut in
+2,shot-2 (generated) ,0,7.5,200 × 30-min real calls = the cap,VO line 2,hard cut in
+3,shot-3 (generated) ,0,8.0,no timers. no fake “3 left”.,VO line 3,hard cut in
+4,shot-4 (generated) ,0,9.0,$190 first year · terms on the page,VO line 4,hard cut in
+5,captions.srt,0,28,,,import subtitles; Inter SemiBold; scrim under text

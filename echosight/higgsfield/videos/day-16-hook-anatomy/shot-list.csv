@@ -1,0 +1,6 @@
+shot,start_s,end_s,duration_s,camera,description,text_overlay,generation_status
+1,0,3,3.0,LOCKED,"Maya holds up three fingers close to lens, sharp focus on hand, face soft behind",3 jobs. 0.8 seconds.,READY FOR HIGGSFIELD GENERATION
+2,3,11,8.0,HANDHELD-CALM,Maya shoves a coffee mug across the desk; it slides through frame,① something MOVES,READY FOR HIGGSFIELD GENERATION
+3,11,19,8.0,LOCKED,Maya holds up a hand-written card reading “your back isn’t tight. it’s this.”,② a CLAIM lands (≤6 words),READY FOR HIGGSFIELD GENERATION
+4,19,27,8.0,3Q-SWITCH,Maya snaps from neutral waiting-face to animated mid-sentence expression to show the difference,③ a FACE with intent,READY FOR HIGGSFIELD GENERATION
+5,27,36,9.0,PUSH-IN-SLOW,"Maya leans back, taps the on-screen space beside her as if pinning the checklist there",✓ move ✓ claim ✓ face — by 0:00.8,READY FOR HIGGSFIELD GENERATION

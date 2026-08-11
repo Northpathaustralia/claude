@@ -1,0 +1,6 @@
+order,source,in_point_s,duration_s,text_overlay,audio,notes
+1,shot-1 (generated) ,0,3.0,3 hrs editing. 30 sec on the hook.,VO line 1,hard cut in
+2,shot-2 (generated) ,0,6.0,the KERNING,VO line 2,PUNCH-IN cut at 3.0s
+3,shot-3 (generated) ,0,7.0,“…I’ll just open with a wave”,VO line 3,hard cut in
+4,shot-4 (generated) ,0,8.0,comment “guilty” 🫡,VO line 4,hard cut in
+5,captions.srt,0,24,,,import subtitles; Inter SemiBold; scrim under text

@@ -1,0 +1,6 @@
+shot,start_s,end_s,duration_s,camera,description,text_overlay,generation_status
+1,0,3,3.0,HANDHELD-CALM,"Maya on couch edge, leaning at the lens, holds up four fingers",3.1× · not luck (example data),READY FOR HIGGSFIELD GENERATION
+2,3,11,8.0,LOCKED,Maya spreads hands as if revealing a finished object on the coffee table,① open on the RESULT,READY FOR HIGGSFIELD GENERATION
+3,11,18,7.0,LOCKED,"Maya chops the air in a steady rhythm — cut, cut, cut — while her other hand draws one straight line","② new frame every 3s, one lane",READY FOR HIGGSFIELD GENERATION
+4,18,26,8.0,3Q-SWITCH,"Maya counts three and four on fingers, then mock-types “new post!!” in the air with disdain",③ built-in save moment ④ caption = promise,READY FOR HIGGSFIELD GENERATION
+5,26,36,10.0,PUSH-IN-SLOW,"Maya settles back with a satisfied nod, taps temple, points bio-ward",boring. repeatable. on purpose.,READY FOR HIGGSFIELD GENERATION
